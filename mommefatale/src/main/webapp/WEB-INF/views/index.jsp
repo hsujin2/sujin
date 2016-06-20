@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>index 페이지 입니다.</h1>
+정민기가 수정했습니다.
 </body>
 </html>
