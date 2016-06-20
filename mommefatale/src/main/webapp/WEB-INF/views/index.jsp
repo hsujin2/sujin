@@ -8,56 +8,35 @@
 </head>
 
 <body>
-	<header>
-    </header>
-    
-    <nav>
-    </nav>
-    
-    <section>
-    	상품사진
-        파워런닝머신<br />
-        
-        <table>
-        	<tr>
-            	<td>판매가</td> <td>가격</td>
-            </tr>
-            <tr>
-                <td>할인가</td> <td>가격</td>
-            </tr>
-            <tr>    
-                <td>적립금</td> <td>가격</td>
-            </tr>
-            <tr>    
-                <td>배송비</td> <td>무료</td>
-            </tr>
-            <tr>    
-                <td>제조사</td> <td>민기런닝</td>
-            </tr>
-        </table>
-        
-        수량 개<br />
-        옵션 <br />
-        
-        총 상품금액: 13232원<br />
-        
-        바로구매 장바구니 위시리스트<br />
-        
-        상품보 | 상품리뷰 | 상품문의 | 교환/반품 /배송<br />
-        상품상세페이지
-        
-        
-        
-    
-    
-    </section>
-    
-    <nav>
-    </nav>
-    
-    <footer>
-    </footer>
+<header>
 
+gallery community Q&amp;A sitemap
+<img src="images/KakaoTalk_20160616_135959778.jpg" />
+
+join login mypage bookmark
+
+equipment sportware food 건강증진 근력증강 지방감량
+런닝머신 웨이트기구 헬스 사이클 아령/덤벨 기타
+</header>
+<section>
+<!--광고 -->
+
+상품목록
+
+인기상품
+
+공지사항
+
+인기글
+</section>
+
+<aside>
+사이드 메뉴가 들어갈 자리입니다.
+</aside>
+
+
+<footer>
+</footer>
 
 </body>
 </html>
