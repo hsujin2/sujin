@@ -8,6 +8,7 @@ public class MemberIndexController {
 
 	@RequestMapping("/index.do")
 	public String index(){
+		System.out.println("수고했습니다.");
 		return "index";
 	}
 }
