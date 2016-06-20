@@ -10,6 +10,7 @@ public class MemberIndexController {
 	public String index(){
 		System.out.println("수고했습니다.");
 		System.out.println("유노유노테스트.");
+		System.out.println("test1.");
 		
 		return "index";
 	}
