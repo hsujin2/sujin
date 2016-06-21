@@ -1,14 +1,13 @@
-package com.mommefatale.index.controller;
+package com.mommefatale.login.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MemberIndexController {
-
-	@RequestMapping("/index.do")
+public class LoginController {
+	@RequestMapping("/login.do")
 	public String index(){
 		
-		return "index";
+		return "login/login";
 	}
 }

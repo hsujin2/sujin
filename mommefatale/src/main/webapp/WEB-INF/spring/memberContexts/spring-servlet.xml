@@ -10,8 +10,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<!-- annotation-driven 을 쓰려면 앞에 mvc: -->
 	
-	
 	<!--  Controller -->
 	<bean class="com.mommefatale.index.controller.MemberIndexController"></bean>
+	<bean class="com.mommefatale.login.controller.LoginController"></bean>
+	
 	
 </beans>
