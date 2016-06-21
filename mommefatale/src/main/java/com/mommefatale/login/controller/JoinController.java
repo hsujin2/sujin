@@ -11,4 +11,9 @@ public class JoinController {
 		return "login/join_agreement";
 		
 	}
+	
+	@RequestMapping("/join.do")
+	public String joinMember(){
+		return "login/join";
+	}
 }

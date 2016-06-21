@@ -1,0 +1,17 @@
+#joinWrap{background:url(images/theme_back.jpg);}
+#joinmain{width:800px; background:#000; padding:30px 30px 75px; margin:auto;}
+#joinArea{padding:50px; border-top:2px solid #C33; border-bottom:2px solid #C33; background:#222; margin-top:20px; width:700px;}
+#joinArea p{width:405px; margin:auto;}
+#joinmain h1{color:#ccc;}
+
+
+form{width:600px; margin:50px auto;}
+td{padding:7px;}
+.textin{height:17px; font-size:14px; font-size:14px;}
+form tr td:first-child{color:#ccc;}
+form tr td:last-child{color:#666;}
+form tr td:last-child input{font-size:12px;}
+form hr{margin:20px 0;}
+td{border-bottom:1px dashed #333;}
+
+.jbtn{padding:3px 5px; background:#603; color:white; border-radius:8px;}
