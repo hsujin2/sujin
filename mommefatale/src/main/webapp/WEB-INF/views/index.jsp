@@ -9,7 +9,7 @@
 
 <body>
 <header>
-
+<span><a href="login.do">로그인</a></span> 
 gallery community Q&amp;A sitemap
 <img src="images/KakaoTalk_20160616_135959778.jpg" />
 

@@ -13,6 +13,6 @@
 	<!--  Controller -->
 	<bean class="com.mommefatale.index.controller.MemberIndexController"></bean>
 	<bean class="com.mommefatale.login.controller.LoginController"></bean>
-	
+	<bean class="com.mommefatale.login.controller.JoinController"></bean>
 	
 </beans>

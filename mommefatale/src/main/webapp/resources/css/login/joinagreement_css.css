@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+.joinagree_title {width: 1000px; padding: 25px 0 25px 0; margin:0 auto; }
+.joinagree_title .joinagree_logo {align:center; margin:0 auto;}
+
+.joinagree_body {width:1000px; a3lign:center; padding:0 0 25px 0; margin:0 auto;}
+
+.joinagree_body2 {width:1000px;}
+
+.textarea1 {width:746px; height:150px; font-size: 0.9em; text-align:left; font-family: '맑은고딕','Malgun Gothic', '나눔고딕', 'nanum gothic', 'dotum', '돋움', sans-serif;}
+.textarea2 {width:746px; height:150px; font-size: 0.9em; text-align:left; font-family: '맑은고딕','Malgun Gothic', '나눔고딕', 'nanum gothic', 'dotum', '돋움', sans-serif;}
+
+.agree1 {
+	margin-top:30px;
+	text-align: center; font-size: 0.9em; font-family: '맑은고딕','Malgun Gothic', '나눔고딕', 'nanum gothic', 'dotum', '돋움', sans-serif;
+	}
+
+.agree2 {
+	margin-top:30px;
+	text-align: center; font-size: 0.9em; font-family: '맑은고딕','Malgun Gothic', '나눔고딕', 'nanum gothic', 'dotum', '돋움', sans-serif;
+	}
+
+hr{border-top:1px solid #bbb; border-bottom:1px solid #fff
+}
+.joinagree_end {align:center; padding:25px 0 25px 0;}
+.joinagree_end img{cursor: pointer;}

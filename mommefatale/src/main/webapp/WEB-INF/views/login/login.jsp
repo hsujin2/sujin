@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>login_page</title>
-<link rel="stylesheet" type="text/css" href="resources/css/login_Css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/login/login_Css.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
             <p>몸므파탈에 다양한 서비스를 이용하시려면 로그인 해주세요.</p>
             <p>회원가입 하시면 다양한 혜택을 드립니다.</p>
             <div id="loginArea">
-            	<p><img src="resources/images/logimg.png" alt=""></p>
+            	<p><img src="resources/images/login/logimg.png" alt=""></p>
             	<form>
                 	<ul>
                 		<li><input type="text" name="userid" placeholder="아이디" required tabindex="1"></li>
@@ -27,7 +27,7 @@
                     <input type="submit" id="logbtn" value="로그인">
                 <hr>
                 <div id="logbottom">
-                	<span><a href="join.html">회원가입</a></span> 
+                	<span><a href="joinagreement.do">회원가입</a></span>
                     <span class="findidpass">아이디 / 비밀번호 찾기</span>
                 </div>
                 </form>

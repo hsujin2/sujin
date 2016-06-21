@@ -4,10 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class LoginController {
-	@RequestMapping("/login.do")
-	public String login(){
+public class JoinController {
+	@RequestMapping("/joinagreement.do")
+	public String joinAgreement(){
 		
-		return "login/login";
+		return "login/join_agreement";
+		
 	}
 }
