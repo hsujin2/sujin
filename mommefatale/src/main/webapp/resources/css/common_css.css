@@ -90,7 +90,7 @@ input{vertical-align:middle;}
 
 /*배너광고*/
 
-#main_banner{clear:both; text-align:center; margin:30px 10px;}
+#main_banner{clear:both; text-align:center; margin:30px auto;}
 .main_bnimg{float:left; width:1000px;}
 
 #main_content{clear:both; text-align:left;}

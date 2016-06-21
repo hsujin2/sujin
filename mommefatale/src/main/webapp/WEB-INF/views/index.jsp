@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>몸므파탈(MommeFatale)</title>
-<script src="js/common.js"></script>
-<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<script src="resource/js/index/common_js.js"></script>
+<link rel="stylesheet" type="text/css" href="resource/css/common_css.css"/>
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
 $(function(){
@@ -29,7 +29,7 @@ $(function(){
         <li><a href="#">mypage</a></li> 
         <li><a href="#" onClick="addBookmark()">bookmark</a></li>
   </ul>
-     <h1><img src="images/logo.png" alt="몸므파탈로고" id="logo"/></h1>
+     <h1><img src="resource/images/index/logo.png" alt="몸므파탈로고" id="logo"/></h1>
   <nav id="gnb">
      <ul>
 		<li><a href="#">Equipment</a>
@@ -66,29 +66,29 @@ $(function(){
                 <legend class="skip">검색</legend>
                 <label for="sbox" class="skip">전체 검색어 입력</label>
                 <input type="search" id="sbox">
-              <input type="image" src="images/search_bl.gif" alt="검색" id="simg">
+              <input type="image" src="resource/images/index/search_bl.gif" alt="검색" id="simg">
     		</fieldset>
     </form>
 </header>
 <section>
   <div id="main_banner">
     <!--배너광고 -->
-    <img src="images/banner_index.png" alt="배너" class="main_bnimg" />
+    <img src="resource/images/index/banner_index.png" alt="배너" class="main_bnimg" />
   </div>
   <div id="main_content">
   <h2>상품목록</h2>
    	<ul class="item">
-    	<li><a href="#"><img src="images/item01.png" alt="FORCE BLACK MASS"/></a></li>
-        <li><a href="#"><img src="images/item02.png" alt="leggings"/></a></li>
-        <li><a href="#"><img src="images/item03.png" alt="cable"/></a></li>
-        <li><a href="#"><img src="images/item04.png" alt="push-up bar"/></a></li>
+    	<li><a href="#"><img src="resource/images/index/item01.png" alt="FORCE BLACK MASS"/></a></li>
+        <li><a href="#"><img src="resource/images/index/item02.png" alt="leggings"/></a></li>
+        <li><a href="#"><img src="resource/images/index/item03.png" alt="cable"/></a></li>
+        <li><a href="#"><img src="resource/images/index/item04.png" alt="push-up bar"/></a></li>
     </ul>
   <h2>인기상품</h2>
    	<ul class="item">
-    	<li><a href="#"><img src="images/item05.png" alt="ball"/></a></li>
-        <li><a href="#"><img src="images/item06.png" alt="slevlesstop"/></a></li>
-        <li><a href="#"><img src="images/item07.png" alt="mans t-shirts"/></a></li>
-        <li><a href="#"><img src="images/item08.png" alt="jumploop"/></a></li>
+    	<li><a href="#"><img src="resource/images/index/item05.png" alt="ball"/></a></li>
+        <li><a href="#"><img src="resource/images/index/item06.png" alt="slevlesstop"/></a></li>
+        <li><a href="#"><img src="resource/images/index/item07.png" alt="mans t-shirts"/></a></li>
+        <li><a href="#"><img src="resource/images/index/item08.png" alt="jumploop"/></a></li>
     </ul>
     </div>
  <h2>공지사항</h2>
@@ -103,7 +103,7 @@ $(function(){
 
 
 <footer id="footer">
-    <h1><img src="images/logo.png" alt="몸므파탈로고"id="footerlogo"></h1>
+    <h1><img src="resource/images/index/logo.png" alt="몸므파탈로고"id="footerlogo"></h1>
     <address>
         <p>몸므파탈</p>
         <p><span>대표 : 박현</span>&nbsp;&nbsp;&nbsp;<span>사업자등록번호 : 123-45-67890</span></p>
