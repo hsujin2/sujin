@@ -6,9 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="resources/css/login/join_css.css">
+<script type="text/javascript" src="resources/js/join_js.js"></script>
 </head>
 
 <body>
+<form method="get" action="joincomplete.do" name="joinForm">
 	<div id="wrap">
 		<nav></nav>
 		<section>
@@ -24,42 +26,35 @@
 						<table>
 							<tr>
 								<td width="30%"><img src="resources/images/login/required.gif">이름</td>
-								<td width="70%"><input type="text" name="username" size="8"
+								<td width="70%"><input type="text" name="username" size="13"
 									class="textin" tabindex="1" required></td>
 							</tr>
 							<tr>
-								<td>성별</td>
+								<td><img src="resources/images/login/required.gif">성별</td>
 								<td><input type="radio" name="gender" value="male">
 									남 <input type="radio" name="gender" value="female"> 여</td>
 							</tr>
 							<tr>
-								<td>아이디</td>
-								<td><input type="text" name="userid" size="8"
+								<td><img src="resources/images/login/required.gif">아이디</td>
+								<td><input type="text" name="userid" size="13"
 									placeholder="아이디" class="textin">&nbsp;&nbsp;<input
 									type="button" value="중복확인" onClick="alert('아이디 중복 확인입니다.')"
 									required class="jbtn"></td>
 							</tr>
 							<tr>
-								<td>비밀번호</td>
-								<td><input type="password" name="userpass" size="8"
+								<td><img src="resources/images/login/required.gif">비밀번호</td>
+								<td><input type="password" name="userpass" size="13"
 									maxlength="12" class="textin" required> <font size="2">문자와
 										숫자를 조합하여 2~12자리로 만들어주세요.</font></td>
 							</tr>
 							<tr>
-								<td>비밀번호확인</td>
-								<td><input type="password" name="userpass" size="8"
+								<td><img src="resources/images/login/required.gif">비밀번호확인</td>
+								<td><input type="password" name="userpasscheck" size="8"
 									maxlength="12" class="textin" required></td>
 							</tr>
+							
 							<tr>
-								<td>닉네임</td>
-								<td><input type="text" name="usernick" size="8"
-									class="textin" required>&nbsp;&nbsp;<input
-									type="button" value="중복확인" onClick="alert('닉네임 중복 확인입니다.')"
-									class="jbtn"><br> <font size="2">커뮤니티에서 사용
-										될 닉네임을 적어주세요.</font></td>
-							</tr>
-							<tr>
-								<td>생년월일</td>
+								<td><img src="resources/images/login/required.gif">생년월일</td>
 								<td><select name="birth1" required>
 										<option>1950</option>
 										<option>1951</option>
@@ -164,11 +159,10 @@
 										<option>30</option>
 										<option>31</option>
 								</select></td>
-								<td>&nbsp;<br><font
-									size="2">14세미만 가입안내</font></td>
+								
 							</tr>
 							<tr>
-								<td>휴대폰</td>
+								<td><img src="resources/images/login/required.gif">휴대폰</td>
 								<td><select name="num1" required>
 										<option>010</option>
 										<option>011</option>
@@ -177,8 +171,8 @@
 										<option>018</option>
 										<option>019</option>
 								</select> <input type="text" name="num2" size="3" maxlength="4"
-									class="textin">-<input type="text" name="num3" size="3"
-									maxlength="4" class="textin"></td>
+									class="textin" required>-<input type="text" name="num3" size="3"
+									maxlength="4" class="textin" required></td>
 							</tr>
 							<tr>
 								<td>SMS수신</td>
@@ -187,8 +181,8 @@
 									size="2">동의하실 경우 다양한 이벤트 정보 및 쿠폰을 받아보실 수 있습니다.</font></td>
 							</tr>
 							<tr>
-								<td>이메일</td>
-								<td><input type="text" name="useremail1" size="6"
+								<td><img src="resources/images/login/required.gif" required>이메일</td>
+								<td><input type="text" name="useremail1" size="13"
 									class="textin"> @ <select name="usermail2">
 										<option>naver.com</option>
 										<option>gmail.com</option>
@@ -205,32 +199,41 @@
 									size="2">동의하실 경우 다양한 이벤트 정보 및 쿠폰을 받아보실 수 있습니다.</font></td>
 							</tr>
 							<tr>
-								<td>우편번호</td>
-								<td><input type="text" name="adr1" size="1" maxlength="4"
+								<td><img src="resources/images/login/required.gif">우편번호</td>
+								<td><input type="text" name="zipcode" size="1" maxlength="4"
 									class="textin">-<input type="text" name="adr2" size="1"
 									maxlength="4" class="textin">&nbsp;<input type="button"
 									value="우편번호찾기" class="jbtn"></td>
 							</tr>
 							<tr>
-								<td>집주소</td>
-								<td><input type="text" name="adress" size="30"
+								<td><img src="resources/images/login/required.gif" required>주소</td>
+								<td><input type="text" name="address1" size="30"
 									class="textin"></td>
 							</tr>
 							<tr>
-								<td>상세주소</td>
-								<td><input type="text" name="adress2" size="30"
+								<td><img src="resources/images/login/required.gif" required>상세주소</td>
+								<td><input type="text" name="address2" size="30"
 									class="textin"></td>
 							</tr>
 							<tr>
-								<td colspan="3" align="center"><hr></td>
+								<td colspan="3">키 : <input type="text" name="height" size="2"> 몸무게 : <input type="text" name="weight" size="2"> BMI : <input type="text" name="bmi" size="4"></td>
 							</tr>
 							<tr>
-								<td colspan="3" align="center"><input type="submit"
+								<td>체형</td>
+								<td><input type="radio" name="shape">마른&nbsp;<input type="radio" name="shape">표준&nbsp;<input type="radio" name="shape">비만&nbsp;<input type="radio" name="shape">고도비만&nbsp;<input type="radio" name="shape">마른비만&nbsp;<input type="radio" name="shape">근육질&nbsp;</td>
+							</tr>
+							<tr>
+								<td>비만부위(중복가능)</td>
+								<td><input type="checkbox">상복부&nbsp;<input type="checkbox">하복부&nbsp;<input type="checkbox">옆구리&nbsp;<input type="checkbox">허벅지&nbsp;<input type="checkbox">팔뚝살&nbsp;<input type="checkbox">종아리&nbsp;</td>
+							</tr>
+							<tr>
+								<td>활동량(중복가능)</td>
+								<td><input type="checkbox">산책&nbsp;<input type="checkbox">대중교통이용&nbsp;<input type="checkbox">규칙적운동&nbsp;<input type="checkbox">계단이용&nbsp;<input type="checkbox">신체활용업무&nbsp;</td>
+							</tr>
+							<tr>
+								<td colspan="3" align="center"><br><input type="submit"
 									name="sub" value="회원가입" class="jbtn">&nbsp;&nbsp;<input
-									type="reset" name="cancle" value="취소" class="jbtn"></td>
-							</tr>
-							<tr>
-								<td>키 : <input type="text" name="height"> 몸무게 : <input type="text" name="weight"> BMI : <input type="text" name="bmi"></td>
+									type="reset" name="cancle" value="취소" class="jbtn"><br><br></td>
 							</tr>
 						</table>
 					</form>
@@ -240,5 +243,6 @@
 		</section>
 
 	</div>
+	</form>
 </body>
 </html>
