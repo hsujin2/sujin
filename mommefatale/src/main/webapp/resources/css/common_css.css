@@ -25,7 +25,7 @@ input{vertical-align:middle;}
 #searchF{
 	position: absolute;
 	right:80px;
-	top: 120px;
+	top: 110px;
 	width: 200px;
 	text-align: right;
 }
@@ -91,7 +91,9 @@ input{vertical-align:middle;}
 /*배너광고*/
 
 #main_banner{clear:both; text-align:center; margin:30px auto;}
-.main_bnimg{float:left; width:1000px;}
+.main_bnimg{float:left; width:100%;}
+
+/*메인컨텐츠*/
 
 #main_content{clear:both; text-align:left;}
 .item ul{margin:10px 20px 10px 30px;}
