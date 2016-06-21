@@ -44,7 +44,7 @@ $(function(){
         <li><a href="#">SportsWear</a>
         	<ul class="menu2">
             	<li><a href="#">운동복</a></li>
-                <li><a href="#">신발</a></li>
+                <li><a href="#">운동화/런닝화</a></li>
                 <li><a href="#">스포츠브라</a></li>
                 <li><a href="#">기타</a></li>
            </ul>

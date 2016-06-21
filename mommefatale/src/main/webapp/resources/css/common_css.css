@@ -75,20 +75,21 @@ input{vertical-align:middle;}
 #gnb #gnb_shop>li>a:hover, #gnb #gnb_shop>li>a:focus{color:#99FFFF; font-weight:bold;}
 #gnb #gnb_content>li>a:hover, #gnb #gnb_content>li>a:focus{color:#99FFFF; font-weight:bold;}
 
+/*Equipment*/
 #gnb li .menu1{font-weight:bold; font-size:14px; display:none; 
-					position:absolute; top:45px; left:0px; min-width:500px;}
+					position:absolute; top:45px; left:0px; min-width:700px;}
 #gnb li:hover .menu1{color:#099; display:inline; font-size:14px;}
 .menu1>li{display:inline-block; text-align:center; padding-bottom:2px;}
 .menu1>li>a{color:#399; margin-right:20px;}
-
+/*SportsWear*/
 #gnb li .menu2{font-weight:bold; font-size:14px; display:none; 
 					position:absolute; top:45px; left:-120px; min-width:500px;}
 #gnb li:hover .menu2{color:#099;display:inline; font-size:14px;}
 .menu2>li{display:inline-block; text-align:center; padding-bottom:2px;}
 .menu2>li>a{color:#399; margin-right:20px;}
-
+/*Food*/
 #gnb li .menu3{font-weight:bold; font-size:14px; display:none; 
-					position:absolute; top:45px; left:-165px; min-width:500px;}
+					position:absolute; top:45px; left:-165px; min-width:400px;}
 #gnb li:hover .menu3{color:#099;display:inline; font-size:14px;}
 .menu3>li{display:inline-block; text-align:center; padding-bottom:2px;}
 .menu3>li>a{color:#399; margin-right:20px;}
