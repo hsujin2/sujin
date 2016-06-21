@@ -1,3 +1,5 @@
+
+
 function inputCheck(){
 	
 	var theForm= document.joinForm;

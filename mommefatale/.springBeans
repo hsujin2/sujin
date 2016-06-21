@@ -9,8 +9,11 @@
 	<configs>
 		<config>src/main/webapp/WEB-INF/spring/commonscontexts/resource-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/commonscontexts/applicationContext.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/memberContexts/userlogin-servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/adminContexts/admin-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/memberContexts/spring-servlet.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

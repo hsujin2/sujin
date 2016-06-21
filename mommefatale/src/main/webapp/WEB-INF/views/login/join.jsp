@@ -7,10 +7,22 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="resources/css/login/join_css.css">
 <script type="text/javascript" src="resources/js/join_js.js"></script>
+<script type="text/javascript">
+function idCheck(userid){
+	if(userid==""){
+		alert("아이디를 입력해주세요");
+		document.regForm.userid.focus();
+	}else{
+		url="idCheck.do?userid="+userid;
+		window.open(url,"get","width=300,height=180", "status=no","toolbar=no");
+		
+	}
+}
+</script>
 </head>
 
 <body>
-<form method="get" action="joincomplete.do" name="joinForm">
+<form name="regForm" method="get" action="joincomplete.do" name="joinForm">
 	<div id="wrap">
 		<nav></nav>
 		<section>
@@ -36,10 +48,8 @@
 							</tr>
 							<tr>
 								<td><img src="resources/images/login/required.gif">아이디</td>
-								<td><input type="text" name="userid" size="13"
-									placeholder="아이디" class="textin">&nbsp;&nbsp;<input
-									type="button" value="중복확인" onClick="alert('아이디 중복 확인입니다.')"
-									required class="jbtn"></td>
+								<td><input type="text" name="userid" id="userid" size="13"
+									placeholder="아이디" class="textin">&nbsp;<input type="button" value="중복확인" onclick="idCheck(this.form.userid.value)"></td>
 							</tr>
 							<tr>
 								<td><img src="resources/images/login/required.gif">비밀번호</td>

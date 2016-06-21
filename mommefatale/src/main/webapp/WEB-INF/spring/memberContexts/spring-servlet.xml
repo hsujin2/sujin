@@ -12,7 +12,6 @@
 	
 	<!--  Controller -->
 	<bean class="com.mommefatale.index.controller.MemberIndexController"></bean>
-	<bean class="com.mommefatale.user.controller.LoginController"></bean>
-	<bean class="com.mommefatale.user.controller.JoinController"></bean>
+	
 	
 </beans>
