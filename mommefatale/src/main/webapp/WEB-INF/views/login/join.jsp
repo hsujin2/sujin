@@ -18,12 +18,12 @@
 				<p>회원가입 하시면 다양한 혜택을 드립니다.</p>
 				<div id="joinArea">
 					<p>
-						<img src="images/login/joinimg.png" alt="">
+						<img src="resources/images/login/joinimg.png" alt="">
 					</p>
 					<form>
 						<table>
 							<tr>
-								<td width="30%"><img src="images/login/required.gif">이름</td>
+								<td width="30%"><img src="resources/images/login/required.gif">이름</td>
 								<td width="70%"><input type="text" name="username" size="8"
 									class="textin" tabindex="1" required></td>
 							</tr>
