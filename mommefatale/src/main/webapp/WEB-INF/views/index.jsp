@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>몸므파탈(MommeFatale)</title>
-<script src="resource/js/index/common_js.js"></script>
-<link rel="stylesheet" type="text/css" href="resource/css/common_css.css"/>
+<script src="resources/js/index/common_js.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
 $(function(){
