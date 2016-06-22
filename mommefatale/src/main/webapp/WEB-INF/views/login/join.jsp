@@ -37,7 +37,7 @@
 	function emailCheck(useremail1) {
 		var useremail2select = document.getElementById("useremail2")
 		var useremail2option = useremail2select.options[useremail2select.selectedIndex].value;
-		var useremail =  + useremail1+"@"+useremail2option
+		var useremail =useremail1+"@"+useremail2option
 		if (useremail1 == "") {
 			alert("메일을 입력해주세요");
 			document.regForm.useremail1.focus();
@@ -47,7 +47,6 @@
 					"toolbar=no");
 
 		}
-		document.gelElementById("useremail").value = useremail;
 		
 	}
 	function BMIcal(){
@@ -279,7 +278,7 @@
 											<option value="lycos.co.kr">lycos.co.kr</option>
 									</select> <input type="button" value="중복확인"
 										onClick="emailCheck(this.form.useremail1.value)" class="jbtn">
-										<input type="hidden" value="" name="useremail" id="useremail">
+										
 										</td>
 								</tr>
 								<tr>
@@ -322,16 +321,16 @@
 								</tr>
 								<tr>
 									<td>비만부위(중복가능)</td>
-									<td><input type="checkbox" name="fat" value="상복부">상복부<input
-										type="checkbox" name="fat" value="하복부">하복부<input type="checkbox" name="fat" value="옆구리">옆구리<input
-										type="checkbox" name="fat" value="허벅지">허벅지<input type="checkbox" name="fat" value="팔뚝살">팔뚝살<input
-										type="checkbox" name="fat" value="종아리">종아리</td>
+									<td><input type="checkbox" name="fat_part1" value="상복부">상복부<input
+										type="checkbox" name="fat_part2" value="하복부">하복부<input type="checkbox" name="fat_part3" value="옆구리">옆구리<input
+										type="checkbox" name="fat_part4" value="허벅지">허벅지<input type="checkbox" name="fat_part5" value="팔뚝살">팔뚝살<input
+										type="checkbox" name="fat_part6" value="종아리">종아리</td>
 								</tr>
 								<tr>
 									<td>활동량(중복가능)</td>
-									<td><input type="checkbox" name="activity" value="산책">산책<input
-										type="checkbox" name="activity" value="대중교통이용">대중교통이용<input type="checkbox" name="activity" value="규칙적운동">규칙적운동<input
-										type="checkbox" name="activity" value="계단이용">계단이용<input type="checkbox" name="activity" value="신체활용업무">신체활용업무</td>
+									<td><input type="checkbox" name="activity_code1" value="1">산책<input
+										type="checkbox" name="activity_code2" value="2">대중교통이용<input type="checkbox" name="activity_code3" value="3">규칙적운동<input
+										type="checkbox" name="activity_code4" value="4">계단이용<input type="checkbox" name="activity_code5" value="5">신체활용업무</td>
 								</tr>
 								<tr>
 									<td colspan="3" align="center"><br> <input

@@ -28,7 +28,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void insertUser(Map<String, Object> vo) {
-		session.insert(namespace + "insertUser", vo);
+		session.insert(namespace + ".insertUser", vo);
 	}
 	
 	
