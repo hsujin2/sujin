@@ -14,7 +14,7 @@
 	<button onclick="communityWrite()">글쓰기</button>
 	
 </div>
-
+<%@ include file="../include/footer.jsp" %>
 </div>
 </body>
 </html>
