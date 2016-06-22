@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.user.service.UserEmailCheckService;
+import com.mommefatale.user.service.UserInsertService;
 
 @Controller
 public class JoinController {
