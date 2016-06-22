@@ -16,7 +16,7 @@ input{vertical-align:middle;}
 
 /*헤더*/
 
-#header{position:relative; width:100%; margin:0 auto; min-width:1003px;}
+#header{position:relative; width:100%; margin:0 auto; min-width:1000px;}
 #logo{width:310px; margin:60px 355px;}
 
 
@@ -78,19 +78,19 @@ input{vertical-align:middle;}
 /*Equipment*/
 #gnb li .menu1{font-weight:bold; font-size:14px; display:none; 
 					position:absolute; top:45px; left:0px; min-width:700px;}
-#gnb li:hover .menu1{color:#099; display:inline; font-size:14px;}
+#gnb li:hover .menu1{display:inline; font-size:14px;}
 .menu1>li{display:inline-block; text-align:center; padding-bottom:2px;}
 .menu1>li>a{color:#399; margin-right:20px;}
 /*SportsWear*/
 #gnb li .menu2{font-weight:bold; font-size:14px; display:none; 
 					position:absolute; top:45px; left:-120px; min-width:500px;}
-#gnb li:hover .menu2{color:#099;display:inline; font-size:14px;}
+#gnb li:hover .menu2{display:inline; font-size:14px;}
 .menu2>li{display:inline-block; text-align:center; padding-bottom:2px;}
 .menu2>li>a{color:#399; margin-right:20px;}
 /*Food*/
 #gnb li .menu3{font-weight:bold; font-size:14px; display:none; 
 					position:absolute; top:45px; left:-165px; min-width:400px;}
-#gnb li:hover .menu3{color:#099;display:inline; font-size:14px;}
+#gnb li:hover .menu3{display:inline; font-size:14px;}
 .menu3>li{display:inline-block; text-align:center; padding-bottom:2px;}
 .menu3>li>a{color:#399; margin-right:20px;}
 
@@ -99,23 +99,23 @@ input{vertical-align:middle;}
 /*배너광고*/
 
 #main_banner{clear:both; text-align:center; margin:30px auto;}
-.main_bnimg{float:left; width:100%;}
+.main_bnimg{float:left; width:100%; min-width:1000px;}
 
 /*메인컨텐츠*/
 
-#main_content{clear:both; text-align:center; min-width:1000px;}
-.item ul{margin:10px 20px 10px 30px;}
-.item li{display:inline-block; padding:20px 10px 30px 10px;}
+#main_content{clear:both; text-align:center; min-width:1000px; margin:20px auto;}
+.item ul{margin:20px 20px 20px 20px;}
+.item li{display:inline-block; padding:20px 20px 20px 20px;}
 .item ul li img{width:300px; height:200px;}
 #main_board{clear:both; text-align:left; min-width:1000px;}
 .notice{ float:left; width:380px; height:200px; margin-left:80px;}
 .popular{float:right; width:500px; height:200px; margin-right:20px;}
 
-.date{color:#9f9f9f; font-family:Tahoma; font-size:7.5pt; vertical-align:5%; padding: 0 8px 0; 7px;}
+.date{color:#9f9f9f; font-family:Tahoma; font-size:8pt; vertical-align:5%; padding: 0 8px 0 7px;}
 
 /*푸터*/
 
-#footer{clear:both; width:100%; min-width:1003px; 
+#footer{clear:both; width:100%; min-width:1000px; 
 		background:#939EDD; text-align:center;}
 #footerlogo{text-align:center; width:200px;
 				float:left; margin:20px 20px 20px 100px;}

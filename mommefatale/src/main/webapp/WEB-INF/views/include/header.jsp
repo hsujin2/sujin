@@ -20,7 +20,7 @@
         <li><a href="#">mypage</a></li> 
         <li><a href="#" onClick="addBookmark()">bookmark</a></li>
   </ul>
-     <h1><img src="resources/images/index/logo.png" alt="몸므파탈로고" id="logo"/></h1>
+     <h1><a href="#"><img src="resources/images/index/logo.png" alt="몸므파탈로고" id="logo"/></a></h1>
   <nav id="gnb">
      <ul id="gnb_shop">
 		<li><a href="#">Equipment</a>
