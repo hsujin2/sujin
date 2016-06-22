@@ -47,6 +47,13 @@
 
 		}
 	}
+	function BMIcal(){
+		var height = parseInt(document.getElementById("height").value);
+		var weight = parseInt(document.getElementById("weight").value);
+		var bmi = weight/((height*0.01)*(height*0.01));
+		bmi = Number(bmi.toFixed(1));
+		document.getElementById("bmi").value = bmi;
+	}
 	
 </script>
 </head>
@@ -75,7 +82,7 @@
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">성별</td>
-									<td><input type="radio" name="gender" value="male">
+									<td><input type="radio" name="gender" value="male" checked="checked">
 										남 <input type="radio" name="gender" value="female"> 여</td>
 								</tr>
 								<tr>
@@ -253,7 +260,7 @@
 								</tr>
 								<tr>
 									<td>SMS수신</td>
-									<td><input type="radio" name="sms"> 받습니다. <input
+									<td><input type="radio" name="sms" checked="checked"> 받습니다. <input
 										type="radio" name="sms"> 받지 않습니다.<br> <font
 										size="2">동의하실 경우 다양한 이벤트 정보 및 쿠폰을 받아보실 수 있습니다.</font></td>
 								</tr>
@@ -272,59 +279,59 @@
 								</tr>
 								<tr>
 									<td>메일정보수신</td>
-									<td><input type="radio" name="sms"> 받습니다. <input
-										type="radio" name="sms"> 받지 않습니다.<br> <font
+									<td><input type="radio" name="msms" checked="checked"> 받습니다. <input
+										type="radio" name="msms"> 받지 않습니다.<br> <font
 										size="2">동의하실 경우 다양한 이벤트 정보 및 쿠폰을 받아보실 수 있습니다.</font></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">우편번호</td>
-									<td><input type="text" name="zip1" size="1"
+									<td><input type="text" name="zip1" id="zip1" size="1"
 										maxlength="4" class="textin">-<input type="text"
-										name="zip2" size="1" maxlength="4" class="textin">&nbsp;<input
+										name="zip2" id="zip2" size="1" maxlength="4" class="textin">&nbsp;<input
 										type="button" value="우편번호찾기" class="jbtn" onclick="openDaumPostcode()"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif"
 										required>주소</td>
-									<td><input type="text" name="addr1" size="30"
+									<td><input type="text" name="addr1" id="addr1" size="70"
 										class="textin"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif"
 										required>상세주소</td>
-									<td><input type="text" name="addr2" size="30"
+									<td><input type="text" name="addr2" id="addr2" size="70"
 										class="textin"></td>
 								</tr>
 								<tr>
-									<td colspan="3">키 : <input type="text" name="height"
-										size="2"> 몸무게 : <input type="text" name="weight"
-										size="2"> BMI : <input type="text" name="bmi" size="4"></td>
+									<td colspan="3" align="center">키 : <input type="text" name="height" id="height"
+										size="2">&nbsp;cm&nbsp;&nbsp;&nbsp;&nbsp;몸무게 : <input type="text" name="weight" id="weight"
+										size="2" onkeyup="BMIcal()">&nbsp;kg&nbsp;&nbsp;&nbsp;&nbsp;BMI : <input type="text" name="bmi" id="bmi" size="4" readonly="readonly" ></td>
 								</tr>
 								<tr>
 									<td>체형</td>
-									<td><input type="radio" name="shape">마른&nbsp;<input
-										type="radio" name="shape">표준&nbsp;<input type="radio"
-										name="shape">비만&nbsp;<input type="radio" name="shape">고도비만&nbsp;<input
-										type="radio" name="shape">마른비만&nbsp;<input
-										type="radio" name="shape">근육질&nbsp;</td>
+									<td><input type="radio" name="shape">마른<input
+										type="radio" name="shape" checked="checked">표준<input type="radio"
+										name="shape">비만<input type="radio" name="shape">고도비만<input
+										type="radio" name="shape">마른비만<input
+										type="radio" name="shape">근육질</td>
 								</tr>
 								<tr>
 									<td>비만부위(중복가능)</td>
-									<td><input type="checkbox">상복부&nbsp;<input
-										type="checkbox">하복부&nbsp;<input type="checkbox">옆구리&nbsp;<input
-										type="checkbox">허벅지&nbsp;<input type="checkbox">팔뚝살&nbsp;<input
-										type="checkbox">종아리&nbsp;</td>
+									<td><input type="checkbox" name="fat">상복부<input
+										type="checkbox" name="fat">하복부<input type="checkbox" name="fat">옆구리<input
+										type="checkbox" name="fat">허벅지<input type="checkbox" name="fat">팔뚝살<input
+										type="checkbox" name="fat">종아리</td>
 								</tr>
 								<tr>
 									<td>활동량(중복가능)</td>
-									<td><input type="checkbox">산책&nbsp;<input
-										type="checkbox">대중교통이용&nbsp;<input type="checkbox">규칙적운동&nbsp;<input
-										type="checkbox">계단이용&nbsp;<input type="checkbox">신체활용업무&nbsp;</td>
+									<td><input type="checkbox">산책<input
+										type="checkbox">대중교통이용<input type="checkbox">규칙적운동<input
+										type="checkbox">계단이용<input type="checkbox">신체활용업무</td>
 								</tr>
 								<tr>
 									<td colspan="3" align="center"><br> <input
-										type="submit" name="sub" value="회원가입" class="jbtn">&nbsp;&nbsp;<input
-										type="reset" name="cancle" value="취소" class="jbtn"><br>
+										type="submit" name="sub" id="sub" value="회원가입" class="jbtn">&nbsp;&nbsp;<input
+										type="button" name="cancle" value="취소" class="jbtn" onclick="location.href='login.do'"><br>
 										<br></td>
 								</tr>
 							</table>
