@@ -28,6 +28,7 @@
 			<param-value>
 				/WEB-INF/spring/memberContexts/spring-servlet.xml
 				/WEB-INF/spring/memberContexts/userlogin-servlet.xml
+				/WEB-INF/spring/memberContexts/board-servlet.xml
 				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>

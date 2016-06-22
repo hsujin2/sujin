@@ -34,7 +34,6 @@ private SqlSessionTemplate session;
 	}
 
 	
-	
 	@Override
 	public void CommunityDelete(int num) {
 		// TODO Auto-generated method stub
