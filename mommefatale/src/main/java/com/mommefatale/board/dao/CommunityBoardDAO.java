@@ -11,7 +11,7 @@ public interface CommunityBoardDAO {
 			// 글쓰기 
 			public void CommunityWrite(Map<String, Object> vo);
 			//목록 가져오기
-	//		public List<CommunityVO> getCommunityList(Object obj);
+			public List<CommunityBoardVO> getCommunityList(Object obj);
 			//글 내용 가져오기
 	//		public CommunityVO getCommunityContent(int num);
 			//글 수정하기

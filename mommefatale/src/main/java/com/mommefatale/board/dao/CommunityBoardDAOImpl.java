@@ -1,8 +1,11 @@
 package com.mommefatale.board.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
+
+import com.mommefatale.board.model.CommunityBoardVO;
 
 public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 
@@ -20,7 +23,7 @@ private SqlSessionTemplate session;
 	@Override
 	public void CommunityWrite(Map<String, Object> vo) {
 
-		session.insert("com.mommefatale.board.boardMapper.writeCommunity",vo);
+		session.insert("com.mommefatale.board.BoardMapper.writeCommunity",vo);
 		return;
 	}
 
@@ -30,6 +33,8 @@ private SqlSessionTemplate session;
 
 	}
 
+	
+	
 	@Override
 	public void CommunityDelete(int num) {
 		// TODO Auto-generated method stub
@@ -40,6 +45,12 @@ private SqlSessionTemplate session;
 	public int getCommunityCount() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<CommunityBoardVO> getCommunityList(Object obj) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
