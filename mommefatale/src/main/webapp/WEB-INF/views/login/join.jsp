@@ -7,6 +7,20 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/login/join_css.css">
+<script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
+    <script>
+        function openDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분. 우편번호와 주소 정보를 해당 필드에 넣고, 커서를 상세주소 필드로 이동한다.
+                    document.getElementById("zip1").value = data.postcode1;
+                    document.getElementById("zip2").value = data.postcode2;
+                    document.getElementById("addr1").value = data.address;
+                    document.getElementById("addr2").focus();
+                }
+            }).open();
+        }
+    </script>
 <script type="text/javascript" src="resources/js/join_js.js"></script>
 <script type="text/javascript">
 	function idCheck(userid) {
@@ -20,12 +34,14 @@
 
 		}
 	}
-	function emailCheck(useremail1,useremail2) {
+	function emailCheck(useremail1) {
+		var useremail2select = document.getElementById("useremail2")
+		var useremail2option = useremail2select.options[useremail2select.selectedIndex].value;
 		if (useremail1 == "") {
 			alert("메일을 입력해주세요");
 			document.regForm.useremail1.focus();
 		} else {
-			url = "emailCheck.do?useremail=" + useremail1+"@"+useremail2;
+			url = "emailCheck.do?useremail=" + useremail1+"@"+useremail2option;
 			window.open(url, "get", "width=300,height=180", "status=no",
 					"toolbar=no");
 
@@ -245,14 +261,14 @@
 									<td><img src="resources/images/login/required.gif"
 										required>이메일</td>
 									<td><input type="text" name="useremail1" size="13"
-										class="textin"> @ <select name="useremail2">
+										class="textin"> @ <select name="useremail2" id="useremail2">
 											<option value="naver.com">naver.com</option>
 											<option value="gmail.com">gmail.com</option>
 											<option value="nate.com">nate.com</option>
 											<option value="daum.net">daum.net</option>
 											<option value="lycos.co.kr">lycos.co.kr</option>
 									</select> <input type="button" value="중복확인"
-										onClick="emailCheck(this.form.useremail1.value,this.form.useremail2.selectedIndex.text)" class="jbtn"></td>
+										onClick="emailCheck(this.form.useremail1.value)" class="jbtn"></td>
 								</tr>
 								<tr>
 									<td>메일정보수신</td>
@@ -262,21 +278,21 @@
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">우편번호</td>
-									<td><input type="text" name="zipcode" size="1"
+									<td><input type="text" name="zip1" size="1"
 										maxlength="4" class="textin">-<input type="text"
-										name="adr2" size="1" maxlength="4" class="textin">&nbsp;<input
-										type="button" value="우편번호찾기" class="jbtn"></td>
+										name="zip2" size="1" maxlength="4" class="textin">&nbsp;<input
+										type="button" value="우편번호찾기" class="jbtn" onclick="openDaumPostcode()"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif"
 										required>주소</td>
-									<td><input type="text" name="address1" size="30"
+									<td><input type="text" name="addr1" size="30"
 										class="textin"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif"
 										required>상세주소</td>
-									<td><input type="text" name="address2" size="30"
+									<td><input type="text" name="addr2" size="30"
 										class="textin"></td>
 								</tr>
 								<tr>
