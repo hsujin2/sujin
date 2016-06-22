@@ -329,9 +329,9 @@
 								</tr>
 								<tr>
 									<td>활동량(중복가능)</td>
-									<td><input type="checkbox">산책<input
-										type="checkbox">대중교통이용<input type="checkbox">규칙적운동<input
-										type="checkbox">계단이용<input type="checkbox">신체활용업무</td>
+									<td><input type="checkbox" name="activity">산책<input
+										type="checkbox" name="activity">대중교통이용<input type="checkbox" name="activity">규칙적운동<input
+										type="checkbox" name="activity">계단이용<input type="checkbox" name="activity">신체활용업무</td>
 								</tr>
 								<tr>
 									<td colspan="3" align="center"><br> <input

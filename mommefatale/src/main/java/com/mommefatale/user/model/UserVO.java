@@ -18,17 +18,31 @@ public class UserVO {
 	private String weight;
 	private String bmi;
 	private String shape;
-	private List<String> fat;
-	private List<String> activity;
+	private String fat_part1;
+	private String fat_part2;
+	private String fat_part3;
+	private String fat_part4;
+	private String fat_part5;
+	private String fat_part6;
+	private String activity_code1;
+	private String activity_code2;
+	private String activity_code3;
+	private String activity_code4;
+	private String activity_code5;
 	private int kcal;
 	private Date joindate;
 	
 	
 	public UserVO(){}
 	
+	
+
+
 	public UserVO(String name, String gender, String userid, String password, String birthday, String tel,
 			String useremail, String zipcode, String address1, String address2, String height, String weight,
-			String bmi, String shape, List<String> fat, List<String> activity, int kcal, Date joindate) {
+			String bmi, String shape, String fat_part1, String fat_part2, String fat_part3, String fat_part4,
+			String fat_part5, String fat_part6, String activity_code1, String activity_code2, String activity_code3,
+			String activity_code4, String activity_code5, int kcal, Date joindate) {
 		super();
 		this.name = name;
 		this.gender = gender;
@@ -44,11 +58,175 @@ public class UserVO {
 		this.weight = weight;
 		this.bmi = bmi;
 		this.shape = shape;
-		this.fat = fat;
-		this.activity = activity;
+		this.fat_part1 = fat_part1;
+		this.fat_part2 = fat_part2;
+		this.fat_part3 = fat_part3;
+		this.fat_part4 = fat_part4;
+		this.fat_part5 = fat_part5;
+		this.fat_part6 = fat_part6;
+		this.activity_code1 = activity_code1;
+		this.activity_code2 = activity_code2;
+		this.activity_code3 = activity_code3;
+		this.activity_code4 = activity_code4;
+		this.activity_code5 = activity_code5;
 		this.kcal = kcal;
 		this.joindate = joindate;
 	}
+
+	
+
+
+	public String getFat_part1() {
+		return fat_part1;
+	}
+
+
+
+
+	public void setFat_part1(String fat_part1) {
+		this.fat_part1 = fat_part1;
+	}
+
+
+
+
+	public String getFat_part2() {
+		return fat_part2;
+	}
+
+
+
+
+	public void setFat_part2(String fat_part2) {
+		this.fat_part2 = fat_part2;
+	}
+
+
+
+
+	public String getFat_part3() {
+		return fat_part3;
+	}
+
+
+
+
+	public void setFat_part3(String fat_part3) {
+		this.fat_part3 = fat_part3;
+	}
+
+
+
+
+	public String getFat_part4() {
+		return fat_part4;
+	}
+
+
+
+
+	public void setFat_part4(String fat_part4) {
+		this.fat_part4 = fat_part4;
+	}
+
+
+
+
+	public String getFat_part5() {
+		return fat_part5;
+	}
+
+
+
+
+	public void setFat_part5(String fat_part5) {
+		this.fat_part5 = fat_part5;
+	}
+
+
+
+
+	public String getFat_part6() {
+		return fat_part6;
+	}
+
+
+
+
+	public void setFat_part6(String fat_part6) {
+		this.fat_part6 = fat_part6;
+	}
+
+
+
+
+	public String getActivity_code1() {
+		return activity_code1;
+	}
+
+
+
+
+	public void setActivity_code1(String activity_code1) {
+		this.activity_code1 = activity_code1;
+	}
+
+
+
+
+	public String getActivity_code2() {
+		return activity_code2;
+	}
+
+
+
+
+	public void setActivity_code2(String activity_code2) {
+		this.activity_code2 = activity_code2;
+	}
+
+
+
+
+	public String getActivity_code3() {
+		return activity_code3;
+	}
+
+
+
+
+	public void setActivity_code3(String activity_code3) {
+		this.activity_code3 = activity_code3;
+	}
+
+
+
+
+	public String getActivity_code4() {
+		return activity_code4;
+	}
+
+
+
+
+	public void setActivity_code4(String activity_code4) {
+		this.activity_code4 = activity_code4;
+	}
+
+
+
+
+	public String getActivity_code5() {
+		return activity_code5;
+	}
+
+
+
+
+	public void setActivity_code5(String activity_code5) {
+		this.activity_code5 = activity_code5;
+	}
+
 
 
 
@@ -194,27 +372,6 @@ public class UserVO {
 	public void setShape(String shape) {
 		this.shape = shape;
 	}
-
-
-	public List<String> getFat() {
-		return fat;
-	}
-
-
-	public void setFat(List<String> fat) {
-		this.fat = fat;
-	}
-
-
-	public List<String> getActivity() {
-		return activity;
-	}
-
-
-	public void setActivity(List<String> activity) {
-		this.activity = activity;
-	}
-
 
 	public String getUserid() {
 		return userid;

@@ -46,7 +46,16 @@ public class JoinController {
 			System.out.println("paramId : "+paramName+", value : "+paramValue);
 			vo.put(paramName, paramValue);
 		}
-		request.getParameter("");
+		String[] fat = request.getParameterValues("fat");
+		for(int i=0;i<fat.length;i++){
+			vo.put("fat_part"+(i+1), fat[i]);
+		}
+		
+		String[] activity = request.getParameterValues("activity");
+		for(int i=0;i<activity.length;i++){
+			vo.put("activity_code"+(i+1), activity[i]);
+		}
+		
 		command.insertUser(vo);
 		return "login/join_complete";
 	}
