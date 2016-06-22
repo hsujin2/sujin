@@ -37,15 +37,18 @@
 	function emailCheck(useremail1) {
 		var useremail2select = document.getElementById("useremail2")
 		var useremail2option = useremail2select.options[useremail2select.selectedIndex].value;
+		var useremail =  + useremail1+"@"+useremail2option
 		if (useremail1 == "") {
 			alert("메일을 입력해주세요");
 			document.regForm.useremail1.focus();
 		} else {
-			url = "emailCheck.do?useremail=" + useremail1+"@"+useremail2option;
+			url = "emailCheck.do?useremail="+useremail;
 			window.open(url, "get", "width=300,height=180", "status=no",
 					"toolbar=no");
 
 		}
+		document.gelElementById("useremail").value = useremail;
+		
 	}
 	function BMIcal(){
 		var height = parseInt(document.getElementById("height").value);
@@ -95,8 +98,8 @@
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호</td>
 									<td><input type="password" name="userpass" size="13"
-										maxlength="12" class="textin" required> <font size="2">문자와
-											숫자를 조합하여 2~12자리로 만들어주세요.</font></td>
+										maxlength="15" class="textin" required> <font size="2">문자와
+											숫자를 조합하여 2~15자리로 만들어주세요.</font></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호확인</td>
@@ -275,7 +278,9 @@
 											<option value="daum.net">daum.net</option>
 											<option value="lycos.co.kr">lycos.co.kr</option>
 									</select> <input type="button" value="중복확인"
-										onClick="emailCheck(this.form.useremail1.value)" class="jbtn"></td>
+										onClick="emailCheck(this.form.useremail1.value)" class="jbtn">
+										<input type="hidden" value="" name="useremail" id="useremail">
+										</td>
 								</tr>
 								<tr>
 									<td>메일정보수신</td>
