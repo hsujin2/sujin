@@ -8,4 +8,7 @@
 	<select id="selectEmail" parameterType="String" resultType="com.mommefatale.user.model.UserVO">
 		SELECT * FROM MEMBER WHERE MEMBER_EMAIL=#{useremail}
 	</select>
+	<select id="insertUser" parameterType="java.util.Map">
+		<![CDATA[insert into member(member_name,member_gender,member_id,member_pw,member_email,member_zip,member_address1,member_address2,member_phone,member_birthday,member_height,member_weight,member_bmi,shape_code,fat_part1,fat_part2,fat_part3,fat_part4,fat_part5,fat_part6,activity_code1,activity_code2,activity_code3,activity_code4,activity_code5,member_Kcal,member_state) values (#{username},#{gender},#{userid},#{userpass},#{useremail},#{zip},#{addr1},#{addr2},#{tel},#{birthday},#{height},#{weight},#{bmi},#{shape},#{fat_part1},#{fat_part2},#{fat_part3},#{fat_part4},#{fat_part5},#{fat_part6},#{activity_code1},#{activity_code2},#{activity_code3},#{activity_code4},#{activity_code5},#{kcal},'1')]]>
+	</select>
 </mapper>

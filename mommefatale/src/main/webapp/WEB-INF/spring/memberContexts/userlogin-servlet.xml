@@ -22,15 +22,20 @@
 	<bean id="UserEmailCheckService" class="com.mommefatale.user.service.UserEmailCheckServiceImpl">
 		<property name="dao" ref="UserDAO"/>
 	</bean>
+	<bean id="UserInsertService" class="com.mommefatale.user.service.UserInsertServiceImpl">
+		<property name="dao" ref="UserDAO"/>
+	</bean>
 	
 	<!-- controller -->
 	<bean class="com.mommefatale.user.controller.LoginController"></bean>
-<!-- 	<bean class="com.mommefatale.user.controller.JoinController"></bean> -->
 	
 	<bean class="com.mommefatale.user.controller.IdCheckController">
 		<property name="command" ref="UserIdCheckService"></property>
 	</bean>
 	<bean class="com.mommefatale.user.controller.EmailCheckController">
 		<property name="command" ref="UserEmailCheckService"></property>
+	</bean>
+	<bean class="com.mommefatale.user.controller.JoinController">
+		<property name="command" ref="UserInsertService"></property>
 	</bean>
 </beans>

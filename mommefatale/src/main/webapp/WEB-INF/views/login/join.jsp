@@ -85,8 +85,8 @@
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">성별</td>
-									<td><input type="radio" name="gender" value="male" checked="checked">
-										남 <input type="radio" name="gender" value="female"> 여</td>
+									<td><input type="radio" name="gender" value="남" checked="checked">
+										남 <input type="radio" name="gender" value="여"> 여</td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">아이디</td>
@@ -314,24 +314,24 @@
 								</tr>
 								<tr>
 									<td>체형</td>
-									<td><input type="radio" name="shape">마른<input
-										type="radio" name="shape" checked="checked">표준<input type="radio"
-										name="shape">비만<input type="radio" name="shape">고도비만<input
-										type="radio" name="shape">마른비만<input
-										type="radio" name="shape">근육질</td>
+									<td><input type="radio" name="shape" value="1">마른<input
+										type="radio" name="shape" checked="checked" value="2">표준<input type="radio"
+										name="shape" value="3">비만<input type="radio" name="shape" value="4">고도비만<input
+										type="radio" name="shape" value="5">마른비만<input
+										type="radio" name="shape" value="6">근육질</td>
 								</tr>
 								<tr>
 									<td>비만부위(중복가능)</td>
-									<td><input type="checkbox" name="fat">상복부<input
-										type="checkbox" name="fat">하복부<input type="checkbox" name="fat">옆구리<input
-										type="checkbox" name="fat">허벅지<input type="checkbox" name="fat">팔뚝살<input
-										type="checkbox" name="fat">종아리</td>
+									<td><input type="checkbox" name="fat" value="상복부">상복부<input
+										type="checkbox" name="fat" value="하복부">하복부<input type="checkbox" name="fat" value="옆구리">옆구리<input
+										type="checkbox" name="fat" value="허벅지">허벅지<input type="checkbox" name="fat" value="팔뚝살">팔뚝살<input
+										type="checkbox" name="fat" value="종아리">종아리</td>
 								</tr>
 								<tr>
 									<td>활동량(중복가능)</td>
-									<td><input type="checkbox" name="activity">산책<input
-										type="checkbox" name="activity">대중교통이용<input type="checkbox" name="activity">규칙적운동<input
-										type="checkbox" name="activity">계단이용<input type="checkbox" name="activity">신체활용업무</td>
+									<td><input type="checkbox" name="activity" value="산책">산책<input
+										type="checkbox" name="activity" value="대중교통이용">대중교통이용<input type="checkbox" name="activity" value="규칙적운동">규칙적운동<input
+										type="checkbox" name="activity" value="계단이용">계단이용<input type="checkbox" name="activity" value="신체활용업무">신체활용업무</td>
 								</tr>
 								<tr>
 									<td colspan="3" align="center"><br> <input
