@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="wrap" >
-<%@ include file="include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 
 <div class="board">
 	<button onclick="communityWrite()">글쓰기</button>
