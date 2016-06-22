@@ -8,6 +8,7 @@
 </head>
 <body>
 <header id="header">
+   <div id="util">
     <ul class="util_left">
 		<li><a href="#">gallery</a></li> 
         <li><a href="#">community</a></li> 
@@ -20,6 +21,7 @@
         <li><a href="#">mypage</a></li> 
         <li><a href="#" onClick="addBookmark()">bookmark</a></li>
   </ul>
+  </div>
      <h1><a href="#"><img src="resources/images/index/logo.png" alt="몸므파탈로고" id="logo"/></a></h1>
   <nav id="gnb">
      <ul id="gnb_shop">

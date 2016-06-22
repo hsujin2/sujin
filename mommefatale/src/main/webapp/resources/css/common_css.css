@@ -14,9 +14,11 @@ input{vertical-align:middle;}
 .align_right{text-align:right;}
 .align_left{text-align:left;}
 
+#wrap{margin:0 auto; text-align:center;}
+
 /*헤더*/
 
-#header{position:relative; width:100%; margin:0 auto; min-width:1000px;}
+#header{position:relative; width:100%; margin:0 auto; width:1003px;}
 #logo{width:310px; margin:60px 355px;}
 
 
@@ -33,10 +35,10 @@ input{vertical-align:middle;}
 #searchF #simg{width:22px;}
 
 /*유틸메뉴*/
-
+#util{}
 .util_left{
 	position: absolute;
-	left: 60px;
+	left: 10px;
 	top: 15px;
 	width: 400px;
 }
@@ -46,7 +48,7 @@ input{vertical-align:middle;}
 
 .util_right{
 	position: absolute;
-	left:700px;
+	left:600px;
 	top: 15px;
 	width: 400px;
 }
@@ -57,14 +59,13 @@ input{vertical-align:middle;}
 /*메인메뉴*/
 
 #gnb{
-	position: absolute;
+	position: relative;
 	left:60px;
 	right:60px;
-	top: 150px;
+	top: -50px;
 	z-index: 10;
 	height: 50px;
-	width: 1000px;
-	
+	width: 100%;
 }
 #gnb ul>li{float:left; position:relative; text-align:center; min-width:125px; height:50px;}
 
@@ -99,15 +100,15 @@ input{vertical-align:middle;}
 /*배너광고*/
 
 #main_banner{clear:both; text-align:center; margin:30px auto;}
-.main_bnimg{float:left; width:100%; min-width:1000px;}
+.main_bnimg{float:left; width:100%; min-width:1003px;}
 
 /*메인컨텐츠*/
 
-#main_content{clear:both; text-align:center; min-width:1000px; margin:20px auto;}
-.item ul{margin:20px 20px 20px 20px;}
+#main_content{clear:both; text-align:center; min-width:1003px; margin:20px auto;}
+.item ul{margin:20px 10px 20px 10px;}
 .item li{display:inline-block; padding:20px 20px 20px 20px;}
 .item ul li img{width:300px; height:200px;}
-#main_board{clear:both; text-align:left; min-width:1000px;}
+#main_board{clear:both; text-align:left; min-width:1003px;}
 .notice{ float:left; width:380px; height:200px; margin-left:80px;}
 .popular{float:right; width:500px; height:200px; margin-right:20px;}
 
@@ -115,9 +116,9 @@ input{vertical-align:middle;}
 
 /*푸터*/
 
-#footer{clear:both; width:100%; min-width:1000px; 
-		background:#939EDD; text-align:center;}
-#footerlogo{text-align:center; width:200px;
+#footer{clear:both; width:100%; min-width:1003px; 
+		background:#d8dcf3; text-align:center;}
+#footerlogo{text-align:center; width:250px;
 				float:left; margin:20px 20px 20px 100px;}
 address{padding:20px;
 			font-style:normal; font:13px/2 "맑은 고딕", Arial, Verdana;
