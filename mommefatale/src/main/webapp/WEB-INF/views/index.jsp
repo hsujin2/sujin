@@ -16,6 +16,8 @@ $(function(){
 
 </head>
 <body>
+<div id="wrap">
+<%@ include file="include/header.jsp" %>
 <header id="header">
     <ul class="util_left">
 		<li><a href="#">gallery</a></li> 
@@ -127,15 +129,8 @@ $(function(){
  
 </aside>
 
+<%@ include file="include/footer.jsp" %>
 
-<footer id="footer">
-    <h1><img src="resources/images/index/logo.png" alt="몸므파탈로고"id="footerlogo"></h1>
-    <address>
-        <p>몸므파탈</p>
-        <p><span>대표 : 박현</span>&nbsp;&nbsp;&nbsp;<span>사업자등록번호 : 123-45-67890</span></p>
-        <p><span>주소 : 서울시 성동구 왕십리</span>&nbsp;&nbsp;&nbsp;<span>Phone : 010-1234-5678</span>&nbsp;&nbsp;&nbsp;<span>E-mail : mommefatale@momme.com</span></p>	
-        <p>Copyright &copy; 2016 MommeFatale All Rights Reserved.</p>			
-    </address>
-</footer>
+</div>
 </body>
 </html>
