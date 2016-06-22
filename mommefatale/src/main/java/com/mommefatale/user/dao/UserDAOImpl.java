@@ -18,6 +18,12 @@ public class UserDAOImpl implements UserDAO {
 	public UserVO idCheck(String userid) {
 		return session.selectOne(namespace + ".selectId", userid);
 	}
+
+	@Override
+	public UserVO emailCheck(String useremail) {
+		return session.selectOne(namespace + ".selectEmail", useremail);
+	}
+	
 	
 
 }

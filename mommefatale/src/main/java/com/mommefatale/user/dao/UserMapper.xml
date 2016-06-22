@@ -5,4 +5,7 @@
 	<select id="selectId" parameterType="String" resultType="com.mommefatale.user.model.UserVO">
 		SELECT * FROM MEMBER WHERE MEMBER_ID=#{userid}
 	</select>
+	<select id="selectEmail" parameterType="String" resultType="com.mommefatale.user.model.UserVO">
+		SELECT * FROM MEMBER WHERE MEMBER_EMAIL=#{useremail}
+	</select>
 </mapper>

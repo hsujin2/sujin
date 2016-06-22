@@ -4,4 +4,5 @@ import com.mommefatale.user.model.UserVO;
 
 public interface UserDAO {
 	public UserVO idCheck(String userid);
+	public UserVO emailCheck(String useremail);
 }
