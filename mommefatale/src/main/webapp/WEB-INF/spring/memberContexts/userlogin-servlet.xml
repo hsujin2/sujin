@@ -25,7 +25,7 @@
 	
 	<!-- controller -->
 	<bean class="com.mommefatale.user.controller.LoginController"></bean>
-	<bean class="com.mommefatale.user.controller.JoinController"></bean>
+<!-- 	<bean class="com.mommefatale.user.controller.JoinController"></bean> -->
 	
 	<bean class="com.mommefatale.user.controller.IdCheckController">
 		<property name="command" ref="UserIdCheckService"></property>
