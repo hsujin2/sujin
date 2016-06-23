@@ -43,4 +43,6 @@
 	<bean class="com.mommefatale.user.controller.JoinController">
 		<property name="command" ref="UserInsertService"></property>
 	</bean>
+	<bean class="com.mommefatale.user.controller.LogoutController">
+	</bean>
 </beans>
