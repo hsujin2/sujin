@@ -1,9 +1,9 @@
 @CHARSET "UTF-8";
 
 .joinagree_title {width: 1000px; padding: 25px 0 25px 0; margin:0 auto; }
-.joinagree_title .joinagree_logo {align:center; margin:0 auto;}
+.joinagree_title .joinagree_logo {text-align:center; margin:0 auto;}
 
-.joinagree_body {width:1000px; align:center; padding:0 0 25px 0; margin:0 auto;}
+.joinagree_body {width:1000px; text-align:center; padding:0 0 25px 0; margin:0 auto;}
 
 .joinagree_body2 {width:1000px;}
 
