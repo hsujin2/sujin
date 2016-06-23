@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+/*초기화*/
+*{margin:0; padding:0;}
+body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
+li{list-style-type:none;}
+a{text-decoration:none; color:#CCCCC;}
+img{vertical-align:top;}
+img,fieldset{border:none;}
+input{vertical-align:middle;}
+
+h1{color:#699}
+h2{color:#09F}
+
+hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:750px;}
+
+.skip{font-size:0; width:0; height:0; line-height:0; position:absolute; left:-9999px;}
+
+.align_center{text-align:center;}
+.align_right{text-align:right;}
+.align_left{text-align:left;}
+
+#wrap{margin:0 auto; text-align:center;}
+
+#content_banner{text-align:center;} 
+#contentmain{width:600px;top:75px; position:relative; margin:0 auto;}
+
+#shape h1{text-align:center; position:relative; top:-50px;}
+
+/*메인컨텐츠*/
+
+#main_content{clear:both; text-align:center; min-width:1003px; margin:20px auto;}
+#main_content h2{padding-bottom:10px;}
+
+
+.fix_button{position:absolute; top:20px; left:980px; }
+.item ul{margin:20px 10px 20px 10px;}
+.item li{display:inline-block; padding:20px 20px 20px 20px;}
+.item ul li img{width:300px; height:200px;}
+
+.date{color:#9f9f9f; font-family:Tahoma; font-size:8pt; vertical-align:5%; padding: 0 8px 0 7px;}
