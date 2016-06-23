@@ -13,7 +13,7 @@ public class UserDAOImpl implements UserDAO {
 
 	public void setSession(SqlSessionTemplate session) {
 		this.session = session;
-		System.out.println("session 持失");
+		System.out.println("session 持失1");
 		
 	}
 
