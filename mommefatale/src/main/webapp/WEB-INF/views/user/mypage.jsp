@@ -12,6 +12,7 @@
 <body>
 	<div>mypage</div>
 	<div>${userLogin.getName()} 님의 마이페이지</div>
-	<div>${userLogin.getGrade() }</div>
+	<div>등급 : ${userLogin.getGrade() }</div>
+	<div>포인트 : ${userLogin.getPoint() }</div>
 </body>
 </html>
