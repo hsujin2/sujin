@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<c:set var="userLogin" value="${sessionScope.login}"/>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>header</title>
@@ -15,10 +16,25 @@
         <li><a href="#">Q&amp;A</a></li> 
         <li><a href="#">sitemap</a></li> 
     </ul>
-    <ul class="util_right">    
-        <li><a href="joinagreement.do">join</a></li> 
-        <li><a href="login.do">login</a></li>
-        <li><a href="#">mypage</a></li> 
+    
+    <ul class="util_right">
+    <c:choose>
+   		<c:when test="${admin eq false}">  
+	        <li> ${userLogin.getName()}님 환영합니다</li> 
+	        <li><a href="#">mypage</a></li> 
+	        <li><a href="logout.do">logout</a></li>
+	    </c:when>
+	    <c:when test="${admin eq true}">
+	    	<li>관리자</a></li> 
+	        <li><a href="#">adminpage</a></li> 
+	        <li><a href="logout.do">logout</a></li>
+	    </c:when>
+	    <c:otherwise>
+	    	<li><a href="joinagreement.do">join</a></li> 
+	        <li><a href="login.do">login</a></li>
+	        <li><a href="#">mypage</a></li>
+	    </c:otherwise>
+    </c:choose>    
         <li><a href="#" onClick="addBookmark()">bookmark</a></li>
   </ul>
   </div>
