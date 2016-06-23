@@ -47,4 +47,6 @@
 	</bean>
 	<bean class="com.mommefatale.user.controller.MyPageController">
 	</bean>
+	<bean class="com.mommefatale.user.controller.UserUpdateController">
+	</bean>
 </beans>

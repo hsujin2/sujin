@@ -14,5 +14,8 @@
 	<div>${userLogin.getName()} 님의 마이페이지</div>
 	<div>등급 : ${userLogin.getGrade() }</div>
 	<div>포인트 : ${userLogin.getPoint() }</div>
+	<div><a href="userUpdate.do">회원정보수정</a></div>
+	<div><a href="userDropOut.do">회원탈퇴</a></div>
+
 </body>
 </html>

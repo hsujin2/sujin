@@ -24,7 +24,7 @@
             	<form method="post" action="loginProc.do">
                 	<ul>
                 		<li><input type="text" name="userid" placeholder="아이디" required tabindex="1"></li>
-                        <li><input type="password" name="userpass" placeholder="비밀번호" required></li>
+                        <li><input type="password" name="userpass" placeholder="비밀번호" required tabindex="2"></li>
                     </ul>
                     <input type="submit" id="logbtn" value="로그인">
                 <hr>
