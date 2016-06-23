@@ -23,21 +23,19 @@ private SqlSessionTemplate session;
 	@Override
 	public void CommunityWrite(Map<String, Object> vo) {
 
-		session.insert("com.mommefatale.board.BoardMapper.writeCommunity",vo);
+		session.insert("com.mommefatale.board.BoardMapper.communityWrite",vo);
 		return;
 	}
 
 	@Override
 	public void CommunityModify(Map<String, Object> vo) {
-		// TODO Auto-generated method stub
-
+		session.update("com.mommefatale.board.BoardMapper.CommunityUpdate", vo);
 	}
 
 	
 	@Override
 	public void CommunityDelete(int num) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
