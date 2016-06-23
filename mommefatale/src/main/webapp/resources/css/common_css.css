@@ -14,7 +14,7 @@ input{vertical-align:middle;}
 .align_right{text-align:right;}
 .align_left{text-align:left;}
 
-#wrap{margin:0 auto; text-align:center;}
+#wrap{margin:0 auto; text-align: center;}
 
 /*헤더*/
 

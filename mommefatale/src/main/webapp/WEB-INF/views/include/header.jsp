@@ -11,7 +11,7 @@
    <div id="util">
     <ul class="util_left">
 		<li><a href="#">gallery</a></li> 
-        <li><a href="#">community</a></li> 
+        <li><a href="communityBoard.do">community</a></li> 
         <li><a href="#">Q&amp;A</a></li> 
         <li><a href="#">sitemap</a></li> 
     </ul>
