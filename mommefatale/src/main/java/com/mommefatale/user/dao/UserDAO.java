@@ -8,4 +8,5 @@ public interface UserDAO {
 	public UserVO idCheck(String userid);
 	public UserVO emailCheck(String useremail);
 	public void insertUser(Map<String, Object> vo);
+	public UserVO loginCheck(String id);
 }

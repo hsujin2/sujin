@@ -20,7 +20,7 @@
             <p>회원가입 하시면 다양한 혜택을 드립니다.</p>
             <div id="loginArea">
             	<p><img src="resources/images/login/logimg.png" alt=""></p>
-            	<form>
+            	<form method="post" action="loginProc.do">
                 	<ul>
                 		<li><input type="text" name="userid" placeholder="아이디" required tabindex="1"></li>
                         <li><input type="password" name="userpass" placeholder="비밀번호" required></li>

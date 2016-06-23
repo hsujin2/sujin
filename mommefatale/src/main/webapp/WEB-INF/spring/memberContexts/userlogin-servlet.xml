@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	<!-- VO -->
-	<bean id="UserVO" class="com.mommefatale.user.model.UserVO" />
+	<!-- <bean id="UserVO" class="com.mommefatale.user.model.UserVO" /> -->
 	
 	<!-- DAO -->
 	<bean id="UserDAO" class="com.mommefatale.user.dao.UserDAOImpl">
@@ -25,9 +25,14 @@
 	<bean id="UserInsertService" class="com.mommefatale.user.service.UserInsertServiceImpl">
 		<property name="dao" ref="UserDAO"/>
 	</bean>
+	<bean id="UserLoginService" class="com.mommefatale.user.service.UserLoginServiceImpl">
+		<property name="dao" ref="UserDAO"/>
+	</bean>
 	
 	<!-- controller -->
-	<bean class="com.mommefatale.user.controller.LoginController"></bean>
+	<bean class="com.mommefatale.user.controller.LoginController">
+		<property name="command" ref="UserLoginService"></property>
+	</bean>
 	
 	<bean class="com.mommefatale.user.controller.IdCheckController">
 		<property name="command" ref="UserIdCheckService"></property>
