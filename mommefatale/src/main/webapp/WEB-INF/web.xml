@@ -29,6 +29,8 @@
 				/WEB-INF/spring/memberContexts/spring-servlet.xml
 				/WEB-INF/spring/memberContexts/userlogin-servlet.xml
 				/WEB-INF/spring/memberContexts/board-servlet.xml
+				/WEB-INF/spring/memberContexts/contents-servlet.xml
+				
 </param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>몸므파탈(MommeFatale)</title>
-<link rel="stylesheet" type="text/css" href="css/css-temp.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/contents_css.css"/>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 </head>
 
@@ -14,9 +14,9 @@
 <%@ include file="../include/header.jsp" %>
     <div id="wrap">
     <div id="content_banner"> 
-        <a href="#"><img src="images/arrow-before.png" /></a>
-        <a href="#"><img src="images/contents-banner.png" id="contentmain"/></a>
-        <a href="#"><img src="images/arrow-next.png" /></a>
+        <a href="#"><img src="resources/images/contents/arrow-before.png" alt="before"/></a>
+        <a href="#"><img src="resources/images/contents/contents-banner.png" id="contentmain" alt="banner"/></a>
+        <a href="#"><img src="resources/images/contents/arrow-next.png" alt="next" /></a>
     </div>
     
     
@@ -29,30 +29,30 @@
     	</div>
     	<h2>equipment</h2>
         <div class="fix_button">
-        <a href="#"><img src="images/fix.gif" alt="fixbutton"/></a>
+        <a href="#"><img src="resources/images/contents/fix.gif" alt="fixbutton"/></a>
         </div>
         <hr />
         <ul class="item">
-        	<li><a href="#"><img src="images/eq1.png" alt="gimball"/> </a></li>
-            <li><a href="#"><img src="images/eq2.png" alt="jumprope"/> </a></li>
-            <li><a href="#"><img src="images/eq3.png" alt="cable"/> </a></li>
-            <li><a href="#"><img src="images/eq4.png" alt="yoga mat"/> </a></li>            
+        	<li><a href="#"><img src="resources/images/contents/eq1.png" alt="gimball"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/eq2.png" alt="jumprope"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/eq3.png" alt="cable"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/eq4.png" alt="yoga mat"/> </a></li>            
         </ul>
     	<h2>sportsWear</h2>
         <hr />
     	<ul class="item">
-        	<li><a href="#"><img src="images/spo1.png" alt="girl's top"/> </a></li>
-            <li><a href="#"><img src="images/spo2.png" alt="men's top"/> </a></li>
-            <li><a href="#"><img src="images/spo1.png" alt="girl's top"/> </a></li>
-            <li><a href="#"><img src="images/spo2.png" alt="men's top"/> </a></li>            
+        	<li><a href="#"><img src="resources/images/contents/spo1.png" alt="girl's top"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/spo2.png" alt="men's top"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/spo1.png" alt="girl's top"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/spo2.png" alt="men's top"/> </a></li>            
         </ul>
     	<h2>food</h2>
         <hr />
         <ul class="item">
-        	<li><a href="#"><img src="images/food.png" alt="gainer"/> </a></li>
-            <li><a href="#"><img src="images/food.png" alt="gainer"/> </a></li>
-            <li><a href="#"><img src="images/food.png" alt="gainer"/> </a></li>
-            <li><a href="#"><img src="images/food.png" alt="gainer"/> </a></li>  
+        	<li><a href="#"><img src="resources/images/contents/food.png" alt="gainer"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/food.png" alt="gainer"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/food.png" alt="gainer"/> </a></li>
+            <li><a href="#"><img src="resources/images/contents/food.png" alt="gainer"/> </a></li>  
         </ul>
 </div>
 

@@ -1,13 +1,6 @@
 @CHARSET "UTF-8";
 
 /*초기화*/
-*{margin:0; padding:0;}
-body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
-li{list-style-type:none;}
-a{text-decoration:none; color:#CCCCC;}
-img{vertical-align:top;}
-img,fieldset{border:none;}
-input{vertical-align:middle;}
 
 h1{color:#699}
 h2{color:#09F}
@@ -22,8 +15,8 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
 
 #wrap{margin:0 auto; text-align:center;}
 
-#content_banner{text-align:center;} 
-#contentmain{width:600px;top:75px; position:relative; margin:0 auto;}
+#content_banner{text-align:center; float:left;} 
+#contentmain{width:600px; top:75px; position:relative; margin:0 auto;}
 
 #shape h1{text-align:center; position:relative; top:-50px;}
 
