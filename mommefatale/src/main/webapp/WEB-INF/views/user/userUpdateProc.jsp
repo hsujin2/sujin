@@ -40,9 +40,9 @@
 
 <body>
 <%@ include file="../include/header.jsp" %>
-	<form name="regForm" method="get" action="userUpdateProc.do"
+	<form name="regForm" id="regForm" method="get" action="userUpdateProc.do"
 		name="joinForm">
-		<div id="wrap">
+		<div id="wrap1">
 			<nav></nav>
 			<section>
 			<div id="joinWrap">
@@ -51,9 +51,8 @@
 					<p></p>
 					<div id="joinArea">
 						<p>
-							<img src="resources/images/login/joinimg.png" alt="">
+							<img src="resources/images/login/joinimg.png" alt="" id="img">
 						</p>
-						<form>
 							<table>
 								<tr>
 									<td width="30%">이름</td>
@@ -62,7 +61,7 @@
 								</tr>
 								<tr>
 									<td>성별</td>
-									<td><input type="text" name="gender" value="${userLogin.getGender()}" Disabled></td>
+									<td><input type="text" name="gender" value="${userLogin.getGender()}" Disabled size="3"></td>
 								</tr>
 								<tr>
 									<td>아이디</td>
@@ -82,7 +81,11 @@
 
 								<tr>
 									<td>생년월일</td>
-									<td><input type="text" name="birthday" id="birthday" size="13" class="textin" value="${userLogin.getBirthday()}"></td>
+									<td>
+									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),0,4)}" size="3">&nbsp;년&nbsp;
+									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),5,7)}" size="3">&nbsp;월&nbsp;
+									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),8,10)}" size="3">&nbsp;일&nbsp;
+									</td>
 
 								</tr>
 								<tr>
@@ -160,7 +163,6 @@
 										<br></td>
 								</tr>
 							</table>
-						</form>
 					</div>
 				</div>
 			</div>

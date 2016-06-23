@@ -4,14 +4,14 @@
 #joinmain h1{color:#ccc;}
 
 
-form{width:600px; margin:50px auto;}
+#regForm{width:1003px; margin:50px auto;}
 td{padding:7px;}
 .textin{height:17px; font-size:14px; font-size:14px;}
-form tr td:first-child{color:#1d6095;}
-form tr td:last-child{color:#666;}
-form tr td:last-child input{font-size:12px;}
-form hr{margin:20px 0;}
+#regForm tr td:first-child{color:#1d6095;}
+#regForm tr td:last-child{color:#666;}
+#regForm tr td:last-child input{font-size:12px;}
+#regForm hr{margin:20px 0;}
 td{border-bottom:1px dashed #ccc;}
 td>img{padding-right:10px;}
 .jbtn{padding:3px 5px; background:#069; color:white; border-radius:1px;}
-
+#img{margin-bottom:60px;}

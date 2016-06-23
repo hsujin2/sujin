@@ -65,7 +65,7 @@
 <%@ include file="../include/header.jsp" %>
 	<form name="regForm" method="get" action="joincomplete.do"
 		name="joinForm">
-		<div id="wrap">
+		<div id="wrap1">
 			<nav></nav>
 			<section>
 			<div id="joinWrap">
