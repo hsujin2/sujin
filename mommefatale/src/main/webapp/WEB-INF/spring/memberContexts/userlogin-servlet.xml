@@ -45,4 +45,6 @@
 	</bean>
 	<bean class="com.mommefatale.user.controller.LogoutController">
 	</bean>
+	<bean class="com.mommefatale.user.controller.MyPageController">
+	</bean>
 </beans>

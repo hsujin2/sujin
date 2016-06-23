@@ -21,7 +21,7 @@
     <c:choose>
    		<c:when test="${admin eq false}">  
 	        <li> ${userLogin.getName()}님 환영합니다</li> 
-	        <li><a href="#">mypage</a></li> 
+	        <li><a href="mypage.do">mypage</a></li> 
 	        <li><a href="logout.do">logout</a></li>
 	    </c:when>
 	    <c:when test="${admin eq true}">
