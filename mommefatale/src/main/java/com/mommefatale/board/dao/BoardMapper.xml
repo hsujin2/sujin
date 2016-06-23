@@ -2,4 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mommefatale.board.BoardMapper">
 
+<resultMap id="communityResultMap" type="com.mommefatale.board.model.CommunityBoardVO">
+	<result property="no" column="community_no"/>
+	<result property="writer" column="community_writer"/>
+	<result property="subject" column="community_subject"/>
+	<result property="regdate" column="community_regdate"/>
+	<result property="update_date" column="community_update_date"/>
+	<result property="ref" column="community_ref"/>
+	<result property="step" column="community_step"/>
+	<result property="depth" column="community_depth"/>
+	<result property="section" column="community_section"/>
+	<result property="view" column="community_view"/>
+</resultMap>
+
+<!-- Community 리스트 가져오기 -->
+	<select id="communityList" parameterType="java.util.Map" resultMap="communityResultMap">
+		<![CDATA[select * from (select rownum rnum, community_no, community_subject, community_writer, community_regdate, community_view from (select * from community order by community_no desc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+	</select>
+
+<!-- Community 글쓰기 -->
+	<insert id="communityWrite" parameterType="java.util.Map">
+		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, #{section})]]>
+	</insert>
+
+<!-- Community 글내용 가져오기 -->	
+	<select id="communityContent" parameterType="java.lang.Integer" resultMap="communityResultMap">
+		<![CDATA[select * from community where community_no=#{no}]]>
+	</select>
+	
+<!-- Community 글수정 -->
+	<update id="communityUpdate" parameterType="java.util.Map">
+		<![CDATA[update community set community_writer=#{writer}, community_subject=#{subject}, community_content=#{content} where community_no=#{no}]]>
+	</update>
+
+<!-- Community 글삭제 -->
+	<delete id="communityDelete" parameterType="java.lang.Integer">
+		<![CDATA[delete from community where community_no=#{no}]]>
+	</delete>
+
+<!-- Community 총 게시물 수 -->
+	<select id="communityCount" resultType="java.lang.Integer">
+			<![CDATA[select count(*) from community]]>
+		</select>
 </mapper>

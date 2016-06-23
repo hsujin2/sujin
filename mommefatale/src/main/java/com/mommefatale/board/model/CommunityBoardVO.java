@@ -4,84 +4,104 @@ import java.util.Date;
 
 public class CommunityBoardVO {
 
-	private int community_no;
-	private String community_writer;
-	private String community_subject;
-	private String community_content;
-	private Date community_regdate;
-	private Date community_update_date;
-	private int community_ref;
-	private int community_step;
-	private int community_depth;
-	private String community_section;
-	private int community_view;
-	
-	public int getCommunity_no() {
-		return community_no;
+	private int no;
+	private String writer;
+	private String subject;
+	private String content;
+	private Date regdate;
+	private Date update_date;
+	private int ref;
+	private int step;
+	private int depth;
+	private String section;
+	private int view;
+
+	public int getNo() {
+		return no;
 	}
-	public void setCommunity_no(int community_no) {
-		this.community_no = community_no;
+
+	public void setNo(int no) {
+		this.no = no;
 	}
-	public String getCommunity_writer() {
-		return community_writer;
+
+	public String getWriter() {
+		return writer;
 	}
-	public void setCommunity_writer(String community_writer) {
-		this.community_writer = community_writer;
+
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
-	public String getCommunity_subject() {
-		return community_subject;
+
+	public String getSubject() {
+		return subject;
 	}
-	public void setCommunity_subject(String community_subject) {
-		this.community_subject = community_subject;
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
-	public String getCommunity_content() {
-		return community_content;
+
+	public String getContent() {
+		return content;
 	}
-	public void setCommunity_content(String community_content) {
-		this.community_content = community_content;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public Date getCommunity_regdate() {
-		return community_regdate;
+
+	public Date getRegdate() {
+		return regdate;
 	}
-	public void setCommunity_regdate(Date community_regdate) {
-		this.community_regdate = community_regdate;
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
-	public Date getCommunity_update_date() {
-		return community_update_date;
+
+	public Date getUpdate_date() {
+		return update_date;
 	}
-	public void setCommunity_update_date(Date community_update_date) {
-		this.community_update_date = community_update_date;
+
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
 	}
-	public int getCommunity_ref() {
-		return community_ref;
+
+	public int getRef() {
+		return ref;
 	}
-	public void setCommunity_ref(int community_ref) {
-		this.community_ref = community_ref;
+
+	public void setRef(int ref) {
+		this.ref = ref;
 	}
-	public int getCommunity_step() {
-		return community_step;
+
+	public int getStep() {
+		return step;
 	}
-	public void setCommunity_step(int community_step) {
-		this.community_step = community_step;
+
+	public void setStep(int step) {
+		this.step = step;
 	}
-	public int getCommunity_depth() {
-		return community_depth;
+
+	public int getDepth() {
+		return depth;
 	}
-	public void setCommunity_depth(int community_depth) {
-		this.community_depth = community_depth;
+
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
-	public String getCommunity_section() {
-		return community_section;
+
+	public String getSection() {
+		return section;
 	}
-	public void setCommunity_section(String community_section) {
-		this.community_section = community_section;
+
+	public void setSection(String section) {
+		this.section = section;
 	}
-	public int getCommunity_view() {
-		return community_view;
+
+	public int getView() {
+		return view;
 	}
-	public void setCommunity_view(int community_view) {
-		this.community_view = community_view;
+
+	public void setView(int view) {
+		this.view = view;
 	}
-	
 
 }
