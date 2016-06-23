@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link href="resources/css/login/joinagreement_css.css" type="text/css" rel="stylesheet">
+<title>회원가입 이용약관</title>
+<link type="text/css" rel="stylesheet" href="resources/css/login/joinagreement_css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <script type="text/javascript">
 
 var check1 = false;
@@ -39,7 +40,7 @@ function agreeCheck(){
 </script>
 </head>
 <body>
-
+<%@ include file="../include/header.jsp" %>
 	<div class="joinagreement_wrap">
 		<div align="center" class="joinagree_body">
 			<div class="joinagree_title" align="center">
@@ -377,8 +378,6 @@ mommefatale에서는 국내유수의 웹호스팅서비스를 이용하고 있�
 				
 			</div>
 		</div>
-	</div>
-
-
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

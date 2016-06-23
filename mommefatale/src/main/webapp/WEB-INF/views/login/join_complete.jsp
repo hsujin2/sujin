@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>회원가입 완료</title>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 </head>
 <body>
+<%@ include file="../include/header.jsp" %>
 회원가입 완료
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

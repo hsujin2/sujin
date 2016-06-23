@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>login_page</title>
+<title>로그인</title>
 <link rel="stylesheet" type="text/css" href="resources/css/login/login_css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 </head>
 
 <body>
 <div id="wrap">
-
+<%@ include file="../include/header.jsp" %>
 <section>
 	<div id="loginWrap">
     	<div id="member">
@@ -35,7 +36,7 @@
         </div>
     </div>
 </section>
-
+<%@ include file="../include/footer.jsp" %>
 </div>
 </body>
 </html>

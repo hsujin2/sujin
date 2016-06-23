@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="resources/css/login/join_css.css">
+<title>회원가입</title>
+<link rel="stylesheet" type="text/css" href="resources/css/login/join_css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <script src="http://dmaps.daum.net/map_js_init/postcode.js"></script>
     <script>
         function openDaumPostcode() {
@@ -61,6 +61,7 @@
 </head>
 
 <body>
+<%@ include file="../include/header.jsp" %>
 	<form name="regForm" method="get" action="joincomplete.do"
 		name="joinForm">
 		<div id="wrap">
@@ -347,5 +348,6 @@
 
 		</div>
 	</form>
+	<%@ include file="../include/footer.jsp" %>
 </body>
 </html>
