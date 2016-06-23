@@ -27,21 +27,6 @@
 <script type="text/javascript" src="resources/js/join_js.js"></script>
 <script type="text/javascript">
 	
-	function emailCheck(useremail1) {
-		var useremail2select = document.getElementById("useremail2")
-		var useremail2option = useremail2select.options[useremail2select.selectedIndex].value;
-		var useremail =useremail1+"@"+useremail2option
-		if (useremail1 == "") {
-			alert("메일을 입력해주세요");
-			document.regForm.useremail1.focus();
-		} else {
-			url = "emailCheck.do?useremail="+useremail;
-			window.open(url, "get", "width=300,height=180", "status=no",
-					"toolbar=no");
-
-		}
-		
-	}
 	function BMIcal(){
 		var height = parseInt(document.getElementById("height").value);
 		var weight = parseInt(document.getElementById("weight").value);
@@ -81,7 +66,7 @@
 								</tr>
 								<tr>
 									<td>아이디</td>
-									<td><input type="text" name="userid" id="userid" size="13" class="textin" value="${userLogin.getUserid()}"></td>
+									<td><input type="text" name="userid" id="userid" size="13" class="textin" value="${userLogin.getUserid()}" Disabled></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호</td>
@@ -144,8 +129,8 @@
 								</tr>
 								<tr>
 									<td colspan="3" align="center">키 : <input type="text" name="height" id="height"
-										size="2">&nbsp;cm&nbsp;&nbsp;&nbsp;&nbsp;몸무게 : <input type="text" name="weight" id="weight"
-										size="2" onkeyup="BMIcal()">&nbsp;kg&nbsp;&nbsp;&nbsp;&nbsp;BMI : <input type="text" name="bmi" id="bmi" size="4" readonly="readonly" ></td>
+										size="2" value="${userLogin.getHeight() }">&nbsp;cm&nbsp;&nbsp;&nbsp;&nbsp;몸무게 : <input type="text" name="weight" id="weight"
+										size="2" onkeyup="BMIcal()"  value="${userLogin.getWeight() }">&nbsp;kg&nbsp;&nbsp;&nbsp;&nbsp;BMI : <input type="text" name="bmi" id="bmi" size="4" readonly="readonly"  value="${userLogin.getBmi() }"></td>
 								</tr>
 								<tr>
 									<td>체형</td>

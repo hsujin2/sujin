@@ -8,6 +8,6 @@ public class UserUpdateController {
 
 	@RequestMapping("/userUpdate.do")
 	public String userUpdate(){
-		return "userUpdateProc";
+		return "user/userUpdateProc";
 	}
 }
