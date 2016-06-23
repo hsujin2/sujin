@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입 이용약관</title>
-<link type="text/css" rel="stylesheet" href="resources/css/login/joinagreement_css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/login/joinagreement_css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <script type="text/javascript">
 
@@ -40,8 +40,8 @@ function agreeCheck(){
 </script>
 </head>
 <body>
-<%@ include file="../include/header.jsp" %>
 	<div class="joinagreement_wrap">
+	<%@ include file="../include/header.jsp" %>
 		<div align="center" class="joinagree_body">
 			<div class="joinagree_title" align="center">
 				<img src="resources/images/login/logimg.png"
