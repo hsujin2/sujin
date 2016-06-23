@@ -48,8 +48,8 @@ private SqlSessionTemplate session;
 
 	@Override
 	public List<CommunityBoardVO> getCommunityList(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return session.selectList("com.mommefatale.board.BoardMapper.CommunityList", obj);
 	}
 
 }

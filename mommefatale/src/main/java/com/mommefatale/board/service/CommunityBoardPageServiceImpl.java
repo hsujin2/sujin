@@ -20,14 +20,12 @@ public class CommunityBoardPageServiceImpl implements CommunityBoardPageService 
 
 	@Override
 	public List<CommunityBoardVO> CommunityBoardPage(Object obj) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getCommunityList(obj);
 	}
 
 	@Override
 	public int CommunityPageCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.getCommunityCount();
 	}
 
 }

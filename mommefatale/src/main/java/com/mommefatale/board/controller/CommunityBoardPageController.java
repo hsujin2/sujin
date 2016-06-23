@@ -40,7 +40,9 @@ public class CommunityBoardPageController {
 	public ModelAndView CommunityBoardPage(HttpServletRequest request) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
+		request.setCharacterEncoding("UTF-8");
 		String pageNum = request.getParameter("pageNum");
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (pageNum == null || pageNum == "") {
 			pageNum = "1";
@@ -48,12 +50,12 @@ public class CommunityBoardPageController {
 		int currentPage = Integer.parseInt(pageNum);
 		int pageSize = 10;
 		int pageNavi = 3;
-		int page_count = command.CommunityPageCount();
-		System.out.println("page_count " + page_count);
+		int pageCount = command.CommunityPageCount();
+		
 
-		int number = page_count - (currentPage - 1) * pageSize;
+		int number = pageCount - (currentPage - 1) * pageSize;
 
-		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
+		paging.setPaging(pageSize, pageNavi, pageCount, currentPage);
 		map.put("startRow", paging.getWriting_Start());
 		map.put("endRow", paging.getWriting_End());
 
@@ -62,7 +64,7 @@ public class CommunityBoardPageController {
 		Map<String, Object> model = new HashMap<String, Object>();
 
 		model.put("boardList", vo);
-		model.put("page_count", new Integer(page_count));
+		model.put("pageCount", new Integer(pageCount));
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
