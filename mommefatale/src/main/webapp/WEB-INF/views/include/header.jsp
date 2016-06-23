@@ -16,13 +16,13 @@
         <li><a href="#">sitemap</a></li> 
     </ul>
     <ul class="util_right">    
-        <li><a href="#">join</a></li> 
-        <li><a href="#">login</a></li>
+        <li><a href="joinagreement.do">join</a></li> 
+        <li><a href="login.do">login</a></li>
         <li><a href="#">mypage</a></li> 
         <li><a href="#" onClick="addBookmark()">bookmark</a></li>
   </ul>
   </div>
-     <h1><a href="#"><img src="resources/images/index/logo.png" alt="몸므파탈로고" id="logo"/></a></h1>
+     <h1><a href="index.do"><img src="resources/images/index/logo.png" alt="몸므파탈로고" id="logo"/></a></h1>
   <nav id="gnb">
      <ul id="gnb_shop">
 		<li><a href="#">Equipment</a>
