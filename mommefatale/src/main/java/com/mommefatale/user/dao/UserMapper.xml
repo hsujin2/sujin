@@ -38,7 +38,6 @@
 		<result property="lastvisit" column="MEMBER_LAST_VISIT_DATE" jdbcType="VARCHAR" />
 	</resultMap>
 	
-	
 	<!-- UserId 중복여부 -->
 	<select id="selectId" parameterType="java.lang.String" resultMap="toUserVO">
 		SELECT * FROM MEMBER WHERE MEMBER_ID=#{userid}
