@@ -52,8 +52,9 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 
 	@Override
 	public int getCommunityCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		int count = session.selectOne("com.mommefatale.board.dao.BoardMapper.communityCount");
+		System.out.println("DAOcount = " + count);
+		return count;
 	}
 
 	@Override
