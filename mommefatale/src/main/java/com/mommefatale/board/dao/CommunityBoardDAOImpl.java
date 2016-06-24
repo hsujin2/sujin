@@ -47,7 +47,7 @@ private SqlSessionTemplate session;
 	@Override
 	public List<CommunityBoardVO> getCommunityList(Object obj) {
 		
-		return session.selectList("com.mommefatale.board.BoardMapper.CommunityList", obj);
+		return session.selectList("com.mommefatale.board.dao.BoardMapper.CommunityList", obj);
 	}
 
 }
