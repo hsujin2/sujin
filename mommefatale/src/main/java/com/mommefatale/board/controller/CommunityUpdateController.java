@@ -35,7 +35,7 @@ public class CommunityUpdateController {
 		this.service = service;
 	}
 	
-	@RequestMapping(value="communityUpdate.do")
+	@RequestMapping(value="/communityUpdate.do")
 	public ModelAndView knowHowUpdatePage(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 글수정페이지 컨트롤러");
 		ModelAndView mav = new ModelAndView();
@@ -46,9 +46,9 @@ public class CommunityUpdateController {
 		return mav;
 	}
 	
-	@RequestMapping(value="communityUpdateProc.do")
+	@RequestMapping(value="/communityUpdateProc.do")
 	public ModelAndView knowHowUpdate(HttpServletRequest request)throws Exception{
-		System.out.println("자유게시판 글수정 Controller");
+		System.out.println("자유게시판 글수정 컨트롤러");
 		ModelAndView mav= new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		int no = Integer.parseInt(request.getParameter("no"));
