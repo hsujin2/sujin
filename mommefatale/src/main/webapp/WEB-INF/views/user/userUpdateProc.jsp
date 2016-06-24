@@ -80,11 +80,11 @@
 								</tr>
 
 								<tr>
-									<td>생년월일</td>
+									<td><img src="resources/images/login/required.gif">생년월일</td>
 									<td>
-									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),0,4)}" size="3">&nbsp;년&nbsp;
-									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),5,7)}" size="3">&nbsp;월&nbsp;
-									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),8,10)}" size="3">&nbsp;일&nbsp;
+									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),0,4)}" size="3" readonly="readonly">&nbsp;년&nbsp;
+									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),5,7)}" size="3" readonly="readonly">&nbsp;월&nbsp;
+									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),8,10)}" size="3" readonly="readonly">&nbsp;일&nbsp;
 									</td>
 
 								</tr>
