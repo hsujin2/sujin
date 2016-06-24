@@ -23,13 +23,13 @@ private SqlSessionTemplate session;
 	@Override
 	public void CommunityWrite(Map<String, Object> vo) {
 
-		session.insert("com.mommefatale.board.BoardMapper.communityWrite",vo);
+		session.insert("com.mommefatale.board.dao.BoardMapper.communityWrite",vo);
 		return;
 	}
 
 	@Override
 	public void CommunityModify(Map<String, Object> vo) {
-		session.update("com.mommefatale.board.BoardMapper.CommunityUpdate", vo);
+		session.update("com.mommefatale.board.dao.BoardMapper.CommunityUpdate", vo);
 	}
 
 	
