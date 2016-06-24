@@ -75,9 +75,9 @@
 					<tr>
 						<th class="no">NO.</th>
 						<td id="no">${vo.no}</td>
-						<th>글쓴이</th>
-						<td id="writer">${vo.writer}</td>
 						<td id="space"></td>
+						<th class="writer">글쓴이</th>
+						<td id="writer">${vo.writer}</td>
 						<th>작성일자</th>
 						<td id="regdate"><fmt:formatDate value="${vo.regdate}" type="date" pattern="yyyy-MM-dd HH:mm"/></td>
 						<th>조회수</th>
@@ -88,8 +88,7 @@
 						<td colspan="7" id="subject">&nbsp;&nbsp;&nbsp;${vo.section} - ${vo.subject}</td>
 					</tr>
 					<tr>
-						<th colspan="2">내&nbsp;&nbsp;&nbsp;용</th>
-						<td colspan="7" id="content"><pre>${vo.content}</pre></td>
+						<td colspan="9" id="content"><pre>${vo.content}</pre></td>
 					</tr>
 					<tr>
 						<td colspan="9"><hr class="board_hr"></td>
