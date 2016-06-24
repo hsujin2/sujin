@@ -25,7 +25,26 @@
         }
     </script>
 <script type="text/javascript" src="resources/js/join_js.js"></script>
+
 <script type="text/javascript">
+	window.onload=function(){
+		var fat1 = ${userLogin.getFat_part1}
+		if(avc1.equals("산책")){
+		document.regForm.activity_code1.checked=true;
+		}
+		if(avc2.equals("대중교통이용")){
+			document.regForm.activity_code2.checked=true;
+			}
+		if(avc3.equals("규칙적운동")){
+			document.regForm.activity_code3.checked=true;
+			}
+		if(avc4.equals("계단이용")){
+			document.regForm.activity_code4.checked=true;
+			}
+		if(avc5.equals("신체활용업무")){
+			document.regForm.activity_code5.checked=true;
+			}
+	}
 	
 	function BMIcal(){
 		var height = parseInt(document.getElementById("height").value);
@@ -33,6 +52,7 @@
 		var bmi = weight/((height*0.01)*(height*0.01));
 		bmi = Number(bmi.toFixed(1));
 		document.getElementById("bmi").value = bmi;
+		
 	}
 	
 </script>
@@ -80,7 +100,7 @@
 								</tr>
 
 								<tr>
-									<td><img src="resources/images/login/required.gif">생년월일</td>
+									<td>생년월일</td>
 									<td>
 									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),0,4)}" size="3" readonly="readonly">&nbsp;년&nbsp;
 									<input type="text" name="birth1" id="birth1" class="textin" value="${fn:substring(userLogin.getBirthday(),5,7)}" size="3" readonly="readonly">&nbsp;월&nbsp;
@@ -153,8 +173,9 @@
 								<tr>
 									<td>활동량(중복가능)</td>
 									<td><input type="checkbox" name="activity_code1" value="1">산책<input
-										type="checkbox" name="activity_code2" value="2">대중교통이용<input type="checkbox" name="activity_code3" value="3">규칙적운동<input
-										type="checkbox" name="activity_code4" value="4">계단이용<input type="checkbox" name="activity_code5" value="5">신체활용업무</td>
+										type="checkbox" name="activity_code2" id="activity_code2" value="2">대중교통이용<input type="checkbox" name="activity_code3" value="3">규칙적운동<input
+										type="checkbox" name="activity_code4" value="4">계단이용<input type="checkbox" name="activity_code5" value="5">신체활용업무
+										</td>
 								</tr>
 								<tr>
 									<td colspan="3" align="center"><br> <input
