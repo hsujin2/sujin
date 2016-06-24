@@ -9,4 +9,6 @@ public interface UserDAO {
 	public UserVO emailCheck(String useremail);
 	public void insertUser(Map<String, Object> vo);
 	public UserVO loginCheck(String id);
+	public void userUpdate(Map<String, Object> vo);
+	public UserVO sessionUpdate(String id);
 }

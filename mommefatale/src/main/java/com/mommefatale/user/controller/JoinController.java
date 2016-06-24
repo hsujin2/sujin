@@ -66,23 +66,6 @@ public class JoinController {
 			vo.put("fat_part6", "");
 		}
 		
-//		for(int i=0; i<5; i++){
-//			String fat_part = "fat_part" + (i+1);
-//			String fat = request.getParameter(fat_part);
-//			if(fat==null){vo.put(fat_part, "");}
-//		}
-		
-//		String[] fat = request.getParameterValues("fat");
-//		for(int i=0;i<fat.length;i++){
-//			if(fat[i]!=null){
-//				vo.put("fat_part"+(i+1), fat[i]);
-//			}else{
-//				vo.put("fat_part"+(i+1), "");
-//			}
-//			String test = (String)vo.get("fat_part"+(i+1));
-//			System.out.println("-----------"+test);
-//		}
-		
 		//성별 및 나이로 하루권장 칼로리 계산
 		int kcal=0;
 		String gender = request.getParameter("gender");
@@ -128,22 +111,6 @@ public class JoinController {
 			kcal+=350;
 		}
 		
-//		String[] activity = request.getParameterValues("activity");
-//		for(int i=0;i<activity.length;i++){
-//			if(activity[i]!=null){
-//				vo.put("activity_code"+(i+1), activity[i]);
-//			}else{
-//				vo.put("activity_code"+(i+1), "0");
-//			}
-//
-//			switch(activity[i]){
-//			case "산책" : kcal+=100; break;
-//			case "대중교통이용" : kcal+=200;break;
-//			case "규칙적운동" : kcal+=300;break;
-//			case "계단이용" : kcal+=250;break;
-//			case "신체활용업무" : kcal+=350;break;
-//			}
-//		}
 		vo.put("kcal", kcal);
 		
 		String birthday = request.getParameter("birth1")+request.getParameter("birth2")+request.getParameter("birth3");

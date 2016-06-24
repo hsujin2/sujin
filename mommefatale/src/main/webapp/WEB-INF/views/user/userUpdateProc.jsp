@@ -57,15 +57,15 @@
 								<tr>
 									<td width="30%">이름</td>
 									<td width="70%"><input type="text" name="username"
-										size="13" class="textin" tabindex="1" value="${userLogin.getName()}" Disabled></td>
+										size="13" class="textin" tabindex="1" value="${userLogin.getName()}" readonly="readonly"></td>
 								</tr>
 								<tr>
 									<td>성별</td>
-									<td><input type="text" name="gender" value="${userLogin.getGender()}" Disabled size="3"></td>
+									<td><input type="text" name="gender" value="${userLogin.getGender()}" readonly="readonly" size="3"></td>
 								</tr>
 								<tr>
 									<td>아이디</td>
-									<td><input type="text" name="userid" id="userid" size="13" class="textin" value="${userLogin.getUserid()}" Disabled></td>
+									<td><input type="text" name="userid" id="userid" size="13" class="textin" value="${userLogin.getUserid()}" readonly="readonly"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호</td>

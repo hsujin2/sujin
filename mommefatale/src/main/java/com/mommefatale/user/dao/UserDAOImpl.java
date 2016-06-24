@@ -34,7 +34,18 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UserVO loginCheck(String id) {
 		
-		String statement = "com.mommefatale.user.dao.UserMapper";
+		return session.selectOne(namespace + ".selectId",id);
+	}
+
+	@Override
+	public void userUpdate(Map<String, Object> vo) {
+		
+		session.update(namespace + ".userUpdate",vo);
+	}
+
+	@Override
+	public UserVO sessionUpdate(String id) {
+
 		return session.selectOne(namespace + ".selectId",id);
 	}
 	

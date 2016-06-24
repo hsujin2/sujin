@@ -28,6 +28,9 @@
 	<bean id="UserLoginService" class="com.mommefatale.user.service.UserLoginServiceImpl">
 		<property name="dao" ref="UserDAO"/>
 	</bean>
+	<bean id="UserUpdateService" class="com.mommefatale.user.service.UserUpdateServiceImpl">
+		<property name="dao" ref="UserDAO"/>
+	</bean>
 	
 	<!-- controller -->
 	<bean class="com.mommefatale.user.controller.LoginController">
@@ -48,5 +51,6 @@
 	<bean class="com.mommefatale.user.controller.MyPageController">
 	</bean>
 	<bean class="com.mommefatale.user.controller.UserUpdateController">
+		<property name="command" ref="UserUpdateService"></property>
 	</bean>
 </beans>
