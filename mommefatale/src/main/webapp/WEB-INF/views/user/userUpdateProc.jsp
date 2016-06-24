@@ -132,11 +132,11 @@
 									<td><img src="resources/images/login/required.gif">비밀번호</td>
 									<td><input type="password" name="userpass" size="13"
 										maxlength="15" class="textin" required> <font size="2">문자와
-											숫자를 조합하여 2~15자리로 만들어주세요.</font></td>
+											숫자를 조합하여 6~15자리로 만들어주세요.</font></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호확인</td>
-									<td><input type="password" name="userpasscheck" size="8"
+									<td><input type="password" name="userpasscheck" size="13"
 										maxlength="12" class="textin" required></td>
 								</tr>
 
