@@ -20,6 +20,7 @@ public class CommunityBoardPageServiceImpl implements CommunityBoardPageService 
 
 	@Override
 	public List<CommunityBoardVO> CommunityBoardPage(Object obj) {
+		System.out.println("자유게시판 리스트 서비스");
 		return dao.getCommunityList(obj);
 	}
 
