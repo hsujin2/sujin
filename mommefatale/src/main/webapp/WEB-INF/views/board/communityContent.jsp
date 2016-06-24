@@ -31,7 +31,7 @@
             				return;
             			}
             			if(check == "true" || loginUser == user){
-            				location.href="knowDelete.do?no="+${vo.no};
+            				location.href="communityDelete.do?no="+${vo.no};
             			}
             		}else{
 						return;            			
