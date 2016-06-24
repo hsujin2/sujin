@@ -29,22 +29,22 @@
            <h3 class="best">BEST상품</h3>
           <ul class="bestitem">
             	<li>
-                    <span><a href="#"><img src="img/980399_1.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/980399_1.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
             <li>
-                    <span><a href="#"><img src="img/ORG-1800-B3.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/ORG-1800-B3.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
                 <li>
-                    <span><a href="#"><img src="img/0050020000232.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/0050020000232.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
                 <li>
-                    <span><a href="#"><img src="img/Contents_20121129113252_.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/Contents_20121129113252_.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
@@ -54,42 +54,42 @@
             <h3 class="best">전체 상품</h3>
             <ul class="allitem">
             	<li>
-                    <span><a href="#"><img src="img/Contents_20121129113252_.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/Contents_20121129113252_.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
            	    <li>
-                    <span><a href="#"><img src="img/ORG-1800-B3.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/ORG-1800-B3.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
                 <li>
-                    <span><a href="#"><img src="img/0050020000232.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/0050020000232.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
                 <li>
-                    <span><a href="#"><img src="img/980399_1.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/980399_1.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
                 <li>
-                    <span><a href="#"><img src="img/980399_1.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/980399_1.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
            	    <li>
-                    <span><a href="#"><img src="img/0050020000232.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/0050020000232.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
                 <li>
-                    <span><a href="#"><img src="img/Contents_20121129113252_.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/Contents_20121129113252_.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
                 <li>
-                    <span><a href="#"><img src="img/0050020000232.jpg"/></a></span>
+                    <span><a href="#"><img src="resources/images/equipment/0050020000232.jpg"/></a></span>
                     <a href="#"><span>파워런닝머신</span><br /><span>체력 증진을 위한 파워런닝머신</span>
                     <br /><span>1,339,000원</span></a>
                 </li>
