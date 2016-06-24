@@ -13,13 +13,13 @@ public interface CommunityBoardDAO {
 			//목록 가져오기
 			public List<CommunityBoardVO> getCommunityList(Object obj);
 			//글 내용 가져오기
-	//		public CommunityVO getCommunityContent(int num);
+			public CommunityBoardVO getCommunityContent(int no);
 			//글 수정하기
-			public void CommunityModify(Map<String, Object> vo);
+			public void CommunityUpdate(Map<String, Object> vo);
 			//글 삭제하기
-			public void CommunityDelete(int num);
+			public void CommunityDelete(int no);
 			// 글 검색하기
-	//		public CommunityVO CommunitySearch(Map<String, Object> vo);
+			public CommunityBoardVO CommunitySearch(Map<String, Object> vo);
 			//글 개수 가져오기
 			public int getCommunityCount();
 }

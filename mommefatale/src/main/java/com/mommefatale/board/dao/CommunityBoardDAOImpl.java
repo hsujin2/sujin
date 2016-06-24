@@ -9,8 +9,8 @@ import com.mommefatale.board.model.CommunityBoardVO;
 
 public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 
-private SqlSessionTemplate session;
-	
+	private SqlSessionTemplate session;
+
 	public SqlSessionTemplate getSession() {
 		return session;
 	}
@@ -18,24 +18,36 @@ private SqlSessionTemplate session;
 	public void setSession(SqlSessionTemplate session) {
 		this.session = session;
 	}
-	
-	
+
 	@Override
 	public void CommunityWrite(Map<String, Object> vo) {
-
-		session.insert("com.mommefatale.board.dao.BoardMapper.communityWrite",vo);
+		System.out.println("자유게시판 글쓰기 DAO");
+		session.insert("com.mommefatale.board.dao.BoardMapper.communityWrite", vo);
 		return;
 	}
 
 	@Override
-	public void CommunityModify(Map<String, Object> vo) {
+	public List<CommunityBoardVO> getCommunityList(Object obj) {
+		System.out.println("자유게시판 리스트 DAO");
+		return session.selectList("com.mommefatale.board.dao.BoardMapper.communityList", obj);
+	}
+
+	@Override
+	public CommunityBoardVO getCommunityContent(int no) {
+		System.out.println("자유게시판 글내용 DAO");
+		return session.selectOne("com.mommefatale.board.dao.BoardMapper.communityContent", no);
+	}
+
+	@Override
+	public void CommunityUpdate(Map<String, Object> vo) {
+		System.out.println("자유게시판 글수정 DAO");
 		session.update("com.mommefatale.board.dao.BoardMapper.communityUpdate", vo);
 	}
 
-	
 	@Override
-	public void CommunityDelete(int num) {
-		
+	public void CommunityDelete(int no) {
+		System.out.println("자유게시판 글삭제 DAO");
+		session.delete("com.mommefatale.board.dao.BoardMapper.communityDelete", no);
 	}
 
 	@Override
@@ -45,9 +57,9 @@ private SqlSessionTemplate session;
 	}
 
 	@Override
-	public List<CommunityBoardVO> getCommunityList(Object obj) {
-		
-		return session.selectList("com.mommefatale.board.dao.BoardMapper.communityList", obj);
+	public CommunityBoardVO CommunitySearch(Map<String, Object> vo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
