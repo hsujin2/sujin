@@ -3,9 +3,10 @@
 .board{margin:50px auto;}
 #community_board{width:800px; margin:10px auto;}
 .write_button{text-align: right;}
-.no{text-align:center; width:5px;}
-#no{text-align:left; width:10px;}
-#writer{text-align:center; width:50px;}
+.no{text-align:center; width:20px;}
+#no{text-align:center; width:20px;}
+.writer{text-align:right;}
+#writer{text-align:center; width:100px;}
 #space{width:250px;}
 #regdate{text-align:center; width:150px;}
 #view{text-align:right; width:10px;}

@@ -6,6 +6,7 @@
 	<result property="no" column="community_no" jdbcType="BIGINT"/>
 	<result property="writer" column="community_writer" jdbcType="VARCHAR"/>
 	<result property="subject" column="community_subject" jdbcType="VARCHAR"/>
+	<result property="content" column="community_content" jdbcType="VARCHAR"/>
 	<result property="regdate" column="community_regdate" jdbcType="VARCHAR"/>
 	<result property="update_date" column="community_update_date" jdbcType="DATE"/>
 	<result property="ref" column="community_ref" jdbcType="BIGINT"/>
