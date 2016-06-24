@@ -14,6 +14,9 @@
 	<bean id="communityWriteController" class="com.mommefatale.board.controller.CommunityWriteController">
 		<property name="command" ref="communityWriteService"/>
 	</bean>
+	<bean id="communityContentController" class="com.mommefatale.board.controller.CommunityContentController">
+		<property name="command" ref="communityContentService"/>
+	</bean>
 	
 <!-- Service -->	
 	<bean id="communityBoardPageService" class="com.mommefatale.board.service.CommunityBoardPageServiceImpl">
@@ -22,6 +25,10 @@
 	<bean id="communityWriteService" class="com.mommefatale.board.service.CommunityWriteServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
+	<bean id="communityContentService" class="com.mommefatale.board.service.CommunityContentServiceImpl">
+		<property name="dao" ref="communityBoardDAO"/>	
+	</bean>
+	
 <!-- DAO -->	
 	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
 		<property name="session" ref="sqlSessionTemplate"/>
