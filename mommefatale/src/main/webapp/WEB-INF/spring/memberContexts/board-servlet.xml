@@ -17,6 +17,9 @@
 	<bean id="communityContentController" class="com.mommefatale.board.controller.CommunityContentController">
 		<property name="command" ref="communityContentService"/>
 	</bean>
+	<bean id="communityUpdateController" class="com.mommefatale.board.controller.CommunityUpdateController">
+		<property name="command" ref="communityUpdateService"/>
+	</bean>
 	
 <!-- Service -->	
 	<bean id="communityBoardPageService" class="com.mommefatale.board.service.CommunityBoardPageServiceImpl">
@@ -27,6 +30,9 @@
 	</bean>
 	<bean id="communityContentService" class="com.mommefatale.board.service.CommunityContentServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>	
+	</bean>
+	<bean id="communityUpdateService" class="com.mommefatale.board.service.CommunityUpdateServiceImpl">
+		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
 	
 <!-- DAO -->	
