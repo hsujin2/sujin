@@ -1,1 +1,7 @@
 @CHARSET "UTF-8";
+.title{margin:0 auto 50px;}
+.board{margin:50px auto;}
+#community_board{width:800px; margin:10px auto;}
+.write_button{text-align: right;}
+.board_hr{width:800px; size:1px; margin:10px auto;}
+#footList{margint:10px auto;}

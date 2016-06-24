@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
 </head>
 <body>
 <div id="wrap" >
@@ -29,20 +30,23 @@
 					}
 				</script>
 <div class="board">
-					<table summary="게시판" cellspacing="0">
+					<table summary="자유게시판" id="community_board">
 					<h2 class="title">자유 게시판</h2>
-					<button class="writer" onclick="communityWrite()">글쓰기</button>
 						<colgroup>
-							<col width="5%" >
+							<col width="8%" >
+							<col width="15%">
 							<col>
-							<col span="3"width="10%">
+							<col width="10%">
+							<col width="18%">
+							<col width="10%">
 						</colgroup>
 						<thead>
 							<tr>
-								<th scope="col">no</th>
+								<th scope="col">글번호</th>
+								<th scope="col">말머리</th>
 								<th scope="col">제목</th>
 								<th scope="col">글쓴이</th>
-								<th scope="col">날짜</th>
+								<th scope="col">작성일</th>
 								<th scope="col">조회수</th>
 							</tr>
 						</thead>
@@ -50,6 +54,7 @@
 						<c:if test="${count == 0 }">
 						
 							<tr>
+								<td></td>
 								<td></td>
 								<td>자유게시판에 등록된 글이 없습니다.</td>
 								<td></td>
@@ -61,7 +66,9 @@
 						<c:if test="${count != 0 }">
 							<c:forEach var="vo" items="${vo}">
 								<tr>
-									<td>${vo.no }</td>
+									<!--  <td><c:set var="no" value="${no-1 }" scope="page"/></td>-->
+									<td>${vo.no}</td>
+									<td>${vo.section}</td>
 									<td class="align_left"><a href="communityContent.do?no=${vo.no }">${vo.subject }</a></td>
 									<td>${vo.writer }</td>
 									<td><fmt:formatDate value="${vo.regdate }" type="date" pattern="yyyy-MM-dd HH:mm"/></td>
@@ -71,7 +78,8 @@
 						</c:if>
 						</tbody>
 					</table>
-				
+				<hr class="board_hr">
+				<button class="write_button" onclick="communityWrite()">글쓰기</button>
 				<div id="footList">
 				   <c:if test="${paging.isPre()}"><a href="communityBoard.do?pageNum=${paging.getPage_Start()-paging.p_size}">[이전]</a>&nbsp;&nbsp;</c:if>
                   <c:forEach var="counter" begin="${paging.getPage_Start()}" end="${paging.getPage_End()}">
