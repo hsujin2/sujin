@@ -32,7 +32,7 @@
 	    <c:otherwise>
 	    	<li><a href="joinagreement.do">join</a></li> 
 	        <li><a href="login.do">login</a></li>
-	        <li><a href="#">mypage</a></li>
+	        <li><a href="mypage.do">mypage</a></li>
 	    </c:otherwise>
     </c:choose>    
         <li><a href="#" onClick="addBookmark()">bookmark</a></li>
