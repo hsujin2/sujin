@@ -3,16 +3,16 @@
 <mapper namespace="com.mommefatale.board.dao.BoardMapper">
 
 <resultMap id="communityResultMap" type="com.mommefatale.board.model.CommunityBoardVO">
-	<result property="no" column="community_no"/>
-	<result property="writer" column="community_writer"/>
-	<result property="subject" column="community_subject"/>
-	<result property="regdate" column="community_regdate"/>
-	<result property="update_date" column="community_update_date"/>
-	<result property="ref" column="community_ref"/>
-	<result property="step" column="community_step"/>
-	<result property="depth" column="community_depth"/>
-	<result property="section" column="community_section"/>
-	<result property="view" column="community_view"/>
+	<result property="no" column="community_no" jdbcType="BIGINT"/>
+	<result property="writer" column="community_writer" jdbcType="VARCHAR"/>
+	<result property="subject" column="community_subject" jdbcType="VARCHAR"/>
+	<result property="regdate" column="community_regdate" jdbcType="VARCHAR"/>
+	<result property="update_date" column="community_update_date" jdbcType="DATE"/>
+	<result property="ref" column="community_ref" jdbcType="BIGINT"/>
+	<result property="step" column="community_step" jdbcType="BIGINT"/>
+	<result property="depth" column="community_depth" jdbcType="BIGINT"/>
+	<result property="section" column="community_section" jdbcType="VARCHAR"/>
+	<result property="view" column="community_view" jdbcType="BIGINT"/>
 </resultMap>
 
 <!-- Community 리스트 가져오기 -->

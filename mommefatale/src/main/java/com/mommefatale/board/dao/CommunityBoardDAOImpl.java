@@ -29,7 +29,7 @@ private SqlSessionTemplate session;
 
 	@Override
 	public void CommunityModify(Map<String, Object> vo) {
-		session.update("com.mommefatale.board.dao.BoardMapper.CommunityUpdate", vo);
+		session.update("com.mommefatale.board.dao.BoardMapper.communityUpdate", vo);
 	}
 
 	
@@ -47,7 +47,7 @@ private SqlSessionTemplate session;
 	@Override
 	public List<CommunityBoardVO> getCommunityList(Object obj) {
 		
-		return session.selectList("com.mommefatale.board.dao.BoardMapper.CommunityList", obj);
+		return session.selectList("com.mommefatale.board.dao.BoardMapper.communityList", obj);
 	}
 
 }
