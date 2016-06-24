@@ -3,22 +3,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 <!-- Controller -->
 	<bean id="communityBoardPageController" class="com.mommefatale.board.controller.CommunityBoardPageController">
-		<property name="command" ref="communityBoardPageService"></property>
+		<property name="command" ref="communityBoardPageService"/>
 		<property name="paging" ref="paging"/>
+	</bean>
+	<bean id="communityWriteController" class="com.mommefatale.board.controller.CommunityWriteController">
+		<property name="command" ref="communityWriteService"/>
 	</bean>
 	
 <!-- Service -->	
 	<bean id="communityBoardPageService" class="com.mommefatale.board.service.CommunityBoardPageServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
-	
+	<bean id="communitWriteService" class="com.mommefatale.board.service.CommunityWriteServiceImpl">
+		<property name="dao" ref="communityBoardDAO"/>
+	</bean>
 <!-- DAO -->	
 	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
 		<property name="session" ref="sqlSessionTemplate"/>
