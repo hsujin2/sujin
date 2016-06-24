@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판 글쓰기폼</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
 <script>
 	function FormCheck() {
 		var writer = document.getElementById("writer");
@@ -40,31 +41,35 @@
 	<%@ include file="../include/header.jsp"%>
 	<div id="wrap">
 		<div class="board">
-		<h2>자유게시판</h2>
+		<h2 class="title">자유게시판</h2>
 			<form name="communityWriteForm" method="post"
 				action="communityWrite.do" id="writeForm">
-				<table summary="테이블 구성">
+				<table summary="테이블 구성" id="community_board">
 					<tr>
-						<td>작성자</td>
-						<td colspan="3"><input type="text" name="writer" id="writer" size="15"
+						<th>작성자</th>
+						<td>&nbsp;&nbsp;<input type="text" name="writer" id="writer" size="10"
 							maxlength="15" value="${userLogin.name }" readonly></td>
+						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td>제목</td>
-						<td>	<select name="section" id="section">
-									<optgroup label="말머리">말머리</optgroup>
+						<th>제&nbsp;&nbsp;&nbsp;목</th>
+						<td>&nbsp;&nbsp;<select name="section" id="section">
+									<!--  <optgroup label="말머리" class="hidden"></optgroup>-->
+									<option value="">말머리 선택</option>
 									<option value="상품문의">상품문의</option>
 									<option value="다이어트문의">다이어트문의</option>
+									<option value="상품후기">상품후기</option>
+									<option value="다이어트후기">다이어트후기</option>
 								</select>
 						</td>
 						<td><input type="text" name="subject" id="subject" size="80"></td>
 					</tr>
 					<tr>
-						<td>내 용</td>
-						<td colspan="3"><textarea name="content" id="content" rows="10" cols="80"></textarea></td>
+						<th>내&nbsp;&nbsp;&nbsp;용</th>
+						<td colspan="2"><textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea></td>
 					</tr>
 					<tr>
-						<td colspan="3"><hr size="1"></td>
+						<td colspan="3"><hr class="board_hr"></td>
 					</tr>
 					<tr>
 						<td colspan="3">

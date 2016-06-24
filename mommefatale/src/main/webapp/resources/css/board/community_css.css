@@ -3,5 +3,6 @@
 .board{margin:50px auto;}
 #community_board{width:800px; margin:10px auto;}
 .write_button{text-align: right;}
+#writer{text-align:center;}
 .board_hr{width:800px; size:1px; margin:10px auto;}
 #footList{margint:10px auto;}
