@@ -26,7 +26,7 @@
 				return;
 				}
 				
-				document.knowHowWriteForm.submit();
+				document.communityWriteForm.submit();
 			}
 			
 			function writeCancel(){
