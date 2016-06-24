@@ -48,6 +48,11 @@ public class UserDAOImpl implements UserDAO {
 
 		return session.selectOne(namespace + ".selectId",id);
 	}
+
+	@Override
+	public void deleteUser(String userid) {
+		session.delete(namespace + ".userdelete",userid);
+	}
 	
 	
 	

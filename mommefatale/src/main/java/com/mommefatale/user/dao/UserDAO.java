@@ -11,4 +11,5 @@ public interface UserDAO {
 	public UserVO loginCheck(String id);
 	public void userUpdate(Map<String, Object> vo);
 	public UserVO sessionUpdate(String id);
+	public void deleteUser(String userid);
 }

@@ -31,6 +31,9 @@
 	<bean id="UserUpdateService" class="com.mommefatale.user.service.UserUpdateServiceImpl">
 		<property name="dao" ref="UserDAO"/>
 	</bean>
+	<bean id="UserDeleteService" class="com.mommefatale.user.service.UserDeleteServiceImpl">
+		<property name="dao" ref="UserDAO"/>
+	</bean>
 	
 	<!-- controller -->
 	<bean class="com.mommefatale.user.controller.LoginController">
@@ -52,5 +55,8 @@
 	</bean>
 	<bean class="com.mommefatale.user.controller.UserUpdateController">
 		<property name="command" ref="UserUpdateService"></property>
+	</bean>
+	<bean class="com.mommefatale.user.controller.UserDeleteController">
+		<property name="command" ref="UserDeleteService"></property>
 	</bean>
 </beans>
