@@ -19,7 +19,7 @@
 	<bean id="communityBoardPageService" class="com.mommefatale.board.service.CommunityBoardPageServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
-	<bean id="communitWriteService" class="com.mommefatale.board.service.CommunityWriteServiceImpl">
+	<bean id="communityWriteService" class="com.mommefatale.board.service.CommunityWriteServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
 <!-- DAO -->	
