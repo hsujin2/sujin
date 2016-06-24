@@ -18,11 +18,11 @@
 						var manager = "${isManager}";
 	
 						if(user == null && manager == "false"){
-							alert("로그인을 하셔야 글을 쓰실수 있습니다.");
+							alert("로그인 후 글쓰기가 가능합니다.");
 							return;
 						}
 						if(user =="" && manager == ""){
-							alert("로그인을 하셔야 글을 쓰실수 있습니다.");
+							alert("로그인 후 글쓰기가 가능합니다.");
 							return;
 						}
 						window.location="/mommefatale/communityWriteForm.do";
@@ -83,7 +83,7 @@
                      </c:if>   
                   </c:forEach>
                   <c:if test="${paging.isNext()}">
-                     <a href="knowHowBoard.do?pageNum=${paging.getPage_Start()+paging.p_size}">[다음]</a>
+                     <a href="communityBoard.do?pageNum=${paging.getPage_Start()+paging.p_size}">[다음]</a>
                   </c:if>
 				
 				</div>

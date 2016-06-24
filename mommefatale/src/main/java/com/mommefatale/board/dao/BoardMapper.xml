@@ -22,7 +22,7 @@
 
 <!-- Community 글쓰기 -->
 	<insert id="communityWrite" parameterType="java.util.Map">
-		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, #{section})]]>
+		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_update_date, community_ref, community_step, community_depth, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, community_seq.nextval, 0, 0, #{section})]]>
 	</insert>
 
 <!-- Community 글내용 가져오기 -->	
