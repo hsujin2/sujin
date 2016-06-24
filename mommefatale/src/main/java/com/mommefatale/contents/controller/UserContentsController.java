@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserContentsController {
-	@RequestMapping("/contents.do")
+	@RequestMapping("/recommended_products.do")
 	public String contents(){
 		
-		return "contents/contents";
+		return "contents/recommended_products";
 	}
 }
