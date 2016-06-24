@@ -28,22 +28,63 @@
 
 <script type="text/javascript">
 	window.onload=function(){
-		var fat1 = ${userLogin.getFat_part1}
-		if(avc1.equals("산책")){
-		document.regForm.activity_code1.checked=true;
-		}
-		if(avc2.equals("대중교통이용")){
-			document.regForm.activity_code2.checked=true;
-			}
-		if(avc3.equals("규칙적운동")){
-			document.regForm.activity_code3.checked=true;
-			}
-		if(avc4.equals("계단이용")){
-			document.regForm.activity_code4.checked=true;
-			}
-		if(avc5.equals("신체활용업무")){
-			document.regForm.activity_code5.checked=true;
-			}
+		//비만부위
+		var fat1 = "${userLogin.getFat_part1()}";
+		var fat2 = "${userLogin.getFat_part2()}";
+		var fat3 = "${userLogin.getFat_part3()}";
+		var fat4 = "${userLogin.getFat_part4()}";
+		var fat5 = "${userLogin.getFat_part5()}";
+		var fat6 = "${userLogin.getFat_part6()}";
+		
+ 		if(fat1=="상복부"){
+ 		document.regForm.fat_part1.checked=true;
+ 			}
+ 		if(fat2=="하복부"){
+ 			document.regForm.fat_part2.checked=true;
+ 			}
+ 		if(fat3=="옆구리"){
+ 			document.regForm.fat_part3.checked=true;
+ 			}
+ 		if(fat4=="허벅지"){
+ 			document.regForm.fat_part4.checked=true;
+ 			}
+ 		if(fat5=="팔뚝살"){
+ 			document.regForm.fat_part5.checked=true;
+ 			}
+ 		if(fat6=="종아리"){
+ 			document.regForm.fat_part6.checked=true;
+ 			}
+ 		
+ 		//활동량
+ 		var acv1 = "${userLogin.getActivity_code1()}";
+ 		var acv2 = "${userLogin.getActivity_code2()}";
+ 		var acv3 = "${userLogin.getActivity_code3()}";
+ 		var acv4 = "${userLogin.getActivity_code4()}";
+ 		var acv5 = "${userLogin.getActivity_code5()}";
+ 		
+ 		if(acv1==1){
+ 			document.regForm.activity_code1.checked=true;
+ 		}
+ 		if(acv2==2){
+ 			document.regForm.activity_code2.checked=true;
+ 		}
+ 		if(acv3==3){
+ 			document.regForm.activity_code3.checked=true;
+ 		}
+ 		if(acv4==4){
+ 			document.regForm.activity_code4.checked=true;
+ 		}
+ 		if(acv5==5){
+ 			document.regForm.activity_code5.checked=true;
+ 		}
+ 		
+ 		//체형
+ 		var shape = "${userLogin.getShape()}"
+ 		for(var i=0;i<7;i++){
+ 		if(shape==(i+1)){
+ 			document.regForm.shape[i].checked=true;
+ 			}
+ 		}
 	}
 	
 	function BMIcal(){
