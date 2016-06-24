@@ -32,7 +32,7 @@
 	
 <!-- Community 글수정 -->
 	<update id="communityUpdate" parameterType="java.util.Map">
-		<![CDATA[update community set community_writer=#{writer}, community_subject=#{subject}, community_content=#{content} where community_no=#{no}]]>
+		<![CDATA[update community set community_writer=#{writer}, community_subject=#{subject}, community_content=#{content}, community_update_date=sysdate, community_section=#{section} where community_no=#{no}]]>
 	</update>
 
 <!-- Community 글삭제 -->
