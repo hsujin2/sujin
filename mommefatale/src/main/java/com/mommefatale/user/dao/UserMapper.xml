@@ -51,4 +51,7 @@
 	<select id="userUpdate" parameterType="java.util.Map">
 		<![CDATA[update member set member_pw=#{userpass},member_email=#{useremail},member_zip=#{zip},member_address1=#{addr1},member_address2=#{addr2},member_phone=#{tel},member_height=#{height},member_weight=#{weight},member_bmi=#{bmi},shape_code=#{shape},fat_part1=#{fat_part1},fat_part2=#{fat_part2},fat_part3=#{fat_part3},fat_part4=#{fat_part4},fat_part5=#{fat_part5},fat_part6=#{fat_part6},activity_code1=#{activity_code1},activity_code2=#{activity_code2},activity_code3=#{activity_code3},activity_code4=#{activity_code4},activity_code5=#{activity_code5},member_Kcal=#{kcal} where member_id=#{userid}]]>
 	</select>
+	<select id="userdelete" parameterType="java.lang.String">
+		DELETE FROM MEMBER WHERE MEMBER_ID=#{userid}
+	</select>
 </mapper>
