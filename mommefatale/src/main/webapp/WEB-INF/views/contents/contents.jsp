@@ -5,14 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>몸므파탈(MommeFatale)</title>
-<link rel="stylesheet" type="text/css" href="resources/css/contents_css.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/contents/contents_css.css"/>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 </head>
 
 
 <body>
 <%@ include file="../include/header.jsp" %>
-    <div id="wrap">
+    <div id="wrapcontents">
     <div id="content_banner"> 
         <a href="#"><img src="resources/images/contents/arrow-before.png" alt="before"/></a>
         <a href="#"><img src="resources/images/contents/contents-banner.png" id="contentmain" alt="banner"/></a>
@@ -25,11 +25,11 @@
 
 <div id="main_content">
 		<div id="shape">
-        	<h1>Diet</h1>
+        	<h1>Recommended Products</h1>
     	</div>
     	<h2>equipment</h2>
         <div class="fix_button">
-        <a href="#"><img src="resources/images/contents/fix.gif" alt="fixbutton"/></a>
+        <a href="#"><img src="resources/images/contents/setting_button.gif" alt="fixbutton"/></a>
         </div>
         <hr />
         <ul class="item">
