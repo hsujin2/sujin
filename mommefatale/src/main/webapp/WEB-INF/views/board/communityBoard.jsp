@@ -13,7 +13,7 @@
 <div id="wrap" >
 <%@ include file="../include/header.jsp" %>
 	<script>
-					function comminityWrite(){
+					function communityWrite(){
 						var user = "${userLogin}";
 						var manager = "${isManager}";
 	
@@ -29,9 +29,9 @@
 					}
 				</script>
 <div class="board">
-	<button class="writer" onclick="communityWrite()">글쓰기</button>
 					<table summary="게시판" cellspacing="0">
 					<h2 class="title">자유 게시판</h2>
+					<button class="writer" onclick="communityWrite()">글쓰기</button>
 						<colgroup>
 							<col width="5%" >
 							<col>
@@ -62,7 +62,7 @@
 							<c:forEach var="vo" items="${vo}">
 								<tr>
 									<td>${vo.no }</td>
-									<td class="left"><a href="communityContent.do?no=${vo.no }">${vo.subject }</a></td>
+									<td class="align_left"><a href="communityContent.do?no=${vo.no }">${vo.subject }</a></td>
 									<td>${vo.writer }</td>
 									<td><fmt:formatDate value="${vo.regdate }" type="date" pattern="yyyy-MM-dd HH:mm"/></td>
 									<td>${vo.view }</td>
