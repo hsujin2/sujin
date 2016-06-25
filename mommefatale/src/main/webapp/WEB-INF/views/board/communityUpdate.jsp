@@ -14,6 +14,7 @@
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
 		var communityWriteForm = document.getElementById("writeForm");
+		
 		if (writer.value == null || writer.value == "") {
 			alert("작성자를 입력하세요!");
 			writer.focus();
@@ -66,7 +67,7 @@
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용</th>
-						<td colspan="2"><textarea name="content" id="content" style="resize:none" rows="15" cols="100"><pre>${vo.content}</pre></textarea></td>
+						<td colspan="2"><textarea name="content" id="content" style="resize:none" rows="15" cols="100">${vo.content}</textarea></td>
 					</tr>
 					<tr>
 						<td colspan="3"><hr class="board_hr"></td>
