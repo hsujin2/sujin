@@ -18,6 +18,7 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
 #content_banner{text-align:center; clear:both;} 
 #contentmain{width:600px; top:75px; position:relative; margin:0 auto;}
 
+#otherpages h3 {}
 #pageFor h1{text-align:center; position:relative; top:-50px;}
 
 /*메인컨텐츠*/
@@ -32,3 +33,5 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
 .item ul li img{width:300px; height:200px;}
 
 .date{color:#9f9f9f; font-family:Tahoma; font-size:8pt; vertical-align:5%; padding: 0 8px 0 7px;}
+
+.exercise_table{display:inline-block; border-spacing:30px;}
