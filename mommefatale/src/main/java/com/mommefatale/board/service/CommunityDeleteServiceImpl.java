@@ -15,7 +15,7 @@ public class CommunityDeleteServiceImpl implements CommunityDeleteService {
 	@Override
 	public void communityDelete(int no) {
 		System.out.println("자유게시판 글삭제 서비스");
-		dao.CommunityDelete(no);
+		dao.communityDelete(no);
 	}
 
 }

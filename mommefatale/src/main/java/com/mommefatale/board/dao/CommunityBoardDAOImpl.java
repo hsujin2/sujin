@@ -9,6 +9,8 @@ import com.mommefatale.board.model.CommunityBoardVO;
 
 public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 
+	private static final String namespace = "BoardMapper";
+
 	private SqlSessionTemplate session;
 
 	public SqlSessionTemplate getSession() {
@@ -20,52 +22,60 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 	}
 
 	@Override
-	public void CommunityWrite(Map<String, Object> vo) {
+	public void communityWrite(Map<String, Object> vo) {
 		System.out.println("자유게시판 글쓰기 DAO");
-		session.insert("com.mommefatale.board.dao.BoardMapper.communityWrite", vo);
+		session.insert(namespace + ".communityWrite", vo);
 		return;
 	}
 
 	@Override
 	public List<CommunityBoardVO> getCommunityList(Object obj) {
 		System.out.println("자유게시판 리스트 DAO");
-		return session.selectList("com.mommefatale.board.dao.BoardMapper.communityList", obj);
+		return session.selectList(namespace + ".communityList", obj);
 	}
 
 	@Override
 	public CommunityBoardVO getCommunityContent(int no) {
 		System.out.println("자유게시판 글내용 DAO");
-		return session.selectOne("com.mommefatale.board.dao.BoardMapper.communityContent", no);
+		return session.selectOne(namespace + ".communityContent", no);
 	}
 
 	@Override
-	public void CommunityUpdate(Map<String, Object> vo) {
+	public void communityUpdate(Map<String, Object> vo) {
 		System.out.println("자유게시판 글수정 DAO");
-		session.update("com.mommefatale.board.dao.BoardMapper.communityUpdate", vo);
+		session.update(namespace + ".communityUpdate", vo);
 	}
 
 	@Override
-	public void CommunityDelete(int no) {
+	public void communityDelete(int no) {
 		System.out.println("자유게시판 글삭제 DAO");
-		session.delete("com.mommefatale.board.dao.BoardMapper.communityDelete", no);
+		session.delete(namespace + ".communityDelete", no);
 	}
 
 	@Override
 	public int getCommunityCount() {
-		int count = session.selectOne("com.mommefatale.board.dao.BoardMapper.communityCount");
+		int count = session.selectOne(namespace + ".communityCount");
 		System.out.println("DAOcount = " + count);
 		return count;
 	}
 
 	@Override
-	public CommunityBoardVO CommunitySearch(Map<String, Object> vo) {
+	public CommunityBoardVO communitySearch(Map<String, Object> vo) {
 		return null;
 	}
 
 	@Override
-	public void CommunityView(int no) {
-		System.out.println(no+" 글 조회수 1 증가");
-		session.update("com.mommefatale.board.dao.BoardMapper.communityView", no);
+	public void communityView(int no) {
+		System.out.println(no + "번 글 조회수 1 증가");
+		session.update(namespace + ".communityView", no);
+	}
+
+	@Override
+	public void communityReply(Map<String, Object> vo) {
+		System.out.println("자유게시판 답글쓰기 DAO");
+		session.insert(namespace + ".communityReply", vo);
+		return;
+
 	}
 
 }

@@ -7,58 +7,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판 글내용 보기</title>
-<link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
-<link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
-     <c:if test="${vo.no==null||no==''}">
-      <script>
-			alert("잘못된 접근이거나 해당 게시물은 존재하지 않습니다.");
-			history.go(-1);
-      </script>
-      </c:if>
+<link rel="stylesheet" type="text/css"
+	href="resources/css/common_css.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/css/board/community_css.css">
+<c:if test="${vo.no==null||no==''}">
+	<script>
+		alert("잘못된 접근이거나 해당 게시물은 존재하지 않습니다.");
+		history.go(-1);
+	</script>
+</c:if>
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>
-	 <script type="text/javascript">
-            	function deleteContent(){
-            		
-            		if(confirm("정말로 삭제 하시겠습니까?")){
-            			var check = "${isManager}";
-            			var loginUser = "${userLogin.userid}";
-            			var user = "${vo.writer}";
-            			
-            			if(check ==  "false" || loginUser != user){
-            				alert("글쓴이와 관리자만 삭제할 수 있습니다.")
-            				return;
-            			}
-            			if(check == "true" || loginUser == user){
-            				location.href="communityDelete.do?no="+${vo.no};
-            			}
-            		}else{
-						return;            			
-            		}
-     
-            	}
-            	
-            	function updateContent() {
-            		var loginUser = "${userLogin.userid}";
-        			var user = "${vo.writer}";
-            		
-            		if(user == loginUser ){
-	            		window.location="communityUpdate.do?no="+ ${vo.no};
-            		}
-            		
-            		if(user != loginUser){
-            			alert("글쓴이만 수정 할 수 있습니다");
-            			return;
-            		}
-            	}
-            </script>
+	<script type="text/javascript">
+		function reply() {
+			document.writeForm.submit();
+			window.location = "communityReplyForm.do?no=${vo.no}";
+		}
+
+		function deleteContent() {
+
+			if (confirm("정말로 삭제 하시겠습니까?")) {
+					document.writeForm.submit();
+					window.location = "communityDelete.do?no=${vo.no}";
+			} else {
+				return;
+			}
+
+		}
+	</script>
 	<div id="wrap">
 		<div class="board">
-		<h2 class="title">자유게시판</h2>
-			<form name="communityContent" method="post"
-				 id="writeForm">
-				<input type="hidden" name="no"/>
+			<h2 class="title">자유게시판</h2>
+			<form name="communityContent" method="post" id="writeForm">
+				<input type="hidden" name="no" />
 				<table summary="테이블 구성" id="community_board">
 					<tr>
 						<th class="no">NO.</th>
@@ -67,13 +50,15 @@
 						<th class="writer">글쓴이</th>
 						<td id="writer">${vo.writer}</td>
 						<th>작성일자</th>
-						<td id="regdate"><fmt:formatDate value="${vo.regdate}" type="date" pattern="yyyy-MM-dd HH:mm"/></td>
+						<td id="regdate"><fmt:formatDate value="${vo.regdate}"
+								type="date" pattern="yyyy-MM-dd HH:mm" /></td>
 						<th>조회수</th>
 						<td id="view">${vo.view}</td>
 					</tr>
 					<tr>
 						<th colspan="2">제&nbsp;&nbsp;&nbsp;목</th>
-						<td colspan="7" id="subject">&nbsp;&nbsp;&nbsp;${vo.section} - ${vo.subject}</td>
+						<td colspan="7" id="subject">&nbsp;&nbsp;&nbsp;${vo.section}
+							- ${vo.subject}</td>
 					</tr>
 					<tr>
 						<td colspan="9" id="content"><pre>${vo.content}</pre></td>
@@ -82,20 +67,21 @@
 						<td colspan="9"><hr class="board_hr"></td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<a href="communityWriteForm.do">답글</a>
+						<td colspan="2"><input type="image" alt="답글쓰기"
+								src="resources/images/board/icon_reply.gif" onClick="reply()">
 						</td>
-						<td colspan="2">
+						<td colspan="2"></td>
+						<td class="align_right"><a href="communityBoard.do">목록보기</a>
 						</td>
-						<td class="align_right">
-							<a href="communityBoard.do">목록보기</a>
-						</td>
-						<td colspan="2">
-						</td>
-						<td colspan="2">
-							<input type="button" value="글수정" onClick="updateContent()" class="commit_btn"> 
-							<input type="button" value="글삭제" onclick="deleteContent()" class="commit_btn">
-						</td>
+						<td colspan="2"></td>
+						<td colspan="2"><c:if
+								test="${vo.writer eq userLogin.userid || admin eq true}">
+								<input type="button" value="수정"
+									onClick="window.location='communityUpdate.do?no='+ ${vo.no}"
+									class="commit_btn">
+								<input type="button" value="삭제" onClick="deleteContent()"
+									class="commit_btn">
+							</c:if></td>
 					</tr>
 				</table>
 			</form>

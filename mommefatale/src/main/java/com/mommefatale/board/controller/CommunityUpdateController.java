@@ -56,7 +56,7 @@ public class CommunityUpdateController {
 		while(enums.hasMoreElements()){
 			String paramName = enums.nextElement().toString();
 			String paramValue= request.getParameter(paramName);
-			System.out.println("num:"+no+", paramName:"+paramName+", paramValue:"+paramValue);
+			System.out.println("no:"+no+", paramName:"+paramName+", paramValue:"+paramValue);
 			map.put(paramName, paramValue);
 		}
 		map.put("no", no);

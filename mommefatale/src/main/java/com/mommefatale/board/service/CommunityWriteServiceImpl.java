@@ -19,7 +19,14 @@ public class CommunityWriteServiceImpl implements CommunityWriteService {
 	@Override
 	public void communityWrite(Map<String, Object> vo) {
 		System.out.println("자유게시판 글쓰기 서비스");
-		dao.CommunityWrite(vo);
+		dao.communityWrite(vo);
+	}
+
+	@Override
+	public void communityReply(Map<String, Object> vo) {
+		System.out.println("자유게시판 답글쓰기 서비스");	
+		dao.communityReply(vo);
+		
 	}
 
 }
