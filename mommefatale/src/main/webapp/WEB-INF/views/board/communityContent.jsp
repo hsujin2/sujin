@@ -21,16 +21,16 @@
 <body>
 	<%@ include file="../include/header.jsp"%>
 	<script type="text/javascript">
+
 		function reply() {
 			document.writeForm.submit();
 			window.location = "communityReplyForm.do?no=${vo.no}";
 		}
 
 		function deleteContent() {
-
-			if (confirm("정말로 삭제 하시겠습니까?")) {
-					document.writeForm.submit();
-					window.location = "communityDelete.do?no=${vo.no}";
+			var check = confirm("삭제하시겠습니까?");
+			if (check == true) {
+				window.location = "communityDelete.do?no=${vo.no}";
 			} else {
 				return;
 			}
@@ -41,7 +41,6 @@
 		<div class="board">
 			<h2 class="title">자유게시판</h2>
 			<form name="communityContent" method="post" id="writeForm">
-				<input type="hidden" name="no" />
 				<table summary="테이블 구성" id="community_board">
 					<tr>
 						<th class="no">NO.</th>
@@ -74,13 +73,11 @@
 						<td class="align_right"><a href="communityBoard.do">목록보기</a>
 						</td>
 						<td colspan="2"></td>
-						<td colspan="2"><c:if
-								test="${vo.writer eq userLogin.userid || admin eq true}">
+						<td colspan="2">
+						<c:if test="${vo.writer eq userLogin.userid || admin eq true}">
 								<input type="button" value="수정"
-									onClick="window.location='communityUpdate.do?no='+ ${vo.no}"
-									class="commit_btn">
-								<input type="button" value="삭제" onClick="deleteContent()"
-									class="commit_btn">
+									onClick="window.location='communityUpdate.do?no='+ ${vo.no}" class="commit_btn">
+								<input type="button" value="삭제" onClick="deleteContent()" class="commit_btn">
 							</c:if></td>
 					</tr>
 				</table>

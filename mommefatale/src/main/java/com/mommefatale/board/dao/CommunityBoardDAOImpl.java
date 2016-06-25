@@ -55,7 +55,7 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 	@Override
 	public int getCommunityCount() {
 		int count = session.selectOne(namespace + ".communityCount");
-		System.out.println("DAOcount = " + count);
+		System.out.println("자유게시판 총 게시물 수 : " + count);
 		return count;
 	}
 
@@ -73,6 +73,7 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 	@Override
 	public void communityReply(Map<String, Object> vo) {
 		System.out.println("자유게시판 답글쓰기 DAO");
+		session.update(namespace+".addStep", vo);
 		session.insert(namespace + ".communityReply", vo);
 		return;
 
