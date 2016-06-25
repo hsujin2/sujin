@@ -12,7 +12,7 @@
 		var writer = document.getElementById("writer");
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
-		var communityWriteForm = document.getElementById("writeForm");
+		var communityReplyForm = document.getElementById("replyForm");
 		
 		if (subject.value == null || subject.value == "") {
 			alert("제목을 입력하세요!");
@@ -40,7 +40,7 @@
 		<h2 class="title">자유게시판</h2>
 			<form name="communityReplyForm" method="post"
 				action="communityReply.do" id="replyForm">
-				<input type="hidden" value="${vo.ref }" name="ref" id="ref">
+				<input type="hidden" value="${vo.ref}" name="ref" id="ref">
 				<table summary="테이블 구성" id="community_board">
 					<tr>
 						<th>작성자</th>
