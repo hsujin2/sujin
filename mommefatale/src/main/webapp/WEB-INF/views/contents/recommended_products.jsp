@@ -13,7 +13,8 @@
 <body>
 <%@ include file="../include/header.jsp" %>
     <div id="wrapcontents">
-    <div id="content_banner"> 
+    <div id="content_banner">
+    	<h1>Diet</h1> 
         <a href="#"><img src="resources/images/contents/arrow-before.png" alt="before"/></a>
         <a href="#"><img src="resources/images/contents/contents-banner.png" id="contentmain" alt="banner"/></a>
         <a href="#"><img src="resources/images/contents/arrow-next.png" alt="next" /></a>
@@ -24,7 +25,7 @@
 
 
 <div id="main_content">
-		<div id="shape">
+		<div id="pageFor">
         	<h1>Recommended Products</h1>
     	</div>
     	<h2>equipment</h2>
