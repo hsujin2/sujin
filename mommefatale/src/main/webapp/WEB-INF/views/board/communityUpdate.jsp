@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
 <script>
 	function FormCheck() {
+		
 		var writer = document.getElementById("writer");
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");

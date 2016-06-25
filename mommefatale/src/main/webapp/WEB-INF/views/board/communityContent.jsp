@@ -40,26 +40,14 @@
             	}
             	
             	function updateContent() {
-            		var user = "${userLogin.userid}";
+            		var loginUser = "${userLogin.userid}";
+        			var user = "${vo.writer}";
             		
-            		if(user == "${vo.writer}" ){
-            		
-	            		var subject = document.getElementById("subject").childNodes[0].nodeValue;
-	            		var writer = document.getElementById("writer").childNodes[0].nodeValue;
-	            		var content = document.getElementById("content").childNodes[0].nodeValue;
-	            		if(subject == ""){
-	            			alert("제목을 입력하세요!");
-	            		}
-	            		if(writer == ""){
-	            			alert("작성자를 입력하세요");
-	            		}
-	            		if(content == ""){
-	            			alert("내용을 입력하세요!");
-	            		}
-	            		
-	            		window.location="communityUpdate.do?no="+${vo.no};
+            		if(user == loginUser ){
+	            		window.location="communityUpdate.do?no="+ ${vo.no};
             		}
-            		if(user != "${vo.writer}"){
+            		
+            		if(user != loginUser){
             			alert("글쓴이만 수정 할 수 있습니다");
             			return;
             		}
@@ -69,7 +57,7 @@
 		<div class="board">
 		<h2 class="title">자유게시판</h2>
 			<form name="communityContent" method="post"
-				action="communityUpdate.do" id="writeForm">
+				 id="writeForm">
 				<input type="hidden" name="no"/>
 				<table summary="테이블 구성" id="community_board">
 					<tr>
@@ -102,7 +90,7 @@
 						<td colspan="2">
 						</td>
 						<td colspan="2">
-							<input type="submit" value="글수정" onClick="updateContent()" class="commit_btn"> 
+							<input type="button" value="글수정" onClick="updateContent()" class="commit_btn"> 
 							<input type="button" value="글삭제" onclick="deleteContent()" class="commit_btn">
 						</td>
 					</tr>

@@ -23,7 +23,7 @@ public class CommunityContentController {
 	}
 	
 	@RequestMapping(value="/communityContent.do")
-	public ModelAndView knowHowContent(HttpServletRequest request)throws Exception{
+	public ModelAndView communityContent(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 내용보기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
