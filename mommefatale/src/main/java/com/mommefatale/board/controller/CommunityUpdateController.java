@@ -36,18 +36,18 @@ public class CommunityUpdateController {
 	}
 	
 	@RequestMapping(value="/communityUpdate.do")
-	public ModelAndView knowHowUpdatePage(HttpServletRequest request)throws Exception{
+	public ModelAndView communityUpdate(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 글수정페이지 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
-		CommunityBoardVO vo = command.communityContent(no);
+		CommunityBoardVO vo = command.communityContent(10);
 		mav.setViewName("/board/communityUpdate");
 		mav.addObject("vo",vo);
 		return mav;
 	}
 	
 	@RequestMapping(value="/communityUpdateProc.do")
-	public ModelAndView knowHowUpdate(HttpServletRequest request)throws Exception{
+	public ModelAndView communityUpdateProc(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 글수정 컨트롤러");
 		ModelAndView mav= new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();

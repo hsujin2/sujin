@@ -48,13 +48,12 @@
 					<tr>
 						<th>작성자</th>
 						<td>&nbsp;&nbsp;<input type="text" name="writer" id="writer" size="10"
-							maxlength="15" value="${userLogin.name }" readonly></td>
+							maxlength="15" value="${userLogin.userid }" readonly></td>
 						<td colspan="2"></td>
 					</tr>
 					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
 						<td>&nbsp;&nbsp;<select name="section" id="section">
-									<!--  <optgroup label="말머리" class="hidden"></optgroup>-->
 									<option value="">말머리 선택</option>
 									<option value="상품문의">상품문의</option>
 									<option value="다이어트문의">다이어트문의</option>

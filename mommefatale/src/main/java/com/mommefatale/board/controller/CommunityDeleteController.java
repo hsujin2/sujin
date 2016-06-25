@@ -21,7 +21,7 @@ public class CommunityDeleteController {
 	}
 	
 	@RequestMapping(value="/communityDelete.do")
-	public ModelAndView knowDelete(HttpServletRequest request)throws Exception{
+	public ModelAndView communityDelete(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 글삭제 컨트롤러");
 		ModelAndView mav =  new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));

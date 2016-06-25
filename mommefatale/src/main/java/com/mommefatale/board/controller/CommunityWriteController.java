@@ -26,7 +26,7 @@ public class CommunityWriteController {
 	}
 	
 	@RequestMapping(value="/communityWriteForm.do")
-	public ModelAndView communityWritePage(HttpServletRequest request)throws Exception{
+	public ModelAndView communityWriteForm(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 글쓰기 폼 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/board/communityWriteForm");
