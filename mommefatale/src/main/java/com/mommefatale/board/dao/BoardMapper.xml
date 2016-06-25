@@ -23,6 +23,12 @@
 		<![CDATA[select * from (select rownum rnum, community_no, community_section, community_subject, community_writer, community_regdate, community_view from (select * from community order by community_no desc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
 	</select>
 
+	<!-- Community 글내용 가져오기 -->
+	<select id="communityContent" parameterType="java.lang.Integer"
+		resultMap="communityResultMap">
+		<![CDATA[select * from community where community_no=#{no}]]>
+	</select>
+	
 	<!-- Community 글쓰기 -->
 	<insert id="communityWrite" parameterType="java.util.Map">
 		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_update_date, community_ref, community_step, community_depth, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, community_seq.nextval, 0, 0, #{section})]]>
@@ -33,11 +39,10 @@
 		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_update_date, community_ref, community_step, community_depth, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{ref},#{step}+1,#{depth}+1, #{section})]]>
 	</insert>
 
-	<!-- Community 글내용 가져오기 -->
-	<select id="communityContent" parameterType="java.lang.Integer"
-		resultMap="communityResultMap">
-		<![CDATA[select * from community where community_no=#{no}]]>
-	</select>
+	<!-- Community 답글달기 addStep -->
+	<update id="addStep" parameterType="java.util.Map">
+		<![CDATA[update community set step=step+1 where community_ref=#{ref} and community_step > #{step}]]>
+	</update>
 
 	<!-- Community 조회수 증가 -->
 	<update id="communityView" parameterType="java.lang.Integer">
@@ -48,7 +53,7 @@
 	<update id="communityUpdate" parameterType="java.util.Map">
 		<![CDATA[update community set community_writer=#{writer}, community_subject=#{subject}, community_content=#{content}, community_update_date=sysdate, community_section=#{section} where community_no=#{no}]]>
 	</update>
-
+	
 	<!-- Community 글삭제 -->
 	<delete id="communityDelete" parameterType="java.lang.Integer">
 		<![CDATA[delete from community where community_no=#{no}]]>
