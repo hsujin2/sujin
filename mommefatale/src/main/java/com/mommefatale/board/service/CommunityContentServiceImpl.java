@@ -22,4 +22,11 @@ public class CommunityContentServiceImpl implements CommunityContentService {
 		return dao.getCommunityContent(no);
 	}
 
+	@Override
+	public void communityView(int no) {
+
+		System.out.println("조회수 증가 서비스");
+		dao.CommunityView(no);
+	}
+
 }

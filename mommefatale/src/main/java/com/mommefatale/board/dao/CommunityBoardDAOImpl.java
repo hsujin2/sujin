@@ -59,8 +59,13 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 
 	@Override
 	public CommunityBoardVO CommunitySearch(Map<String, Object> vo) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void CommunityView(int no) {
+		System.out.println(no+" 글 조회수 1 증가");
+		session.update("com.mommefatale.board.dao.BoardMapper.communityView", no);
 	}
 
 }

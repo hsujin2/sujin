@@ -27,9 +27,8 @@ public class CommunityContentController {
 		System.out.println("자유게시판 내용보기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
-		//System.out.println("pageNum:"+num);
 		CommunityBoardVO vo = command.communityContent(no);
-		
+		command.communityView(no);
 		mav.setViewName("/board/communityContent");
 		mav.addObject("vo", vo);
 		return mav;

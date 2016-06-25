@@ -82,7 +82,10 @@
 						<td colspan="9"><hr class="board_hr"></td>
 					</tr>
 					<tr>
-						<td colspan="4">
+						<td colspan="2">
+							<a href="communityWriteForm.do">답글</a>
+						</td>
+						<td colspan="2">
 						</td>
 						<td class="align_right">
 							<a href="communityBoard.do">목록보기</a>
