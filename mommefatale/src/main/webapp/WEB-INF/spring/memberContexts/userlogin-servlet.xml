@@ -59,4 +59,6 @@
 	<bean class="com.mommefatale.user.controller.UserDeleteController">
 		<property name="command" ref="UserDeleteService"></property>
 	</bean>
+	<bean class="com.mommefatale.user.controller.UserCouponController">
+	</bean>
 </beans>
