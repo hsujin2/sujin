@@ -19,7 +19,7 @@ public class CommunityUpdateServiceImpl implements CommunityUpdateService {
 	@Override
 	public void communityUpdate(Map<String, Object> vo) {
 		System.out.println("자유게시판 글수정 서비스");
-		dao.CommunityUpdate(vo);
+		dao.communityUpdate(vo);
 	}
 
 }

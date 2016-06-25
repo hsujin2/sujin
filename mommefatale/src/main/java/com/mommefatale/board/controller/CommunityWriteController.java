@@ -50,6 +50,34 @@ public class CommunityWriteController {
 		mav.setViewName("redirect:/communityBoard.do");
 		
 		return mav;
-		
 	}
+	
+	@RequestMapping(value="/communityReplyForm.do")
+	public ModelAndView communityReplyForm(HttpServletRequest request)throws Exception{
+		System.out.println("자유게시판 답글쓰기 폼 컨트롤러");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/board/communityReplyForm");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/communityReply.do")
+	public ModelAndView communityReply(HttpServletRequest request)throws Exception{
+		System.out.println("자유게시판 답글쓰기 컨트롤러");
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<>();
+		Enumeration enums = request.getParameterNames();
+		while(enums.hasMoreElements()){
+			String paramName = enums.nextElement().toString();
+			String paramValue = request.getParameter(paramName);
+			System.out.println("ParamName:"+paramName+" ParmaValue:"+paramValue);
+			map.put(paramName, paramValue);
+		}
+		command.communityReply(map);
+		mav.setViewName("redirect:/communityBoard.do");
+		
+		return mav;
+	}
+	
+	
 }

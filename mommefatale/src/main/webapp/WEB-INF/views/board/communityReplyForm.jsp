@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판 글쓰기폼</title>
+<title>자유게시판 답변쓰기</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
 <script>
@@ -19,14 +19,13 @@
 			subject.focus();
 			return;
 		}
-		
 		if (content.value == null || content.value == "") {
 			alert("내용을 입력하세요!");
 			content.focus();
 			return;
 		}
 
-		document.communityWriteForm.submit();
+		document.communityReplyForm.submit();
 	}
 
 	function writeCancel() {
@@ -39,8 +38,9 @@
 	<div id="wrap">
 		<div class="board">
 		<h2 class="title">자유게시판</h2>
-			<form name="communityWriteForm" method="post"
-				action="communityWrite.do" id="writeForm">
+			<form name="communityReplyForm" method="post"
+				action="communityReply.do" id="replyForm">
+				<input type="hidden" value="${vo.ref }" name="ref" id="ref">
 				<table summary="테이블 구성" id="community_board">
 					<tr>
 						<th>작성자</th>
@@ -50,15 +50,9 @@
 					</tr>
 					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
-						<td>&nbsp;&nbsp;<select name="section" id="section">
-									<option value="">말머리 선택</option>
-									<option value="상품문의">상품문의</option>
-									<option value="다이어트문의">다이어트문의</option>
-									<option value="상품후기">상품후기</option>
-									<option value="다이어트후기">다이어트후기</option>
-								</select>
+						<td><img src="resources/images/board/reply_icon.gif" alt="답변">
 						</td>
-						<td><input type="text" name="subject" id="subject" size="80"></td>
+						<td><input type="text" name="subject" id="subject" size="80" value="RE:"></td>
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용</th>

@@ -52,7 +52,7 @@ input{vertical-align:middle;}
 	top: 15px;
 	width: 400px;
 }
-.util_right li{display:inline; padding-left:15px;}
+.util_right li{display:inline; padding-right:15px;}
 .util_right li a{color:#333; font-size:12px;}
 .util_right li a:hover{font-weight:bold; color:#0066FF; text-decoration:underline;}
 
