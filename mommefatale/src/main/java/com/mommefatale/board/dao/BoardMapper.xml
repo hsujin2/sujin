@@ -7,7 +7,7 @@
 	<result property="writer" column="community_writer" jdbcType="VARCHAR"/>
 	<result property="subject" column="community_subject" jdbcType="VARCHAR"/>
 	<result property="content" column="community_content" jdbcType="VARCHAR"/>
-	<result property="regdate" column="community_regdate" jdbcType="VARCHAR"/>
+	<result property="regdate" column="community_regdate" jdbcType="DATE"/>
 	<result property="update_date" column="community_update_date" jdbcType="DATE"/>
 	<result property="ref" column="community_ref" jdbcType="BIGINT"/>
 	<result property="step" column="community_step" jdbcType="BIGINT"/>
@@ -35,6 +35,11 @@
 	<update id="communityUpdate" parameterType="java.util.Map">
 		<![CDATA[update community set community_writer=#{writer}, community_subject=#{subject}, community_content=#{content}, community_update_date=sysdate, community_section=#{section} where community_no=#{no}]]>
 	</update>
+	
+<!-- Community 조회수 -->
+	<update id="communityView" parameterType="java.lang.Integer">
+	<![CDATA[update community set community_view=community_view+1 where community_no=#{no}]]>
+	</update>
 
 <!-- Community 글삭제 -->
 	<delete id="communityDelete" parameterType="java.lang.Integer">
@@ -44,5 +49,5 @@
 <!-- Community 총 게시물 수 -->
 	<select id="communityCount" resultType="java.lang.Integer">
 			<![CDATA[select count(*) from community]]>
-		</select>
+	</select>
 </mapper>

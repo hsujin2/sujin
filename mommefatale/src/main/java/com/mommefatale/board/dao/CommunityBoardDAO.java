@@ -22,4 +22,6 @@ public interface CommunityBoardDAO {
 			public CommunityBoardVO CommunitySearch(Map<String, Object> vo);
 			//글 개수 가져오기
 			public int getCommunityCount();
+			//글 조회수 올리기
+			public void CommunityView(int no);
 }
