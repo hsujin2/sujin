@@ -40,7 +40,7 @@ public class CommunityUpdateController {
 		System.out.println("자유게시판 글수정페이지 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
-		CommunityBoardVO vo = command.communityContent(10);
+		CommunityBoardVO vo = command.communityContent(no);
 		mav.setViewName("/board/communityUpdate");
 		mav.addObject("vo",vo);
 		return mav;
