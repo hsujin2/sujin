@@ -12,8 +12,8 @@
 <script type="text/javascript">
 	
 	function OpenCouponPage(){
-		url = "coupon.do";
-		window.open(url, "get", "width=500,height=250", "status=no",
+		url = "userCoupon.do";
+		window.open(url, "get", "width=600,height=400", "status=no",
 		"toolbar=no");
 	}
 
@@ -27,7 +27,7 @@
 	<div>포인트 : ${userLogin.getPoint() }</div>
 	<div><a href="userUpdate.do">회원정보수정</a></div>
 	<div><a href="userDelete.do">회원탈퇴</a></div>
-	<div><a href="OpenCouponPage()">내 쿠폰</a></div>
+	<div><input type="button" onclick="OpenCouponPage()" value="내 쿠폰"></div>
 <%@ include file="../include/footer.jsp" %>
 </body>
 </html>

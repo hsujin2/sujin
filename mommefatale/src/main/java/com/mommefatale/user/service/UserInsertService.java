@@ -6,4 +6,5 @@ import com.mommefatale.user.model.UserVO;
 
 public interface UserInsertService {
 	public void insertUser(Map<String, Object> vo);
+	public void createCoupons();
 }

@@ -4,19 +4,17 @@ import java.util.Map;
 
 import com.mommefatale.user.dao.UserDAO;
 
+public class UserSearchServiceImpl implements UserSearchService {
 
-public class UserInsertServiceImpl implements UserInsertService{
 	private UserDAO dao;
+	
 	public void setDao(UserDAO dao) {
 		this.dao = dao;
 	}
+
 	@Override
-	public void insertUser(Map<String, Object> vo) {
-		dao.insertUser(vo);
-	}
-	@Override
-	public void createCoupons() {
-		dao.createCoupons();
+	public String searchId(Map<String, Object> vo) {
+		return dao.searchId(vo);
 	}
 
 }
