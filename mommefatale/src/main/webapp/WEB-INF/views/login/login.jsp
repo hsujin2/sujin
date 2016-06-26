@@ -30,7 +30,8 @@
                 <hr>
                 <div id="logbottom">
                 	<span><a href="joinagreement.do">회원가입</a></span>
-                    <span class="findidpass">아이디 / 비밀번호 찾기</span>
+                    <span class="findidpass"><a href="searchId.do">아이디 찾기</a></span>
+                    <span class="findidpass"><a href="searchPass.do">비밀번호 찾기</a></span>
                 </div>
                 </form>
             </div>

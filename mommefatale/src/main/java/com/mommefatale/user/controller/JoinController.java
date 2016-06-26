@@ -125,7 +125,10 @@ public class JoinController {
 		String useremail = request.getParameter("useremail1")+"@"+request.getParameter("useremail2");
 		vo.put("useremail", useremail);
 		
+		command.createCoupons();
+		
 		command.insertUser(vo);
+		
 		return "login/join_complete";
 	}
 

@@ -34,6 +34,12 @@
 	<bean id="UserDeleteService" class="com.mommefatale.user.service.UserDeleteServiceImpl">
 		<property name="dao" ref="UserDAO"/>
 	</bean>
+	<bean id="UserCouponService" class="com.mommefatale.user.service.UserCouponServiceImpl">
+		<property name="dao" ref="UserDAO"></property>
+	</bean>
+	<bean id="UserSearchService" class="com.mommefatale.user.service.UserSearchServiceImpl">
+		<property name="dao" ref="UserDAO"></property>
+	</bean>
 	
 	<!-- controller -->
 	<bean class="com.mommefatale.user.controller.LoginController">
@@ -60,5 +66,9 @@
 		<property name="command" ref="UserDeleteService"></property>
 	</bean>
 	<bean class="com.mommefatale.user.controller.UserCouponController">
+		<property name="command" ref="UserCouponService"></property>				
+	</bean>
+	<bean class="com.mommefatale.user.controller.UserSearchController">
+		<property name="command" ref="UserSearchService"></property>
 	</bean>
 </beans>

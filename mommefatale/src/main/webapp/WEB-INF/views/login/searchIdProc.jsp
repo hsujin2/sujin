@@ -5,13 +5,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원가입 완료</title>
-<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
+<title>아이디 검색 결과</title>
 </head>
 <body>
-<%@ include file="../include/header.jsp" %>
-<div align="center">회원가입 완료</div>
-<div align="center">가입 기념 쿠폰이 발급되었습니다.</div>
-<%@ include file="../include/footer.jsp" %>
+<c:if test="${check eq false}">
+	<script type="text/javascript">
+		alert("회원정보가 없습니다.");
+		window.location="/searchId.do";
+	</script>
+</c:if>
+<c:if test="${check eq true}">
+고객님의 ID는 <strong>${id}</strong> 입니다.<br>
+<a href="login.do">뒤로</a>
+</c:if>
 </body>
 </html>

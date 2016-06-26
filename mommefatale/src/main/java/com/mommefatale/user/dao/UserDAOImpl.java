@@ -1,9 +1,11 @@
 package com.mommefatale.user.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.mommefatale.user.model.CouponVO;
 import com.mommefatale.user.model.UserVO;
 
 public class UserDAOImpl implements UserDAO {
@@ -52,6 +54,21 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public void deleteUser(String userid) {
 		session.delete(namespace + ".userdelete",userid);
+	}
+
+	@Override
+	public void createCoupons() {
+		session.insert(namespace + ".createCoupons");
+	}
+
+	@Override
+	public List<CouponVO> getCoupons(int coupons_no) {
+		return session.selectList(namespace + ".selectCoupons",coupons_no);
+	}
+
+	@Override
+	public String searchId(Map<String, Object> vo) {
+		return session.selectOne(namespace + ".searchId",vo);
 	}
 	
 	

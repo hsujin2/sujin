@@ -29,13 +29,19 @@
 		<result property="activity_code3" column="ACTIVITY_CODE3" jdbcType="VARCHAR" />
 		<result property="activity_code4" column="ACTIVITY_CODE4" jdbcType="VARCHAR" />
 		<result property="activity_code5" column="ACTIVITY_CODE5" jdbcType="VARCHAR" />
-		<result property="coupon" column="COUPON_NO" jdbcType="BIGINT" />
+		<result property="coupon" column="COUPONS_NO" jdbcType="BIGINT" />
 		<result property="kcal" column="MEMBER_KCAL" jdbcType="BIGINT" />
 		<result property="point" column="MEMBER_POINT" jdbcType="BIGINT"/>
 		<result property="state" column="MEMBER_STATE" jdbcType="VARCHAR" />
 		<result property="joindate" column="MEMBER_JOIN_DATE" jdbcType="DATE" />
 		<result property="visitcount" column="MEMBER_VISIT_COUNT" jdbcType="BIGINT" />
 		<result property="lastvisit" column="MEMBER_LAST_VISIT_DATE" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="toCouponVO" type="com.mommefatale.user.model.CouponVO">
+		<result property="name" column="COUPON_NAME" jdbcType="VARCHAR"/>
+		<result property="amount" column="COUPON_AMOUNT" jdbcType="BIGINT"/>
+		<result property="issuedate" column="COUPONS_ISSUEDATE" jdbcType="DATE"/>
+		<result property="exdate" column="COUPONS_EXDATE" jdbcType="DATE"/>
 	</resultMap>
 	
 	<!-- UserId 중복여부 -->
@@ -46,12 +52,21 @@
 		SELECT * FROM MEMBER WHERE MEMBER_EMAIL=#{useremail}
 	</select>
 	<select id="insertUser" parameterType="java.util.Map">
-		<![CDATA[insert into member(member_name,member_gender,member_id,member_pw,member_email,member_zip,member_address1,member_address2,member_phone,member_birthday,member_height,member_weight,member_bmi,shape_code,fat_part1,fat_part2,fat_part3,fat_part4,fat_part5,fat_part6,activity_code1,activity_code2,activity_code3,activity_code4,activity_code5,member_Kcal,member_state) values (#{username},#{gender},#{userid},#{userpass},#{useremail},#{zip},#{addr1},#{addr2},#{tel},#{birthday},#{height},#{weight},#{bmi},#{shape},#{fat_part1},#{fat_part2},#{fat_part3},#{fat_part4},#{fat_part5},#{fat_part6},#{activity_code1},#{activity_code2},#{activity_code3},#{activity_code4},#{activity_code5},#{kcal},'1')]]>
+		<![CDATA[insert into member(member_name,member_gender,member_id,member_pw,member_email,member_zip,member_address1,member_address2,member_phone,member_birthday,member_height,member_weight,member_bmi,shape_code,fat_part1,fat_part2,fat_part3,fat_part4,fat_part5,fat_part6,activity_code1,activity_code2,activity_code3,activity_code4,activity_code5,member_Kcal,coupons_no,member_state) values (#{username},#{gender},#{userid},#{userpass},#{useremail},#{zip},#{addr1},#{addr2},#{tel},#{birthday},#{height},#{weight},#{bmi},#{shape},#{fat_part1},#{fat_part2},#{fat_part3},#{fat_part4},#{fat_part5},#{fat_part6},#{activity_code1},#{activity_code2},#{activity_code3},#{activity_code4},#{activity_code5},#{kcal},coupons_seq.currval,'1')]]>
 	</select>
 	<select id="userUpdate" parameterType="java.util.Map">
 		<![CDATA[update member set member_pw=#{userpass},member_email=#{useremail},member_zip=#{zip},member_address1=#{addr1},member_address2=#{addr2},member_phone=#{tel},member_height=#{height},member_weight=#{weight},member_bmi=#{bmi},shape_code=#{shape},fat_part1=#{fat_part1},fat_part2=#{fat_part2},fat_part3=#{fat_part3},fat_part4=#{fat_part4},fat_part5=#{fat_part5},fat_part6=#{fat_part6},activity_code1=#{activity_code1},activity_code2=#{activity_code2},activity_code3=#{activity_code3},activity_code4=#{activity_code4},activity_code5=#{activity_code5},member_Kcal=#{kcal} where member_id=#{userid}]]>
 	</select>
 	<select id="userdelete" parameterType="java.lang.String">
 		DELETE FROM MEMBER WHERE MEMBER_ID=#{userid}
+	</select>
+	<select id="createCoupons">
+		INSERT INTO COUPONS(COUPONS_NO, COUPON_NO, COUPONS_EXDATE) VALUES(COUPONS_SEQ.NEXTVAL,1,sysdate+90)
+	</select>
+	<select id="selectCoupons" parameterType="int" resultMap="toCouponVO">
+		SELECT COUPON_NAME, COUPON_AMOUNT, COUPONS_ISSUEDATE, COUPONS_EXDATE FROM COUPON, COUPONS WHERE COUPON.COUPON_NO = COUPONS.COUPON_NO AND COUPONS.COUPONS_NO=#{coupons_no}
+	</select>
+	<select id="searchId" parameterType="java.util.Map" resultType="java.lang.String">
+		select member_id from member where member_name=#{name} and member_email=#{email}
 	</select>
 </mapper>
