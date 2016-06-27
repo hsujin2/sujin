@@ -18,16 +18,13 @@
 		<script>
 			function communityWrite() {
 				var user = "${userLogin}";
-				var manager = "${isManager}";
+				
 
-				if (user == null && admin == "false") {
+				if (user == null || user == "") {
 					alert("로그인 후 글쓰기가 가능합니다.");
 					return;
 				}
-				if (user == "" && admin == "") {
-					alert("로그인 후 글쓰기가 가능합니다.");
-					return;
-				}
+				
 				window.location = "/mommefatale/communityWriteForm.do";
 			}
 		</script>
@@ -96,21 +93,18 @@
 
 			<div id="footList">
 				<c:if test="${paging.isPre()}">
-					<a
-						href="communityBoard.do?pageNum=${paging.getPage_Start()-paging.p_size}">[이전]</a>&nbsp;&nbsp;</c:if>
+					<a href="communityBoard.do?pageNum=${paging.getPage_Start()-paging.p_size}">[이전]</a>&nbsp;&nbsp;</c:if>
 				<c:forEach var="counter" begin="${paging.getPage_Start()}"
 					end="${paging.getPage_End()}">
 					<c:if test="${paging.getCur_Page() eq counter}">
                         [${counter}]
                      </c:if>
 					<c:if test="${paging.getCur_Page() ne counter}">
-						<a
-							href="javascript:window.location='communityBoard.do?pageNum=${counter}'">[${counter}]</a>
+						<a href="javascript:window.location='communityBoard.do?pageNum=${counter}'">[${counter}]</a>
 					</c:if>
 				</c:forEach>
 				<c:if test="${paging.isNext()}">
-					<a
-						href="communityBoard.do?pageNum=${paging.getPage_Start()+paging.p_size}">[다음]</a>
+					<a href="communityBoard.do?pageNum=${paging.getPage_Start()+paging.p_size}">[다음]</a>
 				</c:if>
 
 			</div>

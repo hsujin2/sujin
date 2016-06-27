@@ -6,7 +6,7 @@ import com.mommefatale.board.model.CommunityBoardVO;
 public class CommunityContentServiceImpl implements CommunityContentService {
 
 	private CommunityBoardDAO dao;
-
+	
 	public CommunityBoardDAO getDao() {
 		return dao;
 	}
