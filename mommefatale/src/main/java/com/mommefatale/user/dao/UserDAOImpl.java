@@ -15,7 +15,6 @@ public class UserDAOImpl implements UserDAO {
 
 	public void setSession(SqlSession session) {
 		this.session = session;
-		
 	}
 
 	@Override

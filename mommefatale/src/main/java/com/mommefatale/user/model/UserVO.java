@@ -49,56 +49,21 @@ public class UserVO {
 	public String getGrade() {
 		return grade;
 	}
-
-
-
-
-
-
-
-
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-
-
-
-
-
-
-
-
 	public int getPoint() {
 		return point;
 	}
-
-
-
-
-
-
 
 
 	public void setPoint(int point) {
 		this.point = point;
 	}
 
-
-
-
-
-
-
-
 	public String getJoindate() {
 		return joindate;
 	}
-
-
-
-
-
-
 
 
 	public void setJoindate(String joindate) {
@@ -117,31 +82,14 @@ public class UserVO {
 	}
 
 
-
-
-
-
-
-
 	public void setVisitcount(int visitcount) {
 		this.visitcount = visitcount;
 	}
 
 
-
-
-
-
-
-
 	public String getLastvisit() {
 		return lastvisit;
 	}
-
-
-
-
-
 
 
 
@@ -151,51 +99,30 @@ public class UserVO {
 
 
 
-
-
-
-
-
 	public String getFat_part1() {
 		return fat_part1;
 	}
-
-
-
 
 	public void setFat_part1(String fat_part1) {
 		this.fat_part1 = fat_part1;
 	}
 
 
-
-
 	public String getFat_part2() {
 		return fat_part2;
 	}
-
-
-
 
 	public void setFat_part2(String fat_part2) {
 		this.fat_part2 = fat_part2;
 	}
 
-
-
-
 	public String getFat_part3() {
 		return fat_part3;
 	}
 
-
-
-
 	public void setFat_part3(String fat_part3) {
 		this.fat_part3 = fat_part3;
 	}
-
-
 
 
 	public String getFat_part4() {
