@@ -20,7 +20,7 @@
 	<!-- Community 리스트 가져오기 -->
 	<select id="communityList" parameterType="java.util.Map"
 		resultMap="communityResultMap">
-		<![CDATA[select * from (select rownum rnum, community_no, community_section, community_subject, community_writer, community_regdate, community_view from (select * from community order by community_no desc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		<![CDATA[select * from (select rownum rnum, community_no, community_section, community_subject, community_writer, community_regdate, community_view from (select * from community order by community_ref desc, community_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
 	</select>
 
 	<!-- Community 글내용 가져오기 -->
@@ -36,12 +36,12 @@
 
 	<!-- Community 답글쓰기 -->
 	<insert id="communityReply" parameterType="java.util.Map">
-		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_update_date, community_ref, community_step, community_depth, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{ref},#{step}+1,#{depth}+1, 답글)]]>
+		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_update_date, community_ref, community_step, community_depth, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{ref},#{step}+1,#{depth}+1, #{section})]]>
 	</insert>
 
 	<!-- Community 답글달기 addStep -->
 	<update id="addStep" parameterType="java.util.Map">
-		<![CDATA[update community set step=step+1 where community_ref=#{ref} and community_step > #{step}]]>
+		<![CDATA[update community set community_step=community_step+1 where community_ref=#{ref} and community_step > #{step}]]>
 	</update>
 
 	<!-- Community 조회수 증가 -->
