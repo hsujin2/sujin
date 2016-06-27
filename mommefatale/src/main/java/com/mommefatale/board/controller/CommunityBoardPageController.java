@@ -50,26 +50,30 @@ public class CommunityBoardPageController {
 		int currentPage = Integer.parseInt(pageNum);
 		int pageSize = 10;
 		int pageNavi = 3;
-		int pageCount = command.CommunityPageCount();
+		int page_count = command.CommunityPageCount();
 		
 
-		int number = pageCount - (currentPage - 1) * pageSize;
+		int number = page_count - (currentPage - 1) * pageSize;
 
-		paging.setPaging(pageSize, pageNavi, pageCount, currentPage);
+		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
 		map.put("startRow", paging.getWriting_Start());
 		map.put("endRow", paging.getWriting_End());
+		System.out.println("Ä«¿îÆ®"+page_count);
 
 		List<CommunityBoardVO> vo = command.CommunityBoardPage(map);
 		int count = vo.size();
 		Map<String, Object> model = new HashMap<String, Object>();
 
 		model.put("boardList", vo);
-		model.put("pageCount", new Integer(pageCount));
+		model.put("page_count", new Integer(page_count));
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
+		
+		
 
 		mav.setViewName("/board/communityBoard");
+		mav.addAllObjects(model);
 		mav.addObject("vo", vo);
 		mav.addObject("count", count);
 

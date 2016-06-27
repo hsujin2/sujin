@@ -45,6 +45,7 @@ public class Paging {
 		return getPage_End() < getPage_Count();
 	}
 
+	
 	public Integer getWriting_Start() {
 
 		return getWriting_End() - w_size + 1;
@@ -70,19 +71,19 @@ public class Paging {
 		this.p_size = p_size;
 	}
 
-	public Integer getWriting_count() {
+	public Integer getWriting_Count() {
 		return writing_Count;
 	}
 
-	public void setWriting_count(Integer writing_Count) {
+	public void setWriting_Count(Integer writing_Count) {
 		this.writing_Count = writing_Count;
 	}
 
-	public Integer getCur_page() {
+	public Integer getCur_Page() {
 		return cur_Page;
 	}
 
-	public void setCur_page(Integer cur_Page) {
+	public void setCur_Page(Integer cur_Page) {
 		this.cur_Page = cur_Page;
 	}
 
@@ -101,7 +102,7 @@ public class Paging {
 	public void setNexts(boolean nexts) {
 		this.nexts = nexts;
 	}
-	
+
 	public Integer getStart_page() {
 		return start_page;
 	}
@@ -117,4 +118,6 @@ public class Paging {
 	public void setEnd_page(Integer end_page) {
 		this.end_page = end_page;
 	}
+
+	
 }
