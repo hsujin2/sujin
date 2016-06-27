@@ -41,12 +41,14 @@
 			<form name="communityReplyForm" method="post"
 				action="communityReply.do" id="replyForm">
 				<input type="hidden" value="${vo.ref}" name="ref" id="ref">
-			
+				<input type="hidden" value="${vo.step}" name="step" id="step">
+				<input type="hidden" value="${vo.depth}" name="depth" id="depth">
+				<input type="hidden" value="${vo.section}" name="section" id="section">
 				<table summary="테이블 구성" id="community_board">
 					<tr>
 						<th>작성자</th>
 						<td colspan="4" align="left">&nbsp;&nbsp;<input type="text" name="writer" id="writer" size="10"
-							maxlength="15" value="${userLogin.userid }" readonly></td>
+							maxlength="15" value="${userLogin.userid}" readonly></td>
 					</tr>
 					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>

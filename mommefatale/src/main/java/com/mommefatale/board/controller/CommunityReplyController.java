@@ -45,7 +45,7 @@ public class CommunityReplyController {
 		CommunityBoardVO vo = command.communityContent(no);
 		vo.setSubject("RE : " + vo.getSubject());
 		vo.setContent("\n\t[¿ø¹®]"+"\n\n "+vo.getContent()+
-				"\n --------------------------------------------------------------------------------------------------------\n\n");
+				"\n ---------------------------------------------------------------------------------------------\n\n");
 		Map<String, Object> model = new HashMap<>();
 		model.put("vo", vo);
 		mav.addAllObjects(model);
@@ -61,6 +61,8 @@ public class CommunityReplyController {
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
 		int ref = Integer.parseInt(request.getParameter("ref"));
+		int step = Integer.parseInt(request.getParameter("step"));
+		System.out.println("step : "+ step);
 		Enumeration enums = request.getParameterNames();
 		while(enums.hasMoreElements()){
 			String paramName = enums.nextElement().toString();
@@ -68,7 +70,7 @@ public class CommunityReplyController {
 			System.out.println("ParamName:"+paramName+" ParmaValue:"+paramValue);
 			map.put(paramName, paramValue);
 		}
-		map.put("ref", ref);
+
 		service.communityReply(map);
 		mav.setViewName("redirect:/communityBoard.do");
 		

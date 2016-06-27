@@ -65,20 +65,22 @@
 					<c:if test="${count != 0 }">
 						<c:forEach var="vo" items="${vo}">
 							<tr>
-								<td>${vo.no}</td>
+							<td><c:set var="num" value="${num+1}"
+									scope="page" />${num}</td> <!-- 페이지에서만 유효한 글 번호 -->
+								<!-- <td>${vo.no}</td>--> <!-- 실제 입력되는 순서의 글번호 -->
 								<td>${vo.section}</td>
 								<td class="align_left">
 								<c:if test="${vo.depth > 0}">
 								<c:set var="wid" value="depth*5"/>
 								<img src="resources/images/board/level.gif" width="${wid}">
 								</c:if>
-								<a href="communityContent.do?no=${vo.no }">${vo.subject }</a>
+								<a href="communityContent.do?no=${vo.no}">${vo.subject }</a>
 								<c:if test="${vo.view ge 20}"><img src="resources/images/board/hot.gif"></c:if>	
 							 	</td>
-								<td>${vo.writer }</td>
-								<td><fmt:formatDate value="${vo.regdate }" type="date"
+								<td>${vo.writer}</td>
+								<td><fmt:formatDate value="${vo.regdate}" type="date"
 										pattern="yyyy-MM-dd HH:mm" /></td>
-								<td>${vo.view }</td>
+								<td>${vo.view}</td>
 							</tr>
 						</c:forEach>
 					</c:if>
