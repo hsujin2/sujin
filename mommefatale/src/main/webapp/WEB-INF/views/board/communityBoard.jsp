@@ -20,11 +20,11 @@
 				var user = "${userLogin}";
 				var manager = "${isManager}";
 
-				if (user == null && manager == "false") {
+				if (user == null && admin == "false") {
 					alert("로그인 후 글쓰기가 가능합니다.");
 					return;
 				}
-				if (user == "" && manager == "") {
+				if (user == "" && admin == "") {
 					alert("로그인 후 글쓰기가 가능합니다.");
 					return;
 				}
