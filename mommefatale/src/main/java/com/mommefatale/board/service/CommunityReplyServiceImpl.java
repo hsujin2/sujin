@@ -4,9 +4,9 @@ import java.util.Map;
 
 import com.mommefatale.board.dao.CommunityBoardDAO;
 
-public class CommunityWriteServiceImpl implements CommunityWriteService {
+public class CommunityReplyServiceImpl implements CommunityReplyService {
 
-	private CommunityBoardDAO dao;
+	public CommunityBoardDAO dao;
 
 	public CommunityBoardDAO getDao() {
 		return dao;
@@ -17,9 +17,10 @@ public class CommunityWriteServiceImpl implements CommunityWriteService {
 	}
 
 	@Override
-	public void communityWrite(Map<String, Object> vo) {
-		System.out.println("자유게시판 글쓰기 서비스");
-		dao.communityWrite(vo);
+	public void communityReply(Map<String, Object> vo) {
+		System.out.println("자유게시판 답글쓰기 서비스");
+		dao.communityReply(vo);
+
 	}
 
 }

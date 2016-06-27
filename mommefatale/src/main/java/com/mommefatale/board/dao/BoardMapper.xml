@@ -36,7 +36,7 @@
 
 	<!-- Community 답글쓰기 -->
 	<insert id="communityReply" parameterType="java.util.Map">
-		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_update_date, community_ref, community_step, community_depth, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{ref},#{step}+1,#{depth}+1, #{section})]]>
+		<![CDATA[insert into community(community_no, community_writer, community_subject, community_content, community_regdate, community_update_date, community_ref, community_step, community_depth, community_section) values(community_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{ref},#{step}+1,#{depth}+1, 답글)]]>
 	</insert>
 
 	<!-- Community 답글달기 addStep -->

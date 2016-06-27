@@ -24,6 +24,10 @@
 	<bean id="communityDeleteController" class="com.mommefatale.board.controller.CommunityDeleteController">
 		<property name="command" ref="communityDeleteService"/>
 	</bean>
+	<bean id="communityReplyController" class="com.mommefatale.board.controller.CommunityReplyController">
+		<property name="command" ref="communityContentService"/>
+		<property name="service" ref="communityReplyService"/>
+	</bean>
 	
 <!-- Service -->	
 	<bean id="communityBoardPageService" class="com.mommefatale.board.service.CommunityBoardPageServiceImpl">
@@ -41,7 +45,9 @@
 	<bean id="communityDeleteService" class="com.mommefatale.board.service.CommunityDeleteServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
-	
+	<bean id="communityReplyService" class="com.mommefatale.board.service.CommunityReplyServiceImpl">
+		<property name="dao" ref="communityBoardDAO"/>
+	</bean>
 	
 <!-- DAO -->	
 	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
