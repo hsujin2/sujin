@@ -27,7 +27,7 @@
 	    </c:when>
 	    <c:when test="${admin eq true}">
 	    	<li>관리자</a></li> 
-	        <li><a href="#">adminpage</a></li> 
+	        <li><a href="adminMain.admin">adminpage</a></li> 
 	        <li><a href="logout.do">logout</a></li>
 	    </c:when>
 	    <c:otherwise>
