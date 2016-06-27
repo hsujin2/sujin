@@ -42,7 +42,7 @@ public class CommunityBoardPageController {
 		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
 		String pageNum = request.getParameter("pageNum");
-		
+
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (pageNum == null || pageNum == "") {
 			pageNum = "1";
@@ -51,14 +51,13 @@ public class CommunityBoardPageController {
 		int pageSize = 10;
 		int pageNavi = 3;
 		int page_count = command.CommunityPageCount();
-		
 
 		int number = page_count - (currentPage - 1) * pageSize;
 
 		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
 		map.put("startRow", paging.getWriting_Start());
 		map.put("endRow", paging.getWriting_End());
-		System.out.println("카운트"+page_count);
+		System.out.println("카운트" + page_count);
 
 		List<CommunityBoardVO> vo = command.CommunityBoardPage(map);
 		int count = vo.size();
@@ -69,11 +68,8 @@ public class CommunityBoardPageController {
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
-		
-		
-
-		mav.setViewName("/board/communityBoard");
 		mav.addAllObjects(model);
+		mav.setViewName("/board/communityBoard");
 		mav.addObject("vo", vo);
 		mav.addObject("count", count);
 
