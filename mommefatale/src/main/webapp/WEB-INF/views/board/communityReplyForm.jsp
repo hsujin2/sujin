@@ -52,7 +52,7 @@
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
 						<td><img src="resources/images/board/reply_icon.gif" alt="답변">
 						</td>
-						<td><input type="text" name="subject" id="subject" size="80" value="RE:"></td>
+						<td><input type="text" name="subject" id="subject" size="80" value="RE:'${vo.subject}'"></td>
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용</th>

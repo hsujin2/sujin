@@ -67,8 +67,14 @@
 							<tr>
 								<td>${vo.no}</td>
 								<td>${vo.section}</td>
-								<td class="align_left"><a
-									href="communityContent.do?no=${vo.no }">${vo.subject }</a></td>
+								<td class="align_left">
+								<c:if test="${vo.depth > 0}">
+								<c:set var="wid" value="depth*5"/>
+								<img src="resources/images/board/level.gif" width="${wid}">
+								</c:if>
+								<a href="communityContent.do?no=${vo.no }">${vo.subject }</a>
+								<c:if test="${vo.view ge 20}"><img src="resources/images/board/hot.gif"></c:if>	
+							 	</td>
 								<td>${vo.writer }</td>
 								<td><fmt:formatDate value="${vo.regdate }" type="date"
 										pattern="yyyy-MM-dd HH:mm" /></td>
@@ -96,8 +102,7 @@
 					<a href="communityBoard.do?pageNum=${paging.getPage_Start()-paging.p_size}">[이전]</a>&nbsp;&nbsp;</c:if>
 				<c:forEach var="counter" begin="${paging.getPage_Start()}"
 					end="${paging.getPage_End()}">
-					<c:if test="${paging.getCur_Page() eq counter}">
-                        [${counter}]
+					<c:if test="${paging.getCur_Page() eq counter}">[${counter}]
                      </c:if>
 					<c:if test="${paging.getCur_Page() ne counter}">
 						<a href="javascript:window.location='communityBoard.do?pageNum=${counter}'">[${counter}]</a>
