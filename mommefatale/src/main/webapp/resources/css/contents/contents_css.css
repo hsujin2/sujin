@@ -35,3 +35,6 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
 .date{color:#9f9f9f; font-family:Tahoma; font-size:8pt; vertical-align:5%; padding: 0 8px 0 7px;}
 
 .exercise_table{display:inline-block; border-spacing:30px;}
+
+
+.galleria{left:500; width: 700px; height: 400px; background: #000 }

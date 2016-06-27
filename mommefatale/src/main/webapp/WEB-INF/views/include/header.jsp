@@ -69,7 +69,7 @@
     <ul id="gnb_content">    
         <li><a href="#">HealthCare</a></li> 
         <li><a href="#">Bulk-up</a></li> 
-        <li><a href="recommended_products.do">Diet</a> </li>
+        <li><a href="exercise1.do">Diet</a> </li>
     </ul>
   </nav>
      <form name="searchF" action="#" method="get" id="searchF">
