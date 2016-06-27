@@ -37,4 +37,4 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
 .exercise_table{display:inline-block; border-spacing:30px;}
 
 
-.galleria{left:500; width: 700px; height: 400px; background: #000 }
+.galleria{position:relative; left:100; width: 700px; height: 400px; background:#09F }

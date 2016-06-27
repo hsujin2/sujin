@@ -28,10 +28,7 @@
 				alt="banner" /></a> <a href="exercise1.do"><img
 				src="resources/images/contents/arrow-next-exercise.png" alt="next" /></a>
 		</div>
-
-
 	</div>
-
 
 	<div id="main_content">
 		<div id="pageFor">
@@ -42,13 +39,12 @@
 			<a href="#"> <img src="resources/images/contents/dietary1.png"></a>&nbsp;&nbsp;&nbsp;
 			<a href="#"> <img src="resources/images/contents/dietary2.png"></a>
 		</div>
-
 		
 		<div class="galleria">
-				<img src="resources/images/contents/dietary1.png">
-				<img src="resources/images/contents/dietary1.jpg">
-				<img src="resources/images/contents/dietary1.png">
-				<img src="resources/images/contents/dietary1.jpg">
+				<img src="resources/images/contents/eq1.png">
+				<img src="resources/images/contents/eq2.jpg">
+				<img src="resources/images/contents/eq3.png">
+				<img src="resources/images/contents/eq4.jpg">
 		</div>
 
 		<script>
