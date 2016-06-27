@@ -11,6 +11,7 @@
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/board/community_css.css">
+	
 <c:if test="${vo.no==null||no==''}">
 	<script>
 		alert("잘못된 접근이거나 해당 게시물은 존재하지 않습니다.");
@@ -22,20 +23,20 @@
 	<%@ include file="../include/header.jsp"%>
 	<script type="text/javascript">
 
-		function reply() {
+		function reply() { //답글쓰기
 			//document.writeForm.submit();
 			window.location = "communityReplyForm.do?no=${vo.no}";
 		}
 
-		function deleteContent() {
+		function deleteContent() { //글삭제
 			var check = confirm("삭제하시겠습니까?");
 			if (check == true) {
 				window.location = "communityDelete.do?no=${vo.no}";
 			} else {
 				return;
 			}
-
 		}
+		
 	</script>
 	<div id="wrap">
 		<div class="board">
@@ -66,8 +67,10 @@
 						<td colspan="9"><hr class="board_hr"></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="image" alt="답글쓰기"
-								src="resources/images/board/icon_reply.gif" onClick="reply()">
+						<td colspan="2">
+						<c:if test="${userLogin ne null || admin eq true}">
+							<input type="button" value="답글쓰기" onClick="window.location='communityReplyForm.do?no='+${vo.no}">		
+						</c:if>
 						</td>
 						<td colspan="2"></td>
 						<td class="align_right"><a href="communityBoard.do">목록보기</a>
@@ -76,7 +79,7 @@
 						<td colspan="2">
 						<c:if test="${vo.writer eq userLogin.userid || admin eq true}">
 								<input type="button" value="수정"
-									onClick="window.location='communityUpdate.do?no='+ ${vo.no}" class="commit_btn">
+									onClick="window.location='communityUpdate.do?no='+${vo.no}" class="commit_btn">
 								<input type="button" value="삭제" onClick="deleteContent()" class="commit_btn">
 							</c:if></td>
 					</tr>

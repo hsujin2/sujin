@@ -41,35 +41,37 @@
 			<form name="communityReplyForm" method="post"
 				action="communityReply.do" id="replyForm">
 				<input type="hidden" value="${vo.ref}" name="ref" id="ref">
+			
 				<table summary="테이블 구성" id="community_board">
 					<tr>
 						<th>작성자</th>
-						<td>&nbsp;&nbsp;<input type="text" name="writer" id="writer" size="10"
+						<td colspan="4" align="left">&nbsp;&nbsp;<input type="text" name="writer" id="writer" size="10"
 							maxlength="15" value="${userLogin.userid }" readonly></td>
-						<td colspan="2"></td>
 					</tr>
 					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
-						<td><img src="resources/images/board/reply_icon.gif" alt="답변">
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="resources/images/board/reply_icon.gif" alt="답변">
 						</td>
-						<td><input type="text" name="subject" id="subject" size="80" value="RE:'${vo.subject}'"></td>
+						<td colspan="2"><input type="text" name="subject" id="subject" size="85" value="${vo.subject}"></td>
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용</th>
-						<td colspan="2"><textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea></td>
+						<td colspan="3"><textarea name="content" id="content" style="resize:none" rows="15" cols="100">${vo.content}</textarea></td>
 					</tr>
 					<!-- <tr>
 						<th>첨부파일</th>
-						<td colspan="2" class="align_left">&nbsp;&nbsp;<input type="file" name="filename"></td>
+						<td colspan="3" class="align_left">&nbsp;&nbsp;<input type="file" name="filename"></td>
 					</tr>-->
 					<tr>
-						<td colspan="3"><hr class="board_hr"></td>
+						<td colspan="4"><hr class="board_hr"></td>
 					</tr>
 					<tr>
-						<td colspan="3">
+						<td colspan="2"></td>
+						<td align="right">
 							<input type="button" value="등록" onClick="FormCheck()" class="commit_btn"> 
 							<input type="button" value="취소" onclick="writeCancel()" class="commit_btn">
 						</td>
+						<td class="align_right"><a href="communityBoard.do">목록보기</a>
 					</tr>
 				</table>
 			</form>

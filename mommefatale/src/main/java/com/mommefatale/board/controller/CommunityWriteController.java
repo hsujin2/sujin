@@ -24,60 +24,32 @@ public class CommunityWriteController {
 	public void setCommand(CommunityWriteService command) {
 		this.command = command;
 	}
-	
-	@RequestMapping(value="/communityWriteForm.do")
-	public ModelAndView communityWriteForm(HttpServletRequest request)throws Exception{
+
+	@RequestMapping(value = "/communityWriteForm.do")
+	public ModelAndView communityWriteForm(HttpServletRequest request) throws Exception {
 		System.out.println("자유게시판 글쓰기 폼 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/board/communityWriteForm");
-		
+
 		return mav;
 	}
-	
-	@RequestMapping(value="/communityWrite.do")
-	public ModelAndView communityWrite(HttpServletRequest request)throws Exception{
+
+	@RequestMapping(value = "/communityWrite.do")
+	public ModelAndView communityWrite(HttpServletRequest request) throws Exception {
 		System.out.println("자유게시판 글쓰기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
 		Enumeration enums = request.getParameterNames();
-		while(enums.hasMoreElements()){
+		while (enums.hasMoreElements()) {
 			String paramName = enums.nextElement().toString();
 			String paramValue = request.getParameter(paramName);
-			System.out.println("ParamName:"+paramName+" ParmaValue:"+paramValue);
+			System.out.println("ParamName:" + paramName + " ParmaValue:" + paramValue);
 			map.put(paramName, paramValue);
 		}
 		command.communityWrite(map);
 		mav.setViewName("redirect:/communityBoard.do");
-		
+
 		return mav;
 	}
-	
-	@RequestMapping(value="/communityReplyForm.do")
-	public ModelAndView communityReplyForm(HttpServletRequest request)throws Exception{
-		System.out.println("자유게시판 답글쓰기 폼 컨트롤러");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/board/communityReplyForm");
-		
-		return mav;
-	}
-	
-	@RequestMapping(value="/communityReply.do")
-	public ModelAndView communityReply(HttpServletRequest request)throws Exception{
-		System.out.println("자유게시판 답글쓰기 컨트롤러");
-		ModelAndView mav = new ModelAndView();
-		Map<String, Object> map = new HashMap<>();
-		Enumeration enums = request.getParameterNames();
-		while(enums.hasMoreElements()){
-			String paramName = enums.nextElement().toString();
-			String paramValue = request.getParameter(paramName);
-			System.out.println("ParamName:"+paramName+" ParmaValue:"+paramValue);
-			map.put(paramName, paramValue);
-		}
-		command.communityReply(map);
-		mav.setViewName("redirect:/communityBoard.do");
-		
-		return mav;
-	}
-	
-	
+
 }
