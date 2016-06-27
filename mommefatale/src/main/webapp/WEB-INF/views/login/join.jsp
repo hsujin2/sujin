@@ -22,7 +22,7 @@
             }).open();
         }
     </script>
-<script type="text/javascript" src="resources/js/join_js.js"></script>
+<script type="text/javascript" src="resources/js/login/join_js.js"></script>
 <script type="text/javascript">
 	function idCheck(userid) {
 		if (userid == "") {

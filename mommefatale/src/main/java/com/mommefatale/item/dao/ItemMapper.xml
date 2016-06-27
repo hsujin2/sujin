@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mommefatale.item.dao.ItemMapper">
+	<select id="insertItem" parameterType="com.mommefatale.item.model.ItemVO">
+		<![CDATA[insert into item(item_no,item_name,item_brand,item_origin,item_image,item_content,category_no,item_price_origin,item_price_sales,item_price_discount,item_stock,option_size,item_color) values (item_seq.nextval,#{name},#{brand},#{origin},#{main_img},#{content_img},#{category},#{price_origin},#{price_sales},#{price_discount},#{stock},#{option_size},#{color})]]>
+	</select>
+</mapper>
