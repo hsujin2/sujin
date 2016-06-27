@@ -57,7 +57,7 @@ public class CommunityBoardPageController {
 		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
 		map.put("startRow", paging.getWriting_Start());
 		map.put("endRow", paging.getWriting_End());
-		System.out.println("카운트" + page_count);
+		System.out.println("카운트: " + page_count);
 
 		List<CommunityBoardVO> vo = command.CommunityBoardPage(map);
 		int count = vo.size();

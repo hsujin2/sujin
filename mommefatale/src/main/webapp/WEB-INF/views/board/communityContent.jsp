@@ -23,7 +23,7 @@
 	<script type="text/javascript">
 
 		function reply() {
-			document.writeForm.submit();
+			//document.writeForm.submit();
 			window.location = "communityReplyForm.do?no=${vo.no}";
 		}
 
