@@ -1,5 +1,5 @@
 @CHARSET "UTF-8";
-.title{margin:0 auto 50px; color:#050099;}
+.title{font-size:45px; font-family:Georgia, "Times New Roman", Times, serif; font-weight:bold; color:#09C;}
 .board{margin:50px auto;}
 #community_board{width:800px; margin:10px auto;}
 .write_button{text-align: right;}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QnaMapper">
+
+	<resultMap id="qnaResultMap" type="com.mommefatale.qna.model.QnaVO">
+		<result property="no" column="qna_no" jdbcType="BIGINT" />
+		<result property="writer" column="qna_writer" jdbcType="VARCHAR" />
+		<result property="subject" column="qna_subject" jdbcType="VARCHAR" />
+		<result property="content" column="qna_content" jdbcType="VARCHAR" />
+		<result property="regdate" column="qna_regdate" jdbcType="VARCHAR" />
+		<result property="update_date" column="qna_update_date" jdbcType="VARCHAR" />
+		<result property="ref" column="qna_ref" jdbcType="BIGINT" />
+		<result property="step" column="qna_step" jdbcType="BIGINT" />
+		<result property="depth" column="qna_depth" jdbcType="BIGINT" />
+		<result property="section" column="qna_section" jdbcType="VARCHAR" />
+		<result property="view" column="qna_view" jdbcType="BIGINT" />
+	</resultMap>
+	
+	<!-- QnA 리스트 가져오기 -->
+	<select id="qnaList" parameterType="java.util.Map" resultMap="qnaResultMap">
+		<![CDATA[select * from (select rownum rnum, qna_no, qna_section, qna_subject, qna_writer, qna_regdate, qna_ref, qna_step, qna_depth, qna_view from (select * from qna order by qna_ref desc, qna_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+	</select>
+	
+	<!-- QnA 글내용 가져오기 -->
+	<select id="qnaContent" parameterType="java.lang.Integer"
+		resultMap="qnaResultMap">
+		<![CDATA[select * from qna where qna_no=#{no}]]>
+	</select>
+	
+	<!-- QnA 글쓰기 -->
+	<insert id="qnaWrite" parameterType="java.util.Map">
+		<![CDATA[insert into qna(qna_no, qna_writer, qna_subject, qna_content, qna_regdate, qna_update_date, qna_ref, qna_step, qna_depth, qna_section) values(qna_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, qna_seq.nextval, 0, 0, #{section})]]>
+	</insert>
+
+	<!-- QnA 답글쓰기 -->
+	<insert id="qnaReply" parameterType="java.util.Map">
+		<![CDATA[insert into qna(qna_no, qna_writer, qna_subject, qna_content, qna_regdate, qna_update_date, qna_ref, qna_step, qna_depth, qna_section) values(qna_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{ref},#{step}+1,#{depth}+1, #{section})]]>
+	</insert>
+
+	<!-- QnA 답글달기 addStep -->
+	<update id="addStep" parameterType="java.util.Map">
+		<![CDATA[update qna set qna_step=qna_step+1 where qna_ref=#{ref} and qna_step > #{step}]]>
+	</update>
+
+	<!-- QnA 조회수 증가 -->
+	<update id="qnaView" parameterType="java.lang.Integer">
+	<![CDATA[update qna set qna_view=qna_view+1 where qna_no=#{no}]]>
+	</update>
+
+	<!-- QnA 글수정 -->
+	<update id="qnaUpdate" parameterType="java.util.Map">
+		<![CDATA[update qna set qna_writer=#{writer}, qna_subject=#{subject}, qna_content=#{content}, qna_update_date=sysdate, qna_section=#{section} where qna_no=#{no}]]>
+	</update>
+	
+	<!-- QnA 글삭제 -->
+	<delete id="qnaDelete" parameterType="java.lang.Integer">
+		<![CDATA[delete from qna where qna_no=#{no}]]>
+	</delete>
+
+	<!-- QnA 총 게시물 수 -->
+	<select id="qnaCount" resultType="java.lang.Integer">
+			<![CDATA[select count(*) from qna]]>
+	</select>
+</mapper>

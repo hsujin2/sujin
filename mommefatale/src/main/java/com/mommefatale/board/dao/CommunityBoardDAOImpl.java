@@ -28,6 +28,7 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 		return;
 	}
 
+	
 	@Override
 	public List<CommunityBoardVO> getCommunityList(Object obj) {
 		System.out.println("자유게시판 리스트 DAO");
