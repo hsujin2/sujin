@@ -30,8 +30,8 @@
 				/WEB-INF/spring/memberContexts/userlogin-servlet.xml
 				/WEB-INF/spring/memberContexts/board-servlet.xml
 				/WEB-INF/spring/memberContexts/contents-servlet.xml
-				
-				
+				/WEB-INF/spring/memberContexts/item-servlet.xml
+				/WEB-INF/spring/memberContexts/qna-servlet.xml
 </param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>
@@ -49,7 +49,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 				/WEB-INF/spring/adminContexts/admin-servlet.xml
-				/WEB-INF/spring/memberContexts/item-servlet.xml
+				/WEB-INF/spring/adminContexts/item-servlet.xml
 				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>

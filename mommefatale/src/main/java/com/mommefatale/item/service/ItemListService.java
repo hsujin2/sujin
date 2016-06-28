@@ -1,5 +1,11 @@
 package com.mommefatale.item.service;
 
-public interface ItemListService {
+import java.util.List;
+import java.util.Map;
 
+import com.mommefatale.item.model.ItemVO;
+
+public interface ItemListService {
+	public int getCategoryCount(String category);
+	public List<ItemVO> listCategory(Map<String, Object> map);
 }

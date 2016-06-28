@@ -37,6 +37,7 @@
 		<result property="visitcount" column="MEMBER_VISIT_COUNT" jdbcType="BIGINT" />
 		<result property="lastvisit" column="MEMBER_LAST_VISIT_DATE" jdbcType="VARCHAR" />
 	</resultMap>
+	<!-- couponVO -->
 	<resultMap id="toCouponVO" type="com.mommefatale.user.model.CouponVO">
 		<result property="name" column="COUPON_NAME" jdbcType="VARCHAR"/>
 		<result property="amount" column="COUPON_AMOUNT" jdbcType="BIGINT"/>
