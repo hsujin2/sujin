@@ -57,7 +57,7 @@ public class ItemInsertController {
 		itemVO.setPrice_origin(Integer.parseInt(request.getParameter("price")));
 		itemVO.setPrice_sales(Integer.parseInt(request.getParameter("sales")));
 		itemVO.setPrice_discount(Integer.parseInt(request.getParameter("discount")));
-		if(request.getParameter("size_category")==null || request.getParameter("size_category")==""){
+		if(request.getParameter("option_size")==null || request.getParameter("option_size")==""){
 			itemVO.setOption_size("none");
 		}else{
 			itemVO.setOption_size(request.getParameter("option_size"));
