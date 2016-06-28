@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "GalleryMapper">
+
+	<resultMap id="galleryResultMap" type="com.mommefatale.gallery.model.galleryVO">
+		<result property="no" column="gallery_no" jdbcType="BIGINT" />
+		<result property="writer" column="gallery_writer" jdbcType="VARCHAR" />
+		<result property="subject" column="gallery_subject" jdbcType="VARCHAR" />
+		<result property="content" column="gallery_content" jdbcType="VARCHAR" />
+		<result property="regdate" column="gallery_regdate" jdbcType="VARCHAR" />
+		<result property="update_date" column="gallery_update_date" jdbcType="VARCHAR" />
+		<result property="ref" column="gallery_ref" jdbcType="BIGINT" />
+		<result property="step" column="gallery_step" jdbcType="BIGINT" />
+		<result property="depth" column="gallery_depth" jdbcType="BIGINT" />
+		<result property="image" column="gallery_image" jdbcType="VARCHAR" />
+		<result property="view" column="gallery_view" jdbcType="BIGINT" />
+	</resultMap>
+
+	<!--  Gallery 리스트 가져오기 -->
+	<select id="GalleryList" parameterType="java.util.map"
+		resultMap="galleryResultMap">
+		<![CDATA[select * from (select rownum rnum, gallery_no, gallery_subject, gallery_writer, gallery_regdate, gallery_ref, gallery_step, gallery_depth, gallery_view  (select * from gallery order by gallery_ref desc, gallery_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		
+	</select>
+	
+	
+	
+</mapper>
