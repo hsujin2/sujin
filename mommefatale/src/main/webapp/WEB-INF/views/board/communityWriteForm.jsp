@@ -7,6 +7,7 @@
 <title>자유게시판 글쓰기폼</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
+<script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script>
 	function FormCheck() {
 		var writer = document.getElementById("writer");
@@ -23,6 +24,7 @@
 		if (content.value == null || content.value == "") {
 			alert("내용을 입력하세요!");
 			content.focus();
+			
 			return;
 		}
 
@@ -62,7 +64,20 @@
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용</th>
-						<td colspan="2"><textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea></td>
+						<td colspan="2">
+						<!-- <textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea> -->
+						<textarea name="content" id="content" rows="22" style="width:645px"> </textarea>
+						<script type="text/javascript">
+							var oEditors = [];
+							nhn.husky.EZCreator
+									.createInIFrame({
+										oAppRef : oEditors,
+										elPlaceHolder : "content", //textarea에서 지정한 id와 일치해야 합니다.
+										sSkinURI : "${contextPath}/resources/smarteditor/SmartEditor2Skin.html",
+										fCreator : "createSEditor2"
+									});
+						</script>
+						</td>
 					</tr>
 					<!-- <tr>
 						<th>첨부파일</th>
