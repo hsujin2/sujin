@@ -57,10 +57,12 @@ public class CommunityBoardPageController {
 		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
 		map.put("startRow", paging.getWriting_Start());
 		map.put("endRow", paging.getWriting_End());
+		
 		System.out.println("Ä«¿îÆ®: " + page_count);
 
 		List<CommunityBoardVO> vo = command.CommunityBoardPage(map);
 		int count = vo.size();
+		
 		Map<String, Object> model = new HashMap<String, Object>();
 
 		model.put("boardList", vo);
@@ -72,7 +74,9 @@ public class CommunityBoardPageController {
 		mav.setViewName("/board/communityBoard");
 		mav.addObject("vo", vo);
 		mav.addObject("count", count);
-
+//		for(int i=0; i<count; i++){
+//		System.out.println("ref:"+vo.get(i).getRef()+"step:"+vo.get(i).getStep()+"depth"+vo.get(i).getDepth());
+//		}
 		return mav;
 	}
 }

@@ -20,7 +20,7 @@
 	<!-- Community 리스트 가져오기 -->
 	<select id="communityList" parameterType="java.util.Map"
 		resultMap="communityResultMap">
-		<![CDATA[select * from (select rownum rnum, community_no, community_section, community_subject, community_writer, community_regdate, community_view from (select * from community order by community_ref desc, community_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		<![CDATA[select * from (select rownum rnum, community_no, community_section, community_subject, community_writer, community_regdate, community_ref, community_step, community_depth, community_view from (select * from community order by community_ref desc, community_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
 	</select>
 
 	<!-- Community 글내용 가져오기 -->
