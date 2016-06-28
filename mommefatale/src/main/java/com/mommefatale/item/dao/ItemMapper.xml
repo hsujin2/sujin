@@ -2,15 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mommefatale.item.dao.ItemMapper">
 	<resultMap id="toItemVO" type="com.mommefatale.item.model.ItemVO">
-		<result property="name" column="COUPON_NAME" jdbcType="VARCHAR"/>
-		<result property="amount" column="COUPON_AMOUNT" jdbcType="BIGINT"/>
-		<result property="issuedate" column="COUPONS_ISSUEDATE" jdbcType="DATE"/>
-		<result property="exdate" column="COUPONS_EXDATE" jdbcType="DATE"/>
+		<result property="no" column="ITEM_NO" jdbcType="BIGINT"/>
+		<result property="name" column="ITEM_NAME" jdbcType="VARCHAR"/>
+		<result property="brand" column="ITEM_BRAND" jdbcType="VARCHAR"/>
+		<result property="origin" column="ITEM_ORIGIN" jdbcType="VARCHAR"/>
+		<result property="main_img" column="ITEM_IMAGE" jdbcType="VARCHAR"/>
+		<result property="content_img" column="ITEM_CONTENT" jdbcType="VARCHAR"/>
+		<result property="category" column="CATEGORY_NO" jdbcType="BIGINT"/>
+		<result property="price_origin" column="ITEM_PRICE_ORIGIN" jdbcType="BIGINT"/>
+		<result property="price_sales" column="ITEM_PRICE_SALES" jdbcType="BIGINT"/>
+		<result property="price_discount" column="ITEM_PRICE_DISCOUNT" jdbcType="BIGINT"/>
+		<result property="sales_quantity" column="ITEM_SALES_QUANTITY" jdbcType="BIGINT"/>
+		<result property="stock" column="ITEM_STOCK" jdbcType="BIGINT"/>
+		<result property="view" column="ITEM_VIEW" jdbcType="BIGINT"/>
+		<result property="regdate" column="ITEM_REGDATE" jdbcType="DATE"/>
+		<result property="update_date" column="ITEM_UPDATE_DATE" jdbcType="DATE"/>
+		<result property="option_size" column="OPTION_SIZE" jdbcType="VARCHAR"/>
+		<result property="color" column="ITEM_COLOR" jdbcType="VARCHAR"/>
 	</resultMap>
 	<select id="insertItem" parameterType="com.mommefatale.item.model.ItemVO">
 		<![CDATA[insert into item(item_no,item_name,item_brand,item_origin,item_image,item_content,category_no,item_price_origin,item_price_sales,item_price_discount,item_stock,option_size,item_color) values (item_seq.nextval,#{name},#{brand},#{origin},#{main_img},#{content_img},#{category},#{price_origin},#{price_sales},#{price_discount},#{stock},#{option_size},#{color})]]>
 	</select>
-	<select id="getCategoryProductCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+	<select id="getCategoryCount" parameterType="java.lang.String" resultType="java.lang.Integer">
 		select count(*) from item where category_no = #{category}
 	</select>
 	<select id="listCategory" parameterType="java.util.Map" resultMap="toItemVO">
