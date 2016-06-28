@@ -11,9 +11,15 @@
 		<property name="command" ref="qnaPageService"/>
 		<property name="paging" ref="paging"/>
 	</bean>	
-
+	<bean id="qnaWriteController" class="com.mommefatale.qna.controller.QnaWriteController">
+		<property name="command" ref="qnaWriteService"></property>
+	</bean>
+	
 <!-- Service -->
 	<bean id="qnaPageService" class="com.mommefatale.qna.service.QnaPageServiceImpl">
+		<property name="dao" ref="qnaDAO"/>
+	</bean>
+	<bean id="qnaWriteService" class="com.mommefatale.qna.service.QnaWriteServiceImpl">
 		<property name="dao" ref="qnaDAO"/>
 	</bean>
 	
