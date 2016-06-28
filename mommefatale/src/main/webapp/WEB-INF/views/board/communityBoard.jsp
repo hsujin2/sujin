@@ -74,6 +74,7 @@
 								<c:set var="wid" value="depth*5"/>
 								<img src="resources/images/board/level.gif" width="${wid}">
 								</c:if>
+								<c:if test="${vo.step ge 1}"><img src="resources/images/board/reply_icon.gif"></c:if>
 								<a href="communityContent.do?no=${vo.no}">${vo.subject }</a>
 								<c:if test="${vo.view ge 20}"><img src="resources/images/board/hot.gif"></c:if>	
 							 	</td>
