@@ -56,14 +56,14 @@
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="resources/images/board/reply_icon.gif" alt="답변">
 						</td>
-						<td colspan="2"><input type="text" name="subject" id="subject" size="85" value="${vo.subject}"></td>
+						<td colspan="2"><input type="text" name="subject" id="subject" size="70" value="${vo.subject}"></td>
 					</tr>
 					<tr>
-						<th>내&nbsp;&nbsp;&nbsp;용</th>
+						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						<td colspan="3">
 						<!-- <textarea name="content" id="content" style="resize:none" rows="15" cols="100">${vo.content}</textarea> -->
 					<textarea name="content" id="content" rows="22"
-								style="width: 645px">${vo.content}</textarea> <script type="text/javascript">
+								style="width: 670px">${vo.content}</textarea> <script type="text/javascript">
 									var oEditors = [];
 
 									nhn.husky.EZCreator

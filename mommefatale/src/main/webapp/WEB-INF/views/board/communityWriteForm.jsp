@@ -67,11 +67,11 @@
 						<td><input type="text" name="subject" id="subject" size="80"></td>
 					</tr>
 					<tr>
-						<th>내&nbsp;&nbsp;&nbsp;용</th>
-						<td colspan="2">
+						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;&nbsp;&nbsp;&nbsp;</th>
+						<td colspan="2">&nbsp;&nbsp;&nbsp;
 							<!-- <textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea> -->
 							<textarea name="content" id="content" rows="22"
-								style="width: 645px"></textarea> 
+								style="width: 715px"></textarea> 
 								<script type="text/javascript">
 									var oEditors = [];
 

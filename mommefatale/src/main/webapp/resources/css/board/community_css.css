@@ -12,6 +12,6 @@ font-weight:bold; color:#09C;}
 #regdate{text-align:center; width:150px;}
 #view{text-align:right; width:10px;}
 #subject{text-align:left;}
-#content{text-align:left; height:200px;}
+#content{text-align:left;}
 .board_hr{width:800px; size:1px; margin:10px auto;}
 #footList{margin:10px auto;}
