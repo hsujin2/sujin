@@ -24,8 +24,8 @@
 				</c:if>
 				<c:if test="${count != 0}">
 					<c:forEach var="item" items="${itemlist}">
-						<tr height="150px">
-							<td align="center"><a href="#"><img src="../../resources/images/uploadimg/${item.main_img}" alt="${item.main_img}" class="itemImg"/></a></td>
+						<tr height="250px">
+							<td align="center"><a href="#"><img src="/mommefatale/resources/images/uploadimg/${item.main_img}" alt="${item.name}" class="itemImg" width="200"/></a></td>
 							<td align="center"><a href="javascript:window.location='itmeModifydel.admin?no=${item.no}'">${item.name}</a></td>
 							<td align="center">${item.category}</td>
 						</tr>
