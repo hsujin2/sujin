@@ -1,7 +1,8 @@
 @CHARSET "UTF-8";
-.title{font-size:45px; font-family:Georgia, "Times New Roman", Times, serif; font-weight:bold; color:#09C;}
+.title{font-size:40px; font-family:Georgia, "Times New Roman", Times, serif; 
+font-weight:bold; color:#09C;}
 .board{margin:50px auto;}
-#community_board{width:800px; margin:10px auto;}
+#community_board{width:800px; margin:50px auto 0;}
 .write_button{text-align: right;}
 .no{text-align:center; width:20px;}
 #no{text-align:center; width:20px;}
@@ -13,4 +14,4 @@
 #subject{text-align:left;}
 #content{text-align:left; height:200px;}
 .board_hr{width:800px; size:1px; margin:10px auto;}
-#footList{margint:10px auto;}
+#footList{margin:10px auto;}
