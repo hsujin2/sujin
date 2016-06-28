@@ -68,15 +68,15 @@
 								<option value="다이어트후기">다이어트후기</option>
 						</select>
 						</td>
-						<td><input type="text" name="subject" id="subject" size="80"
+						<td><input type="text" name="subject" id="subject" size="70"
 							value="${vo.subject}"></td>
 					</tr>
 					<tr>
-						<th>내&nbsp;&nbsp;&nbsp;용</th>
+						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						<td colspan="2">
 							<!--<textarea name="content" id="content" style="resize:none" rows="15" cols="100">
 						${vo.content}</textarea>--> 
-						<textarea name="content" id="content" rows="22" style="width: 645px">${vo.content}</textarea> 
+						<textarea name="content" id="content" rows="22" style="width: 700px">${vo.content}</textarea> 
 						<script type="text/javascript">
 									var oEditors = [];
 	
