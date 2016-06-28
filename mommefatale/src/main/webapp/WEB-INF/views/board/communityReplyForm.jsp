@@ -7,8 +7,10 @@
 <title>자유게시판 답변쓰기</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
+<script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script>
 	function FormCheck() {
+		oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
 		var writer = document.getElementById("writer");
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
@@ -58,12 +60,23 @@
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용</th>
-						<td colspan="3"><textarea name="content" id="content" style="resize:none" rows="15" cols="100">${vo.content}</textarea></td>
+						<td colspan="3">
+						<!-- <textarea name="content" id="content" style="resize:none" rows="15" cols="100">${vo.content}</textarea> -->
+					<textarea name="content" id="content" rows="22"
+								style="width: 645px">${vo.content}</textarea> <script type="text/javascript">
+									var oEditors = [];
+
+									nhn.husky.EZCreator
+											.createInIFrame({
+												oAppRef : oEditors,
+												elPlaceHolder : "content", //textarea에서 지정한 id와 일치해야 합니다.
+												sSkinURI : "resources/smarteditor/SmartEditor2Skin.html",
+												fCreator : "createSEditor2"
+
+											});
+								</script>
+					</td>
 					</tr>
-					<!-- <tr>
-						<th>첨부파일</th>
-						<td colspan="3" class="align_left">&nbsp;&nbsp;<input type="file" name="filename"></td>
-					</tr>-->
 					<tr>
 						<td colspan="4"><hr class="board_hr"></td>
 					</tr>
