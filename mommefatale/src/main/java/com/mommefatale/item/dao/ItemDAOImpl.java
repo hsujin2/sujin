@@ -1,5 +1,8 @@
 package com.mommefatale.item.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.mommefatale.item.model.ItemVO;
@@ -14,6 +17,14 @@ public class ItemDAOImpl implements ItemDAO{
 	@Override
 	public void insertItem(ItemVO itemVO) {
 		session.insert(namespace + ".insertItem",itemVO);
+	}
+	@Override
+	public int getCategoryCount(String category) {
+		return session.selectOne(namespace+".getCategoryCount",category);
+	}
+	@Override
+	public List<ItemVO> listCategory(Map<String, Object> map) {
+		return session.selectList(namespace+".listCategory",map);
 	}
 
 }

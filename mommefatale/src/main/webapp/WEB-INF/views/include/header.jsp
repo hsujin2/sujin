@@ -14,7 +14,7 @@
     <ul class="util_left">
 		<li><a href="#">gallery</a></li> 
         <li><a href="communityBoard.do">community</a></li> 
-        <li><a href="#">Q&amp;A</a></li> 
+        <li><a href="qnaBoard.do">Q&amp;A</a></li> 
         <li><a href="#">sitemap</a></li> 
     </ul>
     
@@ -26,7 +26,7 @@
 	        <li><a href="logout.do">logout</a></li>
 	    </c:when>
 	    <c:when test="${admin eq true}">
-	    	<li>관리자</a></li> 
+	    	<li>관리자</li> 
 	        <li><a href="adminMain.admin">adminpage</a></li> 
 	        <li><a href="logout.do">logout</a></li>
 	    </c:when>
@@ -41,13 +41,13 @@
      <h1><a href="index.do"><img src="resources/images/index/logo.png" alt="몸므파탈로고" id="logo"/></a></h1>
   <nav id="gnb">
      <ul id="gnb_shop">
-		<li><a href="#">Equipment</a>
+		<li><a href="itemList.do?category=1">Equipment</a>
         	<ul class="menu1">
-            	<li><a href="#">런닝머신</a></li>
-                <li><a href="#">웨이트기구</a></li>
-                <li><a href="#">헬스사이클</a></li>
-                <li><a href="#">아령/덤벨</a></li>
-                <li><a href="#">기타</a></li>
+            	<li><a href="itemList.do?category=1" onmouseover="this.innerText='런닝머신'" onmouseout="this.innerText='Treadmill'">Treadmill</a></li>
+                <li><a href="#" onmouseover="this.innerText='웨이트기구'" onmouseout="this.innerText='Weight Machine'">Weight Machine</a></li>
+                <li><a href="#" onmouseover="this.innerText='헬스사이클'" onmouseout="this.innerText='Cycle'">Cycle</a></li>
+                <li><a href="#" onmouseover="this.innerText='아령/덤벨'" onmouseout="this.innerText='Dumbbell'">Dumbbell</a></li>
+                <li><a href="#" onmouseover="this.innerText='기타'" onmouseout="this.innerText='ETC'">ETC</a></li>
            </ul>
         </li>        
         <li><a href="#">SportsWear</a>

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mommefatale.item.dao.ItemMapper">
+	<resultMap id="toItemVO" type="com.mommefatale.item.model.ItemVO">
+		<result property="name" column="COUPON_NAME" jdbcType="VARCHAR"/>
+		<result property="amount" column="COUPON_AMOUNT" jdbcType="BIGINT"/>
+		<result property="issuedate" column="COUPONS_ISSUEDATE" jdbcType="DATE"/>
+		<result property="exdate" column="COUPONS_EXDATE" jdbcType="DATE"/>
+	</resultMap>
 	<select id="insertItem" parameterType="com.mommefatale.item.model.ItemVO">
 		<![CDATA[insert into item(item_no,item_name,item_brand,item_origin,item_image,item_content,category_no,item_price_origin,item_price_sales,item_price_discount,item_stock,option_size,item_color) values (item_seq.nextval,#{name},#{brand},#{origin},#{main_img},#{content_img},#{category},#{price_origin},#{price_sales},#{price_discount},#{stock},#{option_size},#{color})]]>
+	</select>
+	<select id="getCategoryProductCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(*) from item where category_no = #{category}
+	</select>
+	<select id="listCategory" parameterType="java.util.Map" resultMap="toItemVO">
+		<![CDATA[
+		select * from (select rownum rnum, ITEM_NO, ITEM_NAME, ITEM_BRAND, ITEM_ORIGIN, ITEM_IMAGE, ITEM_CONTENT, CATEGORY_NO, ITEM_PRICE_ORIGIN, ITEM_PRICE_SALES, ITEM_PRICE_DISCOUNT, ITEM_SALES_QUANTITY, ITEM_STOCK, ITEM_VIEW, ITEM_REGDATE, ITEM_UPDATE_DATE, OPTION_SIZE, ITEM_COLOR from (select * from ITEM where CATEGORY_NO = #{category} order by ITEM_NO desc)) where rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
 	</select>
 </mapper>
