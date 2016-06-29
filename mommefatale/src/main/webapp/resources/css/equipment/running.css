@@ -2,27 +2,30 @@
 /* CSS Document */
 *{margin:0; padding:0;}
 body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
-.div1>ul>li{list-style-type:none;}
-.div1{width:100%; margin:0 auto;margin-top:30px;}
+.items>a hover{}
+.items>ul>li{list-style-type:none;}
+.items{width:100%; margin:0 auto;margin-top:30px;}
 .array{width:1000px; margin:0 auto;margin-top:30px;}
 .array>li{position:relative;float:left;width:auto; text-decoration:none;font-family:"굴림";font-size:11px;padding-left:8px;padding-right:8px;  color:#069;font-weight:bold;}
 .array>li>a{text-decoration:none;font-weight:bold;  color:#069;}
-.array>li>a:hover{/*font-weight:100;*/text-decoration:underline;}
 .hr1{width:1003px;margin:0 auto;}
 .hr2{width:1003px;margin:0 auto;margin-bottom:20px;}
 .best{width:950px; margin:0 auto; color:#FC6; font-weight:bold;}
-.div1>ul{width:1000px; margin:0 auto;  text-align:center;}
+.items>ul{width:1000px; margin:0 auto;  text-align:center;}
 .bestitem>li>span{position:relative; float:left; width:200px; height:200px; /*border:2px solid #000;*/ margin:20px 20px 10px 20px;}
 .bestitem>li{position:relative; float:left; width:200px; height:300px;margin:20px; /*border:2px solid #000; margin:20px;*/}
 .bestitem>li>a{width:200px; margin:0 auto; font-size:12px; text-decoration:none; color:#036;font-weight:bolder;}
 .bestitem>li>span{margin:0 auto;}
 .bestitem>li>span>a>img:hover{outline:2px solid #09F;}
-.bestitem>li>a:hover{font-weight:100; text-decoration:underline;}
 img{width:200px; height:200px;}
 
 .allitem>li>span{position:relative; float:left; width:200px; height:200px; /*border:2px solid #000;*/ margin:20px 20px 10px 20px;}
 .allitem>li{position:relative; float:left; width:200px; height:300px;margin:20px; /*border:2px solid #000; margin:20px;*/}
-.allitem>li>a{width:200px; margin:0 auto; font-size:12px; text-decoration:none; color:#036;font-weight:bolder;}
+.allitem>li>a{width:200px; margin:0 auto; font-size:12px; text-decoration:none; color:#333;font-weight:bolder;}
 .allitem>li>span{margin:0 auto;}
 .allitem>li>span>a>img:hover{outline:2px solid #09F;}
-.allitem>li>a:hover{font-weight:100; text-decoration:underline;}
+
+.sales{text-decoration: line-through; color:#900;}
+.hr3{border-top:1px solid #bbb; border-bottom:1px solid #fff;}
+
+.paging{clear: both; margin:auto;}

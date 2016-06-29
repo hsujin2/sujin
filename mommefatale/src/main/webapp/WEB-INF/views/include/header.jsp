@@ -43,7 +43,7 @@
      <ul id="gnb_shop">
 		<li><a href="itemList.do?category=1">Equipment</a>
         	<ul class="menu1">
-            	<li><a href="itemList.do?category=1" onmouseover="this.innerText='런닝머신'" onmouseout="this.innerText='Treadmill'">Treadmill</a></li>
+            	<li><a href="itemList.do?category=1&order=new" onmouseover="this.innerText='런닝머신'" onmouseout="this.innerText='Treadmill'">Treadmill</a></li>
                 <li><a href="#" onmouseover="this.innerText='웨이트기구'" onmouseout="this.innerText='Weight Machine'">Weight Machine</a></li>
                 <li><a href="#" onmouseover="this.innerText='헬스사이클'" onmouseout="this.innerText='Cycle'">Cycle</a></li>
                 <li><a href="#" onmouseover="this.innerText='아령/덤벨'" onmouseout="this.innerText='Dumbbell'">Dumbbell</a></li>
