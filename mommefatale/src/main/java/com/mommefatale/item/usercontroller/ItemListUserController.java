@@ -31,7 +31,7 @@ public class ItemListUserController {
 
 	@RequestMapping(value="itemList.do", method=RequestMethod.GET)
 	public ModelAndView itemListUserView(HttpServletRequest request)throws Exception{
-		
+		//request ¿¡¼­ order 
 		request.setCharacterEncoding("UTF-8");
 		ModelAndView mav = new ModelAndView();
 		
