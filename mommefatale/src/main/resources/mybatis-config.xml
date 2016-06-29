@@ -7,5 +7,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 		<mapper resource="com/mommefatale/board/dao/BoardMapper.xml"/>
 		<mapper resource="com/mommefatale/item/dao/ItemMapper.xml"/>
 		<mapper resource="com/mommefatale/qna/dao/QnaMapper.xml"/>
+		<mapper resource="com/mommefatale/gallery/dao/GalleryMapper.xml"/>
 	</mappers>
 </configuration>
