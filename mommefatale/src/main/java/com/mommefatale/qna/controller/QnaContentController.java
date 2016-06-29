@@ -30,7 +30,7 @@ public class QnaContentController {
 		QnaVO vo = command.qnaContent(no);
 		command.qnaView(no);
 		mav.setViewName("/qna/qnaContent");
-		mav.addObject(vo);
+		mav.addObject("vo", vo);
 		return mav;
 	}
 
