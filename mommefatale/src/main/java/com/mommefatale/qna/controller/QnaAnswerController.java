@@ -1,4 +1,4 @@
-package com.mommefatale.board.controller;
+package com.mommefatale.qna.controller;
 
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -10,53 +10,50 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mommefatale.board.model.CommunityBoardVO;
-import com.mommefatale.board.service.CommunityContentService;
-import com.mommefatale.board.service.CommunityReplyService;
+import com.mommefatale.qna.model.QnaVO;
+import com.mommefatale.qna.service.QnaAnswerService;
+import com.mommefatale.qna.service.QnaContentService;
 
 @Controller
-public class CommunityReplyController {
-
-	private CommunityContentService command;
-	private CommunityReplyService service;
+public class QnaAnswerController {
 	
-	public CommunityContentService getCommand() {
+	private QnaContentService command;
+	private QnaAnswerService service;
+	
+	public QnaContentService getCommand() {
 		return command;
 	}
-
-	public void setCommand(CommunityContentService command) {
+	public void setCommand(QnaContentService command) {
 		this.command = command;
 	}
-
-	public CommunityReplyService getService() {
+	public QnaAnswerService getService() {
 		return service;
 	}
-
-	public void setService(CommunityReplyService service) {
+	public void setService(QnaAnswerService service) {
 		this.service = service;
 	}
-
-	@RequestMapping(value="/communityReplyForm.do")
-	public ModelAndView communityReplyForm(HttpServletRequest request)throws Exception{
-		System.out.println("자유게시판 답글쓰기 폼 컨트롤러");
+	
+	@RequestMapping(value="/qnaAnswerForm.do")
+	public ModelAndView qnaAnswerForm(HttpServletRequest request)throws Exception{
+		System.out.println("Q&A게시판 답변 폼 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
-		CommunityBoardVO vo = command.communityContent(no);
+		QnaVO vo = command.qnaContent(no);
 		vo.setSubject(vo.getSubject());
 		vo.setContent("\n\t[원문]"+"\n\n "+vo.getContent()+
 				"\n ---------------------------------------------------------------------------------------------\n\n");
 		Map<String, Object> model = new HashMap<>();
 		model.put("vo", vo);
 		mav.addAllObjects(model);
-		mav.setViewName("/board/communityReplyForm");
+		mav.setViewName("/qna/qnaAnswerForm");
 		System.out.println("답변세팅완료");
 		
 		return mav;
 	}
 	
-	@RequestMapping(value="/communityReply.do")
-	public ModelAndView communityReply(HttpServletRequest request)throws Exception{
-		System.out.println("자유게시판 답글쓰기 컨트롤러");
+	@RequestMapping(value="/qnaAnswer.do")
+	public ModelAndView qnaAnswer(HttpServletRequest request)throws Exception{
+		System.out.println("Q&A게시판 답변쓰기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
 
@@ -67,9 +64,11 @@ public class CommunityReplyController {
 			System.out.println("ParamName:"+paramName+" ParmaValue:"+paramValue);
 			map.put(paramName, paramValue);
 		}
-		service.communityReply(map);
-		mav.setViewName("redirect:/communityBoard.do");
+		service.qnaAnswer(map);
+		mav.setViewName("redirect:/qnaBoard.do");
 		
 		return mav;
 	}
+	
+
 }

@@ -72,10 +72,10 @@ public class QnaDAOImpl implements QnaDAO {
 	}
 
 	@Override
-	public void qnaReply(Map<String, Object> vo) {
+	public void qnaAnswer(Map<String, Object> vo) {
 		System.out.println("QnA게시판 답글쓰기 DAO");
 		session.update(namespace + ".addStep", vo);
-		session.insert(namespace + ".qnaReply", vo);
+		session.insert(namespace + ".qnaAnswer", vo);
 		return;
 	}
 
