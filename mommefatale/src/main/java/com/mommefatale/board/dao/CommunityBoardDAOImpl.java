@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
-
 import com.mommefatale.board.model.CommunityBoardVO;
 
 public class CommunityBoardDAOImpl implements CommunityBoardDAO {
@@ -78,6 +77,12 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 		session.insert(namespace + ".communityReply", vo);
 		return;
 
+	}
+
+	@Override
+	public List<CommunityBoardVO> indexCommunityList() {
+		System.out.println("인덱스 자유게시판 리스트 DAO");
+		return session.select(namespace+".indexCommunityList");
 	}
 
 }
