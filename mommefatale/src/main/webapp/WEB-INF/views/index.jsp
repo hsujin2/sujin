@@ -60,7 +60,7 @@ $(function(){
  	<h2 class="title">인기글</h2>
 		<ul>
 			<c:forEach var="community" items="${community }">
-	 			<li><a href="communityContent.do?no=${community.no}" >${community.subject}</a></li>
+	 			<li><span>${community.regdate}</span><a href="communityContent.do?no=${community.no}" >${community.subject}</a></li>
 	 			</c:forEach>
 			<!--<li><span class="date">06-16</span><a href="#" >운동을 시작하려고 하는데.. </a></li>
 				<li><span class="date">06-15</span><a href="#" >다이어트 시작 마음이문제로다</a></li>

@@ -12,6 +12,13 @@
 	
 	<!--  Controller -->
 	<bean class="com.mommefatale.index.controller.MemberIndexController"></bean>
+	<bean class="com.mommefatale.index.controller.IndexBoardController">
+		<property name="service" ref="IndexBoardService"/>
+	</bean>
 	
+	<!-- Service -->
+	<bean class="com.mommefatale.index.service.IndexBoardServiceImpl">
+		<property name="dao" ref="communityBoardDAO"/>
+	</bean>
 	
 </beans>

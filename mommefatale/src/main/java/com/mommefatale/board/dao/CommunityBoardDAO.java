@@ -11,7 +11,7 @@ public interface CommunityBoardDAO {
 	// 글쓰기
 	public void communityWrite(Map<String, Object> vo);
 
-	// 목록 가져오기
+	// 리스트 가져오기
 	public List<CommunityBoardVO> getCommunityList(Object obj);
 
 	// 글 내용 가져오기
@@ -34,4 +34,7 @@ public interface CommunityBoardDAO {
 
 	// 답글쓰기
 	public void communityReply(Map<String, Object> vo);
+
+	// 인덱스에 리스트 가져오기
+	public List<CommunityBoardVO> indexCommunityList();
 }
