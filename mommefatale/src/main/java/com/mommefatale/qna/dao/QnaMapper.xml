@@ -22,8 +22,7 @@
 	</select>
 	
 	<!-- QnA 글내용 가져오기 -->
-	<select id="qnaContent" parameterType="java.lang.Integer"
-		resultMap="qnaResultMap">
+	<select id="qnaContent" parameterType="java.lang.Integer" resultMap="qnaResultMap">
 		<![CDATA[select * from qna where qna_no=#{no}]]>
 	</select>
 	

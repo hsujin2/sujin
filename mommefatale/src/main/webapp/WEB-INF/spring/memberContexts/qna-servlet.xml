@@ -17,6 +17,13 @@
 	<bean id="qnaContentController" class="com.mommefatale.qna.controller.QnaContentController">
 		<property name="command" ref="qnaContentService"></property>
 	</bean>
+	<bean id="qnaUpdateController" class="com.mommefatale.qna.controller.QnaUpdateController">
+		<property name="command" ref="qnaContentService"></property>
+		<property name="service" ref="qnaUpdateService"></property>
+	</bean>
+	<bean id="qnaDeleteController" class="com.mommefatale.qna.controller.QnaDeleteController">
+		<property name="command" ref="qnaDeleteService"></property>
+	</bean>
 	
 <!-- Service -->
 	<bean id="qnaPageService" class="com.mommefatale.qna.service.QnaPageServiceImpl">
@@ -26,6 +33,12 @@
 		<property name="dao" ref="qnaDAO"/>
 	</bean>
 	<bean id="qnaContentService" class="com.mommefatale.qna.service.QnaContentServiceImpl">
+		<property name="dao" ref="qnaDAO"/>
+	</bean>
+	<bean id="qnaUpdateService" class="com.mommefatale.qna.service.QnaUpdateServiceImpl">
+		<property name="dao" ref="qnaDAO"/>
+	</bean>
+	<bean id="qnaDeleteService" class="com.mommefatale.qna.service.QnaDeleteServiceImpl">
 		<property name="dao" ref="qnaDAO"/>
 	</bean>
 	

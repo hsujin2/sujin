@@ -19,7 +19,7 @@ public class QnaContentServiceImpl implements QnaContentService {
 	public QnaVO qnaContent(int no) {
 		
 		System.out.println("Q&A게시판 글내용 서비스");
-		return null;
+		return dao.getQnaContent(no);
 	}
 
 	@Override

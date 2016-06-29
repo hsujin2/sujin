@@ -15,7 +15,7 @@ function fn_spread3(id){
     var getID = document.getElementById(id);
     getID.style.display=(getID.style.display=='block') ? 'none' : 'block';
 	var img3 = document.getElementById("img3");
-	getID.style.display=(getID.style.display=='block') ? img3.src="resources/images/board/button.png" : img3.src="resources/images/button2.png";
+	getID.style.display=(getID.style.display=='block') ? img3.src="resources/images/board/button.png" : img3.src="resources/images/board/button2.png";
 }
 function fn_spread4(id){
     var getID = document.getElementById(id);

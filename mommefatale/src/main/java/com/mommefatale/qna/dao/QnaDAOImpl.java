@@ -23,32 +23,32 @@ public class QnaDAOImpl implements QnaDAO {
 
 	@Override
 	public void qnaWrite(Map<String, Object> vo) {
-		System.out.println("QnA게시판 글쓰기 DAO");
+		System.out.println("Q&A게시판 글쓰기 DAO");
 		session.insert(namespace + ".qnaWrite", vo);
 		return;
 	}
 
 	@Override
 	public List<QnaVO> getQnaList(Object obj) {
-		System.out.println("QnA게시판 리스트 DAO");
+		System.out.println("Q&A게시판 리스트 DAO");
 		return session.selectList(namespace + ".qnaList", obj);
 	}
 
 	@Override
 	public QnaVO getQnaContent(int no) {
-		System.out.println("QnA게시판 글내용 DAO");
+		System.out.println("Q&A게시판 글내용 DAO");
 		return session.selectOne(namespace + ".qnaContent", no);
 	}
 
 	@Override
 	public void qnaUpdate(Map<String, Object> vo) {
-		System.out.println("QnA게시판 글수정 DAO");
+		System.out.println("Q&A게시판 글수정 DAO");
 		session.update(namespace + ".qnaUpdate", vo);
 	}
 
 	@Override
 	public void qnaDelete(int no) {
-		System.out.println("QnA게시판 글삭제 DAO");
+		System.out.println("Q&A게시판 글삭제 DAO");
 		session.delete(namespace + ".qnaDelete", no);
 	}
 
@@ -61,7 +61,7 @@ public class QnaDAOImpl implements QnaDAO {
 	@Override
 	public int getQnaCount() {
 		int count = session.selectOne(namespace + ".qnaCount");
-		System.out.println("QnA게시판 총 게시물 수 : " + count);
+		System.out.println("Q&A게시판 총 게시물 수 : " + count);
 		return count;
 	}
 

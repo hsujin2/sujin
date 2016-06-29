@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판</title>
-<link rel="stylesheet" type="text/css"
-	href="resources/css/common_css.css">
-<link rel="stylesheet" type="text/css"
-	href="resources/css/board/community_css.css">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
+<link rel="stylesheet" type="text/css" href="resources/css/board/qna_css.css">
 <script type="text/javascript"
 	src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script>
@@ -18,7 +16,7 @@
 		var writer = document.getElementById("writer");
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
-		var communityWriteForm = document.getElementById("writeForm");
+		var qnaWriteForm = document.getElementById("writeForm");
 
 		if (writer.value == null || writer.value == "") {
 			alert("작성자를 입력하세요!");
@@ -36,7 +34,7 @@
 			return;
 		}
 
-		document.communityWriteForm.submit();
+		document.qnaWriteForm.submit();
 	}
 
 	function writeCancel() {
@@ -45,13 +43,13 @@
 </script>
 </head>
 <body>
-	<div id="wrap">
+<div id="wrap">
 	<%@ include file="../include/header.jsp"%>
 		<div class="board">
 			<h2 class="title">자유게시판</h2>
-			<form name="communityWriteForm" method="post"
-				action="communityUpdateProc.do?no=${vo.no}" id="writeForm">
-				<table summary="테이블 구성" id="community_board">
+			<form name="qnaWriteForm" method="post"
+				action="qnaUpdateProc.do?no=${vo.no}" id="writeForm">
+				<table summary="테이블 구성" id="qna_board">
 					<tr>
 						<th>작성자</th>
 						<td>&nbsp;&nbsp;<input type="text" name="writer" id="writer"
@@ -61,12 +59,12 @@
 					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
 						<td>&nbsp;&nbsp;<select name="section" id="section">
-								<option value="">말머리 선택</option>
-								<option value="상품문의">상품문의</option>
-								<option value="다이어트문의">다이어트문의</option>
-								<option value="상품후기">상품후기</option>
-								<option value="다이어트후기">다이어트후기</option>
-						</select>
+									<option value="">말머리 선택</option>
+									<option value="상품문의">상품문의</option>
+									<option value="배송문의">배송문의</option>
+									<option value="교환/환불">교환/환불</option>
+									<option value="기타문의">기타문의</option>
+								</select>
 						</td>
 						<td><input type="text" name="subject" id="subject" size="70"
 							value="${vo.subject}"></td>
