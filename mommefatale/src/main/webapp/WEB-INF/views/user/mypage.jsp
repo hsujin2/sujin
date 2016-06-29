@@ -20,14 +20,18 @@
 </script>
 </head>
 <body>
+<div id="wrap">
 <%@ include file="../include/header.jsp" %>
-	<div>mypage</div>
+<div class="mypage">
+	<h2>mypage</h2>
 	<div>${userLogin.getName()} 님의 마이페이지</div>
 	<div>등급 : ${userLogin.getGrade() }</div>
 	<div>포인트 : ${userLogin.getPoint() }</div>
 	<div><a href="userUpdate.do">회원정보수정</a></div>
 	<div><a href="userDelete.do">회원탈퇴</a></div>
 	<div><input type="button" onclick="OpenCouponPage()" value="내 쿠폰"></div>
+</div>
 <%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>

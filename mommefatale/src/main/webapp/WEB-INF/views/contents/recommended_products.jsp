@@ -11,6 +11,7 @@
 
 
 <body>
+<div id="wrap">
 <%@ include file="../include/header.jsp" %>
     <div id="wrapcontents">
     <div id="content_banner">
@@ -59,5 +60,6 @@
 </div>
 
 <%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>

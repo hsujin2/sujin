@@ -45,8 +45,8 @@
 </script>
 </head>
 <body>
-	<%@ include file="../include/header.jsp"%>
 	<div id="wrap">
+	<%@ include file="../include/header.jsp"%>
 		<div class="board">
 			<h2 class="title">자유게시판</h2>
 			<form name="communityWriteForm" method="post"
@@ -103,7 +103,7 @@
 				</table>
 			</form>
 		</div>
+		<%@ include file="../include/footer.jsp"%>
 	</div>
-	<%@ include file="../include/footer.jsp"%>
 </body>
 </html>

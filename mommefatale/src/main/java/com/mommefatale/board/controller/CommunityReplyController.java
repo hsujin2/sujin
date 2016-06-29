@@ -61,7 +61,7 @@ public class CommunityReplyController {
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
 
-		Enumeration enums = request.getParameterNames();
+		Enumeration<?> enums = request.getParameterNames();
 		while(enums.hasMoreElements()){
 			String paramName = enums.nextElement().toString();
 			String paramValue = request.getParameter(paramName);

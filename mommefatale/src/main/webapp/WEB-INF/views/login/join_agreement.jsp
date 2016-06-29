@@ -41,6 +41,7 @@ function agreeCheck(){
 </script>
 </head>
 <body>
+<div id="wrap">
 	<%@ include file="../include/header.jsp" %>
 	<div class="joinagreement_wrap">
 		<div align="center" class="joinagree_body">
@@ -366,5 +367,6 @@ mommefatale에서는 국내유수의 웹호스팅서비스를 이용하고 있�
 			</div>
 		</div>
 <%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>

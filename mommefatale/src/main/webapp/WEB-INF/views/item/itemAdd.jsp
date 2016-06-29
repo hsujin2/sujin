@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="wrapper">
-	<form action="insertItem.admin" method="post" enctype="multipart/form-data" name="itemAddForm">
+	<form action="insertItem.admin" method="post" enctype="multipart/form-data" name="itemAddForm" id="itemAddForm">
 	<fieldset style="margin-left:150px">
 		<legend>상품 등록</legend>
 		<table>

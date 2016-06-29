@@ -62,11 +62,10 @@
 </head>
 
 <body>
+<div id="wrap">
 <%@ include file="../include/header.jsp" %>
-	<form name="regForm" method="get" action="joincomplete.do"
-		name="joinForm">
+
 		<div id="wrap1">
-			<nav></nav>
 			<section>
 			<div id="joinWrap">
 				<div id="joinmain">
@@ -76,7 +75,7 @@
 						<p>
 							<img src="resources/images/login/joinimg.png" alt="">
 						</p>
-						<form>
+							<form method="get" action="joincomplete.do" name="joinForm">
 							<table>
 								<tr>
 									<td width="30%"><img
@@ -348,7 +347,7 @@
 			</section>
 
 		</div>
-	</form>
 	<%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>

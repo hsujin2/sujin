@@ -14,12 +14,18 @@
 	<bean id="qnaWriteController" class="com.mommefatale.qna.controller.QnaWriteController">
 		<property name="command" ref="qnaWriteService"></property>
 	</bean>
+	<bean id="qnaContentController" class="com.mommefatale.qna.controller.QnaContentController">
+		<property name="command" ref="qnaContentService"></property>
+	</bean>
 	
 <!-- Service -->
 	<bean id="qnaPageService" class="com.mommefatale.qna.service.QnaPageServiceImpl">
 		<property name="dao" ref="qnaDAO"/>
 	</bean>
 	<bean id="qnaWriteService" class="com.mommefatale.qna.service.QnaWriteServiceImpl">
+		<property name="dao" ref="qnaDAO"/>
+	</bean>
+	<bean id="qnaContentService" class="com.mommefatale.qna.service.QnaContentServiceImpl">
 		<property name="dao" ref="qnaDAO"/>
 	</bean>
 	

@@ -21,9 +21,9 @@ public class CommunityContentController {
 	public void setCommand(CommunityContentService command) {
 		this.command = command;
 	}
-	
-	@RequestMapping(value="/communityContent.do")
-	public ModelAndView communityContent(HttpServletRequest request)throws Exception{
+
+	@RequestMapping(value = "/communityContent.do")
+	public ModelAndView communityContent(HttpServletRequest request) throws Exception {
 		System.out.println("자유게시판 내용보기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
@@ -33,4 +33,5 @@ public class CommunityContentController {
 		mav.addObject("vo", vo);
 		return mav;
 	}
+	
 }

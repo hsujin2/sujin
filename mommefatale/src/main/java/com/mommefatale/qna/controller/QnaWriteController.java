@@ -39,7 +39,7 @@ public class QnaWriteController {
 		System.out.println("Q&A게시판 글쓰기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
-		Enumeration enums = request.getParameterNames();
+		Enumeration<?> enums = request.getParameterNames();
 		while (enums.hasMoreElements()) {
 			String paramName = enums.nextElement().toString();
 			String paramValue = request.getParameter(paramName);
