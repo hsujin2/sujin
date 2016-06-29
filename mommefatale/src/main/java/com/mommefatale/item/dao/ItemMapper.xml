@@ -31,4 +31,7 @@
 		select * from (select rownum rnum, ITEM_NO, ITEM_NAME, ITEM_BRAND, ITEM_ORIGIN, ITEM_IMAGE, ITEM_CONTENT, CATEGORY_NO, ITEM_PRICE_ORIGIN, ITEM_PRICE_SALES, ITEM_PRICE_DISCOUNT, ITEM_SALES_QUANTITY, ITEM_STOCK, ITEM_VIEW, ITEM_REGDATE, ITEM_UPDATE_DATE, OPTION_SIZE, ITEM_COLOR from (select * from ITEM where CATEGORY_NO = #{category} order by ITEM_NO desc)) where rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 	</select>
+	<select id="itemView" parameterType="java.lang.Integer" resultMap="toItemVO">
+		SELECT * FROM ITEM WHERE ITEM_NO=#{item_no}
+	</select>
 </mapper>

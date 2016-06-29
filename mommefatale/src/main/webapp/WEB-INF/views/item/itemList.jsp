@@ -55,7 +55,7 @@
 					</c:if>
 					<c:if test="${count != 0}">
 						<c:forEach var="item" items="${itemlist}">
-							<li><span><a href="#"><img
+							<li><span><a href="itemview.do?no=${item.no}"><img
 										src="/mommefatale/resources/images/uploadimg/${item.main_img}"
 										alt="${item.name}" class="itemImg" /></a></span><a href="#">
 								<span class="itemname">${item.name}</span><br/>
