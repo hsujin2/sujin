@@ -10,7 +10,6 @@
 <script type="text/javascript"
 	src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script>
-<script>
 function FormCheck() {
 		oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
 		var writer = document.getElementById("writer");
