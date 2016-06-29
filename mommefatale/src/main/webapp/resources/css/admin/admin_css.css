@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+.manage_item{margin:20px auto; height:100px;}
+.manage_item ul li{text-align: center;}
+#itemAddForm form{margin-bottom:20px;}
+#itemAddForm table{margin:10px auto 20px; text-align: left;}

@@ -20,7 +20,6 @@
 </c:if>
 </head>
 <body>
-	<%@ include file="../include/header.jsp"%>
 	<script type="text/javascript">
 
 		function reply() { //답글쓰기
@@ -36,9 +35,9 @@
 				return;
 			}
 		}
-		
 	</script>
 	<div id="wrap">
+	<%@ include file="../include/header.jsp"%>
 		<div class="board">
 			<h2 class="title">자유게시판</h2>
 			<form name="communityContent" method="post" id="writeForm">

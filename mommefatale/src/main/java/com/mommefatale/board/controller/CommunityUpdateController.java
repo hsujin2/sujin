@@ -52,7 +52,7 @@ public class CommunityUpdateController {
 		ModelAndView mav= new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		int no = Integer.parseInt(request.getParameter("no"));
-		Enumeration enums = request.getParameterNames();
+		Enumeration<?> enums = request.getParameterNames();
 		while(enums.hasMoreElements()){
 			String paramName = enums.nextElement().toString();
 			String paramValue= request.getParameter(paramName);

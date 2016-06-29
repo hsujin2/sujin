@@ -10,11 +10,6 @@
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css" />
 	
-
-</head>
-
-
-<body>
 	<!-- 이미지 슬라이드 -->
 	<script type="text/javascript" src="resources/js/contents/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="resources/js/contents/jssor.slider.mini.js"></script>
@@ -86,8 +81,9 @@
             //responsive code end
         });
     </script>
-
-
+ </head>
+<body>
+<div id="wrap">
 	<%@ include file="../include/header.jsp"%>
 	<div id="wrapcontents">
 		<div id="content_banner">
@@ -193,5 +189,6 @@
 	</div>
 
 	<%@ include file="../include/footer.jsp"%>
+	</div>
 </body>
 </html>

@@ -7,8 +7,12 @@
 <title>Q&amp;A게시판 글쓰기폼</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/board/qna_css.css">
+<script type="text/javascript"
+	src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script>
 <script>
 function FormCheck() {
+		oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
 		var writer = document.getElementById("writer");
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
@@ -35,10 +39,10 @@ function FormCheck() {
 </script>
 </head>
 <body>
-<%@ include file="../include/header.jsp"%>
 <div id="wrap">
+<%@ include file="../include/header.jsp"%>
 		<div class="board">
-		<h2 class="title">Q&amp;A게시판</h2>
+		<h2 class="title">Q&amp;A</h2>
 			<form name="qnaWriteForm" method="post"
 				action="qnaWrite.do" id="writeForm">
 				<table summary="테이블 구성" id="qna_board">
@@ -61,8 +65,24 @@ function FormCheck() {
 						<td><input type="text" name="subject" id="subject" size="80"></td>
 					</tr>
 					<tr>
-						<th>내&nbsp;&nbsp;&nbsp;용</th>
-						<td colspan="2"><textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea></td>
+						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;&nbsp;&nbsp;&nbsp;</th>
+						<td colspan="2">
+					<!-- <textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea>-->
+					<textarea name="content" id="content" rows="22"
+								style="width: 715px"></textarea> 
+								<script type="text/javascript">
+									var oEditors = [];
+
+									nhn.husky.EZCreator
+											.createInIFrame({
+												oAppRef : oEditors,
+												elPlaceHolder : "content", //textarea에서 지정한 id와 일치해야 합니다.
+												sSkinURI : "resources/smarteditor/SmartEditor2Skin.html",
+												fCreator : "createSEditor2"
+
+											});
+								</script>
+					</td>
 					</tr>
 					<!-- <tr>
 						<th>첨부파일</th>
@@ -80,7 +100,7 @@ function FormCheck() {
 				</table>
 			</form>
 		</div>
-	</div>
 	<%@ include file="../include/footer.jsp"%>
+	</div>
 </body>
 </html>

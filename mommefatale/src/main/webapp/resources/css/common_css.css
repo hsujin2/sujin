@@ -5,8 +5,8 @@
 body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
 li{list-style-type:none;}
 a{text-decoration:none; color:#CCCCC;}
-img{vertical-align:top;}
-img,fieldset{border:none;}
+img{vertical-align:top; border:none;}
+fieldset{border:thin;}
 input{vertical-align:middle;}
 .skip{font-size:0; width:0; height:0; line-height:0; position:absolute; left:-9999px;}
 
@@ -125,3 +125,6 @@ address{padding:20px;
 			color:#666; text-align:left;
 }
 
+/*마이페이지*/
+.mypage{margin:50px auto;}
+.mypage h2{margin-bottom: 20px;}
