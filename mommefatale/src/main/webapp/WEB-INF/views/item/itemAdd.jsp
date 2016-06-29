@@ -58,7 +58,7 @@
 			<tr>
 				<td class="itemInfo">사이즈</td>
 				<td><select name="option_size">
-						<option>선택</option>
+						<option value="">선택</option>
 						<option value="XL">XS</option>
 						<option value="S">S</option>
 						<option value="M">M</option>
