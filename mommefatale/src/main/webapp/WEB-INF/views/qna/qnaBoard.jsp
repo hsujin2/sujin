@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Q&amp;A게시판</title>
+<title>Q&amp;A</title>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
@@ -131,11 +131,9 @@
 										<c:set var="wid" value="depth*5" />
 										<img src="resources/images/board/level.gif" width="${wid}">
 									</c:if> <c:if test="${vo.step ge 1}">
-										<img src="resources/images/board/reply_icon.gif">
-									</c:if> <a href="qnaContent.do?no=${vo.no}">${vo.subject }</a> <c:if
-										test="${vo.view ge 20}">
-										<img src="resources/images/board/hot.gif">
-									</c:if></td>
+										<img src="resources/images/board/reply_complete_icon2.gif">
+									</c:if> <a href="qnaContent.do?no=${vo.no}">${vo.subject }</a> 
+									</td>
 								<td>${vo.writer}</td>
 								<td><fmt:formatDate value="${vo.regdate}" type="date"
 										pattern="yyyy-MM-dd HH:mm" /></td>

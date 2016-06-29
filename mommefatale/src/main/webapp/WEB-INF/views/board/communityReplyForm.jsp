@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판 답변쓰기</title>
+<title>자유게시판</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css" href="resources/css/board/community_css.css">
 <script type="text/javascript" src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>

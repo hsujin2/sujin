@@ -12,3 +12,16 @@
 #hiddenContent4{margin:-5px 10px 15px 20px; font-size:12px; color:#999;display:none;}
 
 #qna_board{width:800px; margin:30px auto 0;}
+
+.write_button{text-align: right;}
+.no{text-align:center; width:20px;}
+#no{text-align:center; width:20px;}
+.writer{text-align:right;}
+#writer{text-align:center; width:100px;}
+#space{width:250px;}
+#regdate{text-align:center; width:150px;}
+#view{text-align:right; width:10px;}
+#subject{text-align:left;}
+#content{text-align:left; height:250px;}
+.board_hr{width:800px; size:1px; margin:10px auto;}
+#footList{margin:10px auto;}

@@ -1,47 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판</title>
+<title>Q&amp;A</title>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
-	href="resources/css/board/community_css.css">
+	href="resources/css/board/qna_css.css">
 	
 <c:if test="${vo.no==null||no==''}">
 	<script>
 		alert("잘못된 접근이거나 해당 게시물은 존재하지 않습니다.");
 		history.go(-1);
-	</script>
+</script>
 </c:if>
-</head>
-	<script type="text/javascript">
+<script type="text/javascript">
 
 		function reply() { //답글쓰기
 			
-			window.location = "communityReplyForm.do?no=${vo.no}";
+			window.location = "qnaReplyForm.do?no=${vo.no}";
 		}
 
 		function deleteContent() { //글삭제
 			var check = confirm("삭제하시겠습니까?");
 			if (check == true) {
-				window.location = "communityDelete.do?no=${vo.no}";
+				window.location = "qnaDelete.do?no=${vo.no}";
 			} else {
 				return;
 			}
 		}
 	</script>
-<body>	
-	<div id="wrap">
+</head>
+<body>
+<div id="wrap">
 	<%@ include file="../include/header.jsp"%>
 		<div class="board">
-			<h2 class="title">자유게시판</h2>
-			<form name="communityContent" method="post" id="writeForm">
-				<table summary="테이블 구성" id="community_board">
+			<h2 class="title">Q&amp;A</h2>
+			<form name="qnaContent" method="post" id="writeForm">
+				<table summary="테이블 구성" id="qna_board">
 					<tr>
 						<th class="no">NO.</th>
 						<td id="no">${vo.no}</td>
@@ -67,18 +67,18 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-						<c:if test="${userLogin ne null || admin eq true}">
-							<input type="button" value="답글쓰기" onClick="window.location='communityReplyForm.do?no='+${vo.no}">		
+						<c:if test="${admin eq true}">
+							<input type="button" value="답글쓰기" onClick="window.location='qnaReplyForm.do?no='+${vo.no}">		
 						</c:if>
 						</td>
 						<td colspan="2"></td>
-						<td class="align_right"><a href="communityBoard.do">목록보기</a>
+						<td class="align_right"><a href="qnaBoard.do">목록보기</a>
 						</td>
 						<td colspan="2"></td>
 						<td colspan="2">
 						<c:if test="${vo.writer eq userLogin.userid || admin eq true}">
 								<input type="button" value="수정"
-									onClick="window.location='communityUpdate.do?no='+${vo.no}" class="commit_btn">
+									onClick="window.location='qnaUpdate.do?no='+${vo.no}" class="commit_btn">
 								<input type="button" value="삭제" onClick="deleteContent()" class="commit_btn">
 							</c:if></td>
 					</tr>
