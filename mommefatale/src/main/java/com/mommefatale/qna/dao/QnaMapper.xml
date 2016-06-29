@@ -32,7 +32,7 @@
 	</insert>
 
 	<!-- QnA 답글쓰기 -->
-	<insert id="qnaReply" parameterType="java.util.Map">
+	<insert id="qnaAnswer" parameterType="java.util.Map">
 		<![CDATA[insert into qna(qna_no, qna_writer, qna_subject, qna_content, qna_regdate, qna_update_date, qna_ref, qna_step, qna_depth, qna_section) values(qna_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{ref},#{step}+1,#{depth}+1, #{section})]]>
 	</insert>
 

@@ -32,5 +32,5 @@ public interface QnaDAO {
 	public void qnaView(int no);
 
 	// 답글쓰기
-	public void qnaReply(Map<String, Object> vo);
+	public void qnaAnswer(Map<String, Object> vo);
 }

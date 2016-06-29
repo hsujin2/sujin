@@ -21,11 +21,6 @@
 </head>
 	<script type="text/javascript">
 
-		function reply() { //답글쓰기
-			
-			window.location = "communityReplyForm.do?no=${vo.no}";
-		}
-
 		function deleteContent() { //글삭제
 			var check = confirm("삭제하시겠습니까?");
 			if (check == true) {

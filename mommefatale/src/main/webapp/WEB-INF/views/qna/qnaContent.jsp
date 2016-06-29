@@ -20,11 +20,6 @@
 </c:if>
 <script type="text/javascript">
 
-		function reply() { //답글쓰기
-			
-			window.location = "qnaReplyForm.do?no=${vo.no}";
-		}
-
 		function deleteContent() { //글삭제
 			var check = confirm("삭제하시겠습니까?");
 			if (check == true) {
@@ -68,7 +63,7 @@
 					<tr>
 						<td colspan="2">
 						<c:if test="${admin eq true}">
-							<input type="button" value="답글쓰기" onClick="window.location='qnaReplyForm.do?no='+${vo.no}">		
+							<input type="button" value="답변쓰기" onClick="window.location='qnaAnswerForm.do?no='+${vo.no}">		
 						</c:if>
 						</td>
 						<td colspan="2"></td>
