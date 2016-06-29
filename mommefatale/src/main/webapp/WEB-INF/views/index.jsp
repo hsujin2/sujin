@@ -59,12 +59,15 @@ $(function(){
  	<div class="popular">
  	<h2 class="title">인기글</h2>
 		<ul>
-				<li><span class="date">06-16</span><a href="#" >운동을 시작하려고 하는데.. </a></li>
+			<c:forEach var="community" items="${community }">
+	 			<li><a href="communityContent.do?no=${community.no}" >${community.subject}</a></li>
+	 			</c:forEach>
+			<!--<li><span class="date">06-16</span><a href="#" >운동을 시작하려고 하는데.. </a></li>
 				<li><span class="date">06-15</span><a href="#" >다이어트 시작 마음이문제로다</a></li>
 				<li><span class="date">06-13</span><a href="#" >어떻게 해야 돼죠??</a></li>
 				<li><span class="date">06-08</span><a href="#" >친구랑 내기했는데...</a></li>
 				<li><span class="date">06-07</span><a href="#" >애인이랑 헤어지고 살빼려구요..</a></li>
-				<li><span class="date">05-31</span><a href="#" >여대생인데 치마 입는게 소원이에요</a></li>
+				<li><span class="date">05-31</span><a href="#" >여대생인데 치마 입는게 소원이에요</a></li>  -->
 		</ul>
 	</div>
     </div>
