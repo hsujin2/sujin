@@ -26,5 +26,9 @@ public class ItemDAOImpl implements ItemDAO{
 	public List<ItemVO> listCategory(Map<String, Object> map) {
 		return session.selectList(namespace+".listCategory",map);
 	}
+	@Override
+	public ItemVO itemView(int item_no) {
+		return session.selectOne(namespace+".itemView",item_no);
+	}
 
 }
