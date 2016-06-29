@@ -139,7 +139,7 @@
         <li class="i">|</li>
         <li><a href="#">교환/반품/배송</a></li>
     </ul>
-    <img src="img/detail.PNG" class="detail" />
+    <img src="/mommefatale/resources/images/uploadimg/${item.content_img}" class="detail" />
 </section>
 </body>
 </html>
