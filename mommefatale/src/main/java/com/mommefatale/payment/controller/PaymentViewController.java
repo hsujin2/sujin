@@ -49,8 +49,6 @@ public class PaymentViewController {
 			total = itemVO.getPrice_discount() * Integer.parseInt(request.getParameter("quantity"));
 			mav.getModel().put("category", itemVO.getCategory());
 		}
-		System.out.println(request.getParameter("fee"));
-		System.out.println(request.getParameter("saving"));
 		
 		int fee = Integer.parseInt(request.getParameter("fee"));
 		int saving = Integer.parseInt(request.getParameter("saving"));

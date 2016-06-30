@@ -39,6 +39,29 @@
 		var price = ${item.price_discount};
 		$("#total").text((parseInt($("#quantity").val()) * parseInt(price))+"원");
 	}
+	
+	
+	function buychecklogin(){
+	var check = ${login == null};
+		if(check==true){
+			alert("로그인 후 이용해주세요");
+			window.location="login.do";
+			return;
+		}
+		$("#payForm").submit();
+	}
+	
+	function cartchecklogin(){
+		var check = ${login == null};
+			if(check==true){
+				alert("로그인 후 이용해주세요");
+				window.location="login.do";
+				return;
+			}
+			$("#form").attr("action", "cartinsert.do");
+			$("payForm").submit();
+			alert("장바구니에 추가됐습니다");
+		}
 </script>
 </head>
 <body>
@@ -124,8 +147,8 @@
     </table>
     <div class="table2">총 금액 <p id="total" align="right"></p></div>
     <ul class="but">
-    	<li><a href="javascript:payForm.submit();"><div>BUY NOW</div></a></li>
-        <li><a href="#"><div>ADD TO CART</div></a></li>
+    	<li><a href="javascript:buychecklogin();"><div>BUY NOW</div></a></li>
+        <li><a href="javascript:cartchecklogin();"><div>ADD TO CART</div></a></li>
         <li><a href="#"><div>WISH LIST</div></a></li>
     </ul><br />
 </form>
