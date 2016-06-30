@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "GalleryMapper">
 
-	<resultMap id="galleryResultMap" type="com.mommefatale.gallery.model.galleryVO">
+	<resultMap id="galleryResultMap" type="com.mommefatale.gallery.model.GalleryVO">
 		<result property="no" column="gallery_no" jdbcType="BIGINT" />
 		<result property="writer" column="gallery_writer" jdbcType="VARCHAR" />
 		<result property="subject" column="gallery_subject" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
 	</resultMap>
 
 	<!--  Gallery 리스트 가져오기 -->
-	<select id="galleryList" parameterType="java.util.map"
+	<select id="galleryList" parameterType="java.util.Map"
 		resultMap="galleryResultMap">
 		<![CDATA[select * from (select rownum rnum, gallery_no, gallery_image, gallery_subject, gallery_writer, gallery_regdate, gallery_ref, gallery_step, gallery_depth, gallery_view  (select * from gallery order by gallery_ref desc, gallery_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
 	</select>
