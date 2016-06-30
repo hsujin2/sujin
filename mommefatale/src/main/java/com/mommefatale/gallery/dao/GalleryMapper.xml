@@ -19,7 +19,7 @@
 	<!--  Gallery 리스트 가져오기 -->
 	<select id="galleryList" parameterType="java.util.Map"
 		resultMap="galleryResultMap">
-		<![CDATA[select * from (select rownum rnum, gallery_no, gallery_image, gallery_subject, gallery_writer, gallery_regdate, gallery_ref, gallery_step, gallery_depth, gallery_view  (select * from gallery order by gallery_ref desc, gallery_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		<![CDATA[select * from (select rownum rnum, gallery_no, gallery_image, gallery_subject, gallery_writer, gallery_regdate, gallery_view from gallery order by gallery_no desc) where rnum >= #{startRow} and rnum <= #{endRow}]]>
 	</select>
 	
 	<!-- Gallery 총 게시물 수 -->
