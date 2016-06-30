@@ -30,9 +30,8 @@
 			document.getElementById("savingTd").innerHTML = "최대 10%";
 		}else{
 		var saving = price * dis;
-		document.getElementById("saving").value = saving;
-		document.getElementById("savingTd").innerHTML = saving;
-		
+			document.getElementById("saving").value = saving;
+			document.getElementById("savingTd").innerHTML = saving;
 		}
 		sum();
 	}
@@ -45,7 +44,7 @@
 <body>
 <section class="content">
 	<div class="img1" ><img src="/mommefatale/resources/images/uploadimg/${item.main_img}" alt="item"/></div>
-    <form action="payment.do" method="post" id="payFrom">
+    <form action="payment.do" method="post" id="payForm">
     <input type="hidden" name="no" value="${item.no}">
     <table class="table1">
     	<tr>
@@ -60,8 +59,8 @@
             <td class="align">${item.price_discount} 원</td>
         </tr>
         <tr>
-        	<td>적립금</td>
-	        <td class="align" id="savingTd"><input type="hidden" id="saving" name="saving"></td>
+        	<td>적립금<input type="hidden" id="saving" name="saving" value="0"></td>
+	        <td class="align" id="savingTd"></td>
         </tr>
         <c:choose>
         <c:when test="${item.category eq 1 || item.category eq 2 }">
@@ -92,7 +91,7 @@
             <td>
             <c:choose>
             <c:when test="${item.category eq 6 || item.category eq 8}">
-            	<select class="wid">
+            	<select class="wid" id="size" name="size">
             		<option value="XS">XS</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
@@ -102,7 +101,7 @@
             	</select>
             </c:when>
             <c:when test="${item.category eq 7}">
-            	<select class="wid">
+            	<select class="wid" id="size" name="size">
             		<option value="230">230</option>
             		<option value="235">235</option>
             		<option value="240">240</option>
@@ -125,7 +124,7 @@
     </table>
     <div class="table2">총 금액 <p id="total" align="right"></p></div>
     <ul class="but">
-    	<li><a href="#"><div>BUY NOW</div></a></li>
+    	<li><a href="javascript:payForm.submit();"><div>BUY NOW</div></a></li>
         <li><a href="#"><div>ADD TO CART</div></a></li>
         <li><a href="#"><div>WISH LIST</div></a></li>
     </ul><br />
