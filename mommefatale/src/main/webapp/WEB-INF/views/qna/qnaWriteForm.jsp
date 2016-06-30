@@ -58,6 +58,7 @@ function FormCheck() {
 									<option value="상품문의">상품문의</option>
 									<option value="배송문의">배송문의</option>
 									<option value="교환/환불">교환/환불</option>
+									<option value="결제문의">결제문의</option>
 									<option value="기타문의">기타문의</option>
 								</select>
 						</td>

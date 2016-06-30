@@ -31,7 +31,9 @@ public class MemberIndexController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		List<CommunityBoardVO> community = boardService.indexCommunityList();
+		List<CommunityBoardVO> notice = boardService.indexNoticeList();
 		mav.addObject("community", community);
+		mav.addObject("notice", notice);
 		System.out.println("¸â¹ö ÀÎµ¦½º ÄÁÆ®·Ñ·¯");
 		
 		return mav;

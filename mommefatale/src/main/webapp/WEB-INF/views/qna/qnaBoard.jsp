@@ -128,7 +128,7 @@
 								<!-- 실제 입력되는 순서의 글번호 -->
 								<td>${vo.section}</td>
 								<td class="align_left"><c:if test="${vo.depth > 0}">
-										<c:set var="wid" value="depth*5" />
+										<c:set var="wid" value="${vo.depth*10}" />
 										<img src="resources/images/board/level.gif" width="${wid}">
 									</c:if> <c:if test="${vo.step ge 1}">
 										<img src="resources/images/board/reply_complete_icon2.gif">

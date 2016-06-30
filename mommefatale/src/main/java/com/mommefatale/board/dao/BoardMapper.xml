@@ -87,4 +87,11 @@
 						from community order by community_update_date desc, community_view desc)
       					where rnum >= 0 and rnum <= (select count(*) from community) and community_view > = 20]]>
 	</select>
+	
+	<!-- Community 인덱스 공지사항 리스트 -->
+	<select id="indexNoticeList" resultMap="communityResultMap">
+		<![CDATA[select to_char(community_update_date,'mm-dd') as community_update_date, community_no, community_subject
+						from community where community_section = '공지사항' order by community_update_date desc]]>
+	</select>
+	
 </mapper>

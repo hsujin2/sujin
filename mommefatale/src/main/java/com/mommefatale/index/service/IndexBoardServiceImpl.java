@@ -23,4 +23,10 @@ public class IndexBoardServiceImpl implements IndexBoardService {
 		return dao.indexCommunityList();
 	}
 
+	@Override
+	public List<CommunityBoardVO> indexNoticeList() {
+		System.out.println("인덱스 공지사항 서비스");
+		return dao.indexNoticeList();
+	}
+
 }
