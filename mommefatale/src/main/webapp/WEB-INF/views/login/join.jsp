@@ -30,11 +30,11 @@
 			document.regForm.userid.focus();
 		} else {
 			url = "idCheck.do?userid=" + userid;
-			window.open(url, "get", "width=300,height=180", "status=no",
+			window.open(url, "get", "width=300, height=180", "status=no",
 					"toolbar=no");
-
 		}
 	}
+	
 	function emailCheck(useremail1) {
 		var useremail2select = document.getElementById("useremail2")
 		var useremail2option = useremail2select.options[useremail2select.selectedIndex].value;
@@ -46,10 +46,9 @@
 			url = "emailCheck.do?useremail="+useremail;
 			window.open(url, "get", "width=300,height=180", "status=no",
 					"toolbar=no");
-
 		}
-		
 	}
+	
 	function BMIcal(){
 		var height = parseInt(document.getElementById("height").value);
 		var weight = parseInt(document.getElementById("weight").value);
@@ -58,6 +57,23 @@
 		document.getElementById("bmi").value = bmi;
 	}
 	
+	// 비밀번호 길이 체크(6~15자)
+	function passCheck(){
+		if(document.getElementById('userpass').value.length<6 || document.getElementById('userpass').value.length>15){
+		alert("비밀번호를 6~15자 사이로 입력해주세요");
+		document.getElementById('userpass').focus();
+		document.getElementById('userpass').select();
+		}
+	}
+	// 비밀번호 일치여부 체크
+	function passCheckMessage(){
+		
+		if(document.getElementById('userpass').value!=document.getElementById('userpasscheck').value){
+			passcheckmessage.innerHTML = "<font color='red'; size='2pt'>비밀번호가 일치하지 않습니다.</font>";
+		}else{
+			passcheckmessage.innerHTML = "<font color='blue' size='2pt'>비밀번호가 일치합니다.</font>";
+		}
+	}
 </script>
 </head>
 
@@ -85,31 +101,32 @@
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">성별</td>
-									<td><input type="radio" name="gender" value="남" checked="checked">
+									<td><input type="radio" name="gender" value="남" checked="checked" tabindex="2">
 										남 <input type="radio" name="gender" value="여"> 여</td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">아이디</td>
 									<td><input type="text" name="userid" id="userid" size="13"
-										placeholder="아이디" class="textin">&nbsp;<input
+										placeholder="아이디" class="textin" tabindex="3">&nbsp;<input
 										type="button" value="중복확인"
-										onclick="idCheck(this.form.userid.value)"></td>
+										onclick="idCheck(this.form.userid.value)" tabindex="4"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호</td>
-									<td><input type="password" name="userpass" size="13"
-										maxlength="15" class="textin" required> <font size="2">문자와
-											숫자를 조합하여 2~15자리로 만들어주세요.</font></td>
+									<td><input type="password" name="userpass" id="userpass" size="13"
+										maxlength="15" class="textin" onblur="passCheck()" tabindex="5"> <font size="2">문자와
+											숫자를 조합하여 6~15자리로 만들어주세요.</font></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호확인</td>
-									<td><input type="password" name="userpasscheck" size="8"
-										maxlength="12" class="textin" required></td>
+									<td><input type="password" name="userpasscheck" id="userpasscheck" size="13"
+										maxlength="12" class="textin" tabindex="6" onblur="passCheckMessage()" required>
+										<span id="passcheckmessage"></span></td>
 								</tr>
 
 								<tr>
 									<td><img src="resources/images/login/required.gif">생년월일</td>
-									<td><select name="birth1" required>
+									<td><select name="birth1" tabindex="7" required >
 											<option value="">선택</option>
 											<option value="2016">2016</option>
 											<option value="2015">2015</option>
@@ -198,7 +215,7 @@
 											<option value="1932">1932</option>
 											<option value="1931">1931</option>
 											<option value="1930">1930</option>
-									</select>&nbsp;<select name="birth2" required>
+									</select>&nbsp;<select name="birth2" tabindex="8" required>
 											<option value="">선택</option>
 											<option value="01">01</option>
 											<option value="02">02</option>
@@ -212,7 +229,7 @@
 											<option value="10">10</option>
 											<option value="11">11</option>
 											<option value="12">12</option>
-									</select>&nbsp;<select name="birth3" required>
+									</select>&nbsp;<select name="birth3" tabindex="9" required>
 											<option value="">선택</option>
 											<option value="01">01</option>
 											<option value="02">02</option>
@@ -250,7 +267,7 @@
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">휴대폰</td>
-									<td><select name="num1" required>
+									<td><select name="num1" tabindex="10" required>
 											<option value="010">010</option>
 											<option value="011">011</option>
 											<option value="016">016</option>
@@ -258,64 +275,64 @@
 											<option value="018">018</option>
 											<option value="019">019</option>
 									</select> <input type="text" name="num2" size="3" maxlength="4"
-										class="textin" required>-<input type="text"
-										name="num3" size="3" maxlength="4" class="textin" required></td>
+										class="textin" tabindex="11" required>-<input type="text"
+										name="num3" size="3" maxlength="4" class="textin" tabindex="12" required></td>
 								</tr>
 								<tr>
 									<td>SMS수신</td>
-									<td><input type="radio" name="sms" checked="checked"> 받습니다. <input
+									<td><input type="radio" name="sms" checked="checked" tabindex="13"> 받습니다. <input
 										type="radio" name="sms"> 받지 않습니다.<br> <font
 										size="2">동의하실 경우 다양한 이벤트 정보 및 쿠폰을 받아보실 수 있습니다.</font></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif"
 										required>이메일</td>
-									<td><input type="text" name="useremail1" size="13"
-										class="textin"> @ <select name="useremail2" id="useremail2">
+									<td><input type="text" name="useremail1" id="useremail1" size="13"
+										class="textin" tabindex="14"> @ <select name="useremail2" id="useremail2" tabindex="15">
 											<option value="naver.com">naver.com</option>
 											<option value="gmail.com">gmail.com</option>
 											<option value="nate.com">nate.com</option>
 											<option value="daum.net">daum.net</option>
 											<option value="lycos.co.kr">lycos.co.kr</option>
 									</select> <input type="button" value="중복확인"
-										onClick="emailCheck(this.form.useremail1.value)" class="jbtn">
+										onClick="emailCheck(this.form.useremail1.value)" class="jbtn" tabindex="16">
 										
 										</td>
 								</tr>
 								<tr>
 									<td>메일정보수신</td>
-									<td><input type="radio" name="msms" checked="checked"> 받습니다. <input
-										type="radio" name="msms"> 받지 않습니다.<br> <font
+									<td><input type="radio" name="msms" checked="checked" tabindex="17" id="msms"> 받습니다. <input
+										type="radio" name="msms" > 받지 않습니다.<br> <font
 										size="2">동의하실 경우 다양한 이벤트 정보 및 쿠폰을 받아보실 수 있습니다.</font></td>
 								</tr>
 								<tr>
-									<td><img src="resources/images/login/required.gif">우편번호</td>
+									<td><img src="resources/images/login/required.gif" >우편번호</td>
 									<td><input type="text" name="zip1" id="zip1" size="1"
 										maxlength="4" class="textin">-<input type="text"
 										name="zip2" id="zip2" size="1" maxlength="4" class="textin">&nbsp;<input
-										type="button" value="우편번호찾기" class="jbtn" onclick="openDaumPostcode()"></td>
+										type="button" value="우편번호찾기" class="jbtn" onclick="openDaumPostcode()" tabindex="18"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif"
 										required>주소</td>
 									<td><input type="text" name="addr1" id="addr1" size="70"
-										class="textin"></td>
+										class="textin" tabindex="19"></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif"
 										required>상세주소</td>
 									<td><input type="text" name="addr2" id="addr2" size="70"
-										class="textin"></td>
+										class="textin" tabindex="20"></td>
 								</tr>
 								<tr>
 									<td colspan="3" align="center">키 : <input type="text" name="height" id="height"
-										size="2">&nbsp;cm&nbsp;&nbsp;&nbsp;&nbsp;몸무게 : <input type="text" name="weight" id="weight"
-										size="2" onkeyup="BMIcal()">&nbsp;kg&nbsp;&nbsp;&nbsp;&nbsp;BMI : <input type="text" name="bmi" id="bmi" size="4" readonly="readonly" ></td>
+										size="2" tabindex="21">&nbsp;cm&nbsp;&nbsp;&nbsp;&nbsp;몸무게 : <input type="text" name="weight" id="weight"
+										size="2" onkeyup="BMIcal()" tabindex="22">&nbsp;kg&nbsp;&nbsp;&nbsp;&nbsp;BMI : <input type="text" name="bmi" id="bmi" size="4" readonly="readonly" ></td>
 								</tr>
 								<tr>
 									<td>체형</td>
 									<td><input type="radio" name="shape" value="1">마른<input
-										type="radio" name="shape" checked="checked" value="2">표준<input type="radio"
+										type="radio" name="shape" checked="checked" value="2" tabindex="23">표준<input type="radio"
 										name="shape" value="3">비만<input type="radio" name="shape" value="4">고도비만<input
 										type="radio" name="shape" value="5">마른비만<input
 										type="radio" name="shape" value="6">근육질</td>
