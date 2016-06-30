@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.gallery.model.GalleryVO;
 import com.mommefatale.gallery.service.GalleryPageService;
-import com.mommefatale.item.model.Paging;
+import com.mommefatale.board.model.Paging;
 
 @Controller
 public class GalleryPageController {

@@ -12,7 +12,7 @@
 <header id="header">
    <div id="util">
     <ul class="util_left">
-		<li><a href="#">gallery</a></li> 
+		<li><a href="gallery.do">gallery</a></li> 
         <li><a href="communityBoard.do">community</a></li> 
         <li><a href="qnaBoard.do">Q&amp;A</a></li> 
         <li><a href="#">sitemap</a></li> 

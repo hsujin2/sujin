@@ -32,6 +32,7 @@
 				/WEB-INF/spring/memberContexts/contents-servlet.xml
 				/WEB-INF/spring/memberContexts/item-servlet.xml
 				/WEB-INF/spring/memberContexts/qna-servlet.xml
+				/WEB-INF/spring/memberContexts/gallery-servlet.xml
 </param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>
