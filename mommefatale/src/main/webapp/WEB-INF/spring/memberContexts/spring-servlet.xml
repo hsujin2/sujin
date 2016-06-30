@@ -21,7 +21,7 @@
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
 	
-	<!-- Dao -->
+	<!-- DAO -->
 	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
 		<property name="session" ref="sqlSessionTemplate"/>
 	</bean>
