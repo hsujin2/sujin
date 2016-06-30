@@ -31,7 +31,7 @@ function inputCheck(){
 	}
 	//아이디 길이 체크(6~12자)
 	if(theForm.userid.value.length<6 || theForm.userid.value.length>12){
-		alert("아이디를 6~12자까지 입력해주세요");
+		alert("아이디를 6~12자 사이로 입력해주세요");
 		theForm.userid.focus();
 		theForm.userid.select();
 		return;
