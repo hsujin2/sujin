@@ -11,9 +11,8 @@
 	<!-- annotation-driven 을 쓰려면 앞에 mvc: -->
 	
 	<!--  Controller -->
-	<bean class="com.mommefatale.index.controller.MemberIndexController"></bean>
-	<bean id="indexBoardController" class="com.mommefatale.index.controller.IndexBoardController">
-		<property name="service" ref="indexBoardService"/>
+	<bean class="com.mommefatale.index.controller.MemberIndexController">
+		<property name="boardService" ref="indexBoardService"/>
 	</bean>
 	
 	<!-- Service -->

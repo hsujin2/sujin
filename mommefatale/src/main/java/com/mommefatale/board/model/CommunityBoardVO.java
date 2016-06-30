@@ -9,7 +9,7 @@ public class CommunityBoardVO {
 	private String subject;
 	private String content;
 	private Date regdate;
-	private Date update_date;
+	private String update_date;
 	private int ref;
 	private int step;
 	private int depth;
@@ -56,11 +56,11 @@ public class CommunityBoardVO {
 		this.regdate = regdate;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 

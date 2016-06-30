@@ -9,8 +9,7 @@
 		<result property="subject" column="community_subject" jdbcType="VARCHAR" />
 		<result property="content" column="community_content" jdbcType="VARCHAR" />
 		<result property="regdate" column="community_regdate" jdbcType="VARCHAR" />
-		<result property="update_date" column="community_update_date"
-			jdbcType="VARCHAR" />
+		<result property="update_date" column="community_update_date" jdbcType="VARCHAR" />
 		<result property="ref" column="community_ref" jdbcType="BIGINT" />
 		<result property="step" column="community_step" jdbcType="BIGINT" />
 		<result property="depth" column="community_depth" jdbcType="BIGINT" />
@@ -83,9 +82,9 @@
 
 	<!-- Community 인덱스 리스트 -->
 	<select id="indexCommunityList" resultMap="communityResultMap">
-		<![CDATA[select community_regdate, community_no, community_subject, community_view
-						from (select rownum rnum, community_regdate,community_no, community_subject, community_view
-     				 			from community order by community_regdate desc, community_view desc)
-      					where rnum <= 6 and community_view > = 20]]>
+		<![CDATA[select to_char(community_update_date,'mm-dd') as community_update_date, community_no, community_subject, community_view
+						from (select rownum rnum, community_update_date, community_no, community_subject, community_view 
+						from community order by community_update_date desc, community_view desc)
+      					where rnum >= 0 and rnum <= (select count(*) from community) and community_view > = 20]]>
 	</select>
 </mapper>
