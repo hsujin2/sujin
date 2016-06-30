@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- Model -->
+	<bean id="paging" class="com.mommefatale.board.model.Paging">
+	</bean>
+
+<!--  DAO  -->
+	<bean id="galleryDAO" class="com.mommefatale.gallery.dao.GalleryDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+
+<!-- Service -->
+	<bean id="galleryPageService" class="com.mommefatale.gallery.service.GalleryPageServiceImpl">
+		<property name="dao" ref="galleryDAO"/>
+	</bean>
+	
+	
+<!-- Controller -->
+	<bean id="galleryPageController" class="com.mommefatale.gallery.controller.GalleryPageController">
+		<property name="command" ref="galleryPageService"/>
+		<property name="paging" ref="paging"/>
+	</bean>
+
+</beans>
