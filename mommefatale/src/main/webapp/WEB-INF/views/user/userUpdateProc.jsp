@@ -101,7 +101,7 @@
 
 <body>
 <%@ include file="../include/header.jsp" %>
-	<form name="regForm" id="regForm" method="get" action="userUpdateProc.do"
+	<form name="regForm" id="regForm" method="post" action="userUpdateProc.do"
 		name="joinForm">
 		<div id="wrap1">
 			<nav></nav>

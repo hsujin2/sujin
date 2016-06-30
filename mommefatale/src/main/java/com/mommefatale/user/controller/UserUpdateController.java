@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mommefatale.user.model.UserVO;
 import com.mommefatale.user.service.UserUpdateService;
@@ -27,7 +28,7 @@ public class UserUpdateController {
 		return "user/userUpdateProc";
 	}
 	
-	@RequestMapping("/userUpdateProc.do")
+	@RequestMapping(value="/userUpdateProc.do", method=RequestMethod.POST)
 	public String userUpdateProc(HttpServletRequest request)throws Exception{
 
 		request.setCharacterEncoding("utf-8");

@@ -91,7 +91,7 @@
 						<p>
 							<img src="resources/images/login/joinimg.png" alt="">
 						</p>
-							<form method="get" action="joincomplete.do" name="joinForm">
+							<form method="post" action="joincomplete.do" name="joinForm">
 							<table>
 								<tr>
 									<td width="30%"><img

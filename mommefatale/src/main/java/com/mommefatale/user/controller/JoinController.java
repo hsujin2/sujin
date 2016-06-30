@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mommefatale.user.service.UserInsertService;
 
@@ -34,7 +35,7 @@ public class JoinController {
 		return "login/join";
 	}
 
-	@RequestMapping("joincomplete.do")
+	@RequestMapping(value="joincomplete.do", method=RequestMethod.POST)
 	public String joinComplete(HttpServletRequest request)throws Exception {
 		request.setCharacterEncoding("utf-8");
 		Map<String, Object> vo= new HashMap<>();
