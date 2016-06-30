@@ -82,7 +82,7 @@ public class CommunityBoardDAOImpl implements CommunityBoardDAO {
 	@Override
 	public List<CommunityBoardVO> indexCommunityList() {
 		System.out.println("인덱스 자유게시판 리스트 DAO");
-		return session.select(namespace+".indexCommunityList");
+		return session.selectList(namespace+".indexCommunityList");
 	}
 
 }
