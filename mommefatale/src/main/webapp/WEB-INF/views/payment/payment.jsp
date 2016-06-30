@@ -41,7 +41,7 @@
 			<td>${saving}p</td>
 			<td>${fee}원</td>
 		</c:forEach>
-			<td>${total}</td>
+			<td>${total+fee} 원</td>
 		</tr>
 	</table>
 	
@@ -49,7 +49,7 @@
 		<div class="no">[기본배송]</div>
 		<div class="total">
 			상품구매금액 : <span class="col">${total}</span> + 배송비 <span class="col">${fee}</span>
-			= 합계 :<span class="col">${total}+${fee}</span>
+			= 합계 :<span class="col">${total+fee}</span>
 		</div>
 	</div>
 	<div class="mar">
