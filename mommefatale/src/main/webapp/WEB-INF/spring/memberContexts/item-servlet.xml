@@ -28,5 +28,8 @@
 	<bean class="com.mommefatale.item.usercontroller.ItemViewUserController">
 		<property name="command" ref="ItemViewUserService"></property>
 	</bean>
+	<bean class="com.mommefatale.payment.controller.PaymentViewController">
+		<property name="command" ref="ItemViewUserService"></property>
+	</bean>
 	
 </beans>
