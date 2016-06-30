@@ -1,5 +1,14 @@
 package com.mommefatale.index.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.mommefatale.board.model.CommunityBoardVO;
 import com.mommefatale.index.service.IndexBoardService;
 
 @Controller
@@ -23,4 +32,5 @@ public class IndexBoardController {
 		mav.addObject("community",community);
 		mav.setViewName("index");
 		return mav;
+	}
 }
