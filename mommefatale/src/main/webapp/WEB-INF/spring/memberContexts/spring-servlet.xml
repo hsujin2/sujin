@@ -12,13 +12,19 @@
 	
 	<!--  Controller -->
 	<bean class="com.mommefatale.index.controller.MemberIndexController"></bean>
-	<bean class="com.mommefatale.index.controller.IndexBoardController">
-		<property name="service" ref="IndexBoardService"/>
+	<bean id="indexBoardController" class="com.mommefatale.index.controller.IndexBoardController">
+		<property name="service" ref="indexBoardService"/>
 	</bean>
 	
 	<!-- Service -->
-	<bean class="com.mommefatale.index.service.IndexBoardServiceImpl">
+	<bean id="indexBoardService" class="com.mommefatale.index.service.IndexBoardServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
+	</bean>
+	
+	<!-- Dao -->
+	<!-- DAO -->	
+	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
 	</bean>
 	
 </beans>
