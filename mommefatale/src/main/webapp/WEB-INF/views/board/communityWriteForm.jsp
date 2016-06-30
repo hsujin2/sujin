@@ -58,10 +58,15 @@
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
 						<td>&nbsp;&nbsp;<select name="section" id="section">
 								<option value="">말머리 선택</option>
-								<option value="상품문의">상품문의</option>
-								<option value="다이어트문의">다이어트문의</option>
-								<option value="상품후기">상품후기</option>
-								<option value="다이어트후기">다이어트후기</option>
+								<c:if test ="${admin eq true}">
+								<option value="공지사항">공지사항</option>
+								</c:if>
+								<c:if test = "${userLogin ne null && admin eq false}">
+								<option value="건강증진">건강증진</option>
+								<option value="벌크업">벌크업</option>
+								<option value="다이어트">다이어트</option>
+								<option value="기타">기타</option>
+								</c:if>
 						</select>
 						</td>
 						<td><input type="text" name="subject" id="subject" size="80"></td>

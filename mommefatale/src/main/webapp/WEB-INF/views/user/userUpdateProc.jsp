@@ -95,7 +95,26 @@
 		document.getElementById("bmi").value = bmi;
 		
 	}
-	
+</script>
+
+<script type="text/javascript">
+	// 비밀번호 길이 체크(6~15자)
+	function passCheck(){
+		if(document.getElementById('userpass').value.length<6 || document.getElementById('userpass').value.length>15){
+		alert("비밀번호를 6~15자 사이로 입력해주세요");
+		document.getElementById('userpass').focus();
+		document.getElementById('userpass').select();
+		}
+	}
+	// 비밀번호 일치여부 체크
+	function passCheckMessage(){
+		
+		if(document.getElementById('userpass').value!=document.getElementById('userpasscheck').value){
+			passcheckmessage.innerHTML = "<font color='red'; size='2pt'>비밀번호가 일치하지 않습니다.</font>";
+		}else{
+			passcheckmessage.innerHTML = "<font color='blue' size='2pt'>비밀번호가 일치합니다.</font>";
+		}
+	}	
 </script>
 </head>
 
@@ -130,14 +149,15 @@
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호</td>
-									<td><input type="password" name="userpass" size="13"
-										maxlength="15" class="textin" required> <font size="2">문자와
+									<td><input type="password" name="userpass" id="userpass" size="13"
+										maxlength="15" class="textin" onblur="passCheck()" tabindex="1" required> <font size="2">문자와
 											숫자를 조합하여 6~15자리로 만들어주세요.</font></td>
 								</tr>
 								<tr>
 									<td><img src="resources/images/login/required.gif">비밀번호확인</td>
-									<td><input type="password" name="userpasscheck" size="13"
-										maxlength="12" class="textin" required></td>
+									<td><input type="password" name="userpasscheck" id="userpasscheck" size="13"
+										maxlength="12" class="textin" onblur="passCheckMessage()" tabindex="2" required>
+										<span id="passcheckmessage"></span></td>
 								</tr>
 
 								<tr>
@@ -154,10 +174,10 @@
 									<td>
 									<c:set var="tel" value="${userLogin.getTel()}"/>
 									<input type="text" name="num1" size="3" maxlength="3"
-										class="textin" required value="${fn:substring(tel,0,3)}">-
+										class="textin" required value="${fn:substring(tel,0,3)}" tabindex="3">-
 										<input type="text" name="num2" size="3" maxlength="4"
-										class="textin" required value="${fn:substring(tel,3,7)}">-<input type="text"
-										name="num3" size="3" maxlength="4" class="textin" required value="${fn:substring(tel,7,11)}"></td>
+										class="textin" required value="${fn:substring(tel,3,7)}" tabindex="4">-<input type="text"
+										name="num3" size="3" maxlength="4" class="textin" required value="${fn:substring(tel,7,11)}" tabindex="5"></td>
 								</tr>
 								
 								<tr>
@@ -166,8 +186,8 @@
 									<td>
 										<c:set var="email" value="${userLogin.getUseremail()}"/>
 										<c:set var="ecut" value="@"/>
-										<input type="text" name="useremail1" size="13"class="textin" value=${fn:substringBefore(email,ecut) }> @ 
-										<input type="text" name="useremail2" id="useremail2" value=${fn:substringAfter(email,ecut) }>
+										<input type="text" name="useremail1" size="13"class="textin" value=${fn:substringBefore(email,ecut) } tabindex="6"> @ 
+										<input type="text" name="useremail2" id="useremail2" value=${fn:substringAfter(email,ecut) } tabindex="7">
 										
 										</td>
 								</tr>
@@ -177,11 +197,10 @@
 									<td><input type="text" name="zip1" id="zip1" size="1"
 										maxlength="4" class="textin" value="${fn:substring(userLogin.getZipcode(),0,3)}">-<input type="text"
 										name="zip2" id="zip2" size="1" maxlength="4" class="textin"  value="${fn:substring(userLogin.getZipcode(),3,6)}">&nbsp;<input
-										type="button" value="우편번호찾기" class="jbtn" onclick="openDaumPostcode()"></td>
+										type="button" value="우편번호찾기" class="jbtn" onclick="openDaumPostcode()" tabindex="8"></td>
 								</tr>
 								<tr>
-									<td><img src="resources/images/login/required.gif"
-										>주소</td>
+									<td><img src="resources/images/login/required.gif">주소</td>
 									<td><input type="text" name="addr1" id="addr1" size="70"
 										class="textin" value="${userLogin.getAddress1() }" required></td>
 								</tr>
@@ -189,17 +208,17 @@
 									<td><img src="resources/images/login/required.gif"
 										>상세주소</td>
 									<td><input type="text" name="addr2" id="addr2" size="70"
-										class="textin" value="${userLogin.getAddress2() }" required></td>
+										class="textin" value="${userLogin.getAddress2() }"  tabindex="9" required></td>
 								</tr>
 								<tr>
 									<td colspan="3" align="center">키 : <input type="text" name="height" id="height"
-										size="2" value="${userLogin.getHeight() }">&nbsp;cm&nbsp;&nbsp;&nbsp;&nbsp;몸무게 : <input type="text" name="weight" id="weight"
-										size="2" onkeyup="BMIcal()"  value="${userLogin.getWeight() }">&nbsp;kg&nbsp;&nbsp;&nbsp;&nbsp;BMI : <input type="text" name="bmi" id="bmi" size="4" readonly="readonly"  value="${userLogin.getBmi() }"></td>
+										size="2" value="${userLogin.getHeight() }"  tabindex="10">&nbsp;cm&nbsp;&nbsp;&nbsp;&nbsp;몸무게 : <input type="text" name="weight" id="weight"
+										size="2" onkeyup="BMIcal()"  value="${userLogin.getWeight() }"  tabindex="11">&nbsp;kg&nbsp;&nbsp;&nbsp;&nbsp;BMI : <input type="text" name="bmi" id="bmi" size="4" readonly="readonly"  value="${userLogin.getBmi() }"></td>
 								</tr>
 								<tr>
 									<td>체형</td>
 									<td><input type="radio" name="shape" value="1">마른<input
-										type="radio" name="shape" checked="checked" value="2">표준<input type="radio"
+										type="radio" name="shape" checked="checked" value="2" >표준<input type="radio"
 										name="shape" value="3">비만<input type="radio" name="shape" value="4">고도비만<input
 										type="radio" name="shape" value="5">마른비만<input
 										type="radio" name="shape" value="6">근육질</td>
@@ -219,9 +238,9 @@
 										</td>
 								</tr>
 								<tr>
-									<td colspan="3" align="center"><br> <input
-										type="submit" name="sub" id="sub" value="수정" class="jbtn">&nbsp;&nbsp;<input
-										type="button" name="cancle" value="취소" class="jbtn" onclick="location.href='mypage.do'"><br>
+									<td colspan="3" align="center"><br> 
+									<input type="submit" name="sub" id="sub" value="수정" class="jbtn" tabindex="11">&nbsp;&nbsp;
+									<input type="button" name="cancle" value="취소" class="jbtn" onclick="location.href='mypage.do'"><br>
 										<br></td>
 								</tr>
 							</table>
