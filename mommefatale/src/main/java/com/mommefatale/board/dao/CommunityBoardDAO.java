@@ -37,4 +37,8 @@ public interface CommunityBoardDAO {
 
 	// 인덱스에 리스트 가져오기
 	public List<CommunityBoardVO> indexCommunityList();
+	
+	// 인덱스에 공지사항 가져오기
+	public List<CommunityBoardVO> indexNoticeList();
+	
 }

@@ -6,4 +6,5 @@ import com.mommefatale.board.model.CommunityBoardVO;
 
 public interface IndexBoardService {
 	public List<CommunityBoardVO> indexCommunityList();
+	public List<CommunityBoardVO> indexNoticeList();
 }

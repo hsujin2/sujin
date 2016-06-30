@@ -109,8 +109,8 @@ input{vertical-align:middle;}
 .item li{display:inline-block; padding:20px 20px 20px 20px;}
 .item ul li img{width:300px; height:200px;}
 #main_board{clear:both; text-align:left; min-width:1003px;}
-.notice{ float:left; width:380px; height:200px; margin-left:80px;}
-.popular{float:right; width:500px; height:200px; margin-right:20px;}
+.notice{ float:left; min-width:400px; height:200px; margin-left:200px;}
+.popular{float:left; min-width:400px; height:200px;}
 
 .date{color:#9f9f9f; font-family:Tahoma; font-size:8pt; vertical-align:5%; padding: 0 8px 0 7px;}
 

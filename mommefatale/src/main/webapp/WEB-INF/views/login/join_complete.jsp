@@ -9,9 +9,12 @@
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 </head>
 <body>
+<div id="wrap">
 <%@ include file="../include/header.jsp" %>
-<div align="center">회원가입 완료</div>
-<div align="center">가입 기념 쿠폰이 발급되었습니다.</div>
+<h2 class="title">회원가입 완료</h2>
+<div class="align_center">가입 기념 쿠폰이 발급되었습니다.</div>
+<input type="button" onclick="location.href='login.do'" value="로그인하러가기">
 <%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>

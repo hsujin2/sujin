@@ -45,14 +45,19 @@ $(function(){
  <div id="main_board">
  	<div class="notice">
   	<h2 class="title">공지사항</h2>
-	 	<ul>
+	 <ul>
+			<c:forEach var="notice" items="${notice}" begin="0" end="5"> <!-- 6개 보이도록 -->
+	 			<li><span class="date">${notice.update_date}</span><a href="communityContent.do?no=${notice.no}" >${notice.subject}</a></li>
+	 		</c:forEach>
+		</ul> 
+	 <!-- <ul>
 				<li><span class="date">06-16</span><a href="#" >사이트 오픈 이벤트!!</a></li>
 				<li><span class="date">06-15</span><a href="#" >가입인사글을 작성해주세요.</a></li>
 				<li><span class="date">06-13</span><a href="#" >배송문의시 참고해주세요!</a></li>
 				<li><span class="date">06-08</span><a href="#" >가장 효과적인 다이어트 방법</a></li>
 				<li><span class="date">06-07</span><a href="#" >상품구입시 주의사항</a></li>
 				<li><span class="date">05-31</span><a href="#" >회원가입을 축하드립니다.^^ </a></li>
-		</ul>
+		</ul>-->
 	</div>
  	<div class="popular">
  	<h2 class="title">최신인기글</h2>

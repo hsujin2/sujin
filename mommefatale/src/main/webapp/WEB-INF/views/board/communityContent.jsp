@@ -62,7 +62,8 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-						<c:if test="${userLogin ne null || admin eq true}">
+						<c:if test="${userLogin ne null && vo.section ne '공지사항'}"> 
+						<!-- 로그인을 하지 않았거나 글이 공지사항인 경우 답글을 달 수 없음 -->
 							<input type="button" value="답글쓰기" onClick="window.location='communityReplyForm.do?no='+${vo.no}">		
 						</c:if>
 						</td>
