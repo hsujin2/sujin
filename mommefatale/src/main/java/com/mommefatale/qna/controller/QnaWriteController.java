@@ -43,7 +43,7 @@ public class QnaWriteController {
 		while (enums.hasMoreElements()) {
 			String paramName = enums.nextElement().toString();
 			String paramValue = request.getParameter(paramName);
-			System.out.println("ParamName:" + paramName + " ParmaValue:" + paramValue);
+			System.out.println("ParamName:" + paramName + " ParamValue:" + paramValue);
 			map.put(paramName, paramValue);
 		}
 		command.qnaWrite(map);
