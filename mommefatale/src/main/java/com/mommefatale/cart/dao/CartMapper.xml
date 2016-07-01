@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mommefatale.cart.dao.CartMapper">
+	<select id="insertCart" parameterType="com.mommefatale.cart.model.CartVO">
+		INSERT INTO CART(CART_NO,ITEM_NO,MEMBER_ID,CART_EXDATE,CART_COUNT)VALUES(cart_seq.nextval,#{item_no},#{user_id},sysdate+90,#{cart_count})
+	</select>
+</mapper>
