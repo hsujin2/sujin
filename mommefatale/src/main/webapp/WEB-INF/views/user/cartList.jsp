@@ -15,7 +15,6 @@
         </div>
         <div class="list">국내배송상품 주문내역</div><a class="back" href="#">이전페이지 <span class="co">▶</span></a><br />
     
-    
       <table class="menu">
       
         <tr class="menu2">
