@@ -10,6 +10,29 @@ public class CartVO {
 	private	String item_size;
 	private Integer cart_count;
 	private	String main_img;
+	private String cart_regdate;
+	private Integer saving;
+	private Integer fee;
+	
+	
+	public Integer getSaving() {
+		return saving;
+	}
+	public void setSaving(Integer saving) {
+		this.saving = saving;
+	}
+	public Integer getFee() {
+		return fee;
+	}
+	public void setFee(Integer fee) {
+		this.fee = fee;
+	}
+	public String getCart_regdate() {
+		return cart_regdate;
+	}
+	public void setCart_regdate(String cart_regdate) {
+		this.cart_regdate = cart_regdate;
+	}
 	public Integer getCart_no() {
 		return cart_no;
 	}

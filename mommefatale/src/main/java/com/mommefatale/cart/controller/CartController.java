@@ -1,5 +1,9 @@
 package com.mommefatale.cart.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
@@ -50,10 +54,30 @@ public class CartController {
 		cartVO.setItem_size(item.getOption_size());
 		cartVO.setCart_count(Integer.parseInt(request.getParameter("count")));
 		cartVO.setMain_img(item.getMain_img());
-		
+		cartVO.setSaving(Integer.parseInt(request.getParameter("saving")));
+		cartVO.setFee(Integer.parseInt(request.getParameter("fee")));
 		command.insertCart(cartVO);
 		System.out.println("cart insert");
 		return "redirect:/itemview.do?no="+request.getParameter("no");
+	}
+	@RequestMapping(value="cartlist.do")
+	public ModelAndView cartView(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		Object obj = request.getSession().getAttribute("login");
+		UserVO user = null;
+		if(obj instanceof UserVO){
+			user = (UserVO) obj;
+		}else{
+			mav.setViewName("redirect:/login.go");
+			return mav;
+		}
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<CartVO> cartlist = command.cartList(user.getUserid());
+		model.put("cartlist", cartlist);
+		mav.addAllObjects(model);
+		mav.setViewName("user/cartList");
+		
+		return mav;
 	}
 	
 }
