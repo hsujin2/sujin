@@ -10,6 +10,9 @@ public class CommunityBoardVO {
 	private String content;
 	private Date regdate;
 	private String update_date;
+	private int ref;
+	private int step;
+	private int depth;
 	private String section;
 	private int view;
 
@@ -59,6 +62,30 @@ public class CommunityBoardVO {
 
 	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
+	}
+
+	public int getRef() {
+		return ref;
+	}
+
+	public void setRef(int ref) {
+		this.ref = ref;
+	}
+
+	public int getStep() {
+		return step;
+	}
+
+	public void setStep(int step) {
+		this.step = step;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 
 	public String getSection() {
