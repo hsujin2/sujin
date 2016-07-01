@@ -19,7 +19,7 @@
 	if(file_put_contents($newPath, $file->content)) {
 		$sFileInfo .= "&bNewLine=true";
 		$sFileInfo .= "&sFileName=".$file->name;
-		$sFileInfo .= "&sFileURL=http://test.naver.com/popup/upload/".$file->name;
+		$sFileInfo .= "&sFileURL=../../upload/".$file->name;
 	}
 	echo $sFileInfo;
  ?>

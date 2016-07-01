@@ -63,9 +63,9 @@
 
 					</c:if>
 					<c:if test="${count != 0 }">
-						<c:forEach var="vo" items="${vo}">
+						<c:forEach var="vo" items="${vo}" varStatus="i">
 							<tr>
-							<td><c:set var="num" value="${num+1}"
+							<td><c:set var="num" value="${number-i.index}"
 									scope="page" />${num}</td> <!-- 페이지에서만 유효한 글 번호 -->
 								<!-- <td>${vo.no}</td>--> <!-- 실제 입력되는 순서의 글번호 -->
 								<td>${vo.section}</td>
