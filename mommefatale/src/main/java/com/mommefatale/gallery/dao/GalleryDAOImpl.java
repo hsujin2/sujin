@@ -1,6 +1,7 @@
 package com.mommefatale.gallery.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -31,6 +32,14 @@ public class GalleryDAOImpl implements GalleryDAO{
 		int count = session.selectOne(namespace + ".galleryCount");
 		System.out.println("°¶·¯¸® ÃÑ °Ô½Ã¹° ¼ö : " + count);
 		return count;
+	}
+
+	@Override
+	public void galleryWrite(Map<String, Object> vo) {
+		System.out.println("°¶·¯¸® ±Û¾²±â DAO");
+		session.insert(namespace + ".galleryWrite", vo);
+		return;
+		
 	}
 
 }
