@@ -36,7 +36,7 @@ public class GalleryPageController {
 	
 	@RequestMapping(value = "/gallery.do")
 	public ModelAndView GalleryPage(HttpServletRequest request)throws Exception {
-		
+		System.out.println("갤러리 리스트 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
 		String pageNum = request.getParameter("pageNum");
@@ -52,6 +52,8 @@ public class GalleryPageController {
 		
 		int number = page_count - (currentPage - 1) * pageSize;
 		
+		
+		
 		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
 		map.put("startRow", paging.getWriting_Start());
 		map.put("endRow", paging.getWriting_End());
@@ -64,7 +66,8 @@ public class GalleryPageController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		
 		model.put("galleryList", vo);
-		model.put("page_count", new Integer(number));
+		model.put("page_count", new Integer(page_count));
+		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
 		mav.addAllObjects(model);
