@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- DAO -->
+	<bean id="CartDAO" class="com.mommefatale.cart.dao.CartDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+	<bean id="ItemDAO" class="com.mommefatale.item.dao.ItemDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+	<!-- service -->
+	<bean id="CartService" class="com.mommefatale.cart.service.CartServiceImpl">
+		<property name="dao" ref="CartDAO"></property>
+	</bean>
+	<bean id="ItemViewUserService" class="com.mommefatale.item.service.ItemViewUserServiceImpl">
+		<property name="dao" ref="ItemDAO"></property>
+	</bean>
+	<!-- controller -->
+	<bean class="com.mommefatale.cart.controller.CartController" >
+		<property name="command" ref="CartService"></property> 
+		<property name="itemService" ref="ItemViewUserService"></property>
+	</bean>
+		
+</beans>

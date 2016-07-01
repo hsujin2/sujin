@@ -37,7 +37,7 @@
 	}
 	function sum(){
 		var price = ${item.price_discount};
-		$("#total").text((parseInt($("#quantity").val()) * parseInt(price))+"원");
+		$("#total").text((parseInt($("#count").val()) * parseInt(price))+"원");
 	}
 	
 	
@@ -58,9 +58,9 @@
 				window.location="login.do";
 				return;
 			}
-			$("#form").attr("action", "cartinsert.do");
-			$("payForm").submit();
 			alert("장바구니에 추가됐습니다");
+			$("#payForm").attr("action", "cartInsert.do");
+			$("#payForm").submit();
 		}
 </script>
 </head>
@@ -107,7 +107,7 @@
     <table class="table2">
     	<tr>
         	<td>수량</td>
-            <td><input type="number" name="quantity" id="quantity" min="1" max="99" value="1" onchange="sum()"> 개</td>
+            <td><input type="number" name="count" id="count" min="1" max="99" value="1" onchange="sum()"> 개</td>
         </tr>
         <tr>
         	<td height="30px">사이즈</td>
