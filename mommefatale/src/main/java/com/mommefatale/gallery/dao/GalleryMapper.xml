@@ -8,8 +8,7 @@
 		<result property="subject" column="gallery_subject" jdbcType="VARCHAR" />
 		<result property="content" column="gallery_content" jdbcType="VARCHAR" />
 		<result property="regdate" column="gallery_regdate" jdbcType="VARCHAR" />
-		<result property="update_date" column="gallery_update_date" jdbcType="VARCHAR" />
-		
+		<result property="update_date" column="gallery_update_date" jdbcType="VARCHAR" />		
 		<result property="image" column="gallery_image" jdbcType="VARCHAR" />
 		<result property="view" column="gallery_view" jdbcType="BIGINT" />
 	</resultMap>
@@ -25,5 +24,10 @@
 		<![CDATA[select count(*) from gallery]]>
 	</select>
 	
-	
+	<!-- Gallery 글쓰기 -->
+	<insert id="galleryWrite" parameterType="java.util.Map">
+		<![CDATA[insert into gallery(gallery_no, gallery_writer, gallery_subject, 
+		gallery_content, gallery_regdate, gallery_update_date, gallery_image) 
+		values(gallery_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{image})]]>
+	</insert>
 </mapper>
