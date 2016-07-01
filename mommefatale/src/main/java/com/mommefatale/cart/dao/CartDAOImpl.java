@@ -1,5 +1,7 @@
 package com.mommefatale.cart.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.mommefatale.cart.model.CartVO;
@@ -15,6 +17,11 @@ public class CartDAOImpl implements CartDAO{
 	@Override
 	public void insertCart(CartVO cartVO) {
 		session.insert(namespace + ".insertCart",cartVO);
+	}
+
+	@Override
+	public List<CartVO> cartList(String userid) {
+		return session.selectList(namespace + ".cartList",userid);
 	}
 
 }
