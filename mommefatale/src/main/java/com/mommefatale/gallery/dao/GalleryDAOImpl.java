@@ -23,14 +23,14 @@ public class GalleryDAOImpl implements GalleryDAO{
 	@Override
 	public List<GalleryVO> getGalleryList(Object obj) {
 		System.out.println("°¶·¯¸® ¸®½ºÆ® DAO");
-		return session.selectList(namespace + ".GalleryList", obj);
+		return session.selectList(namespace + ".galleryList", obj);
 	}
 
 	@Override
 	public int getGalleryCount() {
 		int count = session.selectOne(namespace + ".galleryCount");
 		System.out.println("°¶·¯¸® ÃÑ °Ô½Ã¹° ¼ö : " + count);
-		return 0;
+		return count;
 	}
 
 }

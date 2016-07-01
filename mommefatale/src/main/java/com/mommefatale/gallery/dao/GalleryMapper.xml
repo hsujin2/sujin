@@ -9,9 +9,7 @@
 		<result property="content" column="gallery_content" jdbcType="VARCHAR" />
 		<result property="regdate" column="gallery_regdate" jdbcType="VARCHAR" />
 		<result property="update_date" column="gallery_update_date" jdbcType="VARCHAR" />
-		<result property="ref" column="gallery_ref" jdbcType="BIGINT" />
-		<result property="step" column="gallery_step" jdbcType="BIGINT" />
-		<result property="depth" column="gallery_depth" jdbcType="BIGINT" />
+		
 		<result property="image" column="gallery_image" jdbcType="VARCHAR" />
 		<result property="view" column="gallery_view" jdbcType="BIGINT" />
 	</resultMap>
@@ -19,7 +17,7 @@
 	<!--  Gallery 리스트 가져오기 -->
 	<select id="galleryList" parameterType="java.util.Map"
 		resultMap="galleryResultMap">
-		<![CDATA[select * from (select rownum rnum, gallery_no, gallery_image, gallery_subject, gallery_writer, gallery_regdate, gallery_view from gallery order by gallery_no desc) where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		<![CDATA[select * from (select rownum rnum, gallery_no, gallery_image, gallery_subject, gallery_writer, gallery_regdate, gallery_view from (select * from gallery order by gallery_no desc)  )   where rnum >= #{startRow} and rnum <= #{endRow}]]>
 	</select>
 	
 	<!-- Gallery 총 게시물 수 -->
