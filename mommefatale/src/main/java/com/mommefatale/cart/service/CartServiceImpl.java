@@ -22,4 +22,11 @@ public class CartServiceImpl implements CartService{
 		return dao.cartList(userid);
 	}
 
+	@Override
+	public CartVO getCart(Integer cart_no) {
+		return dao.getCart(cart_no);
+	}
+	
+	
+
 }

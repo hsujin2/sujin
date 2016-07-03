@@ -29,8 +29,8 @@
 			<td width="70px"><span class="aaaa"><strong>합계</strong></span></td>
 		</tr>
 		
-		<tr>
 		<c:forEach var="vo" items="${item}" varStatus="i">
+		<tr id="menu3">
 			<td class="firstline"><img src="/mommefatale/resources/images/uploadimg/${vo.main_img}"
 				height="100px" /></td>
 			<td class="qqq">${vo.name } <br />
@@ -38,11 +38,11 @@
 			</td>
 			<td>${vo.price_discount }원</td>
 			<td>${count.get(i.index)} 개</td>
-			<td>${saving}p</td>
+			<td>${saving.get(i.index)}p</td>
 			<td>${fee}원</td>
+			<td>${vo.price_discount*count.get(i.index)+fee} 원</td> 
+		<tr>
 		</c:forEach>
-			<td>${total+fee} 원</td>
-		</tr>
 	</table>
 	
 	<div class="all">

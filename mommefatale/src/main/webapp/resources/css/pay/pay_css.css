@@ -14,6 +14,8 @@ body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
 	font-size: 11px;
 	color: #000;
 }
+#menu2 td{text-align: center;}
+#menu3 td{text-align: center;}
 .firstline{text-align:center; }
 .firstline>td{padding:7px;} 
 #menu2{width:1000px; border-bottom:1px solid #CCC; padding-left:15px;  color:#09C;}
