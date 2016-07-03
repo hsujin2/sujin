@@ -1,13 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<c:set var="userLogin" value="${sessionScope.login}"/>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>결제화면</title>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/pay/pay_css.css" />
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	alert("dd");
+	var tel = ${user.tel};
+	var tel1 = "${fn:substring(tel,0,3)}";
+		 $("select[name=tel1] option[value="+tel1+"]").attr("selected",true);
+	
+}
+</script>
 </head>
 <body>
 	<section class="content">
@@ -52,6 +64,7 @@
 			= 합계 :<span class="col">${total+fee}</span>
 		</div>
 	</div>
+	<!-- --------------------------------------------------------------- -->
 	<div class="mar">
 		<div class="list2">-주문자정보</div>
 		<div class="back2">
@@ -62,51 +75,29 @@
 
 		<tr>
 			<td width="15%" class="gre">주문하시는 분<span class="red">*</span></td>
-			<td width="85%"><input type="text" size="10px" /></td>
+			<td width="85%"><input type="text" size="10px" value=${user.name }></td>
 		</tr>
 		<tr>
+			<c:set var="zip" value="${user.zipcode }"></c:set>
 			<td class="gre">주소<span class="red">*</span></td>
-			<td><input type="text" size="3px" /> - <input type="text"
-				size="3px" /> <input type="button" value="찾기" /><br />
+			<td><input type="text" size="3px" value="${fn:substring(zip,0,3) }"> - <input type="text"
+				size="3px"  value="${fn:substring(zip,3,6) }"> <input type="button" value="찾기" ><br />
 				<div class="mart">
-					<input type="text" size="50px" />기본주소<br />
+					<input type="text" size="50px" value="${user.address1 }">기본주소<br />
 				</div>
 				<div class="mart">
-					<input type="text" size="50px" />상세주소
+					<input type="text" size="50px" value="${user.address2 }">상세주소
 				</div></td>
 		</tr>
 		<tr>
-			<td class="gre">일반전화</td>
-			<td><select>
-					<option>02</option>
-					<option>031</option>
-					<option>051</option>
-					<option>053</option>
-					<option>032</option>
-					<option>062</option>
-					<option>042</option>
-					<option>052</option>
-					<option>044</option>
-					<option>033</option>
-					<option>034</option>
-					<option>041</option>
-					<option>063</option>
-					<option>061</option>
-					<option>054</option>
-					<option>055</option>
-					<option>064</option>
-			</select> - <input type="text" size="3px" /> - <input type="text" size="3px" />
-			</td>
-		</tr>
-		<tr>
 			<td class="gre">휴대전화<span class="red">*</span></td>
-			<td><select>
-					<option>010</option>
-					<option>011</option>
-					<option>016</option>
-					<option>017</option>
-					<option>018</option>
-					<option>019</option>
+			<td><select name="tel1">
+					<option value="010">010</option>
+					<option value="011">011</option>
+					<option value="016">016</option>
+					<option value="017">017</option>
+					<option value="018">018</option>
+					<option value="019">019</option>
 			</select> - <input type="text" size="3px" /> - <input type="text" size="3px" />
 			</td>
 		</tr>
