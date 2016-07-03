@@ -24,4 +24,10 @@ public class CartDAOImpl implements CartDAO{
 		return session.selectList(namespace + ".cartList",userid);
 	}
 
+	@Override
+	public CartVO getCart(Integer cart_no) {
+		return session.selectOne(namespace + ".getCart",cart_no);
+	}
+	
+
 }

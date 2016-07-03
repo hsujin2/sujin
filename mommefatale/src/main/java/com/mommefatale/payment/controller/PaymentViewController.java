@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mommefatale.cart.model.CartVO;
+import com.mommefatale.cart.service.CartService;
 import com.mommefatale.item.model.ItemVO;
 import com.mommefatale.item.service.ItemViewUserService;
 import com.mommefatale.user.model.UserVO;
@@ -18,7 +20,12 @@ import com.mommefatale.user.model.UserVO;
 @Controller
 public class PaymentViewController {
 	private ItemViewUserService command;
+	private CartService cartservice;
 	
+	public void setCartservice(CartService cartservice) {
+		this.cartservice = cartservice;
+	}
+
 	public void setCommand(ItemViewUserService command) {
 		this.command = command;
 	}
@@ -31,6 +38,7 @@ public class PaymentViewController {
 		List<ItemVO> itemlist = new ArrayList<ItemVO>();
 		List<Integer> countlist = new ArrayList<Integer>();
 		List<String> sizelist = new ArrayList<String>();
+		List<Integer> savinglist = new ArrayList<Integer>();
 		Integer total = new Integer(0);
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
@@ -39,7 +47,25 @@ public class PaymentViewController {
 		if(obj instanceof UserVO){
 			vo = (UserVO)obj;
 		}
+		
+		int fee=0;
 		if(arr != null){
+			System.out.println("arrIn");
+			tempStr = arr.split(",");
+			for(int i = 0; i < tempStr.length; ++i)
+			{
+				CartVO cart = cartservice.getCart(Integer.parseInt(tempStr[i]));
+				itemlist.add(command.itemView(cart.getItem_no()));
+				countlist.add(cart.getCart_count());
+				sizelist.add(cart.getItem_size());
+				savinglist.add(cart.getSaving());
+				total += itemlist.get(i).getPrice_discount() * countlist.get(i);
+			}
+			mav.getModel().put("category", "cart");
+			mav.getModel().put("total", total);
+			session.setAttribute("cartArr", tempStr);
+	
+			fee = Integer.parseInt(request.getParameter("fee"));
 			
 		}else{
 			itemVO = command.itemView(Integer.parseInt(request.getParameter("no")));
@@ -48,10 +74,10 @@ public class PaymentViewController {
 			sizelist.add(request.getParameter("size"));
 			total = itemVO.getPrice_discount() * Integer.parseInt(request.getParameter("quantity"));
 			mav.getModel().put("category", itemVO.getCategory());
+			
+			fee = Integer.parseInt(request.getParameter("fee"));
+			savinglist.add(Integer.parseInt(request.getParameter("saving")));
 		}
-		
-		int fee = Integer.parseInt(request.getParameter("fee"));
-		int saving = Integer.parseInt(request.getParameter("saving"));
 		
 		mav.getModel().put("total", total);
 		mav.getModel().put("user", vo);
@@ -59,7 +85,7 @@ public class PaymentViewController {
 		session.setAttribute("count", countlist);
 		session.setAttribute("size", sizelist);
 		session.setAttribute("fee", fee);
-		session.setAttribute("saving", saving);
+		session.setAttribute("saving", savinglist);
 		
 		mav.setViewName("payment/payment");
 		return mav;

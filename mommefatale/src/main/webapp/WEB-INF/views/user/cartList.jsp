@@ -1,12 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>장바구니</title>
 <link rel="stylesheet" type="text/css" href="resources/css/cart/cart_css.css"/>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+	function checkboxArr(check,all){
+		var form = document.cartListForm;
+		var checkArr=[];
+		if(all){
+			$("input[name='cartCheck']").each(function(){
+				checkArr.push($(this).val());
+			});
+			$("input[name='arr']").val(checkArr);
+			
+			if(checkArr.length == 0)
+			{
+				alert("선택된 상품이 없습니다.");
+				return;
+			}
+		}else{
+			$("input[name='cartCheck']:checked").each(function(){
+				checkArr.push($(this).val());
+			});
+			$("input[name='arr']").val(checkArr);
+			
+			if(checkArr.length == 0)
+			{
+				alert("선택된 상품이 없습니다.");
+				return;
+			}
+		}
+		
+		if(check){
+			alert("결제성공");
+			$(form).attr("action", "payment.do");
+		}else{
+			$(form).attr("action", "cartdelete.do");
+		}
+		form.submit();
+	}
+</script>
 </head>
 <body>
 <section class="content">
@@ -14,7 +52,8 @@
             <span id="jaemok">장바구니</span>
         </div>
         <div class="list">국내배송상품 주문내역</div><a class="back" href="#">이전페이지 <span class="co">▶</span></a><br />
-    
+    <form name="cartListForm" action="" method="post">
+    <input type="hidden" name="arr" value="">
       <table class="menu">
       
         <tr class="menu2">
@@ -30,7 +69,7 @@
         </tr>
        <c:forEach var="vo" items="${cartlist }">
         <tr class="itemlist">
-            <td class="firstline"><input type="checkbox" class="checking"/> </td>
+            <td class="firstline"><input type="checkbox" name="cartCheck" class="checking" value="${vo.cart_no}"/> </td>
             <td class="firstline"><a href="itemview.do?no=${vo.item_no}"><img
 										src="/mommefatale/resources/images/uploadimg/${vo.main_img}"
 										alt="${vo.item_name}" class="itemImg" height="100px"/></a></td>
@@ -47,13 +86,15 @@
         </tr>
        </c:forEach>
       </table>
+      <c:if test="${cartlist.size()==0 }">
+      	<div>등록된 상품이 없습니다</div>
+      </c:if>
       <div class="all">
     <div class="no">
    	[기본배송]</div>
     <div class="total">
-    상품구매금액 : <span class="col">199,000</span> + 배송비 <span class="col">0</span> = 합계 :<span class="col">199,000</span>원</div>
+    상품구매금액 : <span class="col">${total}</span> + 배송비 : <span class="col">${fee}<input type="hidden" name="fee" value="${fee }"></span> = 합계 :<span class="col">${total+fee }</span>원</div>
     </div>
-    
     <div class="cash">
         	<table id="cash" cellpadding="1" cellspacing="0" border="1px">
             	<tr>
@@ -62,18 +103,20 @@
                     <td width="33%">결제예정금액</td>
                 </tr>
                 <tr>
-                	<td><span class="siz">199,000원</span></td>
-                    <td><span class="siz">-0원</span></td>
-                    <td><span class="siz">=199,000원</span></td>
+                	<td><span class="siz">${total }원</span></td>
+                    <td><span class="siz">${fee }원</span></td>
+                    <td><span class="siz">=${total+fee }원</span></td>
                 </tr>
             </table>            
         </div><br />
 
 		<div class="buts">
-            <a href="#" id="but1"><span class="but3">전체상품주문</span></a>
-            <a href="#" id="but2"><span class="but4">선택상품주문</span></a>
+            <a href="javascript:checkboxArr(true,true)" id="but1"><span class="but3">전체상품주문</span></a>
+            <a href="javascript:checkboxArr(true,false)" id="but2"><span class="but4">선택상품주문</span></a>
+            <a href="javascript:checkboxArr(false,false)" id="bu4"><span class="but4">선택상품삭제</span></a>
             <a href="#" id="but3"><span class="but5">쇼핑계속하기</span></a>
         </div>
+        </form>
 </section>
 </body>
 </html>

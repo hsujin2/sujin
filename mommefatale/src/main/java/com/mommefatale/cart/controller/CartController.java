@@ -73,6 +73,23 @@ public class CartController {
 		}
 		Map<String, Object> model = new HashMap<String, Object>();
 		List<CartVO> cartlist = command.cartList(user.getUserid());
+		int fee=0;
+		int fee2=0;
+		int total=0;
+		for(int i=0; i<cartlist.size(); i++){
+			total += cartlist.get(i).getItem_discount();
+			if(cartlist.get(i).getFee() == 2500){
+				fee = 2500;
+			}else if(cartlist.get(i).getFee() == 50000){
+				fee2 = 50000;
+			}
+		}
+		if(fee2==0){
+			model.put("fee", fee);
+		}else{
+			model.put("fee", fee2);
+		}
+		model.put("total", total);
 		model.put("cartlist", cartlist);
 		mav.addAllObjects(model);
 		mav.setViewName("user/cartList");

@@ -7,4 +7,5 @@ import com.mommefatale.cart.model.CartVO;
 public interface CartService {
 	public void insertCart(CartVO cartVO);
 	public List<CartVO> cartList(String userid);
+	public CartVO getCart(Integer cart_no);
 }
