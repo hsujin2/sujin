@@ -37,7 +37,6 @@
 		}
 		
 		if(check){
-			alert("결제성공");
 			$(form).attr("action", "payment.do");
 		}else{
 			$(form).attr("action", "cartdelete.do");
