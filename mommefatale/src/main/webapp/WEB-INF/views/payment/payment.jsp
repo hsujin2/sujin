@@ -12,13 +12,36 @@
 	href="resources/css/pay/pay_css.css" />
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	alert("dd");
-	var tel = ${user.tel};
-	var tel1 = "${fn:substring(tel,0,3)}";
+	var tel = "${user.tel}";
+	var tel1 = tel.substring(0,3);
+	var tel2 = tel.substring(3,7);
+	var tel3 = tel.substring(7,11);
+	$(document).ready(function() {
 		 $("select[name=tel1] option[value="+tel1+"]").attr("selected",true);
-	
-}
+		 $("input[name=tel2]").val(tel2);
+		 $("input[name=tel3]").val(tel3);
+	$('#rcheck1').click(function () {
+        $('#receivername').val($('#ordername:text').val()); 
+        $('#receiverzip1').val($('#orderzip1:text').val()); 
+        $('#receiverzip2').val($('#orderzip2:text').val()); 
+        $('#receiveraddr1').val($('#orderaddr1:text').val()); 
+        $('#receiveraddr2').val($('#orderaddr2:text').val());
+        var otel1 = $('#ordertel1').val();
+		$("select[id=receivertel1] option[value="+otel1+"]").attr("selected",true);
+        $('#receivertel2').val($('#ordertel2:text').val()); 
+        $('#receivertel3').val($('#ordertel3:text').val()); 
+    });
+	$('#rcheck2').click(function () {
+        $('#receivername').val(""); 
+        $('#receiverzip1').val(""); 
+        $('#receiverzip2').val(""); 
+        $('#receiveraddr1').val(""); 
+        $('#receiveraddr2').val("");
+        $("select[id=receivertel1] option[value="+"010"+"]").attr("selected",true);
+        $('#receivertel2').val(""); 
+        $('#receivertel3').val(""); 
+    });
+});
 </script>
 </head>
 <body>
@@ -75,42 +98,39 @@ $(document).ready(function() {
 
 		<tr>
 			<td width="15%" class="gre">주문하시는 분<span class="red">*</span></td>
-			<td width="85%"><input type="text" size="10px" value=${user.name }></td>
+			<td width="85%"><input type="text" size="10px" value=${user.name }
+			id="ordername" name="ordername"></td>
 		</tr>
 		<tr>
 			<c:set var="zip" value="${user.zipcode }"></c:set>
 			<td class="gre">주소<span class="red">*</span></td>
-			<td><input type="text" size="3px" value="${fn:substring(zip,0,3) }"> - <input type="text"
-				size="3px"  value="${fn:substring(zip,3,6) }"> <input type="button" value="찾기" ><br />
+			<td><input type="text" size="3px" value="${fn:substring(zip,0,3) }" id="orderzip1"> - <input type="text"
+				size="3px"  value="${fn:substring(zip,3,6) }" id="orderzip2"> <input type="button" value="찾기" ><br />
 				<div class="mart">
-					<input type="text" size="50px" value="${user.address1 }">기본주소<br />
+					<input type="text" size="50px" value="${user.address1 }" id="orderaddr1">기본주소<br />
 				</div>
 				<div class="mart">
-					<input type="text" size="50px" value="${user.address2 }">상세주소
+					<input type="text" size="50px" value="${user.address2 }" id="orderaddr2">상세주소
 				</div></td>
 		</tr>
 		<tr>
 			<td class="gre">휴대전화<span class="red">*</span></td>
-			<td><select name="tel1">
+			<td><select name="tel1" id="ordertel1">
 					<option value="010">010</option>
 					<option value="011">011</option>
 					<option value="016">016</option>
 					<option value="017">017</option>
 					<option value="018">018</option>
 					<option value="019">019</option>
-			</select> - <input type="text" size="3px" /> - <input type="text" size="3px" />
+			</select> - <input type="text" size="3px" name="tel2" id="ordertel2"> - <input type="text" size="3px" name="tel3" id="ordertel3">
 			</td>
 		</tr>
 		<tr>
 			<td class="gre">이메일<span class="red">*</span></td>
-			<td><input type="text" size="10px" /> @ <input type="text"
-				size="10px" /> <select>
-					<option value="naver.com">naver.com</option>
-					<option value="gmail.com">gmail.com</option>
-					<option value="nate.com">nate.com</option>
-					<option value="daum.net">daum.net</option>
-					<option value="lycos.co.kr">lycos.co.kr</option>
-			</select> <br /> <span class="aa">이메일을 통해 주문과정을 보내드립니다.<br /> 이메일
+			<c:set var="email" value="${user.useremail}"/>
+			<c:set var="ecut" value="@"/>
+			<td><input type="text" size="10px" value="${fn:substringBefore(email,ecut) }"> @ <input type="text"
+				size="10px" value="${fn:substringAfter(email,ecut) }"> <br /> <span class="aa">이메일을 통해 주문과정을 보내드립니다.<br /> 이메일
 					주소란에는 반드시 수신가능한 이메일주소를 입력해주시기 바랍니다.
 			</span></td>
 		</tr>
@@ -126,63 +146,47 @@ $(document).ready(function() {
 	<table class="info2" cellpadding="1" cellspacing="0" border="1px">
 		<tr>
 			<td width="15%" class="gre">배송지선택<span class="red">*</span></td>
-			<td width="85%"><input type="radio" name="check" /> <span
-				class="qq">주문자 정보와 동일</span> &nbsp; <input type="radio" name="check" />
+			<td width="85%"><input type="radio" name="rcheck" id="rcheck1"> <span
+				class="qq">주문자 정보와 동일</span> &nbsp; <input type="radio" name="rcheck" id="rcheck2">
 				<span class="qq">새로운 배송지</span></td>
 		</tr>
 		<tr>
 			<td width="15%" class="gre">주문하시는 분<span class="red">*</span></td>
-			<td width="85%"><input type="text" size="10px" /></td>
+			<td width="85%"><input type="text" size="10px" id="receivername" name="receivername"></td>
 		</tr>
 		<tr>
 			<td class="gre">주소<span class="red">*</span></td>
-			<td><input type="text" size="3px" /> - <input type="text"
-				size="3px" /> <input type="button" value="찾기" /><br />
+			<td><input type="text" size="3px" id="receiverzip1"> - <input type="text"
+				size="3px" id="receiverzip2"> <input type="button" value="찾기" /><br />
 				<div class="mart">
-					<input type="text" size="50px" />기본주소<br />
+					<input type="text" size="50px" id="receiveraddr1">기본주소<br />
 				</div>
 				<div class="mart">
-					<input type="text" size="50px" />상세주소
+					<input type="text" size="50px" id="receiveraddr2">상세주소
 				</div></td>
 		</tr>
 		<tr>
-			<td class="gre">일반전화</td>
-			<td><select>
-					<option>02</option>
-					<option>031</option>
-					<option>051</option>
-					<option>053</option>
-					<option>032</option>
-					<option>062</option>
-					<option>042</option>
-					<option>052</option>
-					<option>044</option>
-					<option>033</option>
-					<option>034</option>
-					<option>041</option>
-					<option>063</option>
-					<option>061</option>
-					<option>054</option>
-					<option>055</option>
-					<option>064</option>
-			</select> - <input type="text" size="3px" /> - <input type="text" size="3px" />
-			</td>
-		</tr>
-		<tr>
 			<td class="gre">휴대전화<span class="red">*</span></td>
-			<td><select>
-					<option>010</option>
-					<option>011</option>
-					<option>016</option>
-					<option>017</option>
-					<option>018</option>
-					<option>019</option>
-			</select> - <input type="text" size="3px" /> - <input type="text" size="3px" />
+			<td><select id="receivertel1">
+					<option value="010">010</option>
+					<option value="011">011</option>
+					<option value="016">016</option>
+					<option value="017">017</option>
+					<option value="018">018</option>
+					<option value="019">019</option>
+			</select> - <input type="text" size="3px" id="receivertel2"> - <input type="text" size="3px" id="receivertel3">
 			</td>
 		</tr>
 		<tr>
 			<td class="gre">배송메세지</td>
 			<td><textarea class="si"></textarea></td>
+		</tr>
+		<tr>
+			<td>쿠폰 : 
+				<select>
+					<option></option>
+				</select>
+			</td>
 		</tr>
 	</table>
 
@@ -193,8 +197,7 @@ $(document).ready(function() {
 	<div class="cash">
 		<table id="cash" cellpadding="1" cellspacing="0" border="1px">
 			<tr>
-				<td>총 주문 금액 &nbsp;<a href="#" class="move">내역보기<span
-						class="red">▶</span></a></td>
+				<td>총 주문 금액 &nbsp;</td>
 				<td width="33%">총 할인 + 부가결제 금액</td>
 				<td width="33%">총 결제예정 금액</td>
 			</tr>
@@ -261,8 +264,8 @@ $(document).ready(function() {
 
 		</tr>
 		<tr>
-			<td class="right">상품별 적립금 <span class="rrig">100원</span><br />
-				회원 적립금 <span class="rrig">0원</span><br /> 쿠폰 적립금 <span class="rrig">0원</span><br />
+			<td class="right">
+				회원 적립금 <span class="rrig">0원</span>
 			</td>
 		</tr>
 	</table>
