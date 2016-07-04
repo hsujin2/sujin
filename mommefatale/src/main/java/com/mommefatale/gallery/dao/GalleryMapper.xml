@@ -30,4 +30,28 @@
 		gallery_content, gallery_regdate, gallery_update_date, gallery_image) 
 		values(gallery_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, #{image})]]>
 	</insert>
+	
+	<!-- Gallery 글 내용 가져오기 -->
+	<select id="galleryContent" parameterType="java.lang.Integer"
+		resultMap="galleryResultMap">
+		<![CDATA[select * from gallery where gallery_no=#{no}]]>
+	</select>
+	
+	<!-- Gallery 조회수 증가 -->
+	<update id="galleryView" parameterType="java.lang.Integer">
+		<![CDATA[update gallery set gallery_view=gallery_view + 1 where gallery_no = #{no}]]>
+	</update>
+	
+	<!-- Gallery 글수정 -->
+	<update id="galleryUpdate" parameterType="java.util.Map">
+		<![CDATA[update gallery set gallery_writer=#{writer}, gallery_subject=#{subject}, 
+		gallery_content=#{content}, gallery_update_date=sysdate, gallery_image=#{image} 
+		where gallery_no=#{no}]]>
+	</update>
+	
+		<!-- Gallery 글삭제 -->
+	<delete id="galleryDelete" parameterType="java.lang.Integer">
+		<![CDATA[delete from gallery where gallery_no=#{no}]]>
+	</delete>
+	
 </mapper>

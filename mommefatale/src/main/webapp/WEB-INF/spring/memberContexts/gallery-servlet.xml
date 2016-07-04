@@ -19,12 +19,37 @@
 	<bean id="galleryPageService" class="com.mommefatale.gallery.service.GalleryPageServiceImpl">
 		<property name="dao" ref="galleryDAO"/>
 	</bean>
+	<bean id="galleryWriteService" class="com.mommefatale.gallery.service.GalleryWriteServiceImpl">
+		<property name="dao" ref="galleryDAO"/>
+	</bean>
+	<bean id="galleryContentService" class="com.mommefatale.gallery.service.GalleryContentServiceImpl">
+		<property name="dao" ref="galleryDAO"/>	
+	</bean>
+	<bean id="galleryUpdateService" class="com.mommefatale.gallery.service.GalleryUpdateServiceImpl">
+		<property name="dao" ref="galleryDAO"/>
+	</bean>
+	<bean id="galleryDeleteService" class="com.mommefatale.gallery.service.GalleryDeleteServiceImpl">
+		<property name="dao" ref="galleryDAO"/>
+	</bean>
 	
 	
 <!-- Controller -->
 	<bean id="galleryPageController" class="com.mommefatale.gallery.controller.GalleryPageController">
 		<property name="command" ref="galleryPageService"/>
 		<property name="paging" ref="paging"/>
+	</bean>
+	<bean id="galleryWriteController" class="com.mommefatale.gallery.controller.GalleryWriteController">
+		<property name="command" ref="galleryWriteService"/>
+	</bean>
+	<bean id="galleryContentController" class="com.mommefatale.gallery.controller.GalleryContentController">
+		<property name="command" ref="galleryContentService"/>
+	</bean>
+	<bean id="galleryUpdateController" class="com.mommefatale.gallery.controller.GalleryUpdateController">
+		<property name="command" ref="galleryContentService"/>
+		<property name="service" ref="galleryUpdateService"/>
+	</bean>
+	<bean id="galleryDeleteController" class="com.mommefatale.gallery.controller.GalleryDeleteController">
+		<property name="command" ref="galleryDeleteService"/>
 	</bean>
 
 </beans>
