@@ -1,6 +1,7 @@
 package com.mommefatale.cart.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -27,6 +28,16 @@ public class CartDAOImpl implements CartDAO{
 	@Override
 	public CartVO getCart(Integer cart_no) {
 		return session.selectOne(namespace + ".getCart",cart_no);
+	}
+
+	@Override
+	public void updateCart(CartVO cartVO) {
+		session.update(namespace + ".updateCart",cartVO);
+	}
+
+	@Override
+	public List<CartVO> getCartItem(Map<String, Object> id) {
+		return session.selectList(namespace + ".getCartItem",id);
 	}
 	
 

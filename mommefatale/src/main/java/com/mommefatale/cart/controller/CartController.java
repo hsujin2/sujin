@@ -46,20 +46,39 @@ public class CartController {
 			return "redirect:/login.do";
 		}
 		ItemVO item = itemService.itemView(Integer.parseInt(request.getParameter("no")));
-		cartVO.setUser_id(user.getUserid());
-		cartVO.setItem_no(item.getNo());
-		cartVO.setItem_name(item.getName());
-		cartVO.setItem_category(item.getCategory());
-		cartVO.setItem_discount(item.getPrice_discount());
-		cartVO.setItem_size(item.getOption_size());
-		cartVO.setCart_count(Integer.parseInt(request.getParameter("count")));
-		cartVO.setMain_img(item.getMain_img());
-		cartVO.setSaving(Integer.parseInt(request.getParameter("saving")));
-		cartVO.setFee(Integer.parseInt(request.getParameter("fee")));
-		command.insertCart(cartVO);
-		System.out.println("cart insert");
+		Map<String, Object> id = new HashMap<String, Object>();
+		id.put("userid", user.getUserid());
+		id.put("item", item.getNo());
+		if(command.getCartItem(id)!=null){
+			cartVO.setUser_id(user.getUserid());
+			cartVO.setItem_no(item.getNo());
+			cartVO.setItem_name(item.getName());
+			cartVO.setItem_category(item.getCategory());
+			cartVO.setItem_discount(item.getPrice_discount());
+			cartVO.setItem_size(item.getOption_size());
+			cartVO.setCart_count(Integer.parseInt(request.getParameter("count")));
+			cartVO.setMain_img(item.getMain_img());
+			cartVO.setSaving(Integer.parseInt(request.getParameter("saving")));
+			cartVO.setFee(Integer.parseInt(request.getParameter("fee")));
+			command.updateCart(cartVO);
+			System.out.println("cart update");
+			
+		}else{
+			cartVO.setUser_id(user.getUserid());
+			cartVO.setItem_no(item.getNo());
+			cartVO.setItem_name(item.getName());
+			cartVO.setItem_category(item.getCategory());
+			cartVO.setItem_discount(item.getPrice_discount());
+			cartVO.setItem_size(item.getOption_size());
+			cartVO.setCart_count(Integer.parseInt(request.getParameter("count")));
+			cartVO.setMain_img(item.getMain_img());
+			cartVO.setSaving(Integer.parseInt(request.getParameter("saving")));
+			cartVO.setFee(Integer.parseInt(request.getParameter("fee")));
+			command.insertCart(cartVO);
+			System.out.println("cart insert");
+		}
 		return "redirect:/itemview.do?no="+request.getParameter("no");
-	}
+		}
 	@RequestMapping(value="cartlist.do")
 	public ModelAndView cartView(HttpServletRequest request){
 		ModelAndView mav = new ModelAndView();
