@@ -59,10 +59,6 @@ menu2>tr>td>div>a{width:70px; height:20px;background:#036; text-decoration:none;
 	#cash td{padding:10px;}
 	.siz{font-size:18px;}
 	.move{border:1px solid #CCC; color:#333;width:80px; text-decoration:none; padding:3px; font-size:11px; float:inherit;}
-	#cash2{margin:0px; border-collapse:collapse; border:1px gray solid; width:1003px; font-weight:bold;
-	font-size:12px; color:#036; margin-bottom:30px;}
-	
-#cash2 td{padding:10px;}
 .bo{font-weight:bold; background:#f5f5f5;}
 
 .payment{border-collapse:collapse; border:1px #036 solid; width:1003px; font-weight:bold;
@@ -81,4 +77,4 @@ menu2>tr>td>div>a{width:70px; height:20px;background:#036; text-decoration:none;
 .left{text-align:left;}
 .rrig {color:#666;}
 .right{text-align:right;}
-
+.point{color:#ff9600;}
