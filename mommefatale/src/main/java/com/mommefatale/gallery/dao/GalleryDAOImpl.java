@@ -39,7 +39,34 @@ public class GalleryDAOImpl implements GalleryDAO{
 		System.out.println("갤러리 글쓰기 DAO");
 		session.insert(namespace + ".galleryWrite", vo);
 		return;
+	}
+	
+	@Override
+	public GalleryVO getGalleryContent(int no){
+		System.out.println("갤러리 글내용 DAO");
+		return session.selectOne(namespace+".galleryContent", no);
+	}
+
+	@Override
+	public void galleryView(int no) {
+		System.out.println(no + "번 조회수 1 증가");
+		session.update(namespace + ".galleryView", no);
 		
 	}
+
+	@Override
+	public void galleryUpdate(Map<String, Object> vo) {
+		System.out.println("갤러리 글수정 DAO");
+		session.update(namespace + ".galleryUpdate", vo);
+		
+	}
+	
+	@Override
+	public void galleryDelete(int no) {
+		System.out.println("갤러리 글삭제 DAO");
+		session.delete(namespace + ".galleryDelete", no);
+	}
+	
+	
 
 }
