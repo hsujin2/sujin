@@ -78,9 +78,9 @@ public class PaymentViewController {
 		}else{
 			itemVO = command.itemView(Integer.parseInt(request.getParameter("no")));
 			itemlist.add(itemVO);
-			countlist.add(Integer.parseInt(request.getParameter("quantity")));
+			countlist.add(Integer.parseInt(request.getParameter("count")));
 			sizelist.add(request.getParameter("size"));
-			total = itemVO.getPrice_discount() * Integer.parseInt(request.getParameter("quantity"));
+			total = itemVO.getPrice_discount() * Integer.parseInt(request.getParameter("count"));
 			mav.getModel().put("category", itemVO.getCategory());
 			
 			fee = Integer.parseInt(request.getParameter("fee"));
