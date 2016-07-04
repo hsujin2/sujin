@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품 상세 페이지</title>
 <link rel="stylesheet" type="text/css" href="resources/css/item/item_css.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
  var grade = "${userLogin.getGrade()}";
@@ -65,6 +66,8 @@
 </script>
 </head>
 <body>
+<div id="wrap">
+<%@ include file="../include/header.jsp" %>
 <section class="content">
 	<div class="img1" ><img src="/mommefatale/resources/images/uploadimg/${item.main_img}" alt="item"/></div>
     <form action="payment.do" method="post" id="payForm">
@@ -163,5 +166,7 @@
     </ul>
     <img src="/mommefatale/resources/images/uploadimg/${item.content_img}" class="detail" />
 </section>
+<%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>
