@@ -41,7 +41,34 @@
         $('#receivertel2').val(""); 
         $('#receivertel3').val(""); 
     });
+	
 });
+	function useDiscount(){
+		var coupondis = $("select[name='coupon']").val();
+		var point = $("#usepoint").val();
+		var dis = Number(coupondis) + Number(point);
+		var total = "${total+fee}";
+		$.ajax({
+			url : "useDiscount.do",
+			type : "POST",
+			data : {discount : coupondis, total : total, point : point},
+			cache : false,
+			async : false,
+			dataType : "text",
+			
+			success : function(response){
+				$("span[name='discount']").html(dis);
+				$("span[name='total_pay']").html(response);
+			},
+			error : function(request, status, error){
+				if(request.status != '0'){
+					alert("code : "+request.status +"\r\nmessage : "
+			                  + request.reponseText + "\r\nerror : " + error);
+				}
+			}
+		})
+	}
+	
 </script>
 </head>
 <body>
@@ -179,14 +206,22 @@
 		</tr>
 		<tr>
 			<td class="gre">배송메세지</td>
-			<td><textarea class="si"></textarea></td>
+			<td><textarea class="si" name="deliverymessage"></textarea></td>
 		</tr>
 		<tr>
-			<td>쿠폰 : 
-				<select>
-					<option></option>
+			<td>쿠폰</td>
+			<td>
+				<select id="coupon" name="coupon" onchange="useDiscount()">
+					<option value="0">선택</option>
+			<c:forEach var="co" items="${coupon}"> 
+				<option value="${co.amount}">${co.name }</option>
+			</c:forEach>	
 				</select>
 			</td>
+		</tr>
+		<tr>
+			<td>포인트</td>
+			<td><input type="text" name="usepoint" id="usepoint" onblur="useDiscount()" value="0">원 &nbsp;(총 사용가능 적립금 : <span class="point">${user.point }</span>원)</td>
 		</tr>
 	</table>
 
@@ -202,22 +237,12 @@
 				<td width="33%">총 결제예정 금액</td>
 			</tr>
 			<tr>
-				<td><span class="siz">199,000</span>원</td>
-				<td><span class="siz">-0</span>원</td>
-				<td><span class="siz">=199,000</span>원</td>
+				<td><span class="siz">${total+fee}</span>원</td>
+				<td>-<span class="siz" name="discount" id="discount">0</span>원</td>
+				<td><span class="siz" name="total_pay" id="total_pay">${total+fee}</span>원</td>
 			</tr>
 		</table>
 	</div>
-	<table id="cash2" cellpadding="1" cellspacing="0" border="1px">
-		<tr>
-			<td width="20%" class="bo">총 할인금액</td>
-			<td>0원</td>
-		</tr>
-		<tr>
-			<td class="bo">총 부가결제금액</td>
-			<td>0원</td>
-		</tr>
-	</table>
 
 	<!--<---------------------------------------------------------------------------------------------------------------->
 
@@ -229,7 +254,7 @@
 				결제 &nbsp;&nbsp; <input type="radio" name="na" /> 휴대폰 결제 &nbsp;&nbsp;
 				<input type="radio" name="na" /> 에스트로(실시간 계좌이체)</td>
 			<td class="nonbor">무통장 입금 <span class="nonbo">최종결제 금액</span><br />
-			<br /> <span class="siz">199,000</span>원
+			<br /> <span class="siz" name="total_pay">${total+fee}</span>원
 			</td>
 		</tr>
 		<tr>
@@ -249,7 +274,7 @@
 								<option>우리은행</option>
 								<option>하나은행</option>
 								<option></option>
-						</select> <a href="#" class="move">은행사이트 바로가기<span class="red">▶</span></a>
+						</select>
 						</td>
 					</tr>
 				</table>
@@ -259,15 +284,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="rightbor">총 예정적립금액 <span class="rrig">100원</span>
+			<td class="rightbor">총 예정적립금액 <span class="rrig">원</span>
 			</td>
 
 		</tr>
-		<tr>
-			<td class="right">
-				회원 적립금 <span class="rrig">0원</span>
-			</td>
-		</tr>
+		
 	</table>
 	</section>
 </body>

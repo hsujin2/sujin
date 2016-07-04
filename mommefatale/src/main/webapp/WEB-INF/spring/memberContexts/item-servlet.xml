@@ -14,6 +14,9 @@
 	<bean id="CartDAO" class="com.mommefatale.cart.dao.CartDAOImpl">
 		<property name="session" ref="sqlSessionTemplate" />
 	</bean>
+	<bean id="UserDAO" class="com.mommefatale.user.dao.UserDAOImpl">
+		<property name="session" ref="sqlSessionTemplate" />
+	</bean>
 	<!-- service -->
 	
 	<bean id="ItemListService" class="com.mommefatale.item.service.ItemListServiceImpl">
@@ -24,6 +27,9 @@
 	</bean>
 	<bean id="CartService" class="com.mommefatale.cart.service.CartServiceImpl">
 		<property name="dao" ref="CartDAO"></property>
+	</bean>
+	<bean id="UserCouponService" class="com.mommefatale.user.service.UserCouponServiceImpl">
+		<property name="dao" ref="UserDAO"></property>
 	</bean>
 	
 	<!-- controller -->
@@ -37,6 +43,7 @@
 	<bean class="com.mommefatale.payment.controller.PaymentViewController">
 		<property name="command" ref="ItemViewUserService"></property>
 		<property name="cartservice" ref="CartService"></property>
+		<property name="couponservice" ref="UserCouponService"></property>
 	</bean>
 	
 </beans>

@@ -15,12 +15,15 @@ import com.mommefatale.cart.model.CartVO;
 import com.mommefatale.cart.service.CartService;
 import com.mommefatale.item.model.ItemVO;
 import com.mommefatale.item.service.ItemViewUserService;
+import com.mommefatale.user.model.CouponVO;
 import com.mommefatale.user.model.UserVO;
+import com.mommefatale.user.service.UserCouponService;
 
 @Controller
 public class PaymentViewController {
 	private ItemViewUserService command;
 	private CartService cartservice;
+	private UserCouponService couponservice;
 	
 	public void setCartservice(CartService cartservice) {
 		this.cartservice = cartservice;
@@ -28,6 +31,10 @@ public class PaymentViewController {
 
 	public void setCommand(ItemViewUserService command) {
 		this.command = command;
+	}
+
+	public void setCouponservice(UserCouponService couponservice) {
+		this.couponservice = couponservice;
 	}
 
 	@RequestMapping(value="payment.do", method=RequestMethod.POST)
@@ -39,6 +46,7 @@ public class PaymentViewController {
 		List<Integer> countlist = new ArrayList<Integer>();
 		List<String> sizelist = new ArrayList<String>();
 		List<Integer> savinglist = new ArrayList<Integer>();
+		List<CouponVO> couponlist = new ArrayList<CouponVO>();
 		Integer total = new Integer(0);
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
@@ -79,6 +87,8 @@ public class PaymentViewController {
 			savinglist.add(Integer.parseInt(request.getParameter("saving")));
 		}
 		
+		couponlist = couponservice.getCoupons(vo.getCoupon());
+		
 		mav.getModel().put("total", total);
 		mav.getModel().put("user", vo);
 		session.setAttribute("item", itemlist);
@@ -86,7 +96,7 @@ public class PaymentViewController {
 		session.setAttribute("size", sizelist);
 		session.setAttribute("fee", fee);
 		session.setAttribute("saving", savinglist);
-		
+		session.setAttribute("coupon", couponlist);
 		mav.setViewName("payment/payment");
 		return mav;
 		
