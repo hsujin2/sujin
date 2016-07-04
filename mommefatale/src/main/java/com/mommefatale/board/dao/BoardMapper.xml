@@ -23,7 +23,7 @@
 		<![CDATA[select * from (select rownum rnum, community_no, community_section, 
 		community_subject, community_writer, community_regdate, 
 		community_ref, community_step, community_depth, community_view 
-		from (select * from community order by community_ref desc, community_step asc))
+		from (select * from community order by community_ref desc, community_step asc, community_regdate desc))
 		where rnum >= #{startRow} and rnum <= #{endRow}]]>
 	</select>
 
