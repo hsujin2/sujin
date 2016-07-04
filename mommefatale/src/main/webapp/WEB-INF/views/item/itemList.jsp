@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품리스트</title>
-<link rel="stylesheet" href="resources/css/equipment/running.css">
+<link rel="stylesheet" type="text/css" href="resources/css/equipment/running.css">
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 </head>
 <body>
