@@ -68,7 +68,20 @@
 			}
 		})
 	}
-	
+	function payCheck(){
+		var Form=document.payForm;
+		if(Form.receivername.value=="" || Form.receiverzip1==""||Form.receiverzip2==""||Form.receiveraddr1==""||Form.receiveraddr2==""||Form.receivertel2==""||Form.receivertel3==""){
+			alert("배송지 정보를 입력해주세요");
+			return;
+		}
+		
+		if(Form.confirm.checked){
+			Form.submit();
+		}else{
+			alert("구매진행 동의에 체크해주세요");
+			return;
+		}
+	}
 </script>
 </head>
 <body>
@@ -76,6 +89,8 @@
 	<div id="jaemok">
 		<span id="jaemok">결제</span>
 	</div>
+	<form action="paymentcomplete.do" method="POST" name="payForm" id="payForm">
+	<input type="hidden" name="userid" value="${userLogin.getUserid()}">
 	<div class="list"></div>
 	<a class="back" href="#" onClick="history.back()">이전페이지 <span class="co">▶</span></a>
 	<br />
@@ -174,7 +189,7 @@
 		<tr>
 			<td width="15%" class="gre">배송지선택<span class="red">*</span></td>
 			<td width="85%"><input type="radio" name="rcheck" id="rcheck1"> <span
-				class="qq">주문자 정보와 동일</span> &nbsp; <input type="radio" name="rcheck" id="rcheck2">
+				class="qq">주문자 정보와 동일</span> &nbsp; <input type="radio" name="rcheck" id="rcheck2" checked="checked">
 				<span class="qq">새로운 배송지</span></td>
 		</tr>
 		<tr>
@@ -201,12 +216,12 @@
 					<option value="017">017</option>
 					<option value="018">018</option>
 					<option value="019">019</option>
-			</select> - <input type="text" size="3px" id="receivertel2"> - <input type="text" size="3px" id="receivertel3">
+			</select> - <input type="text" size="3px" id="receivertel2" required> - <input type="text" size="3px" id="receivertel3" required>
 			</td>
 		</tr>
 		<tr>
 			<td class="gre">배송메세지</td>
-			<td><textarea class="si" name="deliverymessage"></textarea></td>
+			<td><textarea class="si" name="memo"></textarea></td>
 		</tr>
 		<tr>
 			<td>쿠폰</td>
@@ -252,7 +267,6 @@
 			<td width="700px" class="bord" height="20px"><input type="radio"
 				name="na" /> 무통장 입금 &nbsp;&nbsp; <input type="radio" name="na" /> 카드
 				결제 &nbsp;&nbsp; <input type="radio" name="na" /> 휴대폰 결제 &nbsp;&nbsp;
-				<input type="radio" name="na" /> 에스트로(실시간 계좌이체)</td>
 			<td class="nonbor">무통장 입금 <span class="nonbo">최종결제 금액</span><br />
 			<br /> <span class="siz" name="total_pay">${total+fee}</span>원
 			</td>
@@ -262,25 +276,25 @@
 				<table class="tit">
 					<tr>
 						<td width="100px">입금자명</td>
-						<td><input type="text" size="15px" /></td>
+						<td><input type="text" size="15px" name="deposit_name" id="deposit_name"></td>
 					</tr>
 					<tr>
 						<td>입금은행</td>
-						<td><select class="wid">
+						<td><select class="wid" name="bank" id="bank">
 								<option>:::입금은행선택:::</option>
-								<option>농협</option>
-								<option>국민은행</option>
-								<option>신한은행</option>
-								<option>우리은행</option>
-								<option>하나은행</option>
+								<option value="농협">농협</option>
+								<option value="국민은행">국민은행</option>
+								<option value="신한은행">신한은행</option>
+								<option value="우리은행">우리은행</option>
+								<option value="하나은행">하나은행</option>
 								<option></option>
 						</select>
 						</td>
 					</tr>
 				</table>
 			</td>
-			<td class="grbor"><input type="checkbox" /> 결제정보를 확인하였으며, 구매진행에
-				동 &nbsp;&nbsp;&nbsp;의합니다.<br /> <a href="#" class="but"><div>결제하기</div></a>
+			<td class="grbor"><input type="checkbox" name="confirm" id="confirm"> 결제정보를 확인하였으며, 구매진행에
+				동 &nbsp;&nbsp;&nbsp;의합니다.<br /> <a href="#" class="but" onclick="payCheck()"><div>결제하기</div></a>
 			</td>
 		</tr>
 		<tr>
@@ -290,6 +304,7 @@
 		</tr>
 		
 	</table>
+	</form>
 	</section>
 </body>
 </html>
