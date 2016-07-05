@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%-- <%@ taglib uri="http://ckeditor.com" prefix="ckeditor" %> --%>
+<%-- <%@ taglib uri="http://cksource.com/ckfinder" prefix="ckfinder" %> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,11 +11,13 @@
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/board/community_css.css">
-<script type="text/javascript"
-	src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+<!-- <script type="text/javascript"
+	src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script> -->
+<script type="text/javascript" src="resources/ckeditor/ckeditor.js" charset="utf-8"></script> 
 <script>
+
 	function FormCheck() {
-		oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
+		var CKEDITOR;
 		var writer = document.getElementById("writer");
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
@@ -25,13 +29,13 @@
 			return;
 		}
 
-		if (content.value == null || content.value == "") {
+		/* if (content.value == null || content.value == "") {
 			alert("내용을 입력하세요!");
 			content.focus();
 
 			return;
 		}
-
+ */
 		document.galleryWriteForm.submit();
 	}
 
@@ -74,21 +78,12 @@
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						<td colspan="2">&nbsp;&nbsp;&nbsp;
-							<!-- <textarea name="content" id="content" style="resize:none" rows="15" cols="100"></textarea> -->
-							<textarea name="content" id="content" rows="22"
-								style="width: 715px"></textarea> 
-								<script type="text/javascript">
-									var oEditors = [];
-
-									nhn.husky.EZCreator
-											.createInIFrame({
-												oAppRef : oEditors,
-												elPlaceHolder : "content", //textarea에서 지정한 id와 일치해야 합니다.
-												sSkinURI : "resources/smarteditor/SmartEditor2Skin.html",
-												fCreator : "createSEditor2"
-
-											});
-								</script>
+							<textarea name="content" id="content" rows="50" cols="150"></textarea>
+							<script type="text/javascript">
+								//<![CDATA[
+								CKEDITOR.replace('content');
+								//]]
+							</script> 
 						</td>
 					</tr>
 					<tr>
