@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TodayKcalMapper">
+
+<!-- 해당하는 food list 가져오기 -->
+<select id="getFoodList" parameterType="java.util.Map" resultType="com.mommefatale.todaykcal.model.FoodVO">
+	select * from food 
+	<if test='food_category != null'>
+	where food_category == #{food_category} 
+	</if>
+	<if test='food_name != null'>
+	where food_name == #{food_name}
+	</if>
+	order by food_category, food_name asc
+</select>
+
+<!-- food 게시물 수 count -->
+<select id="getFoodCount" resultType="java.lang.Integer">
+	select count(*) from food
+	<if test='food_category != null'>
+	where food_category == #{food_category} 
+	</if>
+	<if test='food_name != null'>
+	where food_name == #{food_name}
+	</if> 
+</select>
+
+<!-- 오늘의 칼로리 저장-->
+<insert id="saveTodayKcal" parameterType="java.util.Map">
+ insert into kcal(kcal_no, member_id, kcal_regdate, kcal_today)
+ values(kcal_seq.nextval, #{userid}, sysdate, #{kcal_today})
+</insert>
+
+</mapper>
