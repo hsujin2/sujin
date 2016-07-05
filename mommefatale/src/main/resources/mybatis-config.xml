@@ -9,5 +9,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 		<mapper resource="com/mommefatale/qna/dao/QnaMapper.xml"/>
 		<mapper resource="com/mommefatale/gallery/dao/GalleryMapper.xml"/>
 		<mapper resource="com/mommefatale/cart/dao/CartMapper.xml"/>
+		<mapper resource="com.mommefatale/todaykcal/dao/TodayKcalMapper.xml"/>
 	</mappers>
 </configuration>
