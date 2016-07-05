@@ -16,6 +16,7 @@
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/qna-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/gallery-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/cart-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/memberContexts/payment-servlet.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/admin-servlet.xml</config>

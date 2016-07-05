@@ -1,7 +1,9 @@
 package com.mommefatale.payment.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,22 +17,29 @@ import com.mommefatale.cart.model.CartVO;
 import com.mommefatale.cart.service.CartService;
 import com.mommefatale.item.model.ItemVO;
 import com.mommefatale.item.service.ItemViewUserService;
+import com.mommefatale.payment.model.BankVO;
+import com.mommefatale.payment.service.PaymentViewService;
 import com.mommefatale.user.model.CouponVO;
 import com.mommefatale.user.model.UserVO;
 import com.mommefatale.user.service.UserCouponService;
 
 @Controller
 public class PaymentViewController {
-	private ItemViewUserService command;
+	private ItemViewUserService itemservice;
 	private CartService cartservice;
 	private UserCouponService couponservice;
-	
+	private PaymentViewService command;
+
+	public void setCommand(PaymentViewService command) {
+		this.command = command;
+	}
+
 	public void setCartservice(CartService cartservice) {
 		this.cartservice = cartservice;
 	}
 
-	public void setCommand(ItemViewUserService command) {
-		this.command = command;
+	public void setItemservice(ItemViewUserService itemservice) {
+		this.itemservice = itemservice;
 	}
 
 	public void setCouponservice(UserCouponService couponservice) {
@@ -38,7 +47,7 @@ public class PaymentViewController {
 	}
 
 	@RequestMapping(value="payment.do", method=RequestMethod.POST)
-	public ModelAndView viewPayment(HttpServletRequest request, ItemVO itemVO)throws Exception{
+	public ModelAndView viewPayment(HttpServletRequest request, ItemVO itemVO, BankVO bankVO)throws Exception{
 		request.setCharacterEncoding("utf-8");
 		String arr = request.getParameter("arr");
 		String[] tempStr = null;
@@ -63,7 +72,7 @@ public class PaymentViewController {
 			for(int i = 0; i < tempStr.length; ++i)
 			{
 				CartVO cart = cartservice.getCart(Integer.parseInt(tempStr[i]));
-				itemlist.add(command.itemView(cart.getItem_no()));
+				itemlist.add(itemservice.itemView(cart.getItem_no()));
 				countlist.add(cart.getCart_count());
 				sizelist.add(cart.getItem_size());
 				savinglist.add(cart.getSaving());
@@ -76,7 +85,7 @@ public class PaymentViewController {
 			fee = Integer.parseInt(request.getParameter("fee"));
 			
 		}else{
-			itemVO = command.itemView(Integer.parseInt(request.getParameter("no")));
+			itemVO = itemservice.itemView(Integer.parseInt(request.getParameter("no")));
 			itemlist.add(itemVO);
 			countlist.add(Integer.parseInt(request.getParameter("count")));
 			sizelist.add(request.getParameter("size"));
@@ -89,6 +98,10 @@ public class PaymentViewController {
 		
 		couponlist = couponservice.getCoupons(vo.getCoupon());
 		
+		//은행 계좌번호 리스트
+		List<BankVO> banklist = command.getBank();
+		
+		mav.getModel().put("bank", banklist);
 		mav.getModel().put("total", total);
 		mav.getModel().put("user", vo);
 		session.setAttribute("item", itemlist);

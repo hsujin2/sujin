@@ -39,6 +39,7 @@
 	</resultMap>
 	<!-- couponVO -->
 	<resultMap id="toCouponVO" type="com.mommefatale.user.model.CouponVO">
+		<result property="coupon_no" column="COUPON_NO" jdbcType="BIGINT"/>
 		<result property="name" column="COUPON_NAME" jdbcType="VARCHAR"/>
 		<result property="amount" column="COUPON_AMOUNT" jdbcType="BIGINT"/>
 		<result property="issuedate" column="COUPONS_ISSUEDATE" jdbcType="DATE"/>
@@ -65,9 +66,12 @@
 		INSERT INTO COUPONS(COUPONS_NO, COUPON_NO, COUPONS_EXDATE) VALUES(COUPONS_SEQ.NEXTVAL,1,sysdate+90)
 	</select>
 	<select id="selectCoupons" parameterType="int" resultMap="toCouponVO">
-		SELECT COUPON_NAME, COUPON_AMOUNT, COUPONS_ISSUEDATE, COUPONS_EXDATE FROM COUPON, COUPONS WHERE COUPON.COUPON_NO = COUPONS.COUPON_NO AND COUPONS.COUPONS_NO=#{coupons_no}
+		SELECT COUPONS.COUPON_NO, COUPON_NAME, COUPON_AMOUNT, COUPONS_ISSUEDATE, COUPONS_EXDATE FROM COUPON, COUPONS WHERE COUPON.COUPON_NO = COUPONS.COUPON_NO AND COUPONS.COUPONS_NO=#{coupons_no}
 	</select>
 	<select id="searchId" parameterType="java.util.Map" resultType="java.lang.String">
 		select member_id from member where member_name=#{name} and member_email=#{email}
+	</select>
+	<select id="selectAmount" parameterType="java.lang.String" resultType="java.lang.Integer">
+		SELECT COUPON_AMOUNT FROM COUPON WHERE COUPON_NO = #{coupon_no}
 	</select>
 </mapper>

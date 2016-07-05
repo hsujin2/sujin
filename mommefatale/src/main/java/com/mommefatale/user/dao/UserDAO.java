@@ -17,4 +17,5 @@ public interface UserDAO {
 	public void createCoupons();
 	public List<CouponVO> getCoupons(int coupons_no);
 	public String searchId(Map<String, Object> vo);
+	public Integer getAmount(String coupon_no);
 }
