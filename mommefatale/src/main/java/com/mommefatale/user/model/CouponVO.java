@@ -3,10 +3,18 @@ package com.mommefatale.user.model;
 import java.util.Date;
 
 public class CouponVO {
+	private Integer coupon_no;
 	private String name;
 	private int amount;
 	private Date issuedate;
 	private Date exdate;
+	
+	public Integer getCoupon_no() {
+		return coupon_no;
+	}
+	public void setCoupon_no(Integer coupon_no) {
+		this.coupon_no = coupon_no;
+	}
 	public String getName() {
 		return name;
 	}

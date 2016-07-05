@@ -42,7 +42,14 @@ public class UserCouponController {
 	   @RequestMapping("useDiscount.do")
 	   @ResponseBody
 	   public String useCoupon(HttpServletRequest request) {
-	      Integer discount=Integer.parseInt(request.getParameter("discount"));
+		  Integer discount=0;
+	      String coupon_no = request.getParameter("coupon_no");
+	      if(coupon_no.equals("0")){
+	    	  discount = 0;
+	      }else{
+	    	  
+	    	  discount = command.getAmount(coupon_no);
+	      }
 	      Integer total = Integer.parseInt(request.getParameter("total"));
 		  Integer point = Integer.parseInt(request.getParameter("point"));
 	      Integer result = total - point  - discount;

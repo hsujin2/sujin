@@ -69,6 +69,11 @@ public class UserDAOImpl implements UserDAO {
 	public String searchId(Map<String, Object> vo) {
 		return session.selectOne(namespace + ".searchId",vo);
 	}
+
+	@Override
+	public Integer getAmount(String coupon_no) {
+		return session.selectOne(namespace + ".selectAmount",coupon_no);
+	}
 	
 	
 	

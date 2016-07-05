@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mommefatale.payment.dao.PaymentMapper">
+	<resultMap id="toBankVO" type="com.mommefatale.payment.model.BankVO">
+		<result property="bank_name" column="BANK_NAME" jdbcType="VARCHAR"/>
+		<result property="bank_account_number" column="BANK_ACCOUNT_NUMBER" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="insertOrder"	parameterType="com.mommefatale.payment.model.PaymentVO">
+		insert into order_(order_no,member_id,order_total_price,order_state,order_request,order_zip,order_address1,order_address2,order_phone,order_receiver,coupon_no,delivery_fee,member_point) values(order_seq.nextval,#{order_id},#{total_price},#{state},#{memo},#{zip},#{address1},#{address2},#{phone},#{receiver},#{coupon_no},#{delivery_fee},#{point})
+	</select>
+	<select id="insertOrderList" parameterType="com.mommefatale.payment.model.PaymentVO">
+		insert into order_list values(order_list_seq.nextval,#{item_no},#{quantity},order_seq.currval)
+	</select>
+	<select id="updateItemCount" parameterType="com.mommefatale.payment.model.PaymentVO">
+		<![CDATA[update Item set item_stock = item_stock - #{quantity}, item_sales_quantity = item_sales_quantity + #{quantity} where item_no = #{item_no}]]>
+	</select>
+	<select id="insertPoint" parameterType="java.util.Map">
+		<![CDATA[update member set member_point = member_point + #{saving} - #{usepoint} where member_id = #{userid}]]>
+	</select>
+	<select id="getBank" resultMap="toBankVO">
+		select bank_name, bank_account_number from pay_bank
+	</select>
+	<select id="insertPayway" parameterType="com.mommefatale.payment.model.PaymentVO">
+		insert into pay (pay_no, order_no, pay_way, pay_deposit_name, bank_name)values(pay_seq.nextval,order_seq.currval,#{pay_way},#{order_id},#{bank})
+	</select>
+</mapper>

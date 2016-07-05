@@ -44,21 +44,23 @@
 	
 });
 	function useDiscount(){
-		var coupondis = $("select[name='coupon']").val();
+		var coupon_no = $("select[name='coupon']").val();
 		var point = $("#usepoint").val();
-		var dis = Number(coupondis) + Number(point);
 		var total = "${total+fee}";
 		$.ajax({
 			url : "useDiscount.do",
 			type : "POST",
-			data : {discount : coupondis, total : total, point : point},
+			data : {coupon_no : coupon_no, total : total, point : point},
 			cache : false,
 			async : false,
 			dataType : "text",
 			
 			success : function(response){
+				var couponamount = response - total;
+				var dis = Number(couponamount) + Number(point);
 				$("span[name='discount']").html(dis);
 				$("span[name='total_pay']").html(response);
+				$("input[name='totalpay']").val(response);
 			},
 			error : function(request, status, error){
 				if(request.status != '0'){
@@ -198,25 +200,25 @@
 		</tr>
 		<tr>
 			<td class="gre">주소<span class="red">*</span></td>
-			<td><input type="text" size="3px" id="receiverzip1"> - <input type="text"
-				size="3px" id="receiverzip2"> <input type="button" value="찾기" /><br />
+			<td><input type="text" size="3px" id="receiverzip1" name="receiverzip1"> - <input type="text"
+				size="3px" id="receiverzip2" name="receiverzip2"> <input type="button" value="찾기" /><br />
 				<div class="mart">
-					<input type="text" size="50px" id="receiveraddr1">기본주소<br />
+					<input type="text" size="50px" id="receiveraddr1" name="receiveraddr1">기본주소<br />
 				</div>
 				<div class="mart">
-					<input type="text" size="50px" id="receiveraddr2">상세주소
+					<input type="text" size="50px" id="receiveraddr2" name="receiveraddr2">상세주소
 				</div></td>
 		</tr>
 		<tr>
 			<td class="gre">휴대전화<span class="red">*</span></td>
-			<td><select id="receivertel1">
+			<td><select id="receivertel1" name="receivertel1">
 					<option value="010">010</option>
 					<option value="011">011</option>
 					<option value="016">016</option>
 					<option value="017">017</option>
 					<option value="018">018</option>
 					<option value="019">019</option>
-			</select> - <input type="text" size="3px" id="receivertel2" required> - <input type="text" size="3px" id="receivertel3" required>
+			</select> - <input type="text" size="3px" id="receivertel2" name="receivertel2"> - <input type="text" size="3px" id="receivertel3" name="receivertel3">
 			</td>
 		</tr>
 		<tr>
@@ -229,7 +231,7 @@
 				<select id="coupon" name="coupon" onchange="useDiscount()">
 					<option value="0">선택</option>
 			<c:forEach var="co" items="${coupon}"> 
-				<option value="${co.amount}">${co.name }</option>
+				<option value="${co.coupon_no }">${co.name }</option>
 			</c:forEach>	
 				</select>
 			</td>
@@ -255,6 +257,7 @@
 				<td><span class="siz">${total+fee}</span>원</td>
 				<td>-<span class="siz" name="discount" id="discount">0</span>원</td>
 				<td><span class="siz" name="total_pay" id="total_pay">${total+fee}</span>원</td>
+				<td><input type="hidden" name="totalpay" value="${total+fee }"></td>
 			</tr>
 		</table>
 	</div>
@@ -265,7 +268,7 @@
 	<table class="payment" cellpadding="1" cellspacing="0" border="2">
 		<tr>
 			<td width="700px" class="bord" height="20px"><input type="radio"
-				name="na" /> 무통장 입금 &nbsp;&nbsp; <input type="radio" name="na" /> 카드
+				name="pay_way" checked="checked" value="무통장입금"> 무통장 입금 &nbsp;&nbsp; <input type="radio" name="na" /> 카드
 				결제 &nbsp;&nbsp; <input type="radio" name="na" /> 휴대폰 결제 &nbsp;&nbsp;
 			<td class="nonbor">무통장 입금 <span class="nonbo">최종결제 금액</span><br />
 			<br /> <span class="siz" name="total_pay">${total+fee}</span>원
@@ -281,15 +284,11 @@
 					<tr>
 						<td>입금은행</td>
 						<td><select class="wid" name="bank" id="bank">
-								<option>:::입금은행선택:::</option>
-								<option value="농협">농협</option>
-								<option value="국민은행">국민은행</option>
-								<option value="신한은행">신한은행</option>
-								<option value="우리은행">우리은행</option>
-								<option value="하나은행">하나은행</option>
-								<option></option>
-						</select>
-						</td>
+							<option value="">:::입금은행선택:::</option>
+							<c:forEach var="b" items="${bank}">
+								<option value="${b.bank_name }">${b.bank_name} : ${b.bank_account_number }</option>
+							</c:forEach>
+						</select></td>
 					</tr>
 				</table>
 			</td>

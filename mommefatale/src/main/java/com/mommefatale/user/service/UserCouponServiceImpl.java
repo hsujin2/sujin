@@ -16,5 +16,9 @@ public class UserCouponServiceImpl implements UserCouponService {
 	public List<CouponVO> getCoupons(int coupons_no) {
 		return dao.getCoupons(coupons_no);
 	}
+	@Override
+	public Integer getAmount(String coupon_no) {
+		return dao.getAmount(coupon_no);
+	}
 
 }
