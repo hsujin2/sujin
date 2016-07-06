@@ -80,6 +80,7 @@ public class TodayKcalController {
 		request.setCharacterEncoding("UTF-8");
 		String pageNum = request.getParameter("pageNum");
 		Map<String, Object> map = new HashMap<String, Object>();
+		
 		if (pageNum == null || pageNum == "") {
 			pageNum = "1";
 		}
@@ -94,7 +95,8 @@ public class TodayKcalController {
 		map.put("endRow", paging.getWriting_End());
 		
 		System.out.println("Ä«¿îÆ®: " + page_count);
-
+		map.put("food_name", request.getParameter("food_name"));
+		System.out.println(map.get("food_name"));
 		List<FoodVO> vo = command.TodayKcalFoodList(map);
 		int count = vo.size();
 		
