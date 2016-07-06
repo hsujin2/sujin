@@ -97,98 +97,125 @@
 		</div>
 	</div>
 
-	<div id="main_content">
-		<div id="pageFor">
-			<h1>Dietary</h1>
-		</div>
-		
-		<div id="dietary">
+		<div id="main_content">
+			<div id="pageFor">
+				<h1>Dietary</h1>
+			</div>
+
+			<!-- <div id="dietary">
 			<a href="#"> <img src="resources/images/contents/dietary1.png"></a>&nbsp;&nbsp;&nbsp;
 			<a href="#"> <img src="resources/images/contents/dietary2.png"></a>
-		</div>
-		
-  <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 800px; height: 456px; overflow: hidden; visibility: hidden; background-color: #24262e;">
-        <!-- Loading Screen -->
-        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-        </div>
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 356px; overflow: hidden;">
-            <div data-p="144.50" style="display: none;">
-                <a href="http://www.naver.com"><img data-u="image" src="resources/images/contents/01.jpg" /></a>
-                <img data-u="thumb" src="img/thumb-01.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/02.jpg" />
-                <img data-u="thumb" src="img/thumb-02.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/03.jpg" />
-                <img data-u="thumb" src="img/thumb-03.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/04.jpg" />
-                <img data-u="thumb" src="img/thumb-04.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/05.jpg" />
-                <img data-u="thumb" src="img/thumb-05.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/06.jpg" />
-                <img data-u="thumb" src="img/thumb-06.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/07.jpg" />
-                <img data-u="thumb" src="img/thumb-07.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/08.jpg" />
-                <img data-u="thumb" src="img/thumb-08.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/09.jpg" />
-                <img data-u="thumb" src="img/thumb-09.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/10.jpg" />
-                <img data-u="thumb" src="img/thumb-10.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/11.jpg" />
-                <img data-u="thumb" src="img/thumb-11.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/12.jpg" />
-                <img data-u="thumb" src="img/thumb-12.jpg" />
-            </div>
-        
-        </div>
-        <!-- Thumbnail Navigator -->
-        <div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:800px;height:100px;" data-autocenter="1">
-            <!-- Thumbnail Item Skin Begin -->
-            <div data-u="slides" style="cursor: default;">
-                <div data-u="prototype" class="p">
-                    <div class="w">
-                        <div data-u="thumbnailtemplate" class="t"></div>
-                    </div>
-                    <div class="c"></div>
-                </div>
-            </div>
-            <!-- Thumbnail Item Skin End -->
-        </div>
-        <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora05l" style="top:158px;left:8px;width:40px;height:40px;"></span>
-        <span data-u="arrowright" class="jssora05r" style="top:158px;right:8px;width:40px;height:40px;"></span>
-    </div>
-		
-    	
-		<div class="fix_button">
-			<a href="#"><img src="resources/images/contents/setting_button.gif" alt="fixbutton" /></a>
-		</div>
-	</div>
+		</div> -->
 
-	<%@ include file="../include/footer.jsp"%>
+			<div id="jssor_1"
+				style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 800px; height: 456px; overflow: hidden; visibility: hidden; background-color: #24262e;">
+				<!-- Loading Screen -->
+				<div data-u="loading"
+					style="position: absolute; top: 0px; left: 0px;">
+					<div
+						style="filter: alpha(opacity = 70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+					<div
+						style="position: absolute; display: block; background: url('img/loading.gif') no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+				</div>
+				<div data-u="slides"
+					style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 356px; overflow: hidden;">
+					<div data-p="144.50" style="display: none;">
+						<a href="http://ssoqubae.tistory.com/1554" target="_blank"><img data-u="image"
+							src="resources/images/contents/apink.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-apink.png"  />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://tenasia.hankyung.com/archives/531321" target="_blank">
+						<img data-u="image" src="resources/images/contents/chs.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-chs.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://thedietshop.tistory.com/entry/%EC%95%84%EC%9D%B4%EC%9C%A0%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8-%EC%8B%9D%EB%8B%A8-by%EC%95%88%EC%82%B0%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8-%EB%8D%94%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8%EC%83%B5" target="_blank">
+						<img data-u="image" src="resources/images/contents/iu.png" /> </a><img data-u="thumb"
+							src="resources/images/contents/thumb-iu.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://www.ezday.co.kr/bbs/view_board.html?q_sq_board=3504082" target="_blank">
+						<img data-u="image" src="resources/images/contents/kmk.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-kmk.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="https://www.facebook.com/1011209295572648/videos/1373676582659249" target="_blank">
+						<img data-u="image" src="resources/images/contents/ksr.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-ksr.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=0dOmq&articleno=8458&categoryId=16&regdt=20160511170006" target="_blank">
+						<img data-u="image" src="resources/images/contents/ktw.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-ktw.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=0cQJ9&articleno=367"  target="_blank">
+						<img data-u="image" src="resources/images/contents/ljj.png"  /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-ljj.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://malhada.tistory.com/254" target="_blank">
+						<img data-u="image" src="resources/images/contents/nym.png" /> </a><img data-u="thumb"
+							src="resources/images/contents/thumb-nym.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://m.blog.naver.com/spoplanner/220104542531" target="_blank">
+						<img data-u="image" src="resources/images/contents/pbr.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-pbr.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://m.blog.naver.com/kiss_candy/220402006906" target="_blank">
+						<img data-u="image" src="resources/images/contents/psh.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-psh.png" >
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://starreport.tistory.com/448" target="_blank">
+						<img data-u="image" src="resources/images/contents/sj.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-sj.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://m.blog.naver.com/jjini_land/220407998478" target="_blank">
+						<img data-u="image" src="resources/images/contents/sy.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-sy.png" />
+					</div>
+					<div data-p="144.50" style="display: none;">
+						<a href="http://m.blog.naver.com/jjini_land/220407998478" target="_blank">
+						<img data-u="image" src="resources/images/contents/sy.png" /></a> <img data-u="thumb"
+							src="resources/images/contents/thumb-sy.png" />
+					</div>
+
+				</div>
+				<!-- Thumbnail Navigator -->
+				<div data-u="thumbnavigator" class="jssort01"
+					style="position: absolute; left: 0px; bottom: 0px; width: 800px; height: 100px;"
+					data-autocenter="1">
+					<!-- Thumbnail Item Skin Begin -->
+					<div data-u="slides" style="cursor: default;">
+						<div data-u="prototype" class="p">
+							<div class="w">
+								<div data-u="thumbnailtemplate" class="t"></div>
+							</div>
+							<div class="c"></div>
+						</div>
+					</div>
+					<!-- Thumbnail Item Skin End -->
+				</div>
+				<!-- Arrow Navigator -->
+				<span data-u="arrowleft" class="jssora05l"
+					style="top: 158px; left: 8px; width: 40px; height: 40px;"></span> <span
+					data-u="arrowright" class="jssora05r"
+					style="top: 158px; right: 8px; width: 40px; height: 40px;"></span>
+			</div>
+
+
+			<div class="fix_button">
+				<a href="#"><img
+					src="resources/images/contents/setting_button.gif" alt="fixbutton" /></a>
+			</div>
+		</div>
+
+		<%@ include file="../include/footer.jsp"%>
 	</div>
 </body>
 </html>
