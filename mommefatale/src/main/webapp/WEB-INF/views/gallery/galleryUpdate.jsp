@@ -8,31 +8,21 @@
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
-	href="resources/css/board/community_css.css">
-<script type="text/javascript"
-	src="resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+	href="resources/css/gallery/gallery_css.css">
+<script type="text/javascript" src="resources/ckeditor/ckeditor.js" charset="utf-8"></script> 
 <script>
 
 	function FormCheck() {
-		oEditors[0].exec("UPDATE_CONTENTS_FIELD", []);
+		var CKEDITOR;
 		var writer = document.getElementById("writer");
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
 		var galleryWriteForm = document.getElementById("writeForm");
 
-		if (writer.value == null || writer.value == "") {
-			alert("작성자를 입력하세요!");
-			writer.focus();
-			return;
-		}
+
 		if (subject.value == null || subject.value == "") {
 			alert("제목을 입력하세요!");
 			subject.focus();
-			return;
-		}
-		if (content.value == null || content.value == "") {
-			alert("내용을 입력하세요!");
-			content.focus();
 			return;
 		}
 
@@ -51,45 +41,35 @@
 			<h2 class="title">갤러리</h2>
 			<form name="galleryWriteForm" method="post"
 				action="galleryUpdateProc.do?no=${vo.no}" id="writeForm">
-				<table summary="테이블 구성" id="community_board">
+				<table summary="테이블 구성" id="gallery_board">
 					<tr>
 						<th>작성자</th>
-						<td>&nbsp;&nbsp;<input type="text" name="writer" id="writer"
-							size="10" maxlength="15" value="${vo.writer}" readonly></td>
-						<td colspan="2"></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="writer" id="writer"
+							size="20" maxlength="20" value="${vo.writer}" readonly></td>
+						<td  colspan="2" width="750"></td>
 					</tr>
 					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
-						<td>
-						</td>
-						<td><input type="text" name="subject" id="subject" size="70"
+						<td colspan="3"><input type="text" name="subject" id="subject" size="120"
 							value="${vo.subject}"></td>
 					</tr>
 					<tr>
-						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;&nbsp;&nbsp;&nbsp;</th>
-						<td colspan="2">
-							<!--<textarea name="content" id="content" style="resize:none" rows="15" cols="100">
-						${vo.content}</textarea>--> 
-						<textarea name="content" id="content" rows="22" style="width: 700px">${vo.content}</textarea> 
+						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;</th>
+						<td colspan="3">
+							<textarea name="content" id="content" rows="50" cols="150">
+						${vo.content}</textarea>
 						<script type="text/javascript">
-									var oEditors = [];
-	
-									nhn.husky.EZCreator
-											.createInIFrame({
-												oAppRef : oEditors,
-												elPlaceHolder : "content", //textarea에서 지정한 id와 일치해야 합니다.
-												sSkinURI : "resources/smarteditor/SmartEditor2Skin.html",
-												fCreator : "createSEditor2"
-
-											});
-								</script>
+								//<![CDATA[
+								CKEDITOR.replace('content');
+								//]]
+							</script>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3"><hr class="board_hr"></td>
+						<td colspan="4"><hr class="board_hr"></td>
 					</tr>
 					<tr>
-						<td colspan="3"><input type="button" value="등록"
+						<td colspan="4"><input type="button" value="등록"
 							onClick="FormCheck()" class="commit_btn"> <input
 							type="button" value="취소" onclick="writeCancel()"
 							class="commit_btn"></td>
