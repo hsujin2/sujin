@@ -28,11 +28,12 @@ public class PaymentCompleteController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="paymentcomplete.do",method=RequestMethod.POST)
-	public String paymentInsert(HttpServletRequest request, PaymentVO paymentVO){
+	public ModelAndView paymentInsert(HttpServletRequest request, PaymentVO paymentVO){
 		HttpSession session = request.getSession();
 		List<ItemVO> list = (List<ItemVO>)session.getAttribute("item");
 		List<Integer> countlist = (List<Integer>)session.getAttribute("count");
 		List<String> sizelist = (List<String>)session.getAttribute("size");
+		ModelAndView mav = new ModelAndView();
 		
 		String userid = request.getParameter("userid");
 		paymentVO.setOrder_id(userid);
@@ -43,14 +44,16 @@ public class PaymentCompleteController {
 		paymentVO.setAddress2(request.getParameter("receiveraddr2"));
 		paymentVO.setMemo(request.getParameter("memo"));
 		paymentVO.setState("배송준비중");
-		paymentVO.setTotal_price(Integer.parseInt(request.getParameter("totalpay")));
+		Integer totalpay = Integer.parseInt(request.getParameter("totalpay"));
+		paymentVO.setTotal_price(totalpay);
 		paymentVO.setCoupon_no(Integer.parseInt(request.getParameter("coupon")));
 		Integer fee = (Integer) session.getAttribute("fee");
 		paymentVO.setDelivery_fee(fee);
 		Integer usepoint = Integer.parseInt(request.getParameter("usepoint"));
 		paymentVO.setPoint(usepoint);
 		paymentVO.setPay_way(request.getParameter("pay_way"));
-		paymentVO.setBank(request.getParameter("bank"));
+		String bank = request.getParameter("bank");
+		paymentVO.setBank(bank);
 		
 		command.insertOrder(paymentVO);
 		
@@ -58,11 +61,16 @@ public class PaymentCompleteController {
 			paymentVO.setItem_no(list.get(i).getNo());
 			paymentVO.setQuantity(countlist.get(i));
 			
-			
 			command.insertOrderList(paymentVO);
 			command.updateItemCount(paymentVO);
 		}
-
+		
+		//결제 완료페이지에 쓸 모델
+			mav.getModel().put("totalpay", totalpay);
+			mav.getModel().put("bank", bank);
+			String account = command.getAccount(bank);
+			mav.getModel().put("account", account);
+				
 		// 사용한 포인트 차감, 포인트 적립
 		Integer saving = 0;
 		List<Integer> savings = (List<Integer>)session.getAttribute("saving");
@@ -88,8 +96,8 @@ public class PaymentCompleteController {
 		session.removeAttribute("coupon");
 		
 		System.out.println("결제성공");
-		
-		return "payment/paymentcomplete";
+		mav.setViewName("payment/paymentcomplete");
+		return mav;
 		
 	}
 }

@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>결제완료</title>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 </head>
 <body>
+<%@ include file="../include/header.jsp" %>
 결제완료!
+<div align="center">
+<div>총 금액 : ${totalpay}</div>
+<div>은행 : ${bank }</div>
+<div>계좌 : ${account }</div>
+</div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

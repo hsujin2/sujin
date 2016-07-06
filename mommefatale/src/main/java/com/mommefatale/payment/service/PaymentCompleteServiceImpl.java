@@ -36,6 +36,10 @@ public class PaymentCompleteServiceImpl implements PaymentCompleteService{
 	@Override
 	public void insertPayway(PaymentVO paymentVO) {
 		dao.insertPayway(paymentVO);
-	} 
+	}
+	@Override
+	public String getAccount(String bank) {
+		return dao.getAccount(bank);
+	}
 
 }

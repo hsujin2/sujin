@@ -10,4 +10,5 @@ public interface PaymentCompleteService {
 	public void updateItemCount(PaymentVO paymentVO);
 	public void insertPoint(Map<String, Object> points);
 	public void insertPayway(PaymentVO paymentVO);
+	public String getAccount(String bank);
 }
