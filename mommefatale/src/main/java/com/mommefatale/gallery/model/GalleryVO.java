@@ -10,7 +10,6 @@ public class GalleryVO {
 	private Date regdate;
 	private Date update_date;
 	private String image;
-	
 	private int view;
 	
 	public int getNo() {
