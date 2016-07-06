@@ -13,5 +13,5 @@ public interface PaymentDAO {
 	public void insertPoint(Map<String, Object> points);
 	public List<BankVO> getBank();
 	public void insertPayway(PaymentVO paymentVO);
-
+	public String getAccount(String bank);
 }

@@ -39,6 +39,10 @@ public class PaymentDAOImpl implements PaymentDAO{
 	public void insertPayway(PaymentVO paymentVO) {
 		session.insert(namespace + ".insertPayway",paymentVO);
 	}
+	@Override
+	public String getAccount(String bank) {
+		return session.selectOne(namespace + ".getAccount",bank);
+	}
 	
 	
 

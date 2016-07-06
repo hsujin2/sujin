@@ -23,4 +23,7 @@
 	<select id="insertPayway" parameterType="com.mommefatale.payment.model.PaymentVO">
 		insert into pay (pay_no, order_no, pay_way, pay_deposit_name, bank_name)values(pay_seq.nextval,order_seq.currval,#{pay_way},#{order_id},#{bank})
 	</select>
+	<select id="getAccount" parameterType="java.lang.String" resultType="java.lang.String">
+		select bank_account_number from pay_bank where bank_name = #{bank} 
+	</select>
 </mapper>

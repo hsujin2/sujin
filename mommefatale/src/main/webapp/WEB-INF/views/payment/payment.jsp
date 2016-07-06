@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>결제화면</title>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/pay/pay_css.css" />
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -87,6 +88,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../include/header.jsp" %>
 	<section class="content">
 	<div id="jaemok">
 		<span id="jaemok">결제</span>
@@ -229,7 +231,7 @@
 			<td>쿠폰</td>
 			<td>
 				<select id="coupon" name="coupon" onchange="useDiscount()">
-					<option value="0">선택</option>
+					<option value="99">선택</option>
 			<c:forEach var="co" items="${coupon}"> 
 				<option value="${co.coupon_no }">${co.name }</option>
 			</c:forEach>	
@@ -305,5 +307,6 @@
 	</table>
 	</form>
 	</section>
+	<%@ include file="../include/footer.jsp" %>
 </body>
 </html>
