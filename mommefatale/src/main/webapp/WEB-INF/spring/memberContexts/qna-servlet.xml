@@ -12,21 +12,21 @@
 		<property name="paging" ref="paging"/>
 	</bean>	
 	<bean id="qnaWriteController" class="com.mommefatale.qna.controller.QnaWriteController">
-		<property name="command" ref="qnaWriteService"></property>
+		<property name="command" ref="qnaWriteService"/>
 	</bean>
 	<bean id="qnaContentController" class="com.mommefatale.qna.controller.QnaContentController">
-		<property name="command" ref="qnaContentService"></property>
+		<property name="command" ref="qnaContentService"/>
 	</bean>
 	<bean id="qnaUpdateController" class="com.mommefatale.qna.controller.QnaUpdateController">
-		<property name="command" ref="qnaContentService"></property>
-		<property name="service" ref="qnaUpdateService"></property>
+		<property name="command" ref="qnaContentService"/>
+		<property name="service" ref="qnaUpdateService"/>
 	</bean>
 	<bean id="qnaDeleteController" class="com.mommefatale.qna.controller.QnaDeleteController">
-		<property name="command" ref="qnaDeleteService"></property>
+		<property name="command" ref="qnaDeleteService"/>
 	</bean>
 	<bean id="qnaAnswerController" class="com.mommefatale.qna.controller.QnaAnswerController">
-		<property name="command" ref="qnaContentService"></property>
-		<property name="service" ref="qnaAnswerService"></property>
+		<property name="command" ref="qnaContentService"/>
+		<property name="service" ref="qnaAnswerService"/>
 	</bean>
 	
 <!-- Service -->
