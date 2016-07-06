@@ -77,7 +77,7 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
             position: absolute;
             top: 0;
             left: 0;
-            width: 72px;
+            width: 152px;
             height: 72px;
         }
         
@@ -102,7 +102,7 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 68px;
+            width: 148px;
             height: 68px;
             border: #000 2px solid;
             box-sizing: content-box;
@@ -115,7 +115,7 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
             _top: 0px;
             left: 2px;
             _left: 0px;
-            width: 68px;
+            width: 148px;
             height: 68px;
             border: #000 0px solid;
             _border: #fff 2px solid;
@@ -125,7 +125,7 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
         .jssort01 .p:hover .c {
             top: 0px;
             left: 0px;
-            width: 70px;
+            width: 150px;
             height: 70px;
             border: #fff 1px solid;
             background-position: 50% 50%;
@@ -133,14 +133,14 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
         
         .jssort01 .p.pdn .c {
             background-position: 50% 50%;
-            width: 68px;
+            width: 148px;
             height: 68px;
             border: #000 2px solid;
         }
         
         * html .jssort01 .c, * html .jssort01 .pdn .c, * html .jssort01 .pav .c {
             /* ie quirks mode adjust */
-            width /**/: 72px;
+            width /**/: 152px;
             height /**/: 72px;
         }
         
