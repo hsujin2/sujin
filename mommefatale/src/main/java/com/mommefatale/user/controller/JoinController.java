@@ -38,7 +38,7 @@ public class JoinController {
 	@RequestMapping(value="joincomplete.do", method=RequestMethod.POST)
 	public String joinComplete(HttpServletRequest request)throws Exception {
 		request.setCharacterEncoding("utf-8");
-		Map<String, Object> vo= new HashMap<>();
+		Map<String, Object> vo= new HashMap<String, Object>();
 		Enumeration enums= request.getParameterNames();
 		while(enums.hasMoreElements()){
 			String paramName= enums.nextElement().toString();

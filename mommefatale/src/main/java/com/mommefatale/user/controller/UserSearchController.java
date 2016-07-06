@@ -32,7 +32,7 @@ public class UserSearchController {
 	}
 	@RequestMapping("/searchIdProc.do")
 	public ModelAndView searchIdProc(HttpServletRequest request){
-		Map<String, Object> vo = new HashMap<>();
+		Map<String, Object> vo = new HashMap<String, Object>();
 		vo.put("name", request.getParameter("inputname"));
 		vo.put("email", request.getParameter("inputemail"));
 		
