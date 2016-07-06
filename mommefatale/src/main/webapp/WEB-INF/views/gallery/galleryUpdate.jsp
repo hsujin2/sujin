@@ -55,12 +55,13 @@
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;</th>
-						<td colspan="3">
+						<td colspan="3" height="400px">
 							<textarea name="content" id="content" rows="50" cols="150">
 						${vo.content}</textarea>
 						<script type="text/javascript">
 								//<![CDATA[
-								CKEDITOR.replace('content');
+								CKEDITOR.replace('content',{ width:'900px', height : '500px', });
+								
 								//]]
 							</script>
 						</td>

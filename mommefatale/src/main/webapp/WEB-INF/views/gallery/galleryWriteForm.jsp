@@ -59,7 +59,7 @@
 							<textarea name="content" id="content" rows="50" cols="150"></textarea>
 							<script type="text/javascript">
 								//<![CDATA[
-								CKEDITOR.replace('content');
+								CKEDITOR.replace('content',{ width:'900px', height : '500px', });
 								//]]
 							</script> 
 						</td>
