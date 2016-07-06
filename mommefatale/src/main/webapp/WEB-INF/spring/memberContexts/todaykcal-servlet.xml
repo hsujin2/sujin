@@ -6,5 +6,26 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+<!-- Controller -->
+	<bean id="todayKcalController" class="com.mommefatale.todaykcal.controller.TodayKcalController">
+		<property name="command" ref="todayKcalService"/>
+		<property name="paging" ref="paging"/>
+	</bean>
+
+<!-- Service -->
+	<bean id="todayKcalService" class="com.mommefatale.todaykcal.service.TodayKcalServiceImpl">
+		<property name="dao" ref="todayKcalDAO"/>
+	</bean>
+
+<!-- DAO -->
+	<bean id="todayKcalDAO" class="com.mommefatale.todaykcal.dao.TodayKcalDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+
+<!-- Model -->
+<!-- 페이지 모델 -->
+	<bean id="paging" class="com.mommefatale.board.model.Paging">
+	</bean>
+	
 
 </beans>
