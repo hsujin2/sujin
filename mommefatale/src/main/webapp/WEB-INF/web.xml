@@ -63,9 +63,25 @@
 		<servlet-name>admin</servlet-name>
 		<url-pattern>*.admin</url-pattern>
 	</servlet-mapping>
-	<!-- mvc -->
-	<!-- <servlet> <servlet-name>mvc</servlet-name> <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
-		<load-on-startup>2</load-on-startup> </servlet> -->
+	
+<!-- json -->
+	<servlet>
+		<servlet-name>json</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+			
+				/WEB-INF/spring/memberContexts/todaykcal-servlet.xml
+				<!-- 이 아래부터 각각의 컨텍스트 -->
+			</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>json</servlet-name>
+		<url-pattern>*.json</url-pattern>
+	</servlet-mapping>
 
 <!-- CKFinder -->
 	<servlet>
@@ -79,7 +95,7 @@
 			<param-name>debug</param-name>
 			<param-value>false</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>3</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ConnectorServlet</servlet-name>
