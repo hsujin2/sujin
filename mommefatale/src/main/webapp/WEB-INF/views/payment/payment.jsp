@@ -268,8 +268,8 @@
 	<table class="payment" cellpadding="1" cellspacing="0" border="2">
 		<tr>
 			<td width="700px" class="bord" height="20px"><input type="radio"
-				name="pay_way" checked="checked" value="무통장입금"> 무통장 입금 &nbsp;&nbsp; <input type="radio" name="na" /> 카드
-				결제 &nbsp;&nbsp; <input type="radio" name="na" /> 휴대폰 결제 &nbsp;&nbsp;
+				name="pay_way" checked="checked" value="무통장입금"> 무통장 입금 &nbsp;&nbsp; <input type="radio" name="na" disabled="disabled"> 카드
+				결제 &nbsp;&nbsp; <input type="radio" name="na"  disabled="disabled"> 휴대폰 결제 &nbsp;&nbsp;
 			<td class="nonbor">무통장 입금 <span class="nonbo">최종결제 금액</span><br />
 			<br /> <span class="siz" name="total_pay">${total+fee}</span>원
 			</td>
