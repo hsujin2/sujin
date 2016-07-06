@@ -29,8 +29,8 @@
 			}
 		</script>
 		<div class="board">
+		<h2 class="title">자유게시판</h2>
 			<table summary="자유게시판" id="community_board">
-				<h2 class="title">자유게시판</h2>
 				<colgroup>
 					<col width="8%">
 					<col width="15%">

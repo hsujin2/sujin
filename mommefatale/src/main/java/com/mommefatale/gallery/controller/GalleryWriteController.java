@@ -39,6 +39,7 @@ public class GalleryWriteController {
 		System.out.println("°¶·¯¸®");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<>();
+	//	String image = 
 		Enumeration<?> enums = request.getParameterNames();
 		while(enums.hasMoreElements()){
 			String paramName = enums.nextElement().toString();
