@@ -87,7 +87,7 @@ public class CartController {
 		if(obj instanceof UserVO){
 			user = (UserVO) obj;
 		}else{
-			mav.setViewName("redirect:/login.go");
+			mav.setViewName("redirect:/login.do");
 			return mav;
 		}
 		Map<String, Object> model = new HashMap<String, Object>();

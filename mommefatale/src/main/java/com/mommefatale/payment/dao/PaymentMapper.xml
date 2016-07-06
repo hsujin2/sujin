@@ -5,6 +5,17 @@
 		<result property="bank_name" column="BANK_NAME" jdbcType="VARCHAR"/>
 		<result property="bank_account_number" column="BANK_ACCOUNT_NUMBER" jdbcType="VARCHAR"/>
 	</resultMap>
+	<resultMap id="toPaymentListVO" type="com.mommefatale.payment.model.PaymentListVO">
+		<result property="order_date" column="ORDER_DATE" jdbcType="DATE"></result>
+		<result property="order_no" column="ORDER_NO" jdbcType="BIGINT"></result>
+		<result property="image" column="ITEM_IMAGE" jdbcType="VARCHAR"></result>
+		<result property="item_no" column="ITEM_NO" jdbcType="BIGINT"></result>
+		<result property="item_name" column="ITEM_NAME" jdbcType="VARCHAR"></result>
+		<result property="size" column="OPTION_SIZE" jdbcType="VARCHAR"></result>
+		<result property="count" column="ORDER_QUANTITY" jdbcType="BIGINT"></result>
+		<result property="price" column="ITEM_PRICE_DISCOUNT" jdbcType="BIGINT"></result>
+		<result property="state" column="ORDER_STATE" jdbcType="VARCHAR"></result>
+	</resultMap>
 	<select id="insertOrder"	parameterType="com.mommefatale.payment.model.PaymentVO">
 		insert into order_(order_no,member_id,order_total_price,order_state,order_request,order_zip,order_address1,order_address2,order_phone,order_receiver,coupon_no,delivery_fee,member_point) values(order_seq.nextval,#{order_id},#{total_price},#{state},#{memo},#{zip},#{address1},#{address2},#{phone},#{receiver},#{coupon_no},#{delivery_fee},#{point})
 	</select>
@@ -25,5 +36,8 @@
 	</select>
 	<select id="getAccount" parameterType="java.lang.String" resultType="java.lang.String">
 		select bank_account_number from pay_bank where bank_name = #{bank} 
+	</select>
+	<select id="paymentlist" parameterType="java.lang.String" resultMap="toPaymentListVO">
+		select ORDER_DATE, ORDER_NO, ITEM_IMAGE, ITEM_NO, ITEM_NAME,OPTION_SIZE, ORDER_QUANTITY, ITEM_PRICE_DISCOUNT, ORDER_STATE from ORDER_ join ORDER_LIST using(ORDER_NO) join ITEM using(ITEM_NO) where ORDER_.MEMBER_ID=#{userid} order by ORDER_DATE;
 	</select>
 </mapper>

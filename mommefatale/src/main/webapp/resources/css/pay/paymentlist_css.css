@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0; padding:0;}
+body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
+.content{width:1003px; margin:0 auto; margin-top:50px;}
+.subject{font-size:40px; font-weight:bold; text-align:center; color:#6CF;}
+.cal{margin:0 auto; font-size:12px; width:1000px; margin-top:50px;}
+.month{border-collapse: collapse;
+	border: 1px #CCC solid; float:left; margin-left:230px;}
+	.month a{text-decoration:none; color:#666;}
+	.month td{text-align:center; padding:3px 0; width:38px;}
+	.calen{float:right; margin-right:200px;}
+.war{
+	color: #999;
+	font-size: 9px; width:440px; margin:0 auto;}
+
+li{list-style-type:circle;}
+.list{float:left; font-size:11px; font-weight:bold; margin:3px; margin-top:70px;}
+.menu{
+	width: 1000px;
+	border-top: 1px solid #999;
+	margin-top: 5px;
+	border-bottom: 1px solid #CCC;
+	font-size: 11px;
+	color: #000;
+}
+.firstline{text-align:center; }
+.firstline>td{padding:7px;} 
+#menu2{width:1000px; border-bottom:1px solid #CCC; padding-left:15px;  color:#09C;}
+menu2>tr>td>div>a{width:70px; height:20px;background:#036; text-decoration:none; color:#FFF;} 
+.firstline2{text-align:center; font-size:11px;}
+.firstline a{text-decoration:none; color:#09C;}
