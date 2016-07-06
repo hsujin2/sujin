@@ -45,7 +45,7 @@ public class CommunityReplyController {
 		vo.setSubject(vo.getSubject());
 		vo.setContent("\n\t[원문]"+"\n\n "+vo.getContent()+
 				"\n ---------------------------------------------------------------------------------------------\n\n");
-		Map<String, Object> model = new HashMap<>();
+		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("vo", vo);
 		mav.addAllObjects(model);
 		mav.setViewName("/board/communityReplyForm");
@@ -58,7 +58,7 @@ public class CommunityReplyController {
 	public ModelAndView communityReply(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 답글쓰기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<String, Object>();
 
 		Enumeration<?> enums = request.getParameterNames();
 		while(enums.hasMoreElements()){
