@@ -38,7 +38,7 @@ public class CommunityWriteController {
 	public ModelAndView communityWrite(HttpServletRequest request) throws Exception {
 		System.out.println("자유게시판 글쓰기 컨트롤러");
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		Enumeration<?> enums = request.getParameterNames();
 		while (enums.hasMoreElements()) {
 			String paramName = enums.nextElement().toString();
