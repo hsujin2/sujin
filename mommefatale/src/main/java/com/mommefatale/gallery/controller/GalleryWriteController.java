@@ -38,7 +38,7 @@ public class GalleryWriteController {
 	public ModelAndView galleryWrite(HttpServletRequest request) throws Exception{
 		System.out.println("°¶·¯¸®");
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<String, Object>();
 	//	String image = 
 		Enumeration<?> enums = request.getParameterNames();
 		while(enums.hasMoreElements()){
