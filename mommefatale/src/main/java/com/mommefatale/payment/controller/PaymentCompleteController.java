@@ -63,7 +63,7 @@ public class PaymentCompleteController {
 			command.updateItemCount(paymentVO);
 		}
 
-		// 포인트 차감, 적립금 적립
+		// 사용한 포인트 차감, 포인트 적립
 		Integer saving = 0;
 		List<Integer> savings = (List<Integer>)session.getAttribute("saving");
 		for(int i=0; i<savings.size();i++){
