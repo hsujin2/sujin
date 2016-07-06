@@ -8,3 +8,10 @@ font-weight:bold; color:#09C; text-align: center; margin:20px;}
 .write_button{float: right; margin-right:60px;}
 .board_hr{width:900px; size:1px; margin:10px 50px;}
 #footList{margin:10px auto;}
+.board{margin:50px auto;}
+#gallery_board{margin:50px auto 0;}
+.writer{text-align:right;}
+#writer{text-align:center; width:100px;}
+#regdate{text-align:center; width:150px;}
+#view{text-align:right; width:10px;}
+#content{text-align:left; height:700px;}
