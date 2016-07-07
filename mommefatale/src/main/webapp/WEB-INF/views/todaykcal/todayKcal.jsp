@@ -147,8 +147,8 @@ function moveToMyList(){
 			<div class="kcal_table">
 			<table summary="food_kcal_list" id="food_list">
 				<colgroup>
-					<col width="25%">
-					<col width="30%">
+					<col width="20%">
+					<col width="35%">
 					<col width="20%">
 					<col width="20%">
 					<col width="5%">

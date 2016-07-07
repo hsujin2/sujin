@@ -6,7 +6,7 @@
 <select id="getFoodList" parameterType="java.util.Map" resultType="com.mommefatale.todaykcal.model.FoodVO">
  	select * from food
 	<if test='food_category != null'>
-	where food_category = #{food_category} 
+	where food_category like '%${food_category}%' 
 	</if>
 	<if test='food_name != null'>
 	where food_name like '%${food_name}%'
