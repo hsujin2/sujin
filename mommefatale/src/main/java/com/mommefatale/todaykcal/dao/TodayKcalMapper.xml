@@ -4,19 +4,21 @@
 
 <!-- 해당하는 food list 가져오기 -->
 <select id="getFoodList" parameterType="java.util.Map" resultType="com.mommefatale.todaykcal.model.FoodVO">
- 	select * from (select rownum rnum, food_category, food_name, food_kcal, food_gram
-	from(select * from food
-	order by food_category, food_name asc)
+ 	select * from food
 	<if test='food_category != null'>
 	where food_category = #{food_category} 
 	</if>
 	<if test='food_name != null'>
-	where food_name = #{food_name}
-	</if>)
-	<![CDATA[
-	where rnum >= #{startRow} and rnum <= #{endRow}
-	]]>
+	where food_name like '%${food_name}%'
+	</if>
+	order by food_category, food_name asc
 </select>
+
+<!-- 카테고리 가져오기 -->
+<select id="getCategory" resultType="java.util.List">
+	select distinct food_category from food
+</select>
+
 
 <!-- food 게시물 수 count -->
 <select id="getFoodCount" resultType="java.lang.Integer">
