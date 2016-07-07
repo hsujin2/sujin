@@ -13,8 +13,14 @@
 	<bean id="PaymentCompleteService" class="com.mommefatale.payment.service.PaymentCompleteServiceImpl">
 		<property name="dao" ref="PaymentDAO"></property>
 	</bean>
+	<bean id="PaymentOrderViewService" class="com.mommefatale.payment.service.PaymentOrderViewServiceImpl">
+		<property name="dao" ref="PaymentDAO"></property>
+	</bean>
 <!-- controller -->
 	<bean class="com.mommefatale.payment.controller.PaymentCompleteController">
 		<property name="command" ref="PaymentCompleteService"></property>
+	</bean>
+	<bean class="com.mommefatale.payment.controller.PaymentOrderViewController">
+		<property name="command" ref="PaymentOrderViewService"></property>
 	</bean>
 </beans>

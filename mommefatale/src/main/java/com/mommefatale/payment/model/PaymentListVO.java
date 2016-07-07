@@ -3,7 +3,7 @@ package com.mommefatale.payment.model;
 import java.util.Date;
 
 public class PaymentListVO {
-	private Date order_date;
+	private String order_date;
 	private Integer order_no;
 	private String image;
 	private Integer item_no;
@@ -13,10 +13,10 @@ public class PaymentListVO {
 	private Integer price;
 	private String state;
 	
-	public Date getOrder_date() {
+	public String getOrder_date() {
 		return order_date;
 	}
-	public void setOrder_date(Date order_date) {
+	public void setOrder_date(String order_date) {
 		this.order_date = order_date;
 	}
 	public Integer getOrder_no() {

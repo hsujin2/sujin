@@ -30,6 +30,7 @@
 	<div><a href="userUpdate.do">회원정보수정</a></div>
 	<div><a href="userDelete.do">회원탈퇴</a></div>
 	<div><a href="cartlist.do">장바구니</a></div>
+	<div><a href="paymentlist.do">주문내역</a></div>
 	<div><input type="button" onclick="OpenCouponPage()" value="내 쿠폰"></div>
 </div>
 <%@ include file="../include/footer.jsp" %>
