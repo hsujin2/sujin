@@ -24,4 +24,9 @@ public class ItemListServiceImpl implements ItemListService{
 		return dao.listCategory(map);
 	}
 
+	@Override
+	public List<ItemVO> bestList(Integer category) {
+		return dao.bestList(category);
+	}
+
 }

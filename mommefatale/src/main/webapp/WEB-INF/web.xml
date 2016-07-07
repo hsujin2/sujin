@@ -73,6 +73,7 @@
 			<param-value>
 				/WEB-INF/spring/memberContexts/todaykcal-servlet.xml
 				/WEB-INF/spring/memberContexts/payment-servlet.xml
+				/WEB-INF/spring/memberContexts/item-servlet.xml
 				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>

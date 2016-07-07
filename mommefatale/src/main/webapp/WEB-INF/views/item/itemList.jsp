@@ -8,11 +8,49 @@
 <title>상품리스트</title>
 <link rel="stylesheet" type="text/css" href="resources/css/equipment/running.css">
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		var category = "${category}";
+		$.ajax({
+			url : "/mommefatale/bestitemlist.json",
+			type : "POST",
+			async : false,
+			data : {'category' : category},
+			success : function(response){
+				var items = response.itemlist;
+				if(items.length != 0){
+					var ul = $("<ul>",{class:'bestitem',id:'bestitems'});
+					 for(var i=0; i<items.length; i++){
+						 var li = $("<li>");
+						 li.append($("<span>").append($("<a>").attr("href","itemview.do?no="+items[i].no).append($("<img>",{src:'/mommefatale/resources/images/uploadimg/'+items[i].main_img, class:'itemname'}))));
+						 var a = $("<a>",{href:'#'});
+						 a.append($("<span>",{text:items[i].name}).append($("<br>")));
+						 a.append($("<hr>",{class:'hr3'}));
+						 a.append($("<span>",{text:'브랜드 : '+items[i].brand}).append($("<br>")));
+						 a.append($("<span>",{text:'원산지 : '+items[i].origin}).append($("<br>")));
+						 a.append($("<span>",{class:'sales',text:items[i].price_sales}).append($("<br>")));
+						 a.append($("<span>",{text:items[i].price_discount}).append($("<br>")));
+						 li.append(a);
+						 ul.append(li)
+					 }
+					 $("#bestitems").replaceWith(ul);
+				}else{
+					alert("best 상품이 없음");
+				}
+			},
+			error : function(){
+				
+			}
+			
+		})
+	}
+</script>
 </head>
 <body>
 <div id="wrap">
-<section class="contents">
 <%@ include file="../include/header.jsp" %>
+<section class="contents">
 	<div id="itemwrapper">
 		<div>
 			<div class="items">
@@ -31,20 +69,10 @@
 				<hr class="hr1" />
 				<br />
 				<h3 class="best">BEST상품</h3>
-				<ul class="bestitem">
-					<li><span><a href="#"><img src="img/980399_1.jpg" /></a></span>
-						<a href="#"><span>파워런닝머신</span><br /> <span>체력 증진을 위한
-								파워런닝머신</span> <br /> <span>1,339,000원</span></a></li>
-					<li><span><a href="#"><img
-								src="img/ORG-1800-B3.jpg" /></a></span> <a href="#"><span>파워런닝머신</span><br />
-							<span>체력 증진을 위한 파워런닝머신</span> <br /> <span>1,339,000원</span></a></li>
-					<li><span><a href="#"><img
-								src="img/0050020000232.jpg" /></a></span> <a href="#"><span>파워런닝머신</span><br />
-							<span>체력 증진을 위한 파워런닝머신</span> <br /> <span>1,339,000원</span></a></li>
-					<li><span><a href="#"><img
-								src="img/Contents_20121129113252_.jpg" /></a></span> <a href="#"><span>파워런닝머신</span><br />
-							<span>체력 증진을 위한 파워런닝머신</span> <br /> <span>1,339,000원</span></a></li>
+				<ul class="bestitem" id="bestitems">
+					
 				</ul>
+				<div style="clear:both"></div>
 				<hr class="hr2" />
 				<h3 class="best">전체 상품</h3>
 				<ul class="allitem">
@@ -55,9 +83,13 @@
 					</c:if>
 					<c:if test="${count != 0}">
 						<c:forEach var="item" items="${itemlist}">
-							<li><span><a href="itemview.do?no=${item.no}"><img
+							<li><span><a href="itemview.do?no=${item.no}">
+										<img
 										src="/mommefatale/resources/images/uploadimg/${item.main_img}"
-										alt="${item.name}" class="itemImg" /></a></span><a href="#">
+										alt="${item.name}" class="itemImg" />
+									  </a>
+								</span>
+								<a href="#">
 								<span class="itemname">${item.name}</span><br/>
 								<hr class="hr3">
 								<span>브랜드 : ${item.brand }</span><br>

@@ -10,4 +10,5 @@ public interface ItemDAO {
 	public int getCategoryCount(String category);
 	public List<ItemVO> listCategory(Map<String, Object> map);
 	public ItemVO itemView(int item_no);
+	public List<ItemVO> bestList(Integer category);
 }
