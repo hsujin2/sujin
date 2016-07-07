@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+#todayKcalWrap{margin:0 auto; text: align:center;}
+label{font-size:20px; font-weight:bold;}
+.searchFood{margin-bottom: 20px;}
+#food_list{width:330px;}
+.recommendedKcal{position:absolute; top:350px; left:520px; 
+text-align:center; font-weight:bold; color:#3399FF; font-size:18px;}
+.recommendedKcal2{position:absolute; top:380px; left:560px; 
+text-align:center; font-weight:bold; color:#3399FF; font-size:25px;}
+.board{float:left; height:600px; font-size: 12px; margin-left:100px;}
+.kcal_table{width:350px; height:400px; overflow:auto; border:1px solid #CCC; table-layout:fixed;}
+thead>tr>th{font-size:15px; padding-right:19px;}
+thead{position:absolute; margin:-2px 0 0 -2px; display:table-header-group; 
+table-layout:fixed; background:#EEE;}
+tbody tr:first-child td{padding-top:25px;}
