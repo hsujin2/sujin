@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: 4￪ﾰﾕ￬ﾝﾘ￬ﾋﾤ8
-Build-Jdk: 1.8.0_92
+Built-By: Sayoko
+Build-Jdk: 1.8.0_91
 Created-By: Maven Integration for Eclipse
 
