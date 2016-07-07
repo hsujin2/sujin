@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.mommefatale.payment.model.BankVO;
+import com.mommefatale.payment.model.OrderDateVO;
 import com.mommefatale.payment.model.PaymentListVO;
 import com.mommefatale.payment.model.PaymentVO;
 
@@ -47,6 +48,10 @@ public class PaymentDAOImpl implements PaymentDAO{
 	@Override
 	public List<PaymentListVO> paymentList(String userid) {
 		return session.selectList(namespace + ".paymentlist",userid);
+	}
+	@Override
+	public List<PaymentListVO> paymentDateList(OrderDateVO orderdateVO) {
+		return session.selectList(namespace + ".paymentDateList",orderdateVO);
 	}
 	
 	
