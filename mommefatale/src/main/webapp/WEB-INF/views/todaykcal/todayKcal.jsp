@@ -28,11 +28,11 @@
 						var table = $("<tbody>",{id:'foodList'});
 						 for(var i =0; i<foodlist.length; i++){
 							 var tr = $("<tr>");
-							 tr.append($("<td>",{text:foodlist[i].food_category}));
-							 tr.append($("<td>",{text:foodlist[i].food_name}));
-							 tr.append($("<td>",{text:foodlist[i].food_gram}));
-							 tr.append($("<td>",{text:foodlist[i].food_kcal}));
-							 tr.append($('<td>').append($('<input type="button" value="+">').css("width","20px")));
+							 tr.append($("<td>",{text:foodlist[i].food_category,name:'category'}));
+							 tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
+							 tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
+							 tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
+							 tr.append($('<td>').append($('<input type="button" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
 							 table.append(tr);
 						 }
 						 $("#foodList").replaceWith(table);
@@ -64,11 +64,11 @@
 					var table = $("<tbody>",{id:'foodList'});
 					 for(var i =0; i<foodlist.length; i++){
 						 var tr = $("<tr>");
-						 tr.append($("<td>",{text:foodlist[i].food_category}));
-						 tr.append($("<td>",{text:foodlist[i].food_name}));
-						 tr.append($("<td>",{text:foodlist[i].food_gram}));
-						 tr.append($("<td>",{text:foodlist[i].food_kcal}));
-						 tr.append($('<td>').append($('<input type="button" value="+">').css("width","20px")));
+						 tr.append($("<td>",{text:foodlist[i].food_category,name:'category'}));
+						 tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
+						 tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
+						 tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
+						 tr.append($('<td>').append($('<input type="button" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
 						 table.append(tr);
 					 }
 					 
@@ -104,11 +104,11 @@
 					var table = $("<tbody>",{id:'foodList'});
 					 for(var i =0; i<foodlist.length; i++){
 						 var tr = $("<tr>");
-						 tr.append($("<td>",{text:foodlist[i].food_category}));
-						 tr.append($("<td>",{text:foodlist[i].food_name}));
-						 tr.append($("<td>",{text:foodlist[i].food_gram}));
-						 tr.append($("<td>",{text:foodlist[i].food_kcal}));
-						 tr.append($('<td>').append($('<input type="button" value="+">').css("width","20px")));
+						 tr.append($("<td>",{text:foodlist[i].food_category,name:'category'}));
+						 tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
+						 tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
+						 tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
+						 tr.append($('<td>').append($('<input type="button" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
 						 table.append(tr);
 					 }
 					 $("#foodList").replaceWith(table);
@@ -125,8 +125,41 @@
 	}
 </script>
 <script>
-function moveToMyList(){
-	
+function moveToMyList(clickList){
+	var tr = clickList.closest('tr');
+	/* 	$(tr).find("td[name='name']"); */
+	var food_name = $(tr).find("td[name='name']").text();
+		var my_foodList = $("#my_foodList");
+		$.ajax({
+			url : "/mommefatale/todayKcal.json",
+			type : "POST",
+			data : {'food_name' : food_name},
+			async : false,	
+			success : function(response){
+			 var foodlist = response.vo;
+			 if(foodlist != null){
+				 if(foodlist.length != 0 ){
+					var table = $("<tbody>",{id:'my_foodList'});
+					 for(var i =0; i<foodlist.length; i++){
+						 var tr = $("<tr>");
+						 tr.append($("<td>",{text:foodlist[i].food_category}));
+						 tr.append($("<td>",{text:foodlist[i].food_name}));
+						 tr.append($("<td>",{text:foodlist[i].food_gram}));
+						 tr.append($("<td>",{text:foodlist[i].food_kcal}));
+						 tr.append($('<td>').append($('<input type="button" value="-" class="removeBtn" onclick="removeFromMyList(this)">').css("width","18px")));
+						 table.append(tr);
+					 }
+					 $("#my_foodList").replaceWith(table);
+				 }
+			 }
+			},
+			error : function(request, status, error){
+				if(request.status != '0'){
+					alert("code : "+request.status +"\r\nmessage : "
+			                  + request.reponseText + "\r\nerror : " + error);
+				}
+			}
+		})	
 }
 </script>
 
@@ -137,20 +170,21 @@ function moveToMyList(){
 		<div id="todayKcalWrap">
 		<span class="recommendedKcal">${userLogin.name}님의 하루 권장섭취량</span>
 		<span class="recommendedKcal2">${userLogin.kcal} 칼로리</span>
+		<span id="todayMyKcal"></span>
 		<div class="board">
 			<div class="searchFood">
 			<label for="food_name">음식명</label>
 			<input type="text" id="food_name" name="food_name"> <input
-				type="image" src="resources/images/index/search_bl.gif" width="20px"
+				type="image" src="resources/images/index/search_bl.gif" width="18px"
 				onclick="searchFoodByName()">
 			</div>
 			<div class="kcal_table">
 			<table summary="food_kcal_list" id="food_list">
 				<colgroup>
-					<col width="20%">
+					<col width="22%">
 					<col width="35%">
-					<col width="20%">
-					<col width="20%">
+					<col width="19%">
+					<col width="19%">
 					<col width="5%">
 				</colgroup>
 				<thead>
@@ -181,6 +215,30 @@ function moveToMyList(){
 					</tr>
 				</thead>
 				<tbody id="foodList">
+				</tbody>
+			</table>
+			</div>
+		</div>
+		<div class="board">	
+			<div class="my_kcal_table">
+			<table summary="my_food_kcal_list" id="my_food_list">
+				<colgroup>
+					<col width="22%">
+					<col width="35%">
+					<col width="19%">
+					<col width="19%">
+					<col width="5%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">분&nbsp;&nbsp;&nbsp;&nbsp;류</th>
+						<th scope="col">음식명</th>
+						<th scope="col">중량(g)</th>
+						<th scope="col">Kcal</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody id="my_foodList">
 				</tbody>
 			</table>
 			</div>
