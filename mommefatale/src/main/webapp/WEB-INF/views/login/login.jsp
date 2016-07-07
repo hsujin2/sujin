@@ -16,11 +16,11 @@
 <section>
 	<div id="loginWrap">
     	<div id="member">
-        	<h1>&bull;로그인</h1>
+        	<h1>로그인</h1>
             <p>몸므파탈에 다양한 서비스를 이용하시려면 로그인 해주세요.</p>
             <p>회원가입 하시면 다양한 혜택을 드립니다.</p>
             <div id="loginArea">
-            	<p><img src="resources/images/login/logimg.png" alt=""></p>
+            	<p><img src="resources/images/login/logimg.png" alt="" height="285px"></p>
             	<form method="post" action="loginProc.do">
                 	<ul>
                 		<li><input type="text" name="userid" placeholder="아이디" required tabindex="1"></li>
