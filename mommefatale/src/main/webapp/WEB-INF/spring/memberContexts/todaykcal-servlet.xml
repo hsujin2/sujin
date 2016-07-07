@@ -9,7 +9,6 @@
 <!-- Controller -->
 	<bean id="todayKcalController" class="com.mommefatale.todaykcal.controller.TodayKcalController">
 		<property name="command" ref="todayKcalService"/>
-		<property name="paging" ref="paging"/>
 	</bean>
 
 <!-- Service -->
