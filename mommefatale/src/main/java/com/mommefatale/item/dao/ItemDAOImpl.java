@@ -20,15 +20,19 @@ public class ItemDAOImpl implements ItemDAO{
 	}
 	@Override
 	public int getCategoryCount(String category) {
-		return session.selectOne(namespace+".getCategoryCount",category);
+		return session.selectOne(namespace + ".getCategoryCount",category);
 	}
 	@Override
 	public List<ItemVO> listCategory(Map<String, Object> map) {
-		return session.selectList(namespace+".listCategory",map);
+		return session.selectList(namespace + ".listCategory",map);
 	}
 	@Override
 	public ItemVO itemView(int item_no) {
-		return session.selectOne(namespace+".itemView",item_no);
+		return session.selectOne(namespace + ".itemView",item_no);
+	}
+	@Override
+	public List<ItemVO> bestList(Integer category) {
+		return session.selectList(namespace + ".bestList",category);
 	}
 
 }

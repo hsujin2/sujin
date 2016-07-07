@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css"
 	href="resources/css/pay/paymentlist_css.css" />
 	<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script type="text/javascript">
 	jQuery(function($){
 		$('#fromDate').on('change',function(){
@@ -23,7 +23,6 @@
 	});
 	});
 	function searchDate(){
-		alert("searchDate 진입");
 		var fromDate = $("#fromDate").val();
 		var toDate = $("#toDate").val();
 		$.ajax({
