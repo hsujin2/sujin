@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>장바구니</title>
 <link rel="stylesheet" type="text/css" href="resources/css/cart/cart_css.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 	function checkboxArr(check,all){
@@ -46,6 +47,8 @@
 </script>
 </head>
 <body>
+<div id="wrap">
+<%@ include file="../include/header.jsp" %>
 <section class="content">
     <div id="jaemok">
             <span id="jaemok">장바구니</span>
@@ -117,5 +120,7 @@
         </div>
         </form>
 </section>
+<%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>

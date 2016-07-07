@@ -151,7 +151,7 @@
     <div class="table2">총 금액 <p id="total" align="right"></p></div>
     <ul class="but">
     	<li><a href="javascript:buychecklogin();"><div>BUY NOW</div></a></li>
-        <li><a href="javascript:cartchecklogin();"><div>ADD TO CART</div></a></li>
+        <li><a href="javascript:cartchecklogin();"><div>CART</div></a></li>
         <li><a href="#"><div>WISH LIST</div></a></li>
     </ul><br />
 </form>
