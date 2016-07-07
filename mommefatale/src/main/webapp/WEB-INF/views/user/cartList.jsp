@@ -79,8 +79,8 @@
             <td>${vo.fee}원</td>
             <td>${vo.item_discount*vo.cart_count }원</td>
             <td width="80" class="firstline2">
-                <a href="#" class="te"><div class="but">바로구매 ▶</div></a>
-                <a href="#" class="te2"><div class="but2">삭제</div></a>
+                <div class="but"><a href="#" class="te">바로구매 ▶</a></div>
+                <div class="but2"><a href="#" class="te2">삭제</a></div>
             </td>
         </tr>
        </c:forEach>
