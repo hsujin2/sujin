@@ -58,6 +58,7 @@ public class TodayKcalController {
 		map.put("food_name", request.getParameter("food_name"));
 		map.put("food_category", request.getParameter("food_category"));
 		System.out.println("food_name : "+map.get("food_name"));
+		System.out.println("food_category : "+map.get("food_category"));
 		List<FoodVO> vo = command.TodayKcalFoodList(map);
 		int count = vo.size();
 		
