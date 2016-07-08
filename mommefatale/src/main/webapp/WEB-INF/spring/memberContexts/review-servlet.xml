@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- controller -->
+	<bean id="reviewPageController" class="com.mommefatale.review.controller.ReviewPageController">
+		<property name="command" ref="reviewPageService" />
+		<property name="paging" ref="paging" />
+	</bean>
+	
+	<!-- service -->
+	<bean id="reviewPageService" class="com.mommefatale.review.service.ReviewPageServiceImpl">
+		<property name="dao" ref="reviewDAO"></property>
+	</bean>
+
+	<!-- DAO -->
+	<bean id="reviewDAO" class="com.mommefatale.review.dao.ReviewDAOImpl">
+		<property name="session" ref="sqlSessionTemplate" />
+	</bean>
+	<!-- 페이지 모델 -->
+	<bean id="paging" class="com.mommefatale.board.model.Paging">
+	</bean>
+</beans>
