@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReviewMapper">
+	<resultMap id="reviewResultMap" type="com.mommefatale.review.model.ReviewVO">
+		<result property="no" column="review_no" jdbcType="BIGINT" />
+		<result property="writer" column="review_writer" jdbcType="VARCHAR" />
+		<result property="subject" column="review_subject" jdbcType="VARCHAR" />
+		<result property="content" column="review_content" jdbcType="VARCHAR" />
+		<result property="regdate" column="review_regdate" jdbcType="VARCHAR" />
+		<result property="update_date" column="review_update_date"
+			jdbcType="VARCHAR" />
+		<result property="ref" column="review_ref" jdbcType="BIGINT" />
+		<result property="step" column="review_step" jdbcType="BIGINT" />
+		<result property="depth" column="review_depth" jdbcType="BIGINT" />
+		<result property="section" column="review_section" jdbcType="VARCHAR" />
+		<result property="view" column="review_view" jdbcType="BIGINT" />
+		<result property="item_no" column="item_no" jdbcType="BIGINT" />
+		<result property="gallery_image" column="gallery_image"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- Review List -->
+	<select id="reviewList" parameterType="java.util.Map" resultMap="reviewResultMap">
+      <![CDATA[select * from(select rownum rnum, review_no, review_writer, review_subject, review_content, review_regdate, review_update_date, review_ref, review_step, review_depth, review_section, review_view, item_no, gallery_image from (select * from review order by review_ref desc, review_step asc))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+	</select>
+
+	<!-- Review Content -->
+	<select id="reviewContent" parameterType="java.lang.Integer"
+		resultMap="reviewResultMap">
+		select * from review where review_no=#{no}
+	</select>
+
+	<!-- Review Write -->
+	<insert id="reviewWrite" parameterType="java.util.Map">
+   <![CDATA[insert into review(review_no, review_writer, review_subject, review_content, review_regdate, review_update_date, review_ref, review_step, review_depth, review_section, item_no, gallery_image) values(review_seq.nextval, #{writer}, #{subject}, #{content}, sysdate, sysdate, review_seq.nextval, 0, 0, #{section}, #{item_no}, #{gallery_image})]]>
+	</insert>
+
+	<!-- view_count -->
+	<update id="reviewView" parameterType="java.lang.Integer">
+      <![CDATA[update review set review_view=review_view+1 where review_no=#{no}]]>
+	</update>
+
+	<!-- review edit -->
+	<update id="reviewUdate" parameterType="java.lang.Map">
+   	<![CDATA[update review set review_writer=#{writer}, review_subject=#{subject}, review_content=#{content}, review_update_date=sysdate, review_section=#{section} where review_no=#{no}]]>
+	</update>
+
+	<!-- review remove -->
+	<delete id="reviewDelete" parameterType="java.lang.Integer">
+   	<![CDATA[delete from review where review_no=#{no}]]>
+	</delete>
+
+	<!-- 총 게시물 수 -->
+	<select id="reviewCount" parameterType="java.lang.Integer">
+		select count (*) from
+		review
+	</select>
+</mapper>
