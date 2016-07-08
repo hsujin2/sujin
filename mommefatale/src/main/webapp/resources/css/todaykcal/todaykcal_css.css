@@ -13,6 +13,7 @@ text-align:center; font-weight:bold; color:#3399FF; font-size:16px;}
 text-align:center; font-weight:bold; color:#3399FF; font-size:20px;}
 #todayMyKcal{position:absolute; top:380px; left: 610px;
 text-align:center; font-weight:bold; color:#007bf7; font-size:40px;}
+#kcal_today{position:absolute; top:450px; left: 580px; padding:2px;}
 
 .board{float:left; height:500px; font-size: 12px; margin-left:165px;}
 

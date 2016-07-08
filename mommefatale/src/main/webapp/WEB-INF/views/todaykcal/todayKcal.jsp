@@ -176,6 +176,10 @@ function removeFromMyList(clickList){
    span.text(totalKcal = totalKcal - Number(kcal));
    $("#todayMyKcal").replaceWith(span);
 }
+
+function saveMyKcal(){
+	
+}
 </script>
 
 </head>
@@ -186,6 +190,7 @@ function removeFromMyList(clickList){
       <span class="recommendedKcal">${userLogin.name}님의 하루 권장섭취량</span>
       <span class="recommendedKcal2">${userLogin.kcal} 칼로리</span>
       <span id="todayMyKcal"></span>
+      <input type="button" id="kcal_today" name="kcal_today" value="오늘의 칼로리 기록하기" onclick="saveMyKcal()">
       <div class="board">
          <div class="searchFood">
          <label for="food_name">음식명</label>
