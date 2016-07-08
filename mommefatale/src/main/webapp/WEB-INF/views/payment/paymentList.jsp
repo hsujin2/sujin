@@ -32,7 +32,6 @@
 			async : false,
 			
 			success : function(response){
-				alert("success");
 				var paylist = response.paymentdatelist;
 				if(paylist != null){
 					if(paylist.length != 0){
