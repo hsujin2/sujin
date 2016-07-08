@@ -53,6 +53,14 @@ public class PaymentDAOImpl implements PaymentDAO{
 	public List<PaymentListVO> paymentDateList(OrderDateVO orderdateVO) {
 		return session.selectList(namespace + ".paymentDateList",orderdateVO);
 	}
+	@Override
+	public void deleteCoupon(PaymentVO paymentVO) {
+		session.delete(namespace + ".deleteCoupon",paymentVO);
+	}
+	@Override
+	public void deleteCart(PaymentVO paymentVO) {
+		session.delete(namespace + ".deleteCart",paymentVO);
+	}
 	
 	
 

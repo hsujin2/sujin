@@ -57,9 +57,8 @@
 			dataType : "text",
 			
 			success : function(response){
-				var couponamount = response - total;
-				var dis = Number(couponamount) + Number(point);
-				$("span[name='discount']").html(dis);
+				var couponamount = total - response;
+				$("span[name='discount']").html(couponamount);
 				$("span[name='total_pay']").html(response);
 				$("input[name='totalpay']").val(response);
 			},

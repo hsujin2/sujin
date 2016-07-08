@@ -44,7 +44,7 @@ public class UserCouponController {
 	   public String useCoupon(HttpServletRequest request) {
 		  Integer discount=0;
 	      String coupon_no = request.getParameter("coupon_no");
-	      if(coupon_no.equals("0")){
+	      if(coupon_no.equals("99")||coupon_no == null){
 	    	  discount = 0;
 	      }else{
 	    	  

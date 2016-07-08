@@ -49,7 +49,8 @@ public class CartController {
 		Map<String, Object> id = new HashMap<String, Object>();
 		id.put("userid", user.getUserid());
 		id.put("item", item.getNo());
-		if(command.getCartItem(id)!=null){
+		String chk = command.getCartItem(id);
+		if(chk!=null){
 			cartVO.setUser_id(user.getUserid());
 			cartVO.setItem_no(item.getNo());
 			cartVO.setItem_name(item.getName());

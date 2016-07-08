@@ -42,4 +42,14 @@ public class PaymentCompleteServiceImpl implements PaymentCompleteService{
 		return dao.getAccount(bank);
 	}
 
+	@Override
+	public void deleteCoupon(PaymentVO paymentVO) {
+		dao.deleteCoupon(paymentVO);
+	}
+
+	@Override
+	public void deleteCart(PaymentVO paymentVO) {
+		dao.deleteCart(paymentVO);
+	}
+
 }
