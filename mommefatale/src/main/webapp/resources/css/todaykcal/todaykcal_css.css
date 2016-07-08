@@ -3,23 +3,29 @@
 
 label{font-size:20px; font-weight:bold;}
 .searchFood{margin-bottom: 20px;}
+#food_name{width:120px;}
 #food_list{width:310px;}
 #my_food_list{width:310px;}
 
-.recommendedKcal{position:absolute; top:300px; left:510px; 
-text-align:center; font-weight:bold; color:#3399FF; font-size:18px;}
-.recommendedKcal2{position:absolute; top:330px; left:550px; 
-text-align:center; font-weight:bold; color:#3399FF; font-size:25px;}
+.recommendedKcal{position:absolute; top:300px; left:550px; 
+text-align:center; font-weight:bold; color:#3399FF; font-size:16px;}
+.recommendedKcal2{position:absolute; top:330px; left:590px; 
+text-align:center; font-weight:bold; color:#3399FF; font-size:20px;}
+#todayMyKcal{position:absolute; top:380px; left: 610px;
+text-align:center; font-weight:bold; color:#007bf7; font-size:40px;}
 
-.board{float:left; height:500px; font-size: 12px; margin-left:150px;}
+.board{float:left; height:500px; font-size: 12px; margin-left:165px;}
 
 .kcal_table{width:330px; height:400px; overflow:auto; table-layout:fixed;}
 .kcal_table thead>tr>th{font-size:14px; padding-right:19px;}
 .kcal_table thead{position:absolute; margin:-2px -10px 0 -24px; display:table-header-group; 
 table-layout:fixed; background:#CFFFFF;}
 
-.my_kcal_table{position:relative; left:140px; top:50px; width:330px; height:400px; overflow:auto; table-layout:fixed;}
-.my_kcal_table thead>tr>th{font-size:14px; padding:2px 10px 3px 18px;}
+.my_kcal_table{position:relative; left:140px; top:0px; width:330px; height:400px; overflow:auto; table-layout:fixed;}
+.my_kcal_table thead>tr>th{font-size:14px; padding:2px 10px 3px 17px;}
 .my_kcal_table thead{position:absolute; margin:-2px 0 0 -1px; display:table-header-group; 
 table-layout:fixed; background:#CFFFFF;}
+
+#todayMyMenu{font-size:25px; font-weight:bold; margin-bottom:17px;}
+
 tbody tr:first-child td{padding-top:25px;}

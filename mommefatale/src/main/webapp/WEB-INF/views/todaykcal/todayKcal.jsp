@@ -127,6 +127,8 @@
    }
 </script>
 <script>
+var totalKcal = 0;
+
 function moveToMyList(clickList){
    var tr = clickList.closest('tr');
    var food_no = $(tr).find("input[name='no']").val();
@@ -140,16 +142,20 @@ function moveToMyList(clickList){
           var foodlist = response.vo;
           if(foodlist != null){
              if(foodlist.length != 0 ){
-               var table = $("<tbody>",{id:'my_foodList'});
+            	var span = $("<span>", {id:'todayMyKcal'});
+                var table = $("<tbody>",{id:'my_foodList'});
                 for(var i =0; i<foodlist.length; i++){
                    var tr = $("<tr>");
-                   tr.append($("<td>",{text:foodlist[i].food_category}));
-                   tr.append($("<td>",{text:foodlist[i].food_name}));
-                   tr.append($("<td>",{text:foodlist[i].food_gram}));
-                   tr.append($("<td>",{text:foodlist[i].food_kcal}));
+                   tr.append($("<td>",{text:foodlist[i].food_category,name:'category'}));
+                   tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
+                   tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
+                   tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
                    tr.append($('<td>').append($('<input type="button" value="-" class="removeBtn" onclick="removeFromMyList(this)">').css("width","18px")));
                    table.append(tr);
+                   var kcal = $("#todayMyKcal").text();
+                   span.text(totalKcal = Number(kcal) + Number(foodlist[i].food_kcal));
                 }
+                $("#todayMyKcal").replaceWith(span);
                 $("#my_foodList").append(tr);
              }
           }
@@ -164,7 +170,11 @@ function moveToMyList(clickList){
 }
 
 function removeFromMyList(clickList){
+	var span = $("<span>", {id:'todayMyKcal'});
    $(clickList).closest('tr').remove();
+   var kcal = $(clickList).closest('tr').find("td[name='kcal']").text();
+   span.text(totalKcal = totalKcal - Number(kcal));
+   $("#todayMyKcal").replaceWith(span);
 }
 </script>
 
@@ -226,8 +236,11 @@ function removeFromMyList(clickList){
          </table>
          </div>
       </div>
+     
       <div class="board">   
          <div class="my_kcal_table">
+         <p id="todayMyMenu">나의 오늘 식단</p>
+        <!--  <label for="my_food_list">나의 오늘 식단</label> -->
          <table summary="my_food_kcal_list" id="my_food_list">
             <colgroup>
                <col width="22%">
@@ -238,7 +251,6 @@ function removeFromMyList(clickList){
             </colgroup>
             <thead>
                <tr>
-               
                   <th scope="col">분&nbsp;&nbsp;&nbsp;&nbsp;류</th>
                   <th scope="col">음식명</th>
                   <th scope="col">중량(g)</th>
