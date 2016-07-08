@@ -28,7 +28,7 @@
                   var table = $("<tbody>",{id:'foodList'});
                    for(var i =0; i<foodlist.length; i++){
                       var tr = $("<tr>");
-                      tr.append($("<td>").append($('<input type="hidden" value="foodlist[i].food_no">,{name:"no"}')));
+                      tr.append($("<td>").append($('<input>',{type:"hidden",value:foodlist[i].food_no,name:"no"})));
                       tr.append($("<td>",{text:foodlist[i].food_category,name:'category'}));
                       tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
                       tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
@@ -65,7 +65,7 @@
                var table = $("<tbody>",{id:'foodList'});
                 for(var i =0; i<foodlist.length; i++){
                    var tr = $("<tr>");
-                   tr.append($("<td>").append($('<input type="hidden" value="foodlist[i].food_no">,{name:"no"}')));
+                   tr.append($("<td>").append($('<input>',{type:"hidden",value:foodlist[i].food_no,name:"no"})));
                    tr.append($("<td>",{text:foodlist[i].food_category,name:'category'}));
                    tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
                    tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
@@ -105,7 +105,7 @@
                var table = $("<tbody>",{id:'foodList'});
                 for(var i =0; i<foodlist.length; i++){
                    var tr = $("<tr>");
-                   tr.append($("<td>").append($('<input type="hidden" value="foodlist[i].food_no">,{name:"no"}')));
+                   tr.append($("<td>").append($('<input>',{type:"hidden",value:foodlist[i].food_no,name:"no"})));
                    tr.append($("<td>",{text:foodlist[i].food_category,name:'category'}));
                    tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
                    tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));

@@ -7,11 +7,9 @@
  	select * from food
 	<if test='food_category != null'>
 	where food_category like '%${food_category}%'
-	order by food_name asc 
 	</if>
 	<if test='food_name != null'>
 	where food_name like '%${food_name}%'
-	order by food_name asc 
 	</if>
 	<if test='food_no != null'>
 	where food_no = #{food_no}
