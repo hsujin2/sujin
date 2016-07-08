@@ -59,6 +59,11 @@ public class ItemListUserController {
 		map.put("startRow", boardPaging.getWriting_Start());
 		map.put("endRow", boardPaging.getWriting_End());
 		
+		//상품정렬
+		String range = request.getParameter("range");
+		map.put("range", range);
+		//
+		
 		List<ItemVO> itemlist = null;
 		
 		if(category == null || category == ""){

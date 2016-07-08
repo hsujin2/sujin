@@ -43,26 +43,26 @@
      <ul id="gnb_shop">
 		<li><a href="itemList.do?category=1">Equipment</a>
         	<ul class="menu1">
-            	<li><a href="itemList.do?category=1&order=new">런닝머신</a></li>
-                <li><a href="itemList.do?category=2&order=new">웨이트기구</a></li>
-                <li><a href="itemList.do?category=3&order=new">헬스사이클</a></li>
-                <li><a href="itemList.do?category=4&order=new">아령/덤벨</a></li>
-                <li><a href="itemList.do?category=5&order=new">기타</a></li>
+            	<li><a href="itemList.do?category=1&range=new">런닝머신</a></li>
+                <li><a href="itemList.do?category=2&range=new">웨이트기구</a></li>
+                <li><a href="itemList.do?category=3&range=new">헬스사이클</a></li>
+                <li><a href="itemList.do?category=4&range=new">아령/덤벨</a></li>
+                <li><a href="itemList.do?category=5&range=new">기타</a></li>
            </ul>
         </li>        
         <li><a href="#">SportsWear</a>
         	<ul class="menu2">
-            	<li><a href="itemList.do?category=6&order=new">운동복</a></li>
-                <li><a href="itemList.do?category=7&order=new">운동화/런닝화</a></li>
-                <li><a href="itemList.do?category=8&order=new">스포츠브라</a></li>
-                <li><a href="itemList.do?category=9&order=new">기타</a></li>
+            	<li><a href="itemList.do?category=6&range=new">운동복</a></li>
+                <li><a href="itemList.do?category=7&range=new">운동화/런닝화</a></li>
+                <li><a href="itemList.do?category=8&range=new">스포츠브라</a></li>
+                <li><a href="itemList.do?category=9&range=new">기타</a></li>
            </ul>
         </li> 
         <li><a href="#">Food</a>
         	<ul class="menu3">
-            	<li><a href="itemList.do?category=10&order=new">보충제</a></li>
-                <li><a href="itemList.do?category=11&order=new">영양제</a></li>
-                <li><a href="itemList.do?category=12&order=new">기타식품</a></li>
+            	<li><a href="itemList.do?category=10&range=new">보충제</a></li>
+                <li><a href="itemList.do?category=11&range=new">영양제</a></li>
+                <li><a href="itemList.do?category=12&range=new">기타식품</a></li>
            </ul> 
         </li> 
     </ul>
