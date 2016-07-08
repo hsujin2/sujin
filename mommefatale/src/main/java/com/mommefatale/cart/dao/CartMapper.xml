@@ -27,8 +27,9 @@
 	<select id="updateCart" parameterType="com.mommefatale.cart.model.CartVO">
 		update cart set cart_count = cart_count + #{cart_count} where item_no = #{item_no} and member_id = #{user_id}
 	</select>
-	<select id="getCartItem" parameterType="java.util.Map" resultMap="toCartVO">
-		select cart_no, member_id, item_no, item_name, category_no, item_price_discount, option_size, cart_count, item_image, cart_regdate,cart_saving,cart_fee from member join cart using(member_id) join item using(item_no) where member_id=#{userid} and item_no = #{item}
+	
+	<select id="getCartItem" parameterType="java.util.Map" resultType="java.lang.String">
+		select item_no from cart where member_id = #{userid} and item_no = #{item}
 	</select>
 	
 </mapper>

@@ -36,8 +36,8 @@ public class CartDAOImpl implements CartDAO{
 	}
 
 	@Override
-	public List<CartVO> getCartItem(Map<String, Object> id) {
-		return session.selectList(namespace + ".getCartItem",id);
+	public String getCartItem(Map<String, Object> id) {
+		return session.selectOne(namespace + ".getCartItem",id);
 	}
 	
 

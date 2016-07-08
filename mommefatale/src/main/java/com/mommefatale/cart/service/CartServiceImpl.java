@@ -34,7 +34,7 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public List<CartVO> getCartItem(Map<String, Object> id) {
+	public String getCartItem(Map<String, Object> id) {
 		return dao.getCartItem(id);
 	}
 	

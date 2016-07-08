@@ -11,4 +11,6 @@ public interface PaymentCompleteService {
 	public void insertPoint(Map<String, Object> points);
 	public void insertPayway(PaymentVO paymentVO);
 	public String getAccount(String bank);
+	public void deleteCoupon(PaymentVO paymentVO);
+	public void deleteCart(PaymentVO paymentVO);
 }

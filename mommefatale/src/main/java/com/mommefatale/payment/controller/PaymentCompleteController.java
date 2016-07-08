@@ -61,8 +61,14 @@ public class PaymentCompleteController {
 			paymentVO.setItem_no(list.get(i).getNo());
 			paymentVO.setQuantity(countlist.get(i));
 			
+			//결제내역 저장
 			command.insertOrderList(paymentVO);
+			
+			//판매수량 업데이트
 			command.updateItemCount(paymentVO);
+			
+			//장바구니 삭제
+			command.deleteCart(paymentVO);
 		}
 		
 		//결제 완료페이지에 쓸 모델
@@ -81,6 +87,12 @@ public class PaymentCompleteController {
 		points.put("saving", saving);
 		points.put("usepoint", usepoint);
 		points.put("userid", userid);
+		
+		//사용한 쿠폰삭제
+		if(request.getParameter("coupon")!=null || !request.getParameter("coupon").equals("99")){
+			command.deleteCoupon(paymentVO);
+		}
+		
 		
 		command.insertPoint(points);
 		

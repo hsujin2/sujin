@@ -18,4 +18,6 @@ public interface PaymentDAO {
 	public String getAccount(String bank);
 	public List<PaymentListVO> paymentList(String userid);
 	public List<PaymentListVO> paymentDateList(OrderDateVO orderdateVO);
+	public void deleteCoupon(PaymentVO paymentVO);
+	public void deleteCart(PaymentVO paymentVO);
 }
