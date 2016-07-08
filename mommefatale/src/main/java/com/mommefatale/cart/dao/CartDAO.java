@@ -11,4 +11,5 @@ public interface CartDAO {
 	public CartVO getCart(Integer cart_no);
 	public void updateCart(CartVO cartVO);
 	public String getCartItem(Map<String, Object> id);
+	public void cartDelete(String cart_no);
 }

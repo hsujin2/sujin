@@ -20,10 +20,16 @@
 	<bean id="ItemViewUserService" class="com.mommefatale.item.service.ItemViewUserServiceImpl">
 		<property name="dao" ref="ItemDAO"></property>
 	</bean>
+	<bean id="CartDeleteService" class="com.mommefatale.cart.service.CartDeleteServiceImpl">
+		<property name="dao" ref="CartDAO"></property>
+	</bean>
 	<!-- controller -->
 	<bean class="com.mommefatale.cart.controller.CartController" >
 		<property name="command" ref="CartService"></property> 
 		<property name="itemService" ref="ItemViewUserService"></property>
+	</bean>
+	<bean class="com.mommefatale.cart.controller.CartDeleteController">
+		<property name="command" ref="CartDeleteService"></property> 
 	</bean>
 		
 </beans>

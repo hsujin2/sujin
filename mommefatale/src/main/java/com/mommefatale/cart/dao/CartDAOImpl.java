@@ -39,6 +39,11 @@ public class CartDAOImpl implements CartDAO{
 	public String getCartItem(Map<String, Object> id) {
 		return session.selectOne(namespace + ".getCartItem",id);
 	}
+
+	@Override
+	public void cartDelete(String cart_no) {
+		session.delete(namespace + ".cartDelete",cart_no);
+	}
 	
 
 }
