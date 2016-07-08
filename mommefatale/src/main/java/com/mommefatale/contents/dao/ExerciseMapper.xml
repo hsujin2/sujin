@@ -14,8 +14,8 @@
 	<!-- Exercise 리스트 가져오기 -->
 	<select id="exerciseList" parameterType="java.util.Map" resultMap="exerciseResultMap">
 		<![CDATA[select * from 
-						(select rownum rnum, gallery_no, gallery_category, gallery_subject, gallery_content, gallery_image, gallery_regdate, gallery_view from
-							(select * from exercise order by gallery_no desc) 
+						(select rownum rnum, exercise_no, exercise_category, exercise_subject, exercise_content, exercise_image, exercise_regdate, exercise_view from
+							(select * from exercise order by exercise_no desc) 
 						)
 					where rnum >= #{startRow} and rnum <= #{endRow} ]]>
 	</select>	
