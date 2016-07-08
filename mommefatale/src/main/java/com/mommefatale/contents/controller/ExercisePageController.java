@@ -1,4 +1,4 @@
-package com.mommefatale.gallery.controller;
+package com.mommefatale.contents.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,15 +10,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mommefatale.gallery.model.GalleryVO;
-import com.mommefatale.gallery.service.GalleryPageService;
 import com.mommefatale.board.model.Paging;
+import com.mommefatale.contents.model.ExerciseVO;
+import com.mommefatale.contents.service.ExercisePageService;
 
 @Controller
-public class GalleryPageController {
+public class ExercisePageController {
 
-	private GalleryPageService command;
+	private ExercisePageService command;
 	private Paging paging;
+
+	public ExercisePageService getCommand() {
+		return command;
+	}
+
+	public void setCommand(ExercisePageService command) {
+		this.command = command;
+	}
 
 	public Paging getPaging() {
 		return paging;
@@ -28,17 +36,9 @@ public class GalleryPageController {
 		this.paging = paging;
 	}
 
-	public GalleryPageService getCommand() {
-		return command;
-	}
-
-	public void setCommand(GalleryPageService command) {
-		this.command = command;
-	}
-
-	@RequestMapping(value = "/gallery.do")
-	public ModelAndView GalleryPage(HttpServletRequest request) throws Exception {
-		System.out.println("갤러리 리스트 컨트롤러");
+	@RequestMapping(value = "/exercise1.do")
+	public ModelAndView ExercisePage(HttpServletRequest request) throws Exception {
+		System.out.println("운동법 리스트 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
 		String pageNum = request.getParameter("pageNum");
@@ -50,7 +50,7 @@ public class GalleryPageController {
 		int currentPage = Integer.parseInt(pageNum);
 		int pageSize = 9;
 		int pageNavi = 3;
-		int page_count = command.GalleryPageCount();
+		int page_count = command.ExercisePageCount();
 
 		int number = page_count - (currentPage - 1) * pageSize;
 
@@ -60,21 +60,21 @@ public class GalleryPageController {
 
 		System.out.println("카운트 : " + page_count);
 
-		List<GalleryVO> vo = command.GalleryPage(map);
+		List<ExerciseVO> vo = command.ExercisePage(map);
 		int count = vo.size();
 
 		Map<String, Object> model = new HashMap<String, Object>();
 
-		model.put("galleryList", vo);
+		model.put("exerciseList", vo);
 		model.put("page_count", new Integer(page_count));
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
 		mav.addAllObjects(model);
-		mav.setViewName("/gallery/galleryPage");
+		mav.setViewName("/contents/exercise1");
 		mav.addObject("vo", vo);
 		mav.addObject("count", count);
 		return mav;
-
 	}
+
 }

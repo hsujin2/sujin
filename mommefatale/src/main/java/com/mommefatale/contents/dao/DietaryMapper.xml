@@ -1,0 +1,19 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "DietaryMapper">
+	<resultMap id="DietaryResultMap" type="com.mommefatale.contents.DieatryVO	">
+		<result property="no" column="diet_no" jdbcType="bigint"/>
+		<result property="category" column="diet_regdate" jdbcType="varchar"/>
+		<result property="name" column="diet_name" jdbcType="varchar"/>
+		<result property="image" column="diet_image" jdbcType="varchar"/>
+		<result property="thumb" column="diet_thumb" jdbcType="varchar"/>
+		<result property="link" column="diet_link" jdbcType="varchar"/>
+		<result property="regdate" column="diet_regdate" jdbcType="varchar"/>
+	</resultMap>
+	
+	Dietary 리스트 가져오기
+	<select id="dietaryList" parameterType="java.util.map" resultMap="dietaryResultMap">
+		<![CDATA[select * from(select rownum rnum, diet_no, diet]]
+	</select>
+
+</mapper> -->
