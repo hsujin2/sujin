@@ -31,5 +31,8 @@
 	<select id="getCartItem" parameterType="java.util.Map" resultType="java.lang.String">
 		select item_no from cart where member_id = #{userid} and item_no = #{item}
 	</select>
+	<select id="cartDelete" parameterType="java.lang.String">
+		delete from cart where cart_no = #{cart_no}
+	</select>
 	
 </mapper>
