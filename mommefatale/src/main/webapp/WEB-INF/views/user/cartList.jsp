@@ -44,10 +44,23 @@
 		}
 		form.submit();
 	}
-	function buynow(){
-		
-		$('input:checkbox[id="cartCheck"]').attr("checked",true);
+	
+	
+	function buynow(check,cart_no){
+		var form = document.cartListForm;
+		var checkArr=[];
+		checkArr.push(cart_no);
+		$("input[name='arr']").val(checkArr);
+		if(check){
+			$(form).attr("action", "payment.do");
+		}else{
+			$(form).attr("action", "cartdelete.do");
+		}
+		form.submit();
 	}
+	
+	
+	
 </script>
 </head>
 <body>
@@ -75,19 +88,18 @@
         </tr>
        <c:forEach var="vo" items="${cartlist }">
         <tr class="itemlist">
-            <td class="firstline"><input type="checkbox" name="cartCheck" class="checking" id="cartCheck" value="${vo.cart_no}"/> </td>
+            <td class="firstline"><input type="checkbox" name="cartCheck" class="checking" value="${vo.cart_no}"/> </td>
             <td class="firstline"><a href="itemview.do?no=${vo.item_no}"><img
 										src="/mommefatale/resources/images/uploadimg/${vo.main_img}"
 										alt="${vo.item_name}" class="itemImg" height="100px"/></a></td>
             <td class="itemname">${vo.item_name } <br /><br />옵션 : ${vo.item_size }</td>
-            <td>${vo.item_discount }</td>
+            <td name="fff">${vo.item_discount }</td>
             <td>${vo.cart_count }</td>
             <td>${vo.saving}p</td>
             <td>${vo.fee}원</td>
             <td>${vo.item_discount*vo.cart_count }원</td>
             <td width="80" class="firstline2">
-                <div class="but"><a href="javascript:buynow(this)" class="te">바로구매 ▶</a></div>
-                <div class="but2"><a href="#" class="te2">삭제</a></div>
+                <div class="but" onclick="buynow(true,${vo.cart_no})"><a href="#" class="te">바로구매 ▶</a></div>
             </td>
         </tr>
        </c:forEach>
