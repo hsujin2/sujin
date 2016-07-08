@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mypage</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/user/mypage_css.css"/>
 <script type="text/javascript">
 	
 	function OpenCouponPage(){
@@ -23,16 +24,50 @@
 <div id="wrap">
 <%@ include file="../include/header.jsp" %>
 <div class="mypage">
-	<h2>mypage</h2>
-	<div>${userLogin.getName()} 님의 마이페이지</div>
-	<div>등급 : ${userLogin.getGrade() }</div>
-	<div>포인트 : ${userLogin.getPoint() }</div>
-	<div><a href="userUpdate.do">회원정보수정</a></div>
-	<div><a href="userDelete.do">회원탈퇴</a></div>
-	<div><a href="cartlist.do">장바구니</a></div>
-	<div><a href="paymentlist.do">주문내역</a></div>
-	<div><a href="todayKcal.do">나의칼로리</a></div>
-	<div><input type="button" onclick="OpenCouponPage()" value="내 쿠폰"></div>
+<section class="content">
+  <div class="img">
+    	<img src="resources/images/mypage/mypage.png"  />
+  </div>
+  <div class="ment">PERSONAL INFO | SHOPPING INFO | COMMUNITY</div>
+    <div class="ulli">
+    	<ul class="list1">
+        	<li class="li1">
+            <table><tr><td rowspan="2"><img src="resources/images/mypage/key.png" width="24" height="39" /></td><td class="subject">PERSONAL INFO</td>																																																						
+            </tr>
+            <tr>
+            <td class="sub">개인정보</td>
+            </tr></table>
+            	<ul>
+                	<li><a href="userUpdate.do">회원정보수정</a></li>
+                    <li><a href="userDelete.do">회원탈퇴</a></li>
+                    
+                </ul>
+          </li>
+            <li class="li1"><table><tr><td rowspan="2"><img src="resources/images/mypage/box.png" width="41" height="40" /></td><td class="subject">PERSONAL INFO</td>																																																						
+            </tr>
+            <tr>
+            <td class="sub">컨텐츠</td>
+            </tr></table>
+            	<ul>
+                	<li><a href="paymentlist.do">주문내역</a></li>
+                    <li><a href="cartlist.do">장바구니</a></li>
+                    <li><a href="javascript:OpenCouponPage()">할인쿠폰내역</a></li>
+                    <li><a href="todayKcal.do">나의칼로리</a></li>
+                </ul>
+            </li>
+          <li><table><tr><td rowspan="2"><img src="resources/images/mypage/pad.png" width="33" height="40" /></td><td class="subject">PERSONAL INFO</td>																																																						
+            </tr>
+            <tr>
+            <td class="sub">나의등급</td>
+            </tr></table>
+            	<ul>
+                	<li><a href="#">등급 : ${userLogin.getGrade() }</a></li>
+                    <li><a href="#">포인트 : ${userLogin.getPoint() }</a></li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+</section>
 </div>
 <%@ include file="../include/footer.jsp" %>
 </div>
