@@ -6,21 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<title>Before&amp;After Gallery</title>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css" />
 <link rel="stylesheet" type="text/css"
 	href="resources/css/gallery/gallery_css.css" />
-
-<title>Before&amp;After Gallery</title>
 </head>
+
+
 <body>
 	<div id="wrap">
 		<%@ include file="../include/header.jsp"%>
 		<script>
 			function galleryWrite() {
 				var user = "${userLogin}";
-
+				f
 				if (user == null || user == "") {
 					alert("로그인 후 글쓰기가 가능합니다.");
 					return;
@@ -41,7 +41,8 @@
 				<c:if test="${count != 0 }">
 					<c:forEach var="vo" items="${vo}">
 						<li><span><a href="galleryContent.do?no=${vo.no}">
-									<img src="/mommefatale/resources/images/uploadimg/${vo.image}" id="image">
+									<img src="/mommefatale/resources/images/uploadimg/${vo.image}"
+									id="image">
 							</a></span> <span class="subject" id="subject"> <a
 								href="galleryContent.do?no=${vo.no}">${vo.subject}</a></span></li>
 					</c:forEach>

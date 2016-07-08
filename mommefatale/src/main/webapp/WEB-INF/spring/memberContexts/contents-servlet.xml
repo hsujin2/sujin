@@ -5,8 +5,37 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean class="com.mommefatale.contents.controller.UserContentsController">
+	<!-- Model -->
+	<bean id="paging" class="com.mommefatale.board.model.Paging">
 	</bean>
+
+	<!-- DAO -->
+	<bean id="exerciseDAO" class="com.mommefatale.contents.dao.ExerciseDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+
+	<!-- Service -->
+	<bean id="exercisePageService"
+		class="com.mommefatale.contents.service.ExercisePageServiceImpl">
+		<property name="dao" ref="exerciseDAO" />
+	</bean>
+
+
+
+
+	<!-- Controller -->
+	<bean id="exercisePageController"
+		class="com.mommefatale.contents.controller.ExercisePageController">
+		<property name="command" ref="exercisePageService" />
+		<property name="paging" ref="paging" />
+	</bean>
+	<bean class="com.mommefatale.contents.controller.UserExerciseController" />
+	<bean class="com.mommefatale.contents.controller.UserDietaryController" />
+	<bean
+		class="com.mommefatale.contents.controller.UserRecommendedProductsController" />
+
+
+
 
 
 </beans>
