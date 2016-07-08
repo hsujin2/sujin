@@ -17,7 +17,7 @@
 						(select rownum rnum, gallery_no, gallery_category, gallery_subject, gallery_content, gallery_image, gallery_regdate, gallery_view from
 							(select * from exercise order by gallery_no desc) 
 						)
-					where rnum >= #{starRow} and rnum <= #{endRow} ]]>
+					where rnum >= #{startRow} and rnum <= #{endRow} ]]>
 	</select>	
 	
 	<!-- Exercise 총 게시물 수 -->
