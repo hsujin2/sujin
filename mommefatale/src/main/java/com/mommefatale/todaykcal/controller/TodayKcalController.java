@@ -32,6 +32,7 @@ public class TodayKcalController {
 		request.setCharacterEncoding("UTF-8");
 		Map<String, Object> map = new HashMap<String, Object>();
 	
+		map.put("food_no", request.getParameter("food_no"));
 		map.put("food_name", request.getParameter("food_name"));
 		map.put("food_category", request.getParameter("food_category"));
 		
@@ -55,8 +56,11 @@ public class TodayKcalController {
 		request.setCharacterEncoding("UTF-8");
 		Map<String, Object> map = new HashMap<String, Object>();
 		
+		map.put("food_no", request.getParameter("food_no"));
 		map.put("food_name", request.getParameter("food_name"));
 		map.put("food_category", request.getParameter("food_category"));
+		
+		System.out.println("food_no : "+map.get("food_no"));
 		System.out.println("food_name : "+map.get("food_name"));
 		System.out.println("food_category : "+map.get("food_category"));
 		List<FoodVO> vo = command.TodayKcalFoodList(map);
