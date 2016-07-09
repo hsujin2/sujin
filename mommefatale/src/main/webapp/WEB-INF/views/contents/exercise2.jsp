@@ -21,7 +21,7 @@
 		function deleteContent() { //글삭제
 			var check = confirm("삭제하시겠습니까?");
 			if (check == true) {
-				window.location = "galleryDelete.do?no=${vo.no}";
+				window.location = "exerciseDelete.do?no=${vo.no}";
 			} else {
 				return;
 			}
@@ -47,13 +47,13 @@
 		<div class="board">
 			<h1 class="title">Exercise</h1>
 			<form name="exerciseContent" method="post" id="writeForm">
-				<table summary="테이블 구성" id="community_board">
+				<table summary="테이블 구성" id="exercise_board">
 					<tr>
 						<th class="no">NO.</th>
 						<td id="no">${vo.no}</td>
 						<td id="space"></td>
-						<th class="writer">글쓴이</th>
-						<td id="writer">${vo.writer}</td>
+						<%-- <th class="writer">글쓴이</th>
+						<td id="writer">${vo.writer}</td> --%>
 						<th>작성일자</th>
 						<td id="regdate"><fmt:formatDate value="${vo.regdate}"
 								type="date" pattern="yyyy-MM-dd HH:mm" /></td>
@@ -81,7 +81,7 @@
 						<td colspan="2">
 						<c:if test="${vo.writer eq userLogin.userid || admin eq true}">
 								<input type="button" value="수정"
-									onClick="window.location='galleryUpdate.do?no='+${vo.no}" class="commit_btn">
+									onClick="window.location='exerciseUpdate.do?no='+${vo.no}" class="commit_btn">
 								<input type="button" value="삭제" onClick="deleteContent()" class="commit_btn">
 							</c:if></td>
 					</tr>
