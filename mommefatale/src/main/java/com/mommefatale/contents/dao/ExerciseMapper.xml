@@ -2,28 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ExerciseMapper">
 	<resultMap id="exerciseResultMap" type="com.mommefatale.contents.model.ExerciseVO">
-		<result property="no" column="exercise_no" jdbcType="BIGINT"/>
-		<result property="category" column="exercise_category" jdbcType="VARCHAR"/>
-		<result property="subject" column="exercise_subject" jdbcType="VARCHAR"/>
-		<result property="content" column="exercise_content" jdbcType="VARCHAR"/>
-		<result property="image" column="exercise_image" jdbcType="VARCHAR"/>
-		<result property="regdate" column="exercise_regdate" jdbcType="VARCHAR"/>
-		<result property="view" column="exercise_view" jdbcType="BIGINT"/>	
+		<result property="no" column="exercise_no" jdbcType="BIGINT" />
+		<result property="category" column="exercise_category"
+			jdbcType="VARCHAR" />
+
+		<result property="subject" column="exercise_subject" jdbcType="VARCHAR" />
+		<result property="content" column="exercise_content" jdbcType="VARCHAR" />
+		<result property="image" column="exercise_image" jdbcType="VARCHAR" />
+		<result property="regdate" column="exercise_regdate" jdbcType="VARCHAR" />
+		<result property="view" column="exercise_view" jdbcType="BIGINT" />
 	</resultMap>
-	
+
 	<!-- Exercise 리스트 가져오기 -->
-	<select id="exerciseList" parameterType="java.util.Map" resultMap="exerciseResultMap">
+	<select id="exerciseList" parameterType="java.util.Map"
+		resultMap="exerciseResultMap">
 		<![CDATA[select * from 
 						(select rownum rnum, exercise_no, exercise_category, exercise_subject, exercise_content, exercise_image, exercise_regdate, exercise_view from
 							(select * from exercise order by exercise_no desc) 
 						)
 					where rnum >= #{startRow} and rnum <= #{endRow} ]]>
-	</select>	
-	
+	</select>
+
 	<!-- Exercise 총 게시물 수 -->
 	<select id="exerciseCount" resultType="java.lang.Integer">
 		<![CDATA[select count(*) from exercise]]>
 	</select>
+
+	<!-- Exercise 글쓰기 -->
+	<insert id="exerciseWrite" parameterType="java.util.Map">
+		<![CDATA[insert into exercise(exercise_no, exercise_category, exercise_subject, exercise_content, exercise_image, exercise_regdate)
+		 values (exercise_seq.nextval, #{category}, #{subject}, #{content}, #{image}, sysdate) ]]>
+	</insert>
+
+	<!-- Exercise 글 내용 가져오기 -->
+	<select id="exerciseContent" parameterType="java.lang.Integer"
+		resultMap="exerciseResultMap">
+		<![CDATA[select * from exercise where exercise_no=#{no}]]>
+	</select>
 	
+	<!-- Exercise 조회수 증가 -->
+	<update id="exerciseView" parameterType="java.lang.Integer">
+		<![CDATA[update exercise set exercise_view=exercise_view + 1 where exercise_no = #{no} ]]>
+	</update>
 
 </mapper>

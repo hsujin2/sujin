@@ -19,6 +19,12 @@
 		class="com.mommefatale.contents.service.ExercisePageServiceImpl">
 		<property name="dao" ref="exerciseDAO" />
 	</bean>
+	<bean id="exerciseWriteService" class="com.mommefatale.contents.service.ExerciseWriteServiceImpl">
+		<property name="dao" ref="exerciseDAO"/>
+	</bean>
+	<bean id="exerciseContentService" class="com.mommefatale.contents.service.ExerciseContentServiceImpl">
+		<property name="dao" ref="exerciseDAO"/>
+	</bean>
 
 
 
@@ -29,10 +35,21 @@
 		<property name="command" ref="exercisePageService" />
 		<property name="paging" ref="paging" />
 	</bean>
+	<bean id="exerciseWriteController" class="com.mommefatale.contents.controller.ExerciseWriteController">
+		<property name="command" ref="exerciseWriteService"/>
+	</bean>
+	<bean id="exerciseContentController" class="com.mommefatale.contents.controller.ExerciseContentController">
+		<property name="command" ref="exerciseContentService"/>
+	</bean>
+	
+	
+	
+	
+	
 	<bean class="com.mommefatale.contents.controller.UserExerciseController" />
 	<bean class="com.mommefatale.contents.controller.UserDietaryController" />
-	<bean
-		class="com.mommefatale.contents.controller.UserRecommendedProductsController" />
+	<bean class="com.mommefatale.contents.controller.UserRecommendedProductsController" />
+	
 
 
 

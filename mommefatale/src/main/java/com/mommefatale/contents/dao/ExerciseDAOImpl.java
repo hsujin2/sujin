@@ -10,9 +10,9 @@ import com.mommefatale.contents.model.ExerciseVO;
 public class ExerciseDAOImpl implements ExerciseDAO {
 
 	private static final String namespace = "ExerciseMapper";
-	
+
 	private SqlSessionTemplate session;
-	
+
 	public SqlSessionTemplate getSession() {
 		return session;
 	}
@@ -33,23 +33,24 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		System.out.println("운동법 총 게시물 수 : " + count);
 		return 0;
 	}
-	
 
 	@Override
 	public void exerciseWrite(Map<String, Object> vo) {
-		// TODO Auto-generated method stub
-
+		System.out.println("운동법 글쓰기 DAO");
+		session.insert(namespace + ".exerciseWrite", vo);
+		return;
 	}
 
 	@Override
 	public ExerciseVO getExerciseContent(int no) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("운동법 글내용 DAO");
+		return session.selectOne(namespace + ".exerciseContent", no);
 	}
 
 	@Override
 	public void exerciseView(int no) {
-		// TODO Auto-generated method stub
+		System.out.println(no + "번 조회수 1 증가");
+		session.update(namespace + ".exerciseView", no);
 
 	}
 
