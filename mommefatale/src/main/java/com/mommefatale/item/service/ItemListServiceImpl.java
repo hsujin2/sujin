@@ -29,4 +29,9 @@ public class ItemListServiceImpl implements ItemListService{
 		return dao.bestList(category);
 	}
 
+	@Override
+	public List<ItemVO> indexbestItemList() {
+		return dao.indexbestItemList();
+	}
+
 }

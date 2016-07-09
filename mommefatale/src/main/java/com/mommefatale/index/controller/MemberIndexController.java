@@ -12,12 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.board.model.CommunityBoardVO;
 import com.mommefatale.index.service.IndexBoardService;
+import com.mommefatale.item.model.ItemVO;
+import com.mommefatale.item.service.ItemListService;
 
 @Controller
 public class MemberIndexController {
-
+	private ItemListService itemService;
 	private IndexBoardService boardService;
 	
+	public void setItemService(ItemListService itemService) {
+		this.itemService = itemService;
+	}
+
 	public IndexBoardService getBoardService() {
 		return boardService;
 	}
@@ -35,6 +41,9 @@ public class MemberIndexController {
 		mav.addObject("community", community);
 		mav.addObject("notice", notice);
 		System.out.println("¸â¹ö ÀÎµ¦½º ÄÁÆ®·Ñ·¯");
+		
+		List<ItemVO> bestitem = itemService.indexbestItemList();
+		mav.addObject("bestitem",bestitem);
 		
 		return mav;
 	}
