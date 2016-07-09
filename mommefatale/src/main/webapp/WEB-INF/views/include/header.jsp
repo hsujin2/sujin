@@ -41,7 +41,7 @@
      <h1><a href="index.do"><img src="resources/images/index/logo.png" alt="몸므파탈로고" id="logo"/></a></h1>
   <nav id="gnb">
      <ul id="gnb_shop">
-		<li><a href="itemList.do?category=1">Equipment</a>
+		<li><a href="itemList.do?category=1&range=new">Equipment</a>
         	<ul class="menu1">
             	<li><a href="itemList.do?category=1&range=new">런닝머신</a></li>
                 <li><a href="itemList.do?category=2&range=new">웨이트기구</a></li>
