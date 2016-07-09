@@ -49,13 +49,20 @@ public class GalleryUpdateController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		int no = Integer.parseInt(request.getParameter("no"));
 		Enumeration<?> enums = request.getParameterNames();
+		
+		String content = request.getParameter("content");
+		String imgPath = "/mommefatale/resources/images/uploadimg/images/";
+		int content_i = content.indexOf(imgPath);
+		String gallery_image = content.substring(content_i+imgPath.length(),(content.substring(content_i).indexOf("\"")+content_i));
+		
 		while(enums.hasMoreElements()){
 			String paramName = enums.nextElement().toString();
 			String paramValue= request.getParameter(paramName);
 			System.out.println("no:"+no+", paramName:"+paramName+", paramValue:"+paramValue);
 			map.put(paramName, paramValue);
 		}
-		map.put("image", "img"); // 임시로 줌- 나중에 삭제하기
+		
+		map.put("image", gallery_image);
 		map.put("no", no);
 		service.galleryUpdate(map);
 		mav.setViewName("redirect:/gallery.do");

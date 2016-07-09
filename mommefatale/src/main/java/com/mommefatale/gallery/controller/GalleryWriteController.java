@@ -39,7 +39,13 @@ public class GalleryWriteController {
 		System.out.println("갤러리");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
-	//	String image = 
+		
+		// content에서 이미지 경로 가져오기
+		String content = request.getParameter("content");
+		String imgPath = "/mommefatale/resources/images/uploadimg/images/";
+		int content_i = content.indexOf(imgPath);
+		String gallery_image = content.substring(content_i+imgPath.length(),(content.substring(content_i).indexOf("\"")+content_i));
+				
 		Enumeration<?> enums = request.getParameterNames();
 		while(enums.hasMoreElements()){
 			String paramName = enums.nextElement().toString();
@@ -47,7 +53,8 @@ public class GalleryWriteController {
 			System.out.println("ParamName:" + paramName + " ParamValue:" + paramValue);
 			map.put(paramName, paramValue);
 		}
-		map.put("image", "img"); // 임시로 줌- 나중에 삭제하기
+		
+		map.put("image", gallery_image);
 		command.galleryWrite(map);
 		mav.setViewName("redirect:/gallery.do");
 		
