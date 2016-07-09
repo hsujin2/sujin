@@ -63,6 +63,18 @@
 			$("#payForm").attr("action", "cartInsert.do");
 			$("#payForm").submit();
 		}
+	
+	function wishchecklogin(){
+		var check = ${login == null};
+			if(check==true){
+				alert("로그인 후 이용해주세요");
+				window.location="login.do";
+				return;
+			}
+			alert("위시리스트에 추가됐습니다");
+			$("#payForm").attr("action", "wishInsert.do");
+			$("#payForm").submit();
+		}
 </script>
 </head>
 <body>
@@ -152,7 +164,7 @@
     <ul class="but">
     	<li><a href="javascript:buychecklogin();"><div>BUY NOW</div></a></li>
         <li><a href="javascript:cartchecklogin();"><div>CART</div></a></li>
-        <li><a href="#"><div>WISH LIST</div></a></li>
+        <li><a href="javascript:wishchecklogin();"><div>WISH LIST</div></a></li>
     </ul><br />
 </form>
     <ul class="menu">

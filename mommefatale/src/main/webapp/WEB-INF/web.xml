@@ -36,6 +36,7 @@
 				/WEB-INF/spring/memberContexts/cart-servlet.xml
 				/WEB-INF/spring/memberContexts/payment-servlet.xml
 				/WEB-INF/spring/memberContexts/todaykcal-servlet.xml
+				/WEB-INF/spring/memberContexts/wish-servlet.xml
 		</param-value>		
 		</init-param>
 		<load-on-startup>0</load-on-startup>

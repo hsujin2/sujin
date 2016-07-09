@@ -43,7 +43,7 @@
                     
                 </ul>
           </li>
-            <li class="li1"><table><tr><td rowspan="2"><img src="resources/images/mypage/box.png" width="41" height="40" /></td><td class="subject">PERSONAL INFO</td>																																																						
+            <li class="li1"><table><tr><td rowspan="2"><img src="resources/images/mypage/box.png" width="41" height="40" /></td><td class="subject">CONTENTS</td>																																																						
             </tr>
             <tr>
             <td class="sub">컨텐츠</td>
@@ -51,11 +51,12 @@
             	<ul>
                 	<li><a href="paymentlist.do">주문내역</a></li>
                     <li><a href="cartlist.do">장바구니</a></li>
+                    <li><a href="wishlist.do">위시리스트</a></li>
                     <li><a href="javascript:OpenCouponPage()">할인쿠폰내역</a></li>
                     <li><a href="todayKcal.do">나의칼로리</a></li>
                 </ul>
             </li>
-          <li><table><tr><td rowspan="2"><img src="resources/images/mypage/pad.png" width="33" height="40" /></td><td class="subject">PERSONAL INFO</td>																																																						
+          <li><table><tr><td rowspan="2"><img src="resources/images/mypage/pad.png" width="33" height="40" /></td><td class="subject">MY POINT</td>																																																						
             </tr>
             <tr>
             <td class="sub">나의등급</td>
