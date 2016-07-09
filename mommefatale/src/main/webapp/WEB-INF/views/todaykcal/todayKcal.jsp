@@ -178,7 +178,14 @@ function removeFromMyList(clickList){
 }
 
 function saveMyKcal(){
-	
+	var todayMyKcal = $("#todayMyKcal").text();
+	var member_id =  $("#member_id").val();
+	if(todayMyKcal == null || todayMyKcal == ""){
+		alert("오늘 먹은 음식의 칼로리를 기록해주세요");
+		return;
+	}else{	
+	window.location="todayKcal.do?todayMyKcal="+todayMyKcal+"&member_id="+member_id;
+	}
 }
 </script>
 
@@ -189,7 +196,10 @@ function saveMyKcal(){
       <div id="todayKcalWrap">
       <span class="recommendedKcal">${userLogin.name}님의 하루 권장섭취량</span>
       <span class="recommendedKcal2">${userLogin.kcal} 칼로리</span>
+      <form action="todayKcal.do" method="get" name="todayKcalForm" id="todayKcalForm">
       <span id="todayMyKcal"></span>
+      <input type="hidden" id="member_id" name="member_id" value="${userLogin.userid}">
+      </form>
       <input type="button" id="kcal_today" name="kcal_today" value="오늘의 칼로리 기록하기" onclick="saveMyKcal()">
       <div class="board">
          <div class="searchFood">

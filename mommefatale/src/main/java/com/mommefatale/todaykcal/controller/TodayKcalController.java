@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.todaykcal.model.FoodVO;
+import com.mommefatale.todaykcal.model.KcalVO;
 import com.mommefatale.todaykcal.service.TodayKcalService;
+import com.mommefatale.user.model.UserVO;
 
 @Controller
 public class TodayKcalController {
@@ -25,28 +29,23 @@ public class TodayKcalController {
 	}
 
 	
-	@RequestMapping(value="todayKcal.do")
-	public ModelAndView TodayKcal(HttpServletRequest request) throws Exception{
+	@RequestMapping(value="todayKcal.do", method=RequestMethod.GET)
+	public String TodayKcal(HttpServletRequest request) throws Exception{
 		System.out.println("오늘의 칼로리 페이지 컨트롤러");
-		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
-		Map<String, Object> map = new HashMap<String, Object>();
-	
-		map.put("food_no", request.getParameter("food_no"));
-		map.put("food_name", request.getParameter("food_name"));
-		map.put("food_category", request.getParameter("food_category"));
-		
-		List<FoodVO> vo = command.TodayKcalFoodList(map);
-		int count = vo.size();
-		
-		Map<String, Object> model = new HashMap<String, Object>();
 
-		model.put("foodList", vo);
-		mav.addAllObjects(model);
-		mav.setViewName("todaykcal/todayKcal");
-		mav.addObject("vo", vo);
-		mav.addObject("count", count);
-		return mav;
+		// 오늘의 칼로리 저장
+		if(request.getParameter("todayMyKcal") != null){
+		System.out.println("오늘의 칼로리 저장 컨트롤러");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("kcal_today", request.getParameter("todayMyKcal"));
+		map.put("member_id", request.getParameter("member_id"));
+		System.out.println(request.getParameter("todayMyKcal"));
+		System.out.println(request.getParameter("member_id"));
+		command.TodayKcalMyList(map);
+		}
+		
+		return "todaykcal/todayKcal";
 	}
 	
 	@RequestMapping(value="todayKcal.json")
@@ -73,6 +72,8 @@ public class TodayKcalController {
 		mav.setViewName("jsonView");
 		mav.addObject("vo", vo);
 		mav.addObject("count", count);
+		
+		System.out.println("푸드리스트 가져오기 컨트롤러");
 		return mav;
 	}
 	
