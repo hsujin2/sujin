@@ -34,5 +34,9 @@ public class ItemDAOImpl implements ItemDAO{
 	public List<ItemVO> bestList(Integer category) {
 		return session.selectList(namespace + ".bestList",category);
 	}
+	@Override
+	public void itemViewCount(int item_no) {
+		session.update(namespace + ".itemViewCount",item_no);
+	}
 
 }
