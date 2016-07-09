@@ -37,7 +37,7 @@
 <!-- 오늘의 칼로리 저장-->
 <insert id="saveTodayKcal" parameterType="java.util.Map">
  insert into kcal(kcal_no, member_id, kcal_regdate, kcal_today)
- values(kcal_seq.nextval, #{userid}, sysdate, #{kcal_today})
+ values(kcal_seq.nextval, #{member_id}, sysdate, #{kcal_today})
 </insert>
 
 </mapper>
