@@ -11,7 +11,7 @@
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
 	href="resources/css/gallery/gallery_css.css">
-<script type="text/javascript" src="resources/ckeditor/ckeditor.js" charset="utf-8"></script> 
+<script type="text/javascript" src="ckeditor/ckeditor.js" charset="utf-8"></script> 
 <script>
 
 	function FormCheck() {

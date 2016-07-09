@@ -47,7 +47,7 @@ public class GalleryWriteController {
 			System.out.println("ParamName:" + paramName + " ParamValue:" + paramValue);
 			map.put(paramName, paramValue);
 		}
-		map.put("image", ""); // 임시로 줌- 나중에 삭제하기
+		map.put("image", "img"); // 임시로 줌- 나중에 삭제하기
 		command.galleryWrite(map);
 		mav.setViewName("redirect:/gallery.do");
 		

@@ -55,7 +55,7 @@ public class GalleryUpdateController {
 			System.out.println("no:"+no+", paramName:"+paramName+", paramValue:"+paramValue);
 			map.put(paramName, paramValue);
 		}
-		map.put("image", ""); // 임시로 줌- 나중에 삭제하기
+		map.put("image", "img"); // 임시로 줌- 나중에 삭제하기
 		map.put("no", no);
 		service.galleryUpdate(map);
 		mav.setViewName("redirect:/gallery.do");
