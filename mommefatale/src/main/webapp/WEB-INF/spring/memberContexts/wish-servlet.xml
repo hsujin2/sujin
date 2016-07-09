@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- DAO -->
+	<bean id="WishDAO" class="com.mommefatale.wish.dao.WishDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+	<bean id="ItemDAO" class="com.mommefatale.item.dao.ItemDAOImpl">
+		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+	<!-- service -->
+	<bean id="WishService" class="com.mommefatale.wish.service.WishServiceImpl">
+		<property name="dao" ref="WishDAO"></property>
+	</bean>
+	<bean id="ItemViewUserService" class="com.mommefatale.item.service.ItemViewUserServiceImpl">
+		<property name="dao" ref="ItemDAO"></property>
+	</bean>
+	<bean id="WishDeleteService" class="com.mommefatale.wish.service.WishDeleteServiceImpl">
+		<property name="dao" ref="WishDAO"></property>
+	</bean>
+	<!-- controller -->
+	<bean class="com.mommefatale.wish.controller.WishController" >
+		<property name="command" ref="WishService"></property> 
+		<property name="itemService" ref="ItemViewUserService"></property>
+	</bean>
+	<bean class="com.mommefatale.wish.controller.WishDeleteController">
+		<property name="command" ref="WishDeleteService"></property> 
+	</bean>
+		
+</beans>

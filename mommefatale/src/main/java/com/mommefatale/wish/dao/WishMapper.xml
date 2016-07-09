@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mommefatale.wish.dao.WishMapper">
+	<resultMap id="toWishVO" type="com.mommefatale.wish.model.WishVO">
+		<result property="wish_no" column="WISH_NO" jdbcType="BIGINT"/>
+		<result property="user_id" column="MEMBER_ID" jdbcType="VARCHAR"/>
+		<result property="item_no" column="ITEM_NO" jdbcType="BIGINT"/>
+		<result property="item_name" column="ITEM_NAME" jdbcType="VARCHAR"/>
+		<result property="item_category" column="CATEGORY_NO" jdbcType="BIGINT"/>
+		<result property="item_discount" column="ITEM_PRICE_DISCOUNT" jdbcType="BIGINT"/>
+		<result property="item_size" column="OPTION_SIZE" jdbcType="VARCHAR"/>
+		<result property="wish_count" column="WISH_COUNT" jdbcType="BIGINT"/>
+		<result property="main_img" column="ITEM_IMAGE" jdbcType="VARCHAR"/>
+		<result property="wish_regdate" column="WISH_REGDATE" jdbcType="DATE"/>
+		<result property="saving" column="WISH_SAVING" jdbcType="DATE"/>
+		<result property="fee" column="WISH_FEE" jdbcType="DATE"/>
+	</resultMap>
+	<select id="insertWish" parameterType="com.mommefatale.wish.model.WishVO">
+		INSERT INTO WISH(WISH_NO,ITEM_NO,MEMBER_ID,WISH_EXDATE,WISH_COUNT,WISH_SAVING,WISH_FEE)VALUES(wish_seq.nextval,#{item_no},#{user_id},sysdate+90,#{wish_count},#{saving},#{fee})
+	</select>
+	<select id="wishList" parameterType="java.lang.String" resultMap="toWishVO">
+		select wish_no, member_id, item_no, item_name, category_no, item_price_discount, option_size, wish_count, item_image, wish_regdate,wish_saving,wish_fee from member join wish using(member_id) join item using(item_no) where member_id=#{userid}
+	</select>
+	<select id="getWish" parameterType="java.lang.Integer" resultMap="toWishVO">
+		select wish_no, member_id, item_no, item_name, category_no, item_price_discount, option_size, wish_count, item_image, wish_regdate,wish_saving,wish_fee from member join wish using(member_id) join item using(item_no) where wish_no=#{wish_no}
+	</select>
+	<select id="updateWish" parameterType="com.mommefatale.wish.model.WishVO">
+		update wish set wish_count = wish_count + #{wish_count} where item_no = #{item_no} and member_id = #{user_id}
+	</select>
+	
+	<select id="getWishItem" parameterType="java.util.Map" resultType="java.lang.String">
+		select item_no from wish where member_id = #{userid} and item_no = #{item}
+	</select>
+	<select id="wishDelete" parameterType="java.lang.String">
+		delete from wish where wish_no = #{wish_no}
+	</select>
+	
+</mapper>
