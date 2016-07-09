@@ -9,4 +9,5 @@ public interface ItemListService {
 	public int getCategoryCount(String category);
 	public List<ItemVO> listCategory(Map<String, Object> map);
 	public List<ItemVO> bestList(Integer category);
+	public List<ItemVO> indexbestItemList();
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dli">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,39 +25,59 @@
 	<div id="wrap">
 		<%@ include file="include/header.jsp"%>
 		<section>
-		<div id="main_banner">
-			<!--배너광고 -->
-			<img src="resources/images/index/banner_index.png" alt="배너"
-				class="main_bnimg" />
-		</div>
-		<div id="main_content">
-			<h2>상품목록</h2>
-			<ul class="item">
-				<li><a href="#"><img
-						src="resources/images/index/item01.png" alt="FORCE BLACK MASS" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item02.png" alt="leggings" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item03.png" alt="cable" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item04.png" alt="push-up bar" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item05.png" alt="ball" /></a></li>
-			</ul>
-			<h2>인기상품</h2>
-			<ul class="item">
-				<li><a href="#"><img
-						src="resources/images/index/item07.png" alt="t-shirts" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item08.png" alt="jumploop" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item09.png" alt="dumbbel" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item10.png" alt="yoga mat" /></a></li>
-				<li><a href="#"><img
-						src="resources/images/index/item12.png" alt="treadmill" /></a></li>
-			</ul>
-		</div>
+		<div class="content">
+    <div class="sub">기적의 <span class="col">E</span>VENT</div>
+    <div class="sub2">나라면 당장 선택하겠어</div>
+        <div class="newitem">
+            <ul>
+                <li width="33%">
+                    <div class="group">
+                        <div class="image"><img src="img/blackimg.png" width="280" height="280" /></div>
+                        <div class="ment">
+                            <a href="#"><span class="col2">[서비스 이벤트 맨트]</span>[상품이름]상품에대한 간략한 설명</a>
+                        </div>
+                        <div class="price">655,000원</div>
+                    </div>
+                </li>
+                <li width="33%">
+                    <div class="group">
+                        <div class="image"><img src="img/blackimg.png" width="280" height="280" /></div>
+                        <div class="ment">
+                            <a href="#"><span class="col2">[서비스 이벤트 맨트]</span>[상품이름]상품에대한 간략한 설명</a>
+                        </div>
+                        <div class="price">655,000원</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="group">
+                        <div class="image"><img src="img/blackimg.png" width="280" height="280" /></div>
+                        <div class="ment">
+                            <a href="#"><span class="col2">[서비스 이벤트 맨트]</span>[상품이름]상품에대한 간략한 설명</a>
+                        </div>
+                        <div class="price">655,000원</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
+    <div class="sub3"><span class="col3">BEST </span>PRODUCT</div>
+    <div class="sub4">쇼핑몰에서 엄선한 추천상품입니다.</div>
+    
+            <ul class="bestitems">
+            <c:forEach var="item" items="${bestitem}">
+                <li width="25%">
+                    <div class="group2">
+                        <div class="image2"><a href="itemview.do?no=${item.no}"><img src="/mommefatale/resources/images/uploadimg/${item.main_img}" width="230" height="230" /></a></div>
+                        <div class="ment2">
+                            <a href="itemview.do?no=${item.no}"><div class="item_name">[${item.name}]</div><span class="explain"><br>브랜드 : ${item.brand }<br>원산지 : ${item.origin}</span></a>
+                        </div>
+                        <div class="price2">${item.price_discount}원</div>
+                    </div>
+                </li>
+            </c:forEach>
+            </ul>
+        <div id="clear"></div>
+</div>
 		<div id="main_board">
 			<div class="notice">
 				<h2 class="title">공지사항</h2>

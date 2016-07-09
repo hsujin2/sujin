@@ -99,9 +99,44 @@ input{vertical-align:middle;}
 
 /*배너광고*/
 
-#main_banner{clear:both; text-align:center; margin:30px auto;}
-.main_bnimg{float:left; width:100%; min-width:1003px;}
+.content{clear:both; text-align:left; margin:30px auto; width:1003px;}
 
+.sub{font-size:22px; color:#777; width:150px; margin:0 auto; font-weight:bolder; margin-top:30px; }
+.col{color:#333; font-size:27px;}
+.sub2{font-size:12px; color:#666; width:130px; margin:0 auto; font-weight:bold;}
+.event{width:1000px; margin:0 auto; margin-top:20px;}
+.group{border:1px solid #ddd;margin:0 auto; width:300px; border-bottom:1px solid white; background-color:#fcfcfc;}
+.group .image{width:280px; margin:0 auto;margin-top:8px;}
+.ment{width:280px; margin:0 auto;margin-top:8px;margin-bottom:50px;}
+.ment a{text-decoration:none; font-size:12px; color:#666; font-weight:bolder;}
+.col2{color:#F30; font-weight:bolder;}
+.ment a:hover{text-decoration:underline;}
+.price{width:280px; margin:0 auto;margin-top:8px; border-top:1px solid #CCC; font-size:12px; font-weight:bolder; padding:2px;
+margin-bottom:10px;}
+.sub3{font-size:25px; color:#777; width:188px; margin:0 auto; font-weight:bolder; margin-top:30px; border-bottom:1px solid black; }
+.col3{color:#333;}
+.sub4{font-size:11px; color:#666; width:180px; margin:0 auto; font-weight:bold;}
+
+
+.event2{width:1000px; margin:0 auto; margin-top:20px;}
+.group2{border:1px solid #ddd;margin:0 auto; width:240px; border-bottom:1px solid white; background-color:#fcfcfc;}
+.group2 .image2{width:230px; margin:0 auto;margin-top:4px;}
+.ment2{width:230px; margin:0 auto;margin-top:8px;margin-bottom:50px;}
+.ment2 a{text-decoration:none; font-size:12px; color:#666; font-weight:bolder;}
+.ment2 a:hover{text-decoration:underline;}
+.price2{width:230px; margin:0 auto;margin-top:8px; border-top:1px solid #CCC; font-size:12px; font-weight:bolder; padding:2px;
+margin-bottom:10px;}
+.event2 td{height:380px;}
+
+.main_bnimg{float:left; width:100%; min-width:1003px;}
+ul{margin:0px auto;}
+.newitem li{float:left; margin-right:10px; margin-left:20px;}
+.content .bestitems li{float:left; margin:11px 2px 11px 6px;}
+
+#clear{clear:both;}
+.explain{color:#ccc; margin:0px 5px;}
+.item_name{margin:5px 5px;}
+.newitem{margin:0px auto;}
 /*메인컨텐츠*/
 
 #main_content{clear:both; text-align:center; min-width:1003px; margin:20px auto;}

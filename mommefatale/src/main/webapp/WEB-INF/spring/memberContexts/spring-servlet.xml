@@ -13,16 +13,23 @@
 	<!--  Controller -->
 	<bean class="com.mommefatale.index.controller.MemberIndexController">
 		<property name="boardService" ref="indexBoardService"/>
+		<property name="itemService" ref="ItemListService"/>
 	</bean>
 	
 	<!-- Service -->
 	<bean id="indexBoardService" class="com.mommefatale.index.service.IndexBoardServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
+	<bean id="ItemListService" class="com.mommefatale.item.service.ItemListServiceImpl">
+		<property name="dao" ref="ItemDAO"/>
+	</bean>
 	
 	<!-- DAO -->
 	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
 		<property name="session" ref="sqlSessionTemplate"/>
+	</bean>
+	<bean id="ItemDAO" class="com.mommefatale.item.dao.ItemDAOImpl">
+		<property name="session" ref="sqlSessionTemplate" />
 	</bean>
 	
 </beans>

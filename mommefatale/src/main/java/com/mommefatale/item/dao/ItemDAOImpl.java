@@ -38,5 +38,9 @@ public class ItemDAOImpl implements ItemDAO{
 	public void itemViewCount(int item_no) {
 		session.update(namespace + ".itemViewCount",item_no);
 	}
+	@Override
+	public List<ItemVO> indexbestItemList() {
+		return session.selectList(namespace + ".indexbestItemList");
+	}
 
 }

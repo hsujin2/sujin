@@ -89,6 +89,7 @@ public class ItemListUserController {
 		
 		return mav;
 	}
+	
 	@RequestMapping(value="bestitemlist.json")
 	public ModelAndView bestItemList(HttpServletRequest request){
 		Integer category = Integer.parseInt(request.getParameter("category"));
