@@ -49,6 +49,10 @@ public class ItemViewUserController {
 		}else{
 			model.put("user", "null");
 		}
+		
+		//조회수증가
+		command.itemViewCount(item_no);
+		
 		model.put("item", itemVO);
 		
 		mav.addAllObjects(model);

@@ -17,4 +17,9 @@ public class ItemViewUserServiceImpl implements ItemViewUserService {
 		return dao.itemView(item_no);
 	}
 
+	@Override
+	public void itemViewCount(int item_no) {
+		dao.itemViewCount(item_no);
+	}
+
 }
