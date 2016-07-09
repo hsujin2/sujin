@@ -58,7 +58,7 @@
 				<tr>
 					<td colspan="5"></td>
 					<td>
-						<button class="write_button" onclick="exerciseWrite()">글쓰기</button>
+						<button class="write_button" onclick="location.href='exerciseWriteForm.do'">글쓰기</button>
 
 					</td>
 				</tr>
