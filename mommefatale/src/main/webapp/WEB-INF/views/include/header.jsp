@@ -50,7 +50,7 @@
                 <li><a href="itemList.do?category=5&range=new">기타</a></li>
            </ul>
         </li>        
-        <li><a href="#">SportsWear</a>
+        <li><a href="itemList.do?category=6&range=new">SportsWear</a>
         	<ul class="menu2">
             	<li><a href="itemList.do?category=6&range=new">운동복</a></li>
                 <li><a href="itemList.do?category=7&range=new">운동화/런닝화</a></li>
@@ -58,7 +58,7 @@
                 <li><a href="itemList.do?category=9&range=new">기타</a></li>
            </ul>
         </li> 
-        <li><a href="#">Food</a>
+        <li><a href="itemList.do?category=10&range=new">Food</a>
         	<ul class="menu3">
             	<li><a href="itemList.do?category=10&range=new">보충제</a></li>
                 <li><a href="itemList.do?category=11&range=new">영양제</a></li>
