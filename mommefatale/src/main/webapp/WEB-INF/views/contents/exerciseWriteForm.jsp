@@ -10,8 +10,8 @@
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
-	href="resources/css/gallery/gallery_css.css">
-<script type="text/javascript" src="resources/ckeditor/ckeditor.js" charset="utf-8"></script> 
+	href="resources/css/contents/contents_css.css">
+<script type="text/javascript" src="ckeditor/ckeditor.js" charset="utf-8"></script> 
 <script>
 
 	function FormCheck() {
@@ -19,7 +19,7 @@
 		/* var writer = document.getElementById("writer"); */
 		var subject = document.getElementById("subject");
 		var content = document.getElementById("content");
-		var galleryWriteForm = document.getElementById("writeForm");
+		var exerciseWriteForm = document.getElementById("writeForm");
 
 		if (subject.value == null || subject.value == "") {
 			alert("제목을 입력하세요!");
@@ -27,7 +27,7 @@
 			return;
 		}
 
-		document.galleryWriteForm.submit();
+		document.exerciseWriteForm.submit();
 	}
 
 	function writeCancel() {
@@ -42,7 +42,7 @@
 			<h1 class="title">Exercise</h1>
 			<form name="exerciseWriteForm" method="post"
 				action="exerciseWrite.do" id="writeForm">
-				<table summary="테이블 구성" id="gallery_board">
+				<table summary="테이블 구성" id="exercise_board">
 					<%-- <tr>
 						<th>작성자</th>
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="writer" id="writer"

@@ -33,7 +33,7 @@ public class ExerciseWriteController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/ExerciseWrite.do")
+	@RequestMapping(value = "exerciseWrite.do")
 	public ModelAndView exerciseWrite(HttpServletRequest request) throws Exception {
 		System.out.println("¿îµ¿¹ý");
 		ModelAndView mav = new ModelAndView();
