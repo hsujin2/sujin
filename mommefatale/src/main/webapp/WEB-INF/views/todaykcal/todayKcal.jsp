@@ -185,6 +185,7 @@ function saveMyKcal(){
 		return;
 	}else{	
 	window.location="todayKcal.do?todayMyKcal="+todayMyKcal+"&member_id="+member_id;
+	alert("오늘의 칼로리가 기록되었습니다.");
 	}
 }
 </script>
