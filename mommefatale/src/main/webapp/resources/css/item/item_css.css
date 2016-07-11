@@ -33,4 +33,7 @@ body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
 .menu>li>a:hover{font-weight:bold;}
 .detail{margin:0 auto; width:1000px; margin-top:30px;}
 .bor{border-bottom:1px solid #CCC;}
+
+.info{margin:0 auto;}
+.indent{margin-left:20px; font-size:small;}
 /*.i{text-align:center;}*/
