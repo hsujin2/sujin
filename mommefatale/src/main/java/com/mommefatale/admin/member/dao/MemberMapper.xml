@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper">
+	<resultMap id="memberResultMap" type="com.mommefatale.admin.member.model.memberVO">
+		<result property="name" column="MEMBER_NAME" jdbcType="VARCHAR" />
+		<result property="gender" column="MEMBER_GENDER" jdbcType="VARCHAR" />
+		<result property="id" column="MEMBER_ID" jdbcType="VARCHAR" />
+		<result property="pw" column="MEMBER_PW" jdbcType="VARCHAR" />
+		<result property="email" column="MEMBER_EMAIL" jdbcType="VARCHAR" />
+		<result property="zip" column="MEMBER_ZIP" jdbcType="VARCHAR" />
+		<result property="address1" column="MEMBER_ADDRESS1" jdbcType="VARCHAR" />
+		<result property="address2" column="MEMBER_ADDRESS2" jdbcType="VARCHAR" />
+		<result property="phone" column="MEMBER_PHONE" jdbcType="VARCHAR" />
+		<result property="birthday" column="MEMBER_BIRTHDAY" jdbcType="DATE" />
+		<result property="grade" column="GRADE_CODE_NAME" jdbcType="VARCHAR" />
+		<result property="height" column="MEMBER_HEIGHT" jdbcType="BIGINT" />
+		<result property="weight" column="MEMBER_WEIGHT" jdbcType="BIGINT" />
+		<result property="bmi" column="MEMBER_BMI" jdbcType="BIGINT" />
+		<result property="shape" column="SHAPE_CODE" jdbcType="VARCHAR" />
+		<result property="fat_part1" column="FAT_PART1" jdbcType="VARCHAR" />
+		<result property="fat_part2" column="FAT_PART2" jdbcType="VARCHAR" />
+		<result property="fat_part3" column="FAT_PART3" jdbcType="VARCHAR" />
+		<result property="fat_part4" column="FAT_PART4" jdbcType="VARCHAR" />
+		<result property="fat_part5" column="FAT_PART5" jdbcType="VARCHAR" />
+		<result property="fat_part6" column="FAT_PART6" jdbcType="VARCHAR" />
+		<result property="activity_code1" column="ACTIVITY_CODE1" jdbcType="VARCHAR" />
+		<result property="activity_code2" column="ACTIVITY_CODE2" jdbcType="VARCHAR" />
+		<result property="activity_code3" column="ACTIVITY_CODE3" jdbcType="VARCHAR" />
+		<result property="activity_code4" column="ACTIVITY_CODE4" jdbcType="VARCHAR" />
+		<result property="activity_code5" column="ACTIVITY_CODE5" jdbcType="VARCHAR" />
+		<result property="kcal" column="MEMBER_KCAL" jdbcType="BIGINT" />
+		<result property="coupon" column="COUPONS_NO" jdbcType="BIGINT" />
+		<result property="point" column="MEMBER_POINT" jdbcType="BIGINT"/>
+		<result property="state" column="MEMBER_STATE" jdbcType="VARCHAR" />
+		<result property="join_date" column="MEMBER_JOIN_DATE" jdbcType="DATE" />
+		<result property="visit_count" column="MEMBER_VISIT_COUNT" jdbcType="BIGINT" />
+		<result property="last_visit_date" column="MEMBER_LAST_VISIT_DATE" jdbcType="DATE" />
+	</resultMap>
+<!-- 회원 목록 조건별로 가져오기 -->
+	<select id="memberList" resultMap="memberResultMap">
+		select * from member where member_state = 1
+		<if test='id != null'>
+		and member_id = #{id}
+		</if>
+		<if test='name != null'>
+		and member_name = #{name}
+		</if>
+		<if test='gender != null'>
+		and member_gender = #{gender}
+		</if>
+		<if test='grade != null'>
+		and grade_code_name = #{grade}
+		</if>
+		<if test='shape != null'>
+		and shape_code = #{shape}
+		</if>
+		<if test='join_date != null'>
+		and member_join_date = #{join_date}
+		</if>
+		<if test='last_visit_date != null'>
+		and member_last_visit_date = #{last_visit_date}
+		</if>
+	</select>
+
+<!-- 회원 수 가져오기 -->	
+	<select id="memberCount" resultType="java.lang.Integer">
+		select count(*) from member where member state = 1
+	</select>
+	
+<!--  탈퇴한 회원 목록 -->	
+	<select id="memberBye">
+		select * from member where member state = 0
+	</select>
+</mapper>

@@ -14,11 +14,11 @@ public class MemberVO {
 	private String address2;
 	private String phone;
 	private Date birthday;
-	private String grade_code_name;
+	private String grade;
 	private double height;
 	private double weight;
 	private double bmi;
-	private String shape_code;
+	private String shape;
 	private String fat_part1;
 	private String fat_part2;
 	private String fat_part3;
@@ -31,13 +31,12 @@ public class MemberVO {
 	private String activity_code4;
 	private String activity_code5;
 	private int kcal;
-	private int coupons_no;
+	private int coupon;
 	private int point;
 	private String state;
 	private Date join_date;
 	private int visit_count;
 	private Date last_visit_date;
-	private String delivery_no;
 
 	public String getName() {
 		return name;
@@ -119,12 +118,12 @@ public class MemberVO {
 		this.birthday = birthday;
 	}
 
-	public String getGrade_code_name() {
-		return grade_code_name;
+	public String getGrade() {
+		return grade;
 	}
 
-	public void setGrade_code_name(String grade_code_name) {
-		this.grade_code_name = grade_code_name;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 
 	public double getHeight() {
@@ -151,12 +150,12 @@ public class MemberVO {
 		this.bmi = bmi;
 	}
 
-	public String getShape_code() {
-		return shape_code;
+	public String getShape() {
+		return shape;
 	}
 
-	public void setShape_code(String shape_code) {
-		this.shape_code = shape_code;
+	public void setShape_code(String shape) {
+		this.shape = shape;
 	}
 
 	public String getFat_part1() {
@@ -255,12 +254,12 @@ public class MemberVO {
 		this.kcal = kcal;
 	}
 
-	public int getCoupons_no() {
-		return coupons_no;
+	public int getCoupon() {
+		return coupon;
 	}
 
-	public void setCoupons_no(int coupons_no) {
-		this.coupons_no = coupons_no;
+	public void setCoupon(int coupon) {
+		this.coupon = coupon;
 	}
 
 	public int getPoint() {
@@ -303,11 +302,4 @@ public class MemberVO {
 		this.last_visit_date = last_visit_date;
 	}
 
-	public String getDelivery_no() {
-		return delivery_no;
-	}
-
-	public void setDelivery_no(String delivery_no) {
-		this.delivery_no = delivery_no;
-	}
 }
