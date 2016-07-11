@@ -42,6 +42,9 @@ public class MemberIndexController {
 		mav.addObject("notice", notice);
 		System.out.println("¸â¹ö ÀÎµ¦½º ÄÁÆ®·Ñ·¯");
 		
+		List<ItemVO> newitem = itemService.indexnewItemList();
+		mav.addObject("newitem",newitem);
+		
 		List<ItemVO> bestitem = itemService.indexbestItemList();
 		mav.addObject("bestitem",bestitem);
 		

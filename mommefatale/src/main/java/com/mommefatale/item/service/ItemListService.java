@@ -10,4 +10,5 @@ public interface ItemListService {
 	public List<ItemVO> listCategory(Map<String, Object> map);
 	public List<ItemVO> bestList(Integer category);
 	public List<ItemVO> indexbestItemList();
+	public List<ItemVO> indexnewItemList();
 }
