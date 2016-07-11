@@ -34,7 +34,6 @@ public class LoginController {
 		System.out.println(password);
 		
 		UserVO user = command.loginCheck(id);
-		
 		ModelAndView mav= new ModelAndView();
 		int check= -1;
 		
@@ -43,8 +42,9 @@ public class LoginController {
 			mav.setViewName("/login/loginProc");
 			return mav;
 		}
-		
-		if(id.equals(user.getUserid()) && password.equals(user.getPassword())){
+		if(user.getState().equals("0")){
+			check= 2;
+		}else if(id.equals(user.getUserid()) && password.equals(user.getPassword())){
 			check= 1;
 		}else if( !password.equals(user.getPassword()) ){
 			check= 0;
@@ -53,8 +53,10 @@ public class LoginController {
 		
 		System.out.println("Parameter ID : "+id+", DB ID : "+user.getUserid());
 		System.out.println("Parameter PASSWORD : "+password+", DB PASSWORD : "+user.getPassword());
-		
-		if(check==1){
+		if(check==2){
+			mav.setViewName("login/loginProc2");
+			return mav;
+		}else if(check==1){
 			HttpSession session= request.getSession();
 			if(user.getUserid().equals("admin")){
 				session.setAttribute("admin", true);
@@ -66,6 +68,7 @@ public class LoginController {
 			mav.setViewName("redirect:/index.do");
 			return mav;
 		}
+		
 		mav.setViewName("/login/loginProc");
 		return mav;
 		
