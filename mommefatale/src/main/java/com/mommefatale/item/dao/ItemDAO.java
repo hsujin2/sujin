@@ -14,4 +14,6 @@ public interface ItemDAO {
 	public void itemViewCount(int item_no);
 	public List<ItemVO> indexbestItemList();
 	public List<ItemVO> indexnewItemList();
+	public Integer getCount();
+	public List<ItemVO> listAll(Map<String, Object> map);
 }

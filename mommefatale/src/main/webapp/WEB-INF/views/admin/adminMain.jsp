@@ -16,7 +16,7 @@
 		<nav>
 		<div class="manage_item">
 			<ul>
-				<li><a href="itemlist.admin">상품관리</a></li>
+				<li><a href="itemlist.admin?range=new">상품관리</a></li>
 				<li><a href="itemAdd.admin">상품등록</a></li>
 			</ul>
 		</div>

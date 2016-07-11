@@ -75,7 +75,6 @@ public class ItemListUserController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		
 		String path = request.getSession().getServletContext().getRealPath("");
-		System.out.println(path);
 		model.put("path", path);
 		model.put("category", category);
 		model.put("itemlist",itemlist);

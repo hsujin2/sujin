@@ -46,5 +46,13 @@ public class ItemDAOImpl implements ItemDAO{
 	public List<ItemVO> indexnewItemList() {
 		return session.selectList(namespace + ".indexnewItemList");
 	}
+	@Override
+	public Integer getCount() {
+		return session.selectOne(namespace + ".getCount");
+	}
+	@Override
+	public List<ItemVO> listAll(Map<String, Object> map) {
+		return session.selectList(namespace + ".listAll",map);
+	}
 
 }
