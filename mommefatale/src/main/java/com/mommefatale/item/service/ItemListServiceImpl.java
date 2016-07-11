@@ -39,4 +39,14 @@ public class ItemListServiceImpl implements ItemListService{
 		return dao.indexnewItemList();
 	}
 
+	@Override
+	public Integer getCount() {
+		return dao.getCount();
+	}
+
+	@Override
+	public List<ItemVO> listAll(Map<String, Object> map) {
+		return dao.listAll(map);
+	}
+
 }

@@ -26,9 +26,28 @@
 	<select id="getCategoryCount" parameterType="java.lang.String" resultType="java.lang.Integer">
 		select count(*) from item where category_no = #{category}
 	</select>
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(*) from item
+	</select>
 	<select id="listCategory" parameterType="java.util.Map" resultMap="toItemVO">
-		
 		select * from (select rownum rnum, ITEM_NO, ITEM_NAME, ITEM_BRAND, ITEM_ORIGIN, ITEM_IMAGE, ITEM_CONTENT, CATEGORY_NO, ITEM_PRICE_ORIGIN, ITEM_PRICE_SALES, ITEM_PRICE_DISCOUNT, ITEM_SALES_QUANTITY, ITEM_STOCK, ITEM_VIEW, ITEM_REGDATE, ITEM_UPDATE_DATE, OPTION_SIZE, ITEM_COLOR from (select * from ITEM where CATEGORY_NO = #{category}
+		 <if test='range.equals("new")'>
+		 order by ITEM_NO desc
+		 </if>
+		 <if test='range.equals("pop")'>
+		 order by ITEM_SALES_QUANTITY desc
+		 </if>
+		 <if test='range.equals("row")'>
+		 order by ITEM_PRICE_DISCOUNT asc
+		 </if>
+		 <if test='range.equals("high")'>
+		 order by ITEM_PRICE_DISCOUNT desc
+		 </if>
+		 )) where <![CDATA[rnum >= #{startRow} and rnum <= #{endRow}
+		]]>
+	</select>
+	<select id="listAll" parameterType="java.util.Map" resultMap="toItemVO">
+		select * from (select rownum rnum, ITEM_NO, ITEM_NAME, ITEM_BRAND, ITEM_ORIGIN, ITEM_IMAGE, ITEM_CONTENT, CATEGORY_NO, ITEM_PRICE_ORIGIN, ITEM_PRICE_SALES, ITEM_PRICE_DISCOUNT, ITEM_SALES_QUANTITY, ITEM_STOCK, ITEM_VIEW, ITEM_REGDATE, ITEM_UPDATE_DATE, OPTION_SIZE, ITEM_COLOR from (select * from ITEM 
 		 <if test='range.equals("new")'>
 		 order by ITEM_NO desc
 		 </if>
