@@ -28,7 +28,7 @@
   <div class="img">
     	<img src="resources/images/mypage/mypage.png"  />
   </div>
-  <div class="ment">PERSONAL INFO | SHOPPING INFO | COMMUNITY</div>
+  <div class="ment">PERSONAL INFO | CONTENTS | MY POINT</div>
     <div class="ulli">
     	<ul class="list1">
         	<li class="li1">
