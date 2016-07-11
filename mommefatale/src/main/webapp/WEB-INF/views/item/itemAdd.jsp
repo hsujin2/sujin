@@ -86,12 +86,10 @@
 				<td class="itemInfo">색상</td>
 				<td><input type="text" size="5" maxlength="10" name="color"/></td>
 			</tr>
-
 			<tr>
 				<td class="itemInfo">등록사진&nbsp;(메인)</td>
 				<td><input type="file"  name="main-img"/></td>
 			</tr>
-
 			<tr>
 				<td class="itemInfo">등록사진&nbsp;(상세)</td>
 				<td><input type="file" name="content-img"/></td>
