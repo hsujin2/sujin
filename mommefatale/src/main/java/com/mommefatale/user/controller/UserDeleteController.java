@@ -31,7 +31,7 @@ public class UserDeleteController {
 		command.deleteUser(userid);
 		session.invalidate();
 		System.out.println("Å»Åð¿Ï·á");
-		return "index";
+		return "redirect:/index.do";
 
 	}
 }
