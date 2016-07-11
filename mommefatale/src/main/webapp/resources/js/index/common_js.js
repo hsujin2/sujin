@@ -13,7 +13,7 @@ function addBookmark() {
     } else if (document.all) { //msie
         window.external.AddFavorite(url, title);
     } else {
-        alert("해당브라우저는 즐겨찾기 추가기능이 지원되지 않습니다.\n\n수동으로 즐겨찾기에 추가해주세요.");
+        alert("해당브라우저는 즐겨찾기 추가기능이 지원되지 않습니다.\n\n'Ctrl+D'를 눌러 수동으로 즐겨찾기에 추가해주세요.");
         return true;
     }
 }
