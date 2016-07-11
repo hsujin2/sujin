@@ -24,45 +24,35 @@
 <body>
 	<div id="wrap">
 		<%@ include file="include/header.jsp"%>
+		<div id="main_banner">
+			<!--배너광고 -->
+			<img src="resources/images/index/banner_index.png" alt="배너"
+				class="main_bnimg" />
+		</div>
 		<section>
 		<div class="content">
-    <div class="sub">기적의 <span class="col">E</span>VENT</div>
+    <div class="sub">이달의 <span class="col">C</span>hoice</div>
     <div class="sub2">나라면 당장 선택하겠어</div>
         <div class="newitem">
             <ul>
+            <c:forEach var="item" items="${newitem}">
                 <li width="33%">
                     <div class="group">
-                        <div class="image"><img src="img/blackimg.png" width="280" height="280" /></div>
+                        <div class="image"><a href="itemview.do?no=${item.no}"><img src="/mommefatale/resources/images/uploadimg/${item.main_img}" width="280" height="280" /></a></div>
                         <div class="ment">
-                            <a href="#"><span class="col2">[서비스 이벤트 맨트]</span>[상품이름]상품에대한 간략한 설명</a>
+                            <a href="itemview.do?no=${item.no}"><span class="col2">[신상품]</span><div class="item_name">[${item.name}]</div><span class="explain"><br>브랜드 : ${item.brand }<br>원산지 : ${item.origin}</span></a>
                         </div>
-                        <div class="price">655,000원</div>
+                        <div class="price">${item.price_discount}원</div>
                     </div>
                 </li>
-                <li width="33%">
-                    <div class="group">
-                        <div class="image"><img src="img/blackimg.png" width="280" height="280" /></div>
-                        <div class="ment">
-                            <a href="#"><span class="col2">[서비스 이벤트 맨트]</span>[상품이름]상품에대한 간략한 설명</a>
-                        </div>
-                        <div class="price">655,000원</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="group">
-                        <div class="image"><img src="img/blackimg.png" width="280" height="280" /></div>
-                        <div class="ment">
-                            <a href="#"><span class="col2">[서비스 이벤트 맨트]</span>[상품이름]상품에대한 간략한 설명</a>
-                        </div>
-                        <div class="price">655,000원</div>
-                    </div>
-                </li>
+            </c:forEach>
+            <div class="clear"></div>
             </ul>
         </div>
-    
-    <div class="sub3"><span class="col3">BEST </span>PRODUCT</div>
-    <div class="sub4">쇼핑몰에서 엄선한 추천상품입니다.</div>
-    
+    <div class="best">
+   	 	<div class="sub3"><span class="col3">BEST </span>PRODUCT</div>
+    	<div class="sub4">쇼핑몰에서 엄선한 추천상품입니다.</div>
+    </div>
             <ul class="bestitems">
             <c:forEach var="item" items="${bestitem}">
                 <li width="25%">
@@ -76,7 +66,7 @@
                 </li>
             </c:forEach>
             </ul>
-        <div id="clear"></div>
+        <div class="clear"></div>
 </div>
 		<div id="main_board">
 			<div class="notice">
