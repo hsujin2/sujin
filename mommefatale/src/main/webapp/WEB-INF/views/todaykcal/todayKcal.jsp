@@ -33,7 +33,7 @@
                       tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
                       tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
                       tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
-                      tr.append($('<td>').append($('<input type="button" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
+                      tr.append($('<td>').append($('<input type="image" src="resources/images/board/Plus-icon.gif" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
                       table.append(tr);
                    }
                    $("#foodList").replaceWith(table);
@@ -70,7 +70,7 @@
                    tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
                    tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
                    tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
-                   tr.append($('<td>').append($('<input type="button" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
+                   tr.append($('<td>').append($('<input type="image" src="resources/images/board/Plus-icon.gif" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
                    table.append(tr);
                 }
                 
@@ -110,7 +110,7 @@
                    tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
                    tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
                    tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
-                   tr.append($('<td>').append($('<input type="button" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
+                   tr.append($('<td>').append($('<input type="image" src="resources/images/board/Plus-icon.gif" value="+" class="addBtn" onclick="moveToMyList(this)">').css("width","18px")));
                    table.append(tr);
                 }
                 $("#foodList").replaceWith(table);
@@ -150,7 +150,7 @@ function moveToMyList(clickList){
                    tr.append($("<td>",{text:foodlist[i].food_name,name:'name'}));
                    tr.append($("<td>",{text:foodlist[i].food_gram,name:'gram'}));
                    tr.append($("<td>",{text:foodlist[i].food_kcal,name:'kcal'}));
-                   tr.append($('<td>').append($('<input type="button" value="-" class="removeBtn" onclick="removeFromMyList(this)">').css("width","18px")));
+                   tr.append($('<td>').append($('<input type="image" src="resources/images/board/Minus-icon.gif" value="-" class="removeBtn" onclick="removeFromMyList(this)">').css("width","18px")));
                    table.append(tr);
                    var kcal = $("#todayMyKcal").text();
                    span.text(totalKcal = Number(kcal) + Number(foodlist[i].food_kcal));
