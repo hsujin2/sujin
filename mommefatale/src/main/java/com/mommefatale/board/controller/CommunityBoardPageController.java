@@ -37,7 +37,7 @@ public class CommunityBoardPageController {
 	}
 
 	@RequestMapping(value = "/communityBoard.do")
-	public ModelAndView CommunityBoardPage(HttpServletRequest request) throws Exception {
+	public ModelAndView communityBoardPage(HttpServletRequest request) throws Exception {
 		System.out.println("자유게시판 리스트 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
