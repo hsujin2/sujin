@@ -42,5 +42,9 @@ public class ItemDAOImpl implements ItemDAO{
 	public List<ItemVO> indexbestItemList() {
 		return session.selectList(namespace + ".indexbestItemList");
 	}
+	@Override
+	public List<ItemVO> indexnewItemList() {
+		return session.selectList(namespace + ".indexnewItemList");
+	}
 
 }

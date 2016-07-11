@@ -13,4 +13,5 @@ public interface ItemDAO {
 	public List<ItemVO> bestList(Integer category);
 	public void itemViewCount(int item_no);
 	public List<ItemVO> indexbestItemList();
+	public List<ItemVO> indexnewItemList();
 }
