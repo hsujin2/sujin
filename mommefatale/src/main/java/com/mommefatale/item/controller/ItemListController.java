@@ -1,6 +1,5 @@
 package com.mommefatale.item.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -63,12 +61,12 @@ public class ItemListController {
 		map.put("range", range);
 		//
 		
-		List<ItemVO> itemList = null;
+		List<ItemVO> itemlist = null;
 		if(category == null || category == ""){
-			itemList = command.listAll(map);
+			itemlist = command.listAll(map);
 		}else{
 			map.put("category", category);
-			itemList = command.listCategory(map);
+			itemlist = command.listCategory(map);
 		}
 		
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -76,11 +74,12 @@ public class ItemListController {
 		String path = request.getSession().getServletContext().getRealPath("");
 		model.put("path", path);
 		model.put("category", category);
-		model.put("itemList", itemList);
+		model.put("itemlist", itemlist);
 		model.put("count", new Integer(count));
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", boardPaging);
+		model.put("range", range);
 		
 		mav.setViewName("admin/adminItemList");
 		mav.addAllObjects(model);

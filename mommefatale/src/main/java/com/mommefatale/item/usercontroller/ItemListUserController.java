@@ -63,7 +63,7 @@ public class ItemListUserController {
 		String range = request.getParameter("range");
 		map.put("range", range);
 		//
-		
+		System.out.println("·»Áö"+range);
 		List<ItemVO> itemlist = null;
 		
 		if(category == null || category == ""){
@@ -82,6 +82,7 @@ public class ItemListUserController {
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", boardPaging);
+		model.put("range", range);
 		
 		mav.setViewName("item/itemList");
 		mav.addAllObjects(model);

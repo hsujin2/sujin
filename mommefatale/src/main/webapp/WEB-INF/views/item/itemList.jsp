@@ -103,7 +103,7 @@
 					<tr>
 						<td colspan="3" align="center"><c:if test="${paging.isPre()}">
 								<a
-									href="itemList.do?pageNum=${paging.getPage_Start()-paging.pageNavi}&category=${category}">[이전]</a>&nbsp;&nbsp;</c:if>
+									href="itemList.do?pageNum=${paging.getPage_Start()-paging.pageNavi}&category=${category}&range=${range}">[이전]</a>&nbsp;&nbsp;</c:if>
 							<c:forEach var="counter" begin="${paging.getPage_Start()}"
 								end="${paging.getPage_End()}">
 								<c:if test="${paging.getCur_Page() eq counter}">
@@ -111,11 +111,11 @@
 							</c:if>
 								<c:if test="${paging.getCur_Page() ne counter}">
 									<a
-										href="javascript:window.location='itemList.do?pageNum=${counter}&category=${category}'">[${counter}]</a>
+										href="javascript:window.location='itemList.do?pageNum=${counter}&category=${category}&range=${range}'">[${counter}]</a>
 								</c:if>
 							</c:forEach> <c:if test="${paging.isNext()}">
 								<a
-									href="itemList.do?pageNum=${paging.getPage_Start()+pagingNum.pageNavi}&category=${category}">[다음]</a>
+									href="itemList.do?pageNum=${paging.getPage_Start()+pagingNum.pageNavi}&category=${category}&range=${range}">[다음]</a>
 							</c:if></td>
 					</tr>
 				</table>
