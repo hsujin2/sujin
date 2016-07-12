@@ -64,11 +64,11 @@
 
 <!-- 회원 수 가져오기 -->	
 	<select id="memberCount" resultType="java.lang.Integer">
-		select count(*) from member where member state = 1
+		select count(*) from member where member_state = 1
 	</select>
 	
 <!--  탈퇴한 회원 목록 -->	
 	<select id="memberBye" resultMap="memberResultMap">
-		select * from member where member state = 0
+		select * from member where member_state = 0
 	</select>
 </mapper>
