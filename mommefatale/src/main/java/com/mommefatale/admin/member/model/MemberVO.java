@@ -15,10 +15,10 @@ public class MemberVO {
 	private String phone;
 	private Date birthday;
 	private String grade;
-	private double height;
-	private double weight;
-	private double bmi;
-	private String shape;
+	private int height;
+	private int weight;
+	private int bmi;
+	private int shape;
 	private String fat_part1;
 	private String fat_part2;
 	private String fat_part3;
@@ -33,7 +33,7 @@ public class MemberVO {
 	private int kcal;
 	private int coupon;
 	private int point;
-	private String state;
+	private int state;
 	private Date join_date;
 	private int visit_count;
 	private Date last_visit_date;
@@ -126,35 +126,35 @@ public class MemberVO {
 		this.grade = grade;
 	}
 
-	public double getHeight() {
+	public int getHeight() {
 		return height;
 	}
 
-	public void setHeight(double height) {
+	public void setHeight(int height) {
 		this.height = height;
 	}
 
-	public double getWeight() {
+	public int getWeight() {
 		return weight;
 	}
 
-	public void setWeight(double weight) {
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
 
-	public double getBmi() {
+	public int getBmi() {
 		return bmi;
 	}
 
-	public void setBmi(double bmi) {
+	public void setBmi(int bmi) {
 		this.bmi = bmi;
 	}
 
-	public String getShape() {
+	public int getShape() {
 		return shape;
 	}
 
-	public void setShape_code(String shape) {
+	public void setShape_code(int shape) {
 		this.shape = shape;
 	}
 
@@ -270,11 +270,11 @@ public class MemberVO {
 		this.point = point;
 	}
 
-	public String getState() {
+	public int getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(int state) {
 		this.state = state;
 	}
 

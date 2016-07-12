@@ -8,6 +8,7 @@
 
 <!-- VO -->
 <bean id="memberVO" class="com.mommefatale.admin.member.model.MemberVO"/>
+<bean id="paging" class="com.mommefatale.board.model.Paging"/>
 
 <!-- DAO -->
 <bean id="memberDAO" class="com.mommefatale.admin.member.dao.MemberDAOImpl">
@@ -22,6 +23,7 @@
 <!-- Controller -->
 <bean id="memberController" class="com.mommefatale.admin.member.controller.MemberController">
 	<property name="command" ref="memberService"/>
+	<property name="paging" ref="paging"/>
 </bean>	
 
 </beans>

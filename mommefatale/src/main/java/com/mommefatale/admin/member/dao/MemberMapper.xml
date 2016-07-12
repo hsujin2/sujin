@@ -16,7 +16,7 @@
 		<result property="height" column="MEMBER_HEIGHT" jdbcType="BIGINT" />
 		<result property="weight" column="MEMBER_WEIGHT" jdbcType="BIGINT" />
 		<result property="bmi" column="MEMBER_BMI" jdbcType="BIGINT" />
-		<result property="shape" column="SHAPE_CODE" jdbcType="VARCHAR" />
+		<result property="shape" column="SHAPE_CODE" jdbcType="BIGINT" />
 		<result property="fat_part1" column="FAT_PART1" jdbcType="VARCHAR" />
 		<result property="fat_part2" column="FAT_PART2" jdbcType="VARCHAR" />
 		<result property="fat_part3" column="FAT_PART3" jdbcType="VARCHAR" />
@@ -31,14 +31,18 @@
 		<result property="kcal" column="MEMBER_KCAL" jdbcType="BIGINT" />
 		<result property="coupon" column="COUPONS_NO" jdbcType="BIGINT" />
 		<result property="point" column="MEMBER_POINT" jdbcType="BIGINT"/>
-		<result property="state" column="MEMBER_STATE" jdbcType="VARCHAR" />
+		<result property="state" column="MEMBER_STATE" jdbcType="BIGINT" />
 		<result property="join_date" column="MEMBER_JOIN_DATE" jdbcType="DATE" />
 		<result property="visit_count" column="MEMBER_VISIT_COUNT" jdbcType="BIGINT" />
 		<result property="last_visit_date" column="MEMBER_LAST_VISIT_DATE" jdbcType="DATE" />
 	</resultMap>
 <!-- 회원 목록 조건별로 가져오기 -->
-	<select id="memberList" resultMap="memberResultMap">
-		select * from member where member_state = 1
+	<select id="memberList" parameterType="java.util.Map" resultMap="memberResultMap">
+		<![CDATA[select * from (select rownum rnum, member_name, member_gender, member_id, member_pw, member_email, member_zip, 
+		member_address1, member_address2, member_phone, member_birthday, grade_code_name, member_height, member_weight, member_bmi, 
+		shape_code, fat_part1, fat_part2, fat_part3, fat_part4, fat_part5, fat_part6, activity_code1, activity_code2, activity_code3, activity_code4, activity_code5, 
+		member_kcal, coupons_no, member_point, member_state, member_join_date, member_visit_count, member_last_visit_date from(select * from member where member_state = 1 order by member_join_date desc, member_name asc))
+		where rnum >= #{startRow} and rnum <= #{endRow}]]>
 		<if test='id != null'>
 		and member_id = #{id}
 		</if>
@@ -50,9 +54,6 @@
 		</if>
 		<if test='grade != null'>
 		and grade_code_name = #{grade}
-		</if>
-		<if test='shape != null'>
-		and shape_code = #{shape}
 		</if>
 		<if test='join_date != null'>
 		and member_join_date = #{join_date}
@@ -68,7 +69,7 @@
 	</select>
 	
 <!--  탈퇴한 회원 목록 -->	
-	<select id="memberBye" resultMap="memberResultMap">
-		select * from member where member_state = 0
+	<select id="memberByeList" resultMap="memberResultMap">
+		select * from member where member_state = 0 order by member_last_visit_date desc
 	</select>
 </mapper>

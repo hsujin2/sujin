@@ -256,7 +256,6 @@ function saveMyKcal(){
       <div class="board">   
          <div class="my_kcal_table">
          <p id="todayMyMenu">나의 오늘 식단</p>
-        <!--  <label for="my_food_list">나의 오늘 식단</label> -->
          <table summary="my_food_kcal_list" id="my_food_list">
             <colgroup>
                <col width="22%">
