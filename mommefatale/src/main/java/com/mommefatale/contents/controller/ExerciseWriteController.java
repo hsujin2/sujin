@@ -38,6 +38,13 @@ public class ExerciseWriteController {
 		System.out.println("운동법");
 		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
+		
+		// content에서 이미지 경로 가져오기
+				String content = request.getParameter("content");
+				String imgPath = "/mommefatale/resources/images/uploadimg/images/";
+				int content_i = content.indexOf(imgPath);
+				String exercise_image = content.substring(content_i+imgPath.length(),(content.substring(content_i).indexOf("\"")+content_i));
+		
 		Enumeration<?> enums = request.getParameterNames();
 		while (enums.hasMoreElements()) {
 			String paramName = enums.nextElement().toString();
@@ -45,7 +52,7 @@ public class ExerciseWriteController {
 			System.out.println("paramName:" + paramName + " paramValue : " + paramValue);
 			map.put(paramName, paramValue);
 		}
-		map.put("image", "");
+		map.put("image", exercise_image);
 		command.exerciseWrite(map);
 		mav.setViewName("redirect:/exercise1.do");
 

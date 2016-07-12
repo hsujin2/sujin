@@ -72,7 +72,11 @@
         <li><a href="#">Bulk-up</a></li> 
         <li><a href="exercise1.do">Diet</a> </li>
     </ul>
-  </nav>
+  </nav>  
+  
+  
+  
+  
      <form name="searchF" action="#" method="get" id="searchF">
     		<fieldset>
                 <legend class="skip">검색</legend>

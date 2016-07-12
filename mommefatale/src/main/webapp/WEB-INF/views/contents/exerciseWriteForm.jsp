@@ -50,8 +50,17 @@
 							<td  colspan="2" width="750"></td>
 					</tr> --%>
 					<tr>
+						<td class="itemInfo">카테고리</td>
+						<td><select name="category">
+								<option value="heathcare">Health Care</option>
+								<option value="bulkup">Bulk-Up</option>
+								<option value="diet">Diet</option>
+						</select></td>
+					</tr>
+					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
-						<td colspan="3"><input type="text" name="subject" id="subject" size="120"></td>
+						<td colspan="3"><input type="text" name="subject"
+							id="subject" size="120"></td>
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;</th>

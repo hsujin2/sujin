@@ -11,10 +11,10 @@ public class UserExerciseController {
 		
 		return "contents/exercise1";
 	}*/
-	@RequestMapping("/exercise2.do")
+	/*@RequestMapping("/exercise2.do")
 	public String contents3(){
 		
 		return "contents/exercise2";
-	}
+	}*/
 	
 }

@@ -79,7 +79,7 @@
 						</td>
 						<td colspan="2"></td>
 						<td colspan="2">
-						<c:if test="${vo.writer eq userLogin.userid || admin eq true}">
+						<c:if test="${admin eq true}">
 								<input type="button" value="수정"
 									onClick="window.location='exerciseUpdate.do?no='+${vo.no}" class="commit_btn">
 								<input type="button" value="삭제" onClick="deleteContent()" class="commit_btn">
