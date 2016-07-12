@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberMapper">
-	<resultMap id="memberResultMap" type="com.mommefatale.admin.member.model.memberVO">
+	<resultMap id="memberResultMap" type="com.mommefatale.admin.member.model.MemberVO">
 		<result property="name" column="MEMBER_NAME" jdbcType="VARCHAR" />
 		<result property="gender" column="MEMBER_GENDER" jdbcType="VARCHAR" />
 		<result property="id" column="MEMBER_ID" jdbcType="VARCHAR" />
@@ -68,7 +68,7 @@
 	</select>
 	
 <!--  탈퇴한 회원 목록 -->	
-	<select id="memberBye">
+	<select id="memberBye" resultMap="memberResultMap">
 		select * from member where member state = 0
 	</select>
 </mapper>

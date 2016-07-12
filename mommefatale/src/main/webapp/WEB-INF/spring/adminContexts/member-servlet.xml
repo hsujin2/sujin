@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- VO -->
+<bean id="memberVO" class="com.mommefatale.admin.member.model.MemberVO"/>
+
+<!-- DAO -->
+<bean id="memberDAO" class="com.mommefatale.admin.member.dao.MemberDAOImpl">
+	<property name="session" ref="sqlSessionTemplate"/>
+</bean>
+
+<!-- Service -->
+<bean id="memberService" class="com.mommefatale.admin.member.service.MemberServiceImpl">
+	<property name="dao" ref="memberDAO"/>
+</bean>
+
+<!-- Controller -->
+<bean id="memberController" class="com.mommefatale.admin.member.controller.MemberController">
+	<property name="command" ref="memberService"/>
+</bean>	
+
+</beans>
