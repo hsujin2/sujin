@@ -47,6 +47,7 @@
 	<!-- controller -->
 	<bean class="com.mommefatale.user.controller.LoginController">
 		<property name="command" ref="UserLoginService"></property>
+		<property name="visitservice" ref="VisitService"></property>
 	</bean>
 	
 	<bean class="com.mommefatale.user.controller.IdCheckController">

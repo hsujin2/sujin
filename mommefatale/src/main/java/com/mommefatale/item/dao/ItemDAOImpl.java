@@ -58,5 +58,9 @@ public class ItemDAOImpl implements ItemDAO{
 	public ItemVO getModifyItem(Integer item_no) {
 		return session.selectOne(namespace + ".getModifyItem",item_no);
 	}
+	@Override
+	public void modifyItem(ItemVO itemVO) {
+		session.update(namespace + ".modifyItem",itemVO);
+	}
 
 }

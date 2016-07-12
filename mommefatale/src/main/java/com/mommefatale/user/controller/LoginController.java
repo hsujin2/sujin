@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.user.model.UserVO;
 import com.mommefatale.user.service.UserLoginService;
+import com.mommefatale.user.service.VisitService;
 
 @Controller
 public class LoginController {
@@ -18,6 +19,11 @@ public class LoginController {
 	public void setCommand(UserLoginService command){
 		this.command = command;
 	}
+	private VisitService visitservice;
+	public void setVisitservice(VisitService visitservice) {
+		this.visitservice = visitservice;
+	}
+
 	@RequestMapping("/login.do")
 	public String login() {
 
@@ -66,9 +72,11 @@ public class LoginController {
 			session.setAttribute("login", user);
 			System.out.println("LOGIN complete");
 			mav.setViewName("redirect:/index.do");
+			//방문일짜
+			visitservice.visitDate(user.getUserid());
+			
 			return mav;
 		}
-		
 		mav.setViewName("/login/loginProc");
 		return mav;
 		
