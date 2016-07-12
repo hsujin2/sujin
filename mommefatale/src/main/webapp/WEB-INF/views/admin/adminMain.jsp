@@ -16,6 +16,7 @@
 		<nav>
 		<div class="manage_item">
 			<ul>
+				<li><a href="member.admin">회원관리</a></li>
 				<li><a href="itemlist.admin?range=new">상품관리</a></li>
 				<li><a href="itemAdd.admin?range=new">상품등록</a></li>
 			</ul>
@@ -25,11 +26,9 @@
 			<c:choose>
 				<c:when test="${contents eq 'itemList'}">
 					<%@include file="../item/itemList.jsp"%>
-
 				</c:when>
 				<c:when test="${contents eq 'itemAdd'}">
 					<%@include file="../item/itemAdd.jsp"%>
-
 				</c:when>
 			</c:choose>
 		</div>
