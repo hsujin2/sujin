@@ -49,4 +49,10 @@ public class ItemListServiceImpl implements ItemListService{
 		return dao.listAll(map);
 	}
 
+	@Override
+	public ItemVO getModifyItem(Integer item_no) {
+		return dao.getModifyItem(item_no);
+	}
+
+
 }

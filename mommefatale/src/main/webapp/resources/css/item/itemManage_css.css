@@ -17,7 +17,7 @@ tbody{border-bottom:1px solid #999; font-size:12px;}
 .aleft{text-align:left;}
 thead th{padding:5px 0px;}
 td a{text-decoration:none; color:black;}
-.btn1{background-color:#6CF;border:1px solid #6CF; padding:1px; color:white; box-shadow:1px 1px 3px #666;}
+.btn-lg{background-color:#6CF;border:1px solid #6CF; padding:1px; color:white; box-shadow:1px 1px 3px #666; border-radius:0px;}
 .btn2{background-color:#F60;border:1px solid #F60; padding:1px; color:white; box-shadow:1px 1px 3px #666;}
 
 #modifyArea{z-index:999; position:absolute; display:none;

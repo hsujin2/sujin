@@ -54,5 +54,9 @@ public class ItemDAOImpl implements ItemDAO{
 	public List<ItemVO> listAll(Map<String, Object> map) {
 		return session.selectList(namespace + ".listAll",map);
 	}
+	@Override
+	public ItemVO getModifyItem(Integer item_no) {
+		return session.selectOne(namespace + ".getModifyItem",item_no);
+	}
 
 }

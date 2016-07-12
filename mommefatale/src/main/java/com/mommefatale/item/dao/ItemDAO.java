@@ -16,4 +16,5 @@ public interface ItemDAO {
 	public List<ItemVO> indexnewItemList();
 	public Integer getCount();
 	public List<ItemVO> listAll(Map<String, Object> map);
+	public ItemVO getModifyItem(Integer item_no);
 }

@@ -7,26 +7,77 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>상품관리</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">	
 <link rel="stylesheet" type="text/css" href="resources/css/item/itemManage_css.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script type="text/javascript">
-	function modify(item_no){
-		alert(item_no);
-		if($("modifyArea").style.display==""){
-			$("modifyArea").style.display="none";
-		}else{
-			$("modifyArea").style.display="";
+	function modifyOpen(item_no){
+		var item_no = item_no;
+		$.ajax({
+			url : "/mommefatale/modifyOpen.json",
+			type : "POST",
+			data : {'item_no' : item_no},
+			async : false,
+			success : function(response){
+				var item = response.item;
+				$('#item_no').val(item.no);
+				$('#itemname').val(item.name);
+				$('#brand').val(item.brand);
+				$('#origin').val(item.origin);
+				$('#price').val(item.price_origin);
+				$('#sales').val(item.price_sales);
+				$('#discount').val(item.price_discount);
+				$('#stock').val(item.stock);
+				$('#color').val(item.color);
+				$("select[name=category] option[value="+item.category+"]").attr("selected",true);
+				$("select[name=option_size] option[value="+item.option_size+"]").attr("selected",true);
+			},
+			error : function(request, status, error){
+				alert("code : "+request.status +"\r\nmessage : "
+                        + request.reponseText + "\r\nerror : " + error);
+			}
+		})
+		
+		
+	}
+	function save(){
+		var form = document.itemModifyForm;
+		if(form.itemname.value==""){
+			alert("상품명을 입력해주세요");
+			return
 		}
+		if(form.brand.value==""){
+			alert("브랜드를 입력해주세요");
+			return
+		}
+		if(form.origin.value==""){
+			alert("원산지를 입력해주세요");
+			return
+		}
+		if(form.price.value==""){
+			alert("원가를 입력해주세요");
+			return
+		}
+		if(form.sales.value==""){
+			alert("판매가를 입력해주세요");
+			return
+		}
+		if(form.discount.value==""){
+			alert("할인가를 입력해주세요");
+			return
+		}
+		if(form.stock.value==""){
+			alert("재고를 입력해주세요");
+			return
+		}
+		
+		$('itemModifyForm').submit();
 	}
 </script>
 
+
 </head>
 <body>
-<form id="modifyArea" method="post" action="">
-	<div id="modify">
-		상품명 : <input type="text" name="itemname"><br>
-	</div>
-</form>
 <section class="content">
 	<div class="upmenu">
     	<select class="itemName">
@@ -99,8 +150,8 @@
 		                    <td>${item.price_discount}원</td>
 		                    <td>${item.update_date }</td>
 		                    <td>
-		                    	<button class="btn1" value=${item.no } onclick="modify(this.value)">수정</button>
-		                        <input type="button" class="btn2" value="삭제" onclick=""/>
+		                    	<button class="btn btn-primary btn-lg" value=${item.no } data-toggle="modal" data-target="#myModal" onclick="modifyOpen(this.value)">수정</button>
+		                    	<button class="btn2" value=${item.no }>삭제</button>
 		                    </td>
 		                </tr>
 	                </c:forEach>
@@ -128,6 +179,116 @@
 							</c:if></td>
 					</tr>
             </table>
-</section>
+            </section>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		<h4 class="modal-title" id="myModalLabel">상품 수정</h4>
+	      </div>
+	      <div class="modal-body">
+	      <form action="modifyItem.admin" method="post" enctype="multipart/form-data" name="itemModifyForm" id="itemModifyForm">
+			<table>
+			<tr>
+				<td class="itemInfo">상품번호</td>
+				<td><input type="text" id="item_no" name="item_no" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">카테고리</td>
+				<td><select name="category">
+						<option value=1>Equipment - 런닝머신</option>
+						<option value=2>Equipment - 웨이트기구</option>
+						<option value=3>Equipment - 헬스사이클</option>
+						<option value=4>Equipment - 아령</option>
+						<option value=5>Equipment - 기타</option>
+						<option value=6>SportsWear - 운동복</option>
+						<option value=7>SportsWear - 운동화/런닝화</option>
+						<option value=8>SportsWear - 스포츠브라</option>
+						<option value=9>SportsWear - 기타</option>
+						<option value=10>Food - 보충제</option>
+						<option value=11>Food - 영양제</option>
+						<option value=12>Food - 기타식품</option>
+				</select></td>
+			</tr>
+			
+			<tr>
+				<td class="itemInfo">상품명</td>
+				<td><input type="text" size="20" maxlength="15" name="name" id="itemname"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">브랜드</td>
+				<td><input type="text" size="10" maxlength="15" name="brand" id="brand"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">원산지</td>
+				<td><input type="text" size="10" maxlength="15" name="origin" id="origin"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">원가</td>
+				<td><input type="text" size="10" maxlength="10" name="price" id="price"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">판매가</td>
+				<td><input type="text" size="10" maxlength="10" name="sales" id="sales"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">할인가</td>
+				<td><input type="text" size="10" maxlength="10" name="discount" id="discount"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">사이즈</td>
+				<td><select name="option_size">
+						<option value="">선택</option>
+						<option value="XL">XS</option>
+						<option value="S">S</option>
+						<option value="M">M</option>
+						<option value="L">L</option>
+						<option value="XL">XL</option>
+						<option value="XL">XXL</option>
+						<option value="230">230</option>
+						<option value="235">235</option>
+						<option value="240">240</option>
+						<option value="245">245</option>
+						<option value="250">250</option>
+						<option value="255">255</option>
+						<option value="260">260</option>
+						<option value="265">265</option>
+						<option value="270">270</option>
+						<option value="275">275</option>
+						<option value="280">280</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">재고수량</td>
+				<td><input type="text" size="3" maxlength="10" name="stock" id="stock"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">색상</td>
+				<td><input type="text" size="5" maxlength="10" name="color" id="color"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">등록사진&nbsp;(메인)</td>
+				<td><input type="file"  name="main-img"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">등록사진&nbsp;(상세)</td>
+				<td><input type="file" name="content-img"/></td>
+			</tr>
+
+		</table>
+		</form>
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-primary" onclick="save()">수정</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js -->
 </body>
 </html>
