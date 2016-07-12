@@ -21,6 +21,9 @@
 	<bean id="ItemModifyService" class="com.mommefatale.item.service.ItemModifyServiceImpl">
 		<property name="dao" ref="ItemDAO"></property>
 	</bean>
+	<bean id="ItemDeleteService" class="com.mommefatale.item.service.ItemDeleteServiceImpl">
+		<property name="dao" ref="ItemDAO"></property>
+	</bean>
 	<!-- controller -->
 	<bean class="com.mommefatale.item.controller.ItemAdminController" />
 	<bean class="com.mommefatale.item.controller.ItemInsertController">
@@ -33,6 +36,10 @@
 	<bean class="com.mommefatale.item.controller.ItemModifyController">
 		<property name="command" ref="ItemModifyService"></property>
 	</bean>
+	<bean class="com.mommefatale.item.controller.ItemDeleteController">
+		<property name="command" ref="ItemDeleteService"></property>
+	</bean>
+	
 	
 	<!-- 파일 업로드에 필요한 리졸버 -->
 	<bean id="multipartResolver"

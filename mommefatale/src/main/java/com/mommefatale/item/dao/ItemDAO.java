@@ -18,4 +18,5 @@ public interface ItemDAO {
 	public List<ItemVO> listAll(Map<String, Object> map);
 	public ItemVO getModifyItem(Integer item_no);
 	public void modifyItem(ItemVO itemVO);
+	public void deleteItem(Integer item_no);
 }

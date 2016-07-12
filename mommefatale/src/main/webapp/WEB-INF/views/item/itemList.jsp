@@ -59,7 +59,7 @@
 					<li>|</li>
 					<li><a href="itemList.do?category=1&range=pop">인기순</a></li>
 					<li>|</li>
-					<li><a href="itemList.do?category=1&range=row">낮은가격순</a></li>
+					<li><a href="itemList.do?category=1&range=low">낮은가격순</a></li>
 					<li>|</li>
 					<li><a href="itemList.do?category=1&range=high">높은가격순</a></li>
 				</ul>

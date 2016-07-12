@@ -11,6 +11,10 @@
 <link rel="stylesheet" type="text/css" href="resources/css/item/itemManage_css.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script type="text/javascript">
+	window.onload=function(){
+		var range = "${range}";
+		$("select[name=range] option[value="+range+"]").attr("selected",true);
+	}
 	function modifyOpen(item_no){
 		var item_no = item_no;
 		$.ajax({
@@ -73,6 +77,18 @@
 		
 		document.itemModifyForm.submit();
 	}
+	function deleteItem(item_no){
+		var up = confirm("정말로 삭제하시겠습니까?");
+		if(up){
+			window.location="deleteItem.admin?item_no="+item_no;
+		}else{
+			return;
+		}
+	}
+	function range(){
+		var range = $('#range').val();
+		window.location="itemlist.admin?range="+range;
+	}
 </script>
 
 
@@ -87,11 +103,12 @@
             <option>번호</option>
         </select>
         <input type="text" class="text"><input type="button" value="검 색" class="btn"/>
-        <select class="sort">
-        	<option>기본정렬</option>
-            <option>높은가격순</option>
-            <option>낮은가격순</option>
-            <option>판매량순</option>
+        <select class="sort" id="range" name="range" onchange="range()">
+        	<option value="new">신상품순</option>
+            <option value="high">높은가격순</option>
+            <option value="low">낮은가격순</option>
+            <option value="count">판매량순</option>
+            <option value="stock">재고순</option>
         </select>
     </div>
     <table class="item" border="1">
@@ -151,7 +168,7 @@
 		                    <td>${item.update_date }</td>
 		                    <td>
 		                    	<button class="btn btn-primary btn-lg" value=${item.no } data-toggle="modal" data-target="#myModal" onclick="modifyOpen(this.value)">수정</button>
-		                    	<button class="btn2" value=${item.no }>삭제</button>
+		                    	<button class="btn2" value=${item.no } onclick="deleteItem(this.value)">삭제</button>
 		                    </td>
 		                </tr>
 	                </c:forEach>
@@ -186,18 +203,20 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-		<h4 class="modal-title" id="myModalLabel">상품 수정</h4>
+		<h4 class="modal-title" id="myModalLabel"><div class="sub">
+        	<span class="col">▶</span> 상품 수정
+        </div></h4>
 	      </div>
 	      <div class="modal-body">
-	      <form action="modifyItem.admin" method="post" enctype="multipart/form-data" name="itemModifyForm" id="itemModifyForm">
-			<table>
+	      <form action="modifyItem.admin" method="post" enctype="multipart/form-data" name="itemModifyForm" id="itemModifyForm" class="info">
+			<table id="modifytable">
 			<tr>
 				<td class="itemInfo">상품번호</td>
 				<td><input type="text" id="item_no" name="item_no" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td class="itemInfo">카테고리</td>
-				<td><select name="category">
+				<td class="itemInfo" width="30%">카테고리</td>
+				<td width="70%"><select name="category" class="full">
 						<option value=1>Equipment - 런닝머신</option>
 						<option value=2>Equipment - 웨이트기구</option>
 						<option value=3>Equipment - 헬스사이클</option>
@@ -215,27 +234,27 @@
 			
 			<tr>
 				<td class="itemInfo">상품명</td>
-				<td><input type="text" size="20" maxlength="15" name="name" id="itemname"/></td>
+				<td><input type="text" size="20" maxlength="15" name="name" id="itemname"  class="full"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">브랜드</td>
-				<td><input type="text" size="10" maxlength="15" name="brand" id="brand"></td>
+				<td><input type="text" size="10" maxlength="15" name="brand" id="brand"  class="full"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">원산지</td>
-				<td><input type="text" size="10" maxlength="15" name="origin" id="origin"></td>
+				<td><input type="text" size="10" maxlength="15" name="origin" id="origin"  class="full"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">원가</td>
-				<td><input type="text" size="10" maxlength="10" name="price" id="price"></td>
+				<td><input type="text" size="10" maxlength="10" name="price" id="price"  class="full"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">판매가</td>
-				<td><input type="text" size="10" maxlength="10" name="sales" id="sales"></td>
+				<td><input type="text" size="10" maxlength="10" name="sales" id="sales"  class="full"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">할인가</td>
-				<td><input type="text" size="10" maxlength="10" name="discount" id="discount"></td>
+				<td><input type="text" size="10" maxlength="10" name="discount" id="discount"  class="full"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">사이즈</td>
@@ -262,7 +281,7 @@
 			</tr>
 			<tr>
 				<td class="itemInfo">재고수량</td>
-				<td><input type="text" size="3" maxlength="10" name="stock" id="stock"></td>
+				<td ><input type="text" size="3" maxlength="10" name="stock" id="stock"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">색상</td>
