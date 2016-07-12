@@ -85,4 +85,14 @@ public class ItemListController {
 		mav.addAllObjects(model);
 		return mav;
 	}
+	@RequestMapping(value="modifyOpen.json")
+	public ModelAndView modifyItem(HttpServletRequest request, ItemVO itemVO){
+		System.out.println("모디파이 제이슨");
+		ModelAndView mav = new ModelAndView();
+		Integer item_no = Integer.parseInt(request.getParameter("item_no"));
+		itemVO = command.getModifyItem(item_no);
+		mav.addObject("item", itemVO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
 }
