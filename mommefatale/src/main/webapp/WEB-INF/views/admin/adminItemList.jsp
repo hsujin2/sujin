@@ -15,6 +15,7 @@
 	window.onload=function(){
 		var range = "${range}";
 		$("select[name=range] option[value="+range+"]").attr("selected",true);
+		
 	}
 	function modifyOpen(item_no){
 		var item_no = item_no;
