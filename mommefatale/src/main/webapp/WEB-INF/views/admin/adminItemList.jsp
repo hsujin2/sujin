@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -127,7 +128,7 @@
                     <col width="7%" />
                     <col width="5%" />
                     <col width="8%" />
-                    <col width="8%" />
+                    <col width="10%" />
                     <col width="5%" />
                 </colgroup>
                 <thead>
@@ -162,14 +163,51 @@
 										alt="${item.name}" class="itemImg" width="110px">
 									  </a></td>
 		                    <td class="aleft"><a href="itemview.do?no=${item.no}">${item.name}</a></td>
-		                    <td>${item.category}</td>
+		                   	<c:choose>
+		                    	<c:when test="${item.category eq 1}">
+		                    		<td>런닝머신</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 2}">
+		                    		<td>웨이트기구</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 3}">
+		                    		<td>사이클</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 4}">
+		                    		<td>아령</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 5}">
+		                    		<td>기타</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 6}">
+		                    		<td>운동복</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 7}">
+		                    		<td>운동화</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 8}">
+		                    		<td>스포츠브라</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 9}">
+		                    		<td>기타</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 10}">
+		                    		<td>보충제</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 11}">
+		                    		<td>영양제</td>
+		                    	</c:when>
+		                    	<c:when test="${item.category eq 12}">
+		                    		<td>기타식품</td>
+		                    	</c:when>	
+		                    </c:choose>
 		                    <td>${item.option_size }</td>
 		                    <td>${item.color }</td>
 		                    <td>${item.sales_quantity}</td>
 		                    <td>${item.stock }</td>
 		                    <td>${item.view }</td>
-		                    <td>${item.price_discount}원</td>
-		                    <td>${item.update_date }</td>
+		                    <td><fmt:formatNumber value="${item.price_discount}" pattern="#,###,###"/>원</td>
+		                    <td><fmt:formatDate value="${item.update_date }" type="both" pattern="yyyy-MM-dd(E)"/></td>
 		                    <td>
 		                    	<button class="btn btn-primary btn-lg" value=${item.no } data-toggle="modal" data-target="#myModal" onclick="modifyOpen(this.value)">수정</button>
 		                    	<button class="btn2" value=${item.no } onclick="deleteItem(this.value)">삭제</button>
