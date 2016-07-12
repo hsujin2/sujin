@@ -23,7 +23,7 @@
          async : false,
          success : function(response){
             var foodlist = response.vo;
-            if(foodlist !=null){
+            if(foodlist != null){
                if(foodlist.length != 0 ){
                   var table = $("<tbody>",{id:'foodList'});
                    for(var i =0; i<foodlist.length; i++){

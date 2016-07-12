@@ -5,7 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원관리</title>
-<script type="text/javascript" src="jquery.paging.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css" />
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="resources/js/admin/jquery.paging.min.js"></script>
 <script type="text/javascript">
     $(function() {
         callAjax = function(page) {
@@ -14,23 +16,39 @@
 
             $.ajax({
                 url: 'mommefatale/member.json',
-                method: 'post',
+                type: 'post',
                 dataType: 'json',
-                data: {},
-                success: function(data) {
+                async : false,
+                success: function(response) {
                     var total = 0;
                     var html = '';
+                    var memberlist = response.vo;
 
-                    if (data.length > 0) {
-                        $.each(data, function(i) {
-                            total = data[i].Total;
+                    if(memberlist != null){
+                   	 if (memberlist.length > 0) {
+                        $.each(response, function(i) {
+                            total = response[i].Total;
 
                             html+= '<li>데이터</li>';
                         });
-
-                        $('.list').empty().append(html);
+                        var table = $("<tbody>",{id:'memberList'});
+                        for(var i =0; i<memberList.length; i++){
+                        	 var tr = $("<tr>");
+                             tr.append($("<td>",{text:memberlist[i].name,name:'name'}));
+                             tr.append($("<td>",{text:memberlist[i].id,name:'id'}));
+                             tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
+                             tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
+                             tr.append($("<td>",{text:memberlist[i].point,name:'point'}));
+                             tr.append($("<td>",{text:memberlist[i].shape,name:'shape'}));
+                             tr.append($("<td>",{text:memberlist[i].join_date,name:'join_date'}));
+                             tr.append($("<td>",{text:memberlist[i].last_visit_date,name:'last_visit_date'}));
+                             table.append(tr);
+                          }
+                        $("#memberList").replaceWith(table);
+                       // $('.list').empty().append(html);
                         $('.paging').jqueryPager({pageSize: pageSize, pageBlock: pageBlock, currentPage: page, pageTotal: total, clickEvent: 'callAjax'});
                     }
+                }
                 }
             });
         };
