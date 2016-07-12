@@ -71,7 +71,7 @@
 			return
 		}
 		
-		$('itemModifyForm').submit();
+		document.itemModifyForm.submit();
 	}
 </script>
 

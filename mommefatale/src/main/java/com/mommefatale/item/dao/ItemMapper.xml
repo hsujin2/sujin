@@ -99,4 +99,7 @@ OPTION_SIZE, ITEM_COLOR FROM ITEM order by ITEM_NO desc)) where rnum <=3]]>
 	<select id="getModifyItem" parameterType="java.lang.Integer" resultMap="toItemVO">
 		select * from item where item_no=#{item_no}
 	</select>
+	<select id="modifyItem" parameterType="com.mommefatale.item.model.ItemVO">
+		update item set ITEM_NAME=#{name}, ITEM_BRAND=#{brand}, ITEM_ORIGIN=#{origin}, ITEM_IMAGE=#{main_img}, ITEM_CONTENT=#{content_img}, CATEGORY_NO=#{category}, ITEM_PRICE_ORIGIN=#{price_origin}, ITEM_PRICE_SALES=#{price_sales}, ITEM_PRICE_DISCOUNT=#{price_discount}, ITEM_STOCK=#{stock}, ITEM_UPDATE_DATE=sysdate, OPTION_SIZE=#{option_size}, ITEM_COLOR=#{color} where ITEM_NO = #{no}
+	</select>
 </mapper>

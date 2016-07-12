@@ -18,6 +18,9 @@
 	<bean id="ItemListService" class="com.mommefatale.item.service.ItemListServiceImpl">
 		<property name="dao" ref="ItemDAO"></property>
 	</bean>
+	<bean id="ItemModifyService" class="com.mommefatale.item.service.ItemModifyServiceImpl">
+		<property name="dao" ref="ItemDAO"></property>
+	</bean>
 	<!-- controller -->
 	<bean class="com.mommefatale.item.controller.ItemAdminController" />
 	<bean class="com.mommefatale.item.controller.ItemInsertController">
@@ -26,6 +29,9 @@
 	<bean class="com.mommefatale.item.controller.ItemListController">
 		<property name="command" ref="ItemListService"></property>
 		<property name="boardPaging" ref="Paging"></property>
+	</bean>
+	<bean class="com.mommefatale.item.controller.ItemModifyController">
+		<property name="command" ref="ItemModifyService"></property>
 	</bean>
 	
 	<!-- 파일 업로드에 필요한 리졸버 -->
