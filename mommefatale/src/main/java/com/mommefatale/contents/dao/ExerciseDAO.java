@@ -26,4 +26,10 @@ public interface ExerciseDAO {
 
 	// 글 삭제하기
 	public void ExerciseDelete(int no);
+	
+	//카테고리 분류
+	public List<ExerciseVO> listCategory(Map<String, Object> map);
+	
+	//카테고리 카운트
+	public int getCategoryCount(String category);
 }

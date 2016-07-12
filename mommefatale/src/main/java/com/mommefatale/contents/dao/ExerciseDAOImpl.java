@@ -24,11 +24,11 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	@Override
 	public List<ExerciseVO> getExerciseList(Object obj) {
 		System.out.println("운동법 리스트 DAO");
-		return session.selectList(namespace + ".exerciseList", obj);
+		return session.selectList(namespace + ".listCategory", obj);
 	}
 
 	@Override
-	public int getExerciseCount() {
+	public int getExerciseCount() { 
 		int count = session.selectOne(namespace + ".exerciseCount");
 		System.out.println("운동법 총 게시물 수 : " + count);
 		return 0;
@@ -64,6 +64,18 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	public void ExerciseDelete(int no) {
 		// TODO Auto-generated method stub
 
+	}
+	
+
+	@Override
+	public List<ExerciseVO> listCategory(Map<String, Object> map) {
+		return session.selectList(namespace + ".listCategory",map);
+		
+	}
+
+	@Override
+	public int getCategoryCount(String category) {
+		return session.selectOne(namespace + ".getCategoryCount",category);
 	}
 
 }
