@@ -40,6 +40,9 @@
 	<bean id="UserSearchService" class="com.mommefatale.user.service.UserSearchServiceImpl">
 		<property name="dao" ref="UserDAO"></property>
 	</bean>
+	<bean id="VisitService" class="com.mommefatale.user.service.VisitServiceImpl">
+		<property name="dao" ref="UserDAO"></property>
+	</bean>
 	
 	<!-- controller -->
 	<bean class="com.mommefatale.user.controller.LoginController">
@@ -56,6 +59,7 @@
 		<property name="command" ref="UserInsertService"></property>
 	</bean>
 	<bean class="com.mommefatale.user.controller.LogoutController">
+		<property name="command" ref="VisitService"></property>
 	</bean>
 	<bean class="com.mommefatale.user.controller.MyPageController">
 	</bean>

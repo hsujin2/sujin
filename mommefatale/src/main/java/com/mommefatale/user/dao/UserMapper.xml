@@ -74,4 +74,7 @@
 	<select id="selectAmount" parameterType="java.lang.String" resultType="java.lang.Integer">
 		SELECT COUPON_AMOUNT FROM COUPON WHERE COUPON_NO = #{coupon_no}
 	</select>
+	<select id="visitDate" parameterType="java.lang.String">
+		update member set MEMBER_LAST_VISIT_DATE = sysdate where member_id = #{userid}
+	</select>
 </mapper>
