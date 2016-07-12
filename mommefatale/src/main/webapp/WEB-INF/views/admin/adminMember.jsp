@@ -102,7 +102,7 @@
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
 							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##"/></td>
-							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy/MM/dd"/></td>
+							<td>${member.join_date}</td>
 							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy/MM/dd"/></td>
 						</tr>
 					</c:forEach>
