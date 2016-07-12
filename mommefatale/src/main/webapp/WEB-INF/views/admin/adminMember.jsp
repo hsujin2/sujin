@@ -12,51 +12,55 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript" src="resources/js/admin/moment-with-locales.min.js"></script>
 <script type="text/javascript">
-  function searchMember() {
-			var memberlist = $("#memberList");
-            $.ajax({
-                url: "/mommefatale/member.json",
-                type: "post",
-                dataType: "json",
-                async : false,
-                success: function(response) {
-                    var memberlist = response.vo;
-                    if(memberlist != null){
-                   	 if (memberlist.length > 0) {
-                        $.each(response, function(i) {
-                            total = response[i].Total;
-                        });
-                        var table = $("<tbody>",{id:'memberList'});
-                        for(var i =0; i<memberlist.length; i++){
-                        	 var tr = $("<tr>");
-                             tr.append($("<td>",{text:memberlist[i].id,name:'id'}));
-                             tr.append($("<td>",{text:memberlist[i].name,name:'name'}));
-                             tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
-                             tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
-                             tr.append($("<td>",{text:memberlist[i].point,name:'point'}));
-                             tr.append($("<td>",{text:moment(memberlist[i].join_date).format('L'),name:'join_date'}));
-                             tr.append($("<td>",{text:moment(memberlist[i].last_visit_date).format('LLL'),name:'last_visit_date'}));
-                             table.append(tr);
-                          }
-                        $("#memberList").replaceWith(table);
+  function searchMemberByGender() {
+		var memberlist = $("#memberList");
+		var gender = $("select[name='category_gender']").val();
+      $.ajax({
+          url: "/mommefatale/member.json",
+          type: "post",
+          dataType: "json",
+          data : {'gender' : gender},
+          async : false,
+          success: function(response) {
+              var memberlist = response.vo;
+              if(memberlist != null){
+             	 if (memberlist.length != 0) {
+                  var table = $("<tbody>",{id:'memberList'});
+                  for(var i =0; i<memberlist.length; i++){
+                  	 var tr = $("<tr>");
+                       tr.append($("<td>",{text:memberlist[i].id,name:'id'}));
+                       tr.append($("<td>",{text:memberlist[i].name,name:'name'}));
+                       tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
+                       tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
+                       tr.append($("<td>",{text:memberlist[i].point,name:'point'}));
+                       tr.append($("<td>",{text:memberlist[i].join_date,name:'join_date'}));
+                       tr.append($("<td>",{text:moment(memberlist[i].last_visit_date).format('LLL'),name:'last_visit_date'}));
+                       table.append(tr);
                     }
-                }
-               },
-                error : function(request, status, error){
-                    if(request.status != '0'){
-                       alert("code : "+request.status +"\r\nmessage : "
-                                   + request.reponseText + "\r\nerror : " + error);
-                    }
-                 }
-            });
-    }
+                  $("#memberList").replaceWith(table);
+              }
+          }
+         },
+          error : function(request, status, error){
+              if(request.status != '0'){
+                 alert("code : "+request.status +"\r\nmessage : "
+                             + request.reponseText + "\r\nerror : " + error);
+              }
+           }
+      })
+}
 </script>
 </head>
 <body>
  <div id="wrap">
       <%@ include file="../include/header.jsp"%>
-      
 <div class="member_table">
+<select name="category_gender" id="category_gender" onchange="searchMemberByGender()">
+	<optgroup label="성별"></optgroup>
+	<option value="남">남</option>
+	<option value="여">여</option>
+</select>
+
 <h2 class="title">회원 목록</h2>
 <span>회원수 : ${page_count}</span>
  <table summary="member_list" id="member_list">
