@@ -40,8 +40,8 @@ public class ItemListServiceImpl implements ItemListService{
 	}
 
 	@Override
-	public Integer getCount() {
-		return dao.getCount();
+	public Integer getCount(Map<String, Object> map) {
+		return dao.getCount(map);
 	}
 
 	@Override

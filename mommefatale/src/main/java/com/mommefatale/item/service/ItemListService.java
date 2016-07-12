@@ -11,7 +11,7 @@ public interface ItemListService {
 	public List<ItemVO> bestList(Integer category);
 	public List<ItemVO> indexbestItemList();
 	public List<ItemVO> indexnewItemList();
-	public Integer getCount();
+	public Integer getCount(Map<String, Object> map);
 	public List<ItemVO> listAll(Map<String, Object> map);
 	public ItemVO getModifyItem(Integer item_no);
 }
