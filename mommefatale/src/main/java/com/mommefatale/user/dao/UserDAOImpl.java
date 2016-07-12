@@ -74,6 +74,11 @@ public class UserDAOImpl implements UserDAO {
 	public Integer getAmount(String coupon_no) {
 		return session.selectOne(namespace + ".selectAmount",coupon_no);
 	}
+
+	@Override
+	public void visitDate(String userid) {
+		session.update(namespace + ".visitDate",userid);
+	}
 	
 	
 	
