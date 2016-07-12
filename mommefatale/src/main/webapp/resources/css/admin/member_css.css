@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
-.member_table{width:1003px; height:600px; margin:0 auto;}
+.member_table{clear:both; width:1003px; height:600px; margin:0 auto;}
 #member_list{width:700px; margin:20px auto; table-layout: fixed;}
 #memberBye_list{width:700px; margin:20px auto;overflow:auto; table-layout: fixed;}
 .title{clear:both; margin:10px auto; text-align:center;}
+#category_id{width:100px;}
+#category_name{width:100px;}
