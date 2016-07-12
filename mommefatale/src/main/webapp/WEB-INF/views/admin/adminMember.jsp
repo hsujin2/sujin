@@ -11,15 +11,26 @@
 <link rel="stylesheet" type="text/css" href="resources/css/admin/member_css.css" />
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
-  function searchMemberByGender() {
+  function searchMemberByCategory() {
 		var memberlist = $("#memberList");
+		var id = $("input[name='category_id']").val();
+		var name = $("input[name='category_name']").val();
 		var gender = $("select[name='category_gender']").val();
+		var grade = $("select[name='category_grade']").val();
+		var join_date = $("input[name='category_join_date']").val();
+		var last_visit_date = $("input[name='category_last_visit_date']").val();
 		
       $.ajax({
           url: "/mommefatale/member.json",
           type: "post",
           dataType: "json",
-          data : {'gender' : gender},
+          data : {	'id' : id,
+        	  			'name' : name,
+        	  			'gender' : gender,
+        	  			'grade' : grade, 
+        	  			'join_date' : join_date,
+        	  			'last_visit_date' : last_visit_date
+        	  			},
           async : false,
           success: function(response) {
               var memberlist = response.vo;
@@ -83,11 +94,27 @@
  <div id="wrap">
       <%@ include file="../include/header.jsp"%>
 <div class="member_table">
-<select name="category_gender" id="category_gender" onchange="searchMemberByGender()">
-	<optgroup label="성별"></optgroup>
-	<option value="남">남</option>
-	<option value="여">여</option>
+<label for="category_id">아이디: </label><input type="text" name="category_id" id="category_id">
+<label for="category_name">이름: </label><input type="text" name="category_name" id="category_name">
+<label for="category_gender">성별: </label><select name="category_gender" id="category_gender">
+	<!-- <optgroup label="성별"></optgroup> -->
+	<option value="">전체</option>
+	<option value="남">남자</option>
+	<option value="여">여자</option>
 </select>
+<label for="category_grade">등급: </label><select name="category_grade" id="category_grade">
+	<!-- <optgroup label="등급"></optgroup> -->
+	<option value="">전체</option>
+	<option value="bronze">bronze</option>
+	<option value="silver">silver</option>
+	<option value="gold">gold</option>
+	<option value="diamond">diamond</option>
+</select>
+<br>
+<label for="category_join_date">가입일자: </label><input type="date" name="category_join_date" id="category_join_date">
+<label for="category_last_visit_date">최종방문일: </label><input type="date" name="category_last_visit_date" id="category_last_visit_date">
+<input type="button" value="검색" onclick="searchMemberByCategory()">
+
 
 <h2 class="title">회원 목록</h2>
 <span>회원수 : ${page_count}</span>

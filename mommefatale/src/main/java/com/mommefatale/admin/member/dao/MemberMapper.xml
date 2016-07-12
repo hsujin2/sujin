@@ -46,23 +46,24 @@
 		from (select * from member where member_state = 1 order by member_join_date desc, member_name asc))
 		where rnum >= #{startRow} and rnum <= #{endRow}]]>
 		<if test='id != null'>
-		and member_id = #{id}
+		and member_id like '%${id}%'
 		</if>
 		<if test='name != null'>
-		and member_name = #{name}
+		and member_name like '%${name}%'
 		</if>
 		<if test='gender != null'>
-		and member_gender = #{gender}
+		and member_gender like '%${gender}%'
 		</if>
 		<if test='grade != null'>
-		and grade_code_name = #{grade}
+		and grade_code_name like '%${grade}%'
 		</if>
 		<if test='join_date != null'>
-		and member_join_date = #{join_date}
+		and member_join_date like '%${join_date}%'
 		</if>
 		<if test='last_visit_date != null'>
-		and member_last_visit_date = #{last_visit_date}
+		and member_last_visit_date like '%${last_visit_date}%'
 		</if>
+		<!-- null뿐만 아니라 공백값도 처리해주기 위해 like를 사용함 -->
 	</select>
 
 <!-- 회원 수 가져오기 -->	

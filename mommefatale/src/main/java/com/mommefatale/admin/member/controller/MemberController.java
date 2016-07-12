@@ -138,7 +138,6 @@ public class MemberController {
 		System.out.println("id :" + map.get("id"));
 		System.out.println("gender :" + map.get("gender"));
 		System.out.println("grade :" + map.get("grade"));
-		System.out.println("shape :" + map.get("shape"));
 		System.out.println("join_date :" + map.get("join_date"));
 		System.out.println("last_visit_date :" + map.get("last_visit_date"));
 		List<MemberVO> vo = command.adminMember(map);
