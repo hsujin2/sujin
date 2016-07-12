@@ -27,14 +27,15 @@
              	 if (memberlist.length != 0) {
                   var table = $("<tbody>",{id:'memberList'});
                   for(var i =0; i<memberlist.length; i++){
-                  	 var tr = $("<tr>");
+                	  var tr = $("<tr>");
+                       tr.append($("<td>").append($('<input type="checkbox">')));
                        tr.append($("<td>",{text:memberlist[i].id,name:'id'}));
                        tr.append($("<td>",{text:memberlist[i].name,name:'name'}));
                        tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
                        tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
                        tr.append($("<td>",{text:memberlist[i].point,name:'point'}));
                        tr.append($("<td>",{text:memberlist[i].join_date,name:'join_date'}));
-                       tr.append($("<td>",{text:moment(memberlist[i].last_visit_date).format('LLL'),name:'last_visit_date'}));
+                       tr.append($("<td>",{text:moment(memberlist[i].last_visit_date).format('L'),name:'last_visit_date'}));
                        table.append(tr);
                     }
                   $("#memberList").replaceWith(table);
@@ -101,8 +102,8 @@
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
 							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##"/></td>
-							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy-MM-dd"/></td>
-							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy/MM/dd"/></td>
+							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy/MM/dd"/></td>
 						</tr>
 					</c:forEach>
 				</c:if>	
@@ -163,8 +164,8 @@
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
 							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##"/></td>
-							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy-MM-dd"/></td>
-							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy/MM/dd"/></td>
+							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy/MM/dd"/></td>
 						</tr>
 					</c:forEach>
 				</c:if>	
