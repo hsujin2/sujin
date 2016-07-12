@@ -12,6 +12,11 @@
 <script type="text/javascript">
 	function modify(item_no){
 		alert(item_no);
+		if($("modifyArea").style.display==""){
+			$("modifyArea").style.display="none";
+		}else{
+			$("modifyArea").style.display="";
+		}
 	}
 </script>
 
