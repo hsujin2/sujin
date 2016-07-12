@@ -17,6 +17,11 @@
 
 </head>
 <body>
+<form id="modifyArea" method="post" action="">
+	<div id="modify">
+		상품명 : <input type="text" name="itemname"><br>
+	</div>
+</form>
 <section class="content">
 	<div class="upmenu">
     	<select class="itemName">
