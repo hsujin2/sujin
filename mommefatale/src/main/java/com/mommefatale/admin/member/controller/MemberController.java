@@ -107,19 +107,30 @@ public class MemberController {
 		System.out.println("회원관리 Json 페이지 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
+		
+		String pageNum = request.getParameter("pageNum");
+		
 		Map<String, Object> map = new HashMap<String, Object>();
+		if (pageNum == null || pageNum == "") {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int pageSize = 10;
+		int pageNavi = 3;
+		int page_count = command.adminMemberCount();
 		
+		int number = page_count - (currentPage - 1) * pageSize;
+
+		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
+		map.put("startRow", paging.getWriting_Start());
+		map.put("endRow", paging.getWriting_End());
 		
-		int memberCount = command.adminMemberCount();
-		map.put("memberCount", new Integer(memberCount));
-		List<MemberVO> vo = command.adminMember(map);
-		int count = vo.size();
-		
+		System.out.println("검색된 회원 수: " + page_count);
+		map.put("memberCount", new Integer(page_count));
 		map.put("name", request.getParameter("name"));
 		map.put("id", request.getParameter("id"));
 		map.put("gender", request.getParameter("gender"));
 		map.put("grade", request.getParameter("grade"));
-		map.put("shape", request.getParameter("shape"));
 		map.put("join_date", request.getParameter("join_date"));
 		map.put("last_visit_date", request.getParameter("last_visit_date"));
 		
@@ -130,10 +141,15 @@ public class MemberController {
 		System.out.println("shape :" + map.get("shape"));
 		System.out.println("join_date :" + map.get("join_date"));
 		System.out.println("last_visit_date :" + map.get("last_visit_date"));
+		List<MemberVO> vo = command.adminMember(map);
+		int count = vo.size();
 		
 		Map<String, Object> model =	new HashMap<String, Object>();
-		
 		model.put("memberList", vo);
+		model.put("page_count", new Integer(page_count));
+		model.put("number", new Integer(number));
+		model.put("pageNum", pageNum);
+		model.put("paging", paging);
 		mav.addAllObjects(model);
 		mav.setViewName("jsonView");
 		mav.addObject("vo", vo);
