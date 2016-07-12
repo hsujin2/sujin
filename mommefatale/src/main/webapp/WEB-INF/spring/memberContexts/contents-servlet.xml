@@ -15,7 +15,7 @@
 	</bean>
 
 	<!-- Service -->
-	<bean id="exercisePageService"
+	<bean id="exerciseListService"
 		class="com.mommefatale.contents.service.ExercisePageServiceImpl">
 		<property name="dao" ref="exerciseDAO" />
 	</bean>
@@ -30,9 +30,9 @@
 
 
 	<!-- Controller -->
-	<bean id="exercisePageController"
+	<bean id="exerciseListController"
 		class="com.mommefatale.contents.controller.ExercisePageController">
-		<property name="command" ref="exercisePageService" />
+		<property name="command" ref="exerciseListService" />
 		<property name="paging" ref="paging" />
 	</bean>
 	<bean id="exerciseWriteController" class="com.mommefatale.contents.controller.ExerciseWriteController">
