@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mommefatale.board.model.Paging;
 import com.mommefatale.contents.model.ExerciseVO;
 import com.mommefatale.contents.service.ExercisePageService;
+import com.mommefatale.item.model.ItemVO;
 
 @Controller
 public class ExercisePageController {
@@ -42,7 +43,11 @@ public class ExercisePageController {
 		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
 		String pageNum = request.getParameter("pageNum");
-
+		String category = request.getParameter("category");
+		
+		/*test*/
+		System.out.println("테스트, 카테고리는 : " + category );
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (pageNum == null || pageNum == "") {
 			pageNum = "1";
@@ -52,28 +57,40 @@ public class ExercisePageController {
 		int pageNavi = 3;
 		int page_count = command.ExercisePageCount();
 
-		int number = page_count - (currentPage - 1) * pageSize;
-
-		paging.setPaging(pageSize, pageNavi, page_count, currentPage);
+		int count = 0;
+		if(category == null || category == ""){
+			//count = command.getCount(); //전체 글수
+		}else{
+			count = command.getCategoryCount(category); // 전체 글수
+		}
+		int number = count - (currentPage - 1) * pageSize; // 화면에 보여줄 글 번호
+		paging.setPaging(pageSize, pageNavi, count, currentPage);
 		map.put("startRow", paging.getWriting_Start());
 		map.put("endRow", paging.getWriting_End());
 
 		System.out.println("카운트 : " + page_count);
 
-		List<ExerciseVO> vo = command.ExercisePage(map);
-		int count = vo.size();
+		List<ExerciseVO> categoryList = null;
+		if(category != null || category != ""){
+			System.out.println("카테고리: " + category);
+			map.put("category", category);
+			categoryList = command.listCategory(map);
+		}
+		
+		/*List<ExerciseVO> vo = command.ExercisePage(map);
+		int count = vo.size();*/
 
 		Map<String, Object> model = new HashMap<String, Object>();
 
-		model.put("exerciseList", vo);
+		model.put("categoryList", categoryList);
 		model.put("page_count", new Integer(page_count));
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
+		model.put("count", new Integer(count));
 		mav.addAllObjects(model);
 		mav.setViewName("/contents/exercise1");
-		mav.addObject("vo", vo);
-		mav.addObject("count", count);
+		//mav.addObject("vo", vo);
 		return mav;
 	}
 

@@ -45,6 +45,8 @@ public class ExerciseWriteController {
 				int content_i = content.indexOf(imgPath);
 				String exercise_image = content.substring(content_i+imgPath.length(),(content.substring(content_i).indexOf("\"")+content_i));
 		
+		String exercise_category = request.getParameter("category");
+		
 		Enumeration<?> enums = request.getParameterNames();
 		while (enums.hasMoreElements()) {
 			String paramName = enums.nextElement().toString();
@@ -53,6 +55,7 @@ public class ExerciseWriteController {
 			map.put(paramName, paramValue);
 		}
 		map.put("image", exercise_image);
+		map.put("category", exercise_category);
 		command.exerciseWrite(map);
 		mav.setViewName("redirect:/exercise1.do");
 
