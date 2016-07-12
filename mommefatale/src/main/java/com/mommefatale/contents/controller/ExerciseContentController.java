@@ -29,7 +29,7 @@ public class ExerciseContentController {
 		int no = Integer.parseInt(request.getParameter("no"));
 		ExerciseVO vo = command.exerciseContent(no);
 		command.exerciseView(no);
-		mav.setViewName("/contents/exerciseContent");
+		mav.setViewName("/contents/exercise2");
 		mav.addObject("vo", vo);
 		return mav;
 	}

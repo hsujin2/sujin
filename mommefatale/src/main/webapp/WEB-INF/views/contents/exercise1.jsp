@@ -41,7 +41,7 @@
 				<c:if test="${count != 0 }">
 					<c:forEach var="vo" items="${vo}">
 						<li><span><a href="exerciseContent.do?no=${vo.no}">
-									<img src="/mommefatale/resources/images/uploadimg/${vo.image}"
+									<img src="resources/images/uploadimg/images/${vo.image}"
 									id="image">
 							</a></span> <span class="subject" id="subject"> <a
 								href="exerciseContent.do?no=${vo.no}">${vo.subject}</a></span></li>
