@@ -10,11 +10,11 @@
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/admin/member_css.css" />
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="resources/js/admin/moment-with-locales.min.js"></script>
 <script type="text/javascript">
   function searchMemberByGender() {
 		var memberlist = $("#memberList");
 		var gender = $("select[name='category_gender']").val();
+		
       $.ajax({
           url: "/mommefatale/member.json",
           type: "post",
@@ -27,6 +27,33 @@
              	 if (memberlist.length != 0) {
                   var table = $("<tbody>",{id:'memberList'});
                   for(var i =0; i<memberlist.length; i++){
+                	  // join_date   json=>string --------------------------------
+                	  var joinDate = memberlist[i].last_visit_date;
+                	  var year = joinDate.year + 1900;
+                      var month = joinDate.month + 1;
+                      if(month <10){
+                    	  month = '0'+month;
+                      }
+                      var date = joinDate.date;
+                      if(date <10){
+                    	  date = '0'+date;
+                      }
+                      var stringJoinDate = year + "-" + month +"-" + date;
+                	  //-------------------------------------------------------------   
+         
+                     // last_visit_date   json=>string -----------------------------
+                	  var lastDate = memberlist[i].last_visit_date;
+                	  var year2 = lastDate.year + 1900;
+                      var month2 = lastDate.month + 1;
+                      if(month2 <10){
+                    	  month2 = '0'+month2;
+                      }
+                      var date2 = lastDate.date;
+                      if(date2 <10){
+                    	  date2 = '0'+date2;
+                      }
+                      var stringLastDate = year2 + "-" + month2 +"-" + date2;
+                	  //------------------------------------------------------------- 
                 	  var tr = $("<tr>");
                        tr.append($("<td>").append($('<input type="checkbox">')));
                        tr.append($("<td>",{text:memberlist[i].id,name:'id'}));
@@ -34,8 +61,8 @@
                        tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
                        tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
                        tr.append($("<td>",{text:memberlist[i].point,name:'point'}));
-                       tr.append($("<td>",{text:memberlist[i].join_date,name:'join_date'}));
-                       tr.append($("<td>",{text:moment(memberlist[i].last_visit_date).format('L'),name:'last_visit_date'}));
+ 					   tr.append($("<td>",{text:stringJoinDate,name:'join_date'}));
+                       tr.append($("<td>",{text:stringLastDate,name:'last_visit_date'}));
                        table.append(tr);
                     }
                   $("#memberList").replaceWith(table);
@@ -102,8 +129,8 @@
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
 							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##"/></td>
-							<td>${member.join_date}</td>
-							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy/MM/dd"/></td>
+							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy-MM-dd"/></td>
 						</tr>
 					</c:forEach>
 				</c:if>	
@@ -164,8 +191,8 @@
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
 							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##"/></td>
-							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy/MM/dd"/></td>
-							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy/MM/dd"/></td>
+							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy-MM-dd"/></td>
+							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy-MM-dd"/></td>
 						</tr>
 					</c:forEach>
 				</c:if>	
