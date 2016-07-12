@@ -43,10 +43,41 @@ public class ItemListController {
 		int pageNavi = 3; // 보여질 페이지 수
 		
 		Map<String, Object> map = new HashMap<String, Object>();
+
+		//상품 찾기
+		String group = request.getParameter("group");
+		String text = request.getParameter("text");
+		System.out.println("검색어 : "+group+" "+text);
+		if(group!=null){
+			if(group.equals("카테고리")){
+				switch(text){
+				case "런닝머신" : category = "1"; break;
+				case "웨이트기구" : category = "2"; break;
+				case "사이클" : category = "3"; break;
+				case "아령" : category = "4"; break;
+				case "운동복" : category = "6"; break;
+				case "운동화" : category = "7"; break;
+				case "스포츠브라" : category = "8"; break;
+				case "보충제" : category = "10"; break;
+				case "영양제" : category = "11"; break;
+				case "기타식품" : category = "12"; break;
+				}
+			}
+		}else{
+			group = "없음";
+			text = "없음";
+		}
+		map.put("group", group);
+		if(group.equals("가격")){
+			map.put("text", Integer.parseInt(text));
+		}else{
+			map.put("text", text);
+		}
+		//
 		
 		int count = 0;
 		if(category == null || category == ""){
-			count = command.getCount(); // 전체글수
+			count = command.getCount(map); // 전체글수
 		}else{
 			count = command.getCategoryCount(category); // 전체글수
 		}
@@ -60,7 +91,6 @@ public class ItemListController {
 		String range = request.getParameter("range");
 		map.put("range", range);
 		System.out.println(range + "정렬");
-		//
 		
 		List<ItemVO> itemlist = null;
 		if(category == null || category == ""){

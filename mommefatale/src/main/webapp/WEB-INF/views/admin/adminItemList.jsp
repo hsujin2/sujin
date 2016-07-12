@@ -89,6 +89,11 @@
 		var range = $('#range').val();
 		window.location="itemlist.admin?range="+range;
 	}
+	function searchItem(){
+		var group = $('#group').val();
+		var text = $('#search').val();
+		window.location="itemlist.admin?range=new&group="+group+"&text="+text;
+	}
 </script>
 
 
@@ -96,13 +101,12 @@
 <body>
 <section class="content">
 	<div class="upmenu">
-    	<select class="itemName">
-            <option>상품명</option>
-            <option>품번</option>
-            <option>가격</option>
-            <option>번호</option>
+    	<select class="itemName" id="group" name="group">
+            <option value="상품명">상품명</option>
+            <option value="카테고리">카테고리</option>
+            <option value="가격">가격</option>
         </select>
-        <input type="text" class="text"><input type="button" value="검 색" class="btn"/>
+        <input type="text" class="text" id="search" name="search"><input type="button" value="검 색" class="btn" onclick="searchItem()">
         <select class="sort" id="range" name="range" onchange="range()">
         	<option value="new">신상품순</option>
             <option value="high">높은가격순</option>
