@@ -32,7 +32,7 @@
 		<result property="coupon" column="COUPONS_NO" jdbcType="BIGINT" />
 		<result property="point" column="MEMBER_POINT" jdbcType="BIGINT"/>
 		<result property="state" column="MEMBER_STATE" jdbcType="BIGINT" />
-		<result property="join_date" column="MEMBER_JOIN_DATE" jdbcType="DATE" />
+		<result property="join_date" column="joindate" jdbcType="DATE" />
 		<result property="visit_count" column="MEMBER_VISIT_COUNT" jdbcType="BIGINT" />
 		<result property="last_visit_date" column="MEMBER_LAST_VISIT_DATE" jdbcType="DATE" />
 	</resultMap>
@@ -41,7 +41,7 @@
 		<![CDATA[select * from (select rownum rnum, member_name, member_gender, member_id, member_pw, member_email, member_zip, 
 		member_address1, member_address2, member_phone, member_birthday, grade_code_name, member_height, member_weight, member_bmi, 
 		shape_code, fat_part1, fat_part2, fat_part3, fat_part4, fat_part5, fat_part6, activity_code1, activity_code2, activity_code3, activity_code4, activity_code5, 
-		member_kcal, coupons_no, member_point, member_state, member_join_date, member_visit_count, member_last_visit_date from(select * from member where member_state = 1 order by member_join_date desc, member_name asc))
+		member_kcal, coupons_no, member_point, member_state, to_char(to_date(member_join_date),'YYYY-MM-DD') as joindate, member_visit_count, member_last_visit_date from(select * from member where member_state = 1 order by member_join_date desc, member_name asc))
 		where rnum >= #{startRow} and rnum <= #{endRow}]]>
 		<if test='id != null'>
 		and member_id = #{id}

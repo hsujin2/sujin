@@ -34,7 +34,7 @@ public class MemberVO {
 	private int coupon;
 	private int point;
 	private int state;
-	private Date join_date;
+	private String join_date;
 	private int visit_count;
 	private Date last_visit_date;
 
@@ -278,11 +278,11 @@ public class MemberVO {
 		this.state = state;
 	}
 
-	public Date getJoin_date() {
+	public String getJoin_date() {
 		return join_date;
 	}
 
-	public void setJoin_date(Date join_date) {
+	public void setJoin_date(String join_date) {
 		this.join_date = join_date;
 	}
 
