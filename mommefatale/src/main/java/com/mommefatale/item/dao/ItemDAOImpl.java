@@ -62,5 +62,9 @@ public class ItemDAOImpl implements ItemDAO{
 	public void modifyItem(ItemVO itemVO) {
 		session.update(namespace + ".modifyItem",itemVO);
 	}
+	@Override
+	public void deleteItem(Integer item_no) {
+		session.delete(namespace + ".deleteItem",item_no);
+	}
 
 }

@@ -37,7 +37,7 @@
 		 <if test='range.equals("pop")'>
 		 order by ITEM_SALES_QUANTITY desc
 		 </if>
-		 <if test='range.equals("row")'>
+		 <if test='range.equals("low")'>
 		 order by ITEM_PRICE_DISCOUNT asc
 		 </if>
 		 <if test='range.equals("high")'>
@@ -54,11 +54,17 @@
 		 <if test='range.equals("pop")'>
 		 order by ITEM_SALES_QUANTITY desc
 		 </if>
-		 <if test='range.equals("row")'>
+		 <if test='range.equals("low")'>
 		 order by ITEM_PRICE_DISCOUNT asc
 		 </if>
 		 <if test='range.equals("high")'>
 		 order by ITEM_PRICE_DISCOUNT desc
+		 </if>
+		 <if test='range.equals("count")'>
+		 order by ITEM_SALES_QUANTITY desc
+		 </if>
+		 <if test='range.equals("stock")'>
+		 order by ITEM_STOCK desc
 		 </if>
 		 )) where <![CDATA[rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
@@ -101,5 +107,8 @@ OPTION_SIZE, ITEM_COLOR FROM ITEM order by ITEM_NO desc)) where rnum <=3]]>
 	</select>
 	<select id="modifyItem" parameterType="com.mommefatale.item.model.ItemVO">
 		update item set ITEM_NAME=#{name}, ITEM_BRAND=#{brand}, ITEM_ORIGIN=#{origin}, ITEM_IMAGE=#{main_img}, ITEM_CONTENT=#{content_img}, CATEGORY_NO=#{category}, ITEM_PRICE_ORIGIN=#{price_origin}, ITEM_PRICE_SALES=#{price_sales}, ITEM_PRICE_DISCOUNT=#{price_discount}, ITEM_STOCK=#{stock}, ITEM_UPDATE_DATE=sysdate, OPTION_SIZE=#{option_size}, ITEM_COLOR=#{color} where ITEM_NO = #{no}
+	</select>
+	<select id="deleteItem" parameterType="java.lang.Integer">
+		delete from item where item_no=#{item_no}
 	</select>
 </mapper>

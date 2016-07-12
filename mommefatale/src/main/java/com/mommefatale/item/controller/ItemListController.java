@@ -59,6 +59,7 @@ public class ItemListController {
 		//상품정렬
 		String range = request.getParameter("range");
 		map.put("range", range);
+		System.out.println(range + "정렬");
 		//
 		
 		List<ItemVO> itemlist = null;
