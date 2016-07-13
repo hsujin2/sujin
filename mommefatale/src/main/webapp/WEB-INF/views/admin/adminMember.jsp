@@ -51,7 +51,7 @@
                     }
                   $("#memberList").replaceWith(table);
               } else{
-            	  alert("검색조건과 일치하는 회원이 없습니다.")
+            	  alert("검색조건과 일치하는 회원이 없습니다.");
               }
           }
          },
