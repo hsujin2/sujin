@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mommefatale.board.model.Paging;
 import com.mommefatale.contents.model.ExerciseVO;
 import com.mommefatale.contents.service.ExercisePageService;
-import com.mommefatale.item.model.ItemVO;
 
 @Controller
 public class ExercisePageController {
@@ -37,6 +36,7 @@ public class ExercisePageController {
 		this.paging = paging;
 	}
 
+	
 	@RequestMapping(value = "/exercise1.do")
 	public ModelAndView ExercisePage(HttpServletRequest request) throws Exception {
 		System.out.println("운동법 리스트 컨트롤러");
@@ -60,8 +60,10 @@ public class ExercisePageController {
 		int count = 0;
 		if(category == null || category == ""){
 			//count = command.getCount(); //전체 글수
+			System.out.println("카테고리 널이야!");
 		}else{
 			count = command.getCategoryCount(category); // 전체 글수
+			System.out.println("카테고리별 게시물수"+count);
 		}
 		int number = count - (currentPage - 1) * pageSize; // 화면에 보여줄 글 번호
 		paging.setPaging(pageSize, pageNavi, count, currentPage);
@@ -77,20 +79,23 @@ public class ExercisePageController {
 			categoryList = command.listCategory(map);
 		}
 		
-		/*List<ExerciseVO> vo = command.ExercisePage(map);
-		int count = vo.size();*/
+		List<ExerciseVO> vo = command.ExercisePage(map);
+//		int count = vo.size();
 
 		Map<String, Object> model = new HashMap<String, Object>();
 
-		model.put("categoryList", categoryList);
+		model.put("category", category);
+		model.put("categoryList",categoryList);
+		model.put("count", new Integer(count));
 		model.put("page_count", new Integer(page_count));
 		model.put("number", new Integer(number));
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
-		model.put("count", new Integer(count));
-		mav.addAllObjects(model);
+		
 		mav.setViewName("/contents/exercise1");
-		//mav.addObject("vo", vo);
+		mav.addAllObjects(model);
+		mav.addObject("vo", vo);
+		
 		return mav;
 	}
 

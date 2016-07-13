@@ -19,11 +19,12 @@
 		<%@ include file="../include/header.jsp"%>
 		<div id="wrapcontents">
 			<div id="content_banner">
-				<h1>Diet</h1>
+				<h1>${category}</h1>
 				<a href="dietary.do"><img
 					src="resources/images/contents/arrow-before-dietary.png"
 					alt="before" /></a> <a href="exercise1.do"><img
-					src="resources/images/contents/contents-banner.png"
+					src="resources/images/contents/contents-b
+					anner.png"
 					id="contentmain" alt="banner" /></a> <a href="recommended_products.do"><img
 					src="resources/images/contents/arrow-next-product.png" alt="next" /></a>
 			</div>
@@ -40,11 +41,12 @@
 				</c:if>
 				<c:if test="${count != 0 }">
 					<c:forEach var="vo" items="${vo}">
-						<li><span><a href="exerciseContent.do?no=${vo.no}">
+						<li><span><a
+								href="exerciseContent.do?category=${category}&no=${vo.no}">
 									<img src="resources/images/uploadimg/images/${vo.image}"
 									id="image">
 							</a></span> <span class="subject" id="subject"> <a
-								href="exerciseContent.do?no=${vo.no}">${vo.subject}</a></span></li>
+								href="exerciseContent.do?category=${category}&no=${vo.no}">${vo.subject}</a></span></li>
 					</c:forEach>
 				</c:if>
 			</ul>
@@ -58,8 +60,8 @@
 				<tr>
 					<td colspan="5"></td>
 					<td>
-						<button class="write_button" onclick="location.href='exerciseWriteForm.do'">글쓰기</button>
-
+						<button class="write_button"
+							onclick="location.href='exerciseWriteForm.do'">글쓰기</button>
 					</td>
 				</tr>
 			</table>
@@ -67,19 +69,19 @@
 			<div id="footList">
 				<c:if test="${paging.isPre()}">
 					<a
-						href="exercise1.do?pageNum=${paging.getPage_Start()-paging.p_size}">[이전]</a>&nbsp;&nbsp;</c:if>
+						href="exercise1.do?pageNum=${paging.getPage_Start()-paging.p_size}&category=${category}">[이전]</a>&nbsp;&nbsp;</c:if>
 				<c:forEach var="counter" begin="${paging.getPage_Start()}"
 					end="${paging.getPage_End()}">
 					<c:if test="${paging.getCur_Page() eq counter}">[${counter}]
                      </c:if>
 					<c:if test="${paging.getCur_Page() ne counter}">
 						<a
-							href="javascript:window.location='exercise1.do?pageNum=${counter}'">[${counter}]</a>
+							href="javascript:window.location='exercise1.do?pageNum=${counter}&category=${category}'">[${counter}]</a>
 					</c:if>
 				</c:forEach>
 				<c:if test="${paging.isNext()}">
 					<a
-						href="exercise1.do?pageNum=${paging.getPage_Start()+paging.p_size}">[다음]</a>
+						href="exercise1.do?pageNum=${paging.getPage_Start()+paging.p_size}&category=${category}">[다음]</a>
 				</c:if>
 			</div>
 		</div>

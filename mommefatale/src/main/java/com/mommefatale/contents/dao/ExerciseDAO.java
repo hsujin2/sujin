@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mommefatale.contents.model.ExerciseVO;
+import com.mommefatale.item.model.ItemVO;
 
 public interface ExerciseDAO {
 	// 리스트 가져오기
@@ -22,7 +23,7 @@ public interface ExerciseDAO {
 	public void exerciseView(int no);
 
 	// 글 수정하기
-	public void exerciseUpdate(Map<String, Object> vo);
+	public void exerciseUpdate(ExerciseVO exerciseVO);
 
 	// 글 삭제하기
 	public void ExerciseDelete(int no);
