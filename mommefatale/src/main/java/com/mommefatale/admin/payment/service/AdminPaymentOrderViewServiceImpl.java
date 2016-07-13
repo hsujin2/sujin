@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mommefatale.admin.payment.dao.AdminPaymentDAO;
 import com.mommefatale.admin.payment.model.OrderDateVO;
+import com.mommefatale.admin.payment.model.PaymentListVO;
 import com.mommefatale.admin.payment.model.PaymentVO;
 
 
@@ -22,6 +23,11 @@ public class AdminPaymentOrderViewServiceImpl implements AdminPaymentOrderViewSe
 	@Override
 	public List<PaymentVO> paymentDateList(OrderDateVO orderdateVO) {
 		return dao.paymentDateList(orderdateVO);
+	}
+
+	@Override
+	public List<PaymentListVO> paymentDetailList(Integer order_no) {
+		return dao.paymentDetailList(order_no);
 	}
 
 

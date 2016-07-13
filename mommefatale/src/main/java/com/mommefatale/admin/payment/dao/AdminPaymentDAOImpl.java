@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.mommefatale.admin.payment.model.OrderDateVO;
+import com.mommefatale.admin.payment.model.PaymentListVO;
 import com.mommefatale.admin.payment.model.PaymentVO;
 
 
@@ -23,6 +24,11 @@ public class AdminPaymentDAOImpl implements AdminPaymentDAO{
 	@Override
 	public List<PaymentVO> paymentDateList(OrderDateVO orderdateVO) {
 		return session.selectList(namespace + ".paymentDateList",orderdateVO);
+	}
+
+	@Override
+	public List<PaymentListVO> paymentDetailList(Integer order_no) {
+		return session.selectList(namespace + ".pamentDetailList",order_no);
 	}
 	
 	

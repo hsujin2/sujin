@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mommefatale.admin.payment.dao.AdminPaymentMapper">
 
-	<resultMap id="toPaymentListVO" type="com.mommefatale.admin.payment.model.PaymentVO">
+	<resultMap id="toPaymentVO" type="com.mommefatale.admin.payment.model.PaymentVO">
 		<result property="order_no" column="ORDER_NO" jdbcType="BIGINT"></result>
 		<result property="user_id" column="MEMBER_ID" jdbcType="VARCHAR"></result>
 		<result property="total_price" column="ORDER_TOTAL_PRICE" jdbcType="BIGINT"></result>
@@ -18,8 +18,17 @@
 		<result property="fee" column="DELIVERY_FEE" jdbcType="BIGINT"></result>
 		<result property="point" column="MEMBER_POINT" jdbcType="BIGINT"></result>
 	</resultMap>
+	<resultMap id="toPaymentListVO" type="com.mommefatale.admin.payment.model.PaymentListVO">
+		<result property="item_no" column="ITEM_NO" jdbcType="BIGINT"></result>
+		<result property="item_name" column="ITEM_NAME" jdbcType="VARCHAR"></result>
+		<result property="size" column="OPTION_SIZE" jdbcType="VARCHAR"></result>
+		<result property="sales" column="ITEM_PRICE_SALES" jdbcType="VARCHAR"></result>
+		<result property="discount" column="ITEM_PRICE_DISCOUNT" jdbcType="BIGINT"></result>
+		<result property="quantity" column="ORDER_QUANTITY" jdbcType="BIGINT"></result>
+		<result property="order_no" column="ORDER_NO" jdbcType="BIGINT"></result>
+	</resultMap>
 	
-	<select id="paymentlist" resultMap="toPaymentListVO">
+	<select id="paymentlist" resultMap="toPaymentVO">
 		select 
 ORDER_NO, MEMBER_ID, ORDER_TOTAL_PRICE,
 ORDER_STATE, ORDER_DATE, ORDER_REQUEST, ORDER_ZIP,
@@ -27,7 +36,7 @@ ORDER_ADDRESS1, ORDER_ADDRESS2, ORDER_PHONE,
 ORDER_RECEIVER, COUPON_AMOUNT, DELIVERY_FEE,
 MEMBER_POINT from ORDER_ join COUPON using(COUPON_NO) order by ORDER_DATE desc
 	</select>
-	<select id="paymentDateList" parameterType="com.mommefatale.admin.payment.model.OrderDateVO" resultMap="toPaymentListVO">
+	<select id="paymentDateList" parameterType="com.mommefatale.admin.payment.model.OrderDateVO" resultMap="toPaymentVO">
 select 
 ORDER_NO, MEMBER_ID, ORDER_TOTAL_PRICE,
 ORDER_STATE, ORDER_DATE, ORDER_REQUEST, ORDER_ZIP,
@@ -44,6 +53,9 @@ MEMBER_POINT from ORDER_ join COUPON using(COUPON_NO) where MEMBER_POINT >=0
 	and ORDER_NO = #{order_no}
 </if>
 order by ORDER_DATE
+	</select>
+	<select id="pamentDetailList" parameterType="java.lang.Integer" resultMap="toPaymentListVO">
+		select ITEM_NO,ITEM_NAME,OPTION_SIZE,ITEM_PRICE_SALES,ITEM_PRICE_DISCOUNT,ORDER_QUANTITY,ORDER_NO from order_list join item using(item_no) where order_no = #{order_no}
 	</select>
 
 </mapper>

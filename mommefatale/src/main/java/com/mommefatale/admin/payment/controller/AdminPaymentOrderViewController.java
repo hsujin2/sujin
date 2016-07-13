@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.admin.payment.model.OrderDateVO;
+import com.mommefatale.admin.payment.model.PaymentListVO;
 import com.mommefatale.admin.payment.model.PaymentVO;
 import com.mommefatale.admin.payment.service.AdminPaymentOrderViewService;
 import com.mommefatale.user.model.UserVO;
@@ -54,9 +55,16 @@ public class AdminPaymentOrderViewController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
-//	@RequestMapping(value="adminpaymentdetaillist.json")
-//	public ModelAndView paymentDetailList(){
-//		ModelAndView mav = new ModelAndView();
-//		
-//	}
+	
+	@RequestMapping(value="adminpaymentdetaillist.json")
+	public ModelAndView paymentDetailList(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		Integer order_no = Integer.parseInt(request.getParameter("order_no"));
+		System.out.println("주문 조회 번호 : "+order_no);
+		
+		List<PaymentListVO> paymentdetaillist = command.paymentDetailList(order_no);
+		mav.addObject("paymentdetaillist",paymentdetaillist);
+		mav.setViewName("jsonView");
+		return mav;
+	}
 }
