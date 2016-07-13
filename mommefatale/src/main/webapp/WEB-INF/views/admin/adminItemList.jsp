@@ -9,6 +9,7 @@
 
 <title>상품관리</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">	
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <link rel="stylesheet" type="text/css" href="resources/css/item/itemManage_css.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script type="text/javascript">
@@ -101,6 +102,8 @@
 
 </head>
 <body>
+<div id="wrap">
+<%@ include file="../include/header.jsp" %>
 <section class="content">
 	<div class="upmenu">
     	<select class="itemName" id="group" name="group">
@@ -352,5 +355,7 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
 <script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js -->
+<%@ include file="../include/footer.jsp" %>
+</div>
 </body>
 </html>
