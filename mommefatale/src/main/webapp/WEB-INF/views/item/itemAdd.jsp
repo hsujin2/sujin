@@ -5,17 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품등록</title>
+<link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
+<link rel="stylesheet" type="text/css" href="resources/css/admin/itemadd_css.css" />
 <script type="text/javascript" src="resources/js/item/itemscript_js.js"></script>
 </head>
 <body>
-<div id="wrapper">
+<div id="wrap">
+<%@ include file="../include/header.jsp" %>
+<section class="content">
 	<form action="insertItem.admin" method="post" enctype="multipart/form-data" name="itemAddForm" id="itemAddForm">
-	<fieldset style="margin-left:150px">
-		<legend>상품 등록</legend>
-		<table>
+	<div class="sub">
+        	<span class="col">▶</span> 상품 등록
+    </div>
+		<table class="info">
 			<tr>
-				<td class="itemInfo">카테고리</td>
-				<td><select name="category">
+				<td class="itemInfo" width="30%">카테고리</td>
+				<td width="70%"><select name="category" style="width:100%">
 						<option value=1>Equipment - 런닝머신</option>
 						<option value=2>Equipment - 웨이트기구</option>
 						<option value=3>Equipment - 헬스사이클</option>
@@ -37,7 +42,7 @@
 			</tr>
 			<tr>
 				<td class="itemInfo">브랜드</td>
-				<td><input type="text" size="10" maxlength="15" name="brand"/></td>
+				<td><input type="text" size="10" maxlength="15" name="brand"></td>
 			</tr>
 			<tr>
 				<td class="itemInfo">원산지</td>
@@ -101,8 +106,9 @@
 			<input type="button" value="상품등록" Onclick="itemWriteCheck()" /> <input type="reset" value="취소"
 				onclick="location.href='itemlist.admin'" />
 		</div>
-	</fieldset>
 	</form>
+	</section>
+	<%@ include file="../include/footer.jsp" %>
 </div>
 </body>
 </html>
