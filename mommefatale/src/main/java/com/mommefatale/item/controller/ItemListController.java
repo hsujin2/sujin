@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mommefatale.item.model.ItemVO;
 import com.mommefatale.item.model.Paging;
 import com.mommefatale.item.service.ItemListService;
+import com.mommefatale.user.model.UserVO;
 
 @Controller
 public class ItemListController {
@@ -29,7 +31,17 @@ public class ItemListController {
 	@RequestMapping("itemlist.admin")
 	public ModelAndView itemAdminList(HttpServletRequest request) throws Exception{
 		request.setCharacterEncoding("UTF-8");
+		
+		HttpSession session = request.getSession();
+		UserVO user = (UserVO)session.getAttribute("login");
 		ModelAndView mav = new ModelAndView();
+		if(user==null){
+			mav.setViewName("redirect:/login.do");
+			return mav;
+		}else if(!user.getUserid().equals("admin")){
+			mav.setViewName("redirect:/login.do");
+			return mav;
+		}
 		
 		String pageNum = request.getParameter("pageNum");
 		String category = request.getParameter("category");
