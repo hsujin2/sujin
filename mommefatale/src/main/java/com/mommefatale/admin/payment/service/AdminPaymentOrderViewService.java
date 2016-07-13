@@ -15,4 +15,6 @@ public interface AdminPaymentOrderViewService {
 	public void modifyPaymentList(Map<String, Object> map);
 	public Integer getQuantity(Map<String, Object> map);
 	public void updateTotalprice(Map<String, Object> map);
+	public void stateChange(Map<String, Object> map);
+	
 }

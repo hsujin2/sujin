@@ -46,6 +46,11 @@ public class AdminPaymentDAOImpl implements AdminPaymentDAO{
 	public void updateTotalprice(Map<String, Object> map) {
 		session.update(namespace + ".updateTotalprice",map);
 	}
+
+	@Override
+	public void stateChange(Map<String, Object> map) {
+		session.update(namespace + ".stateChange",map);
+	}
 	
 	
 	

@@ -46,5 +46,10 @@ public class AdminPaymentOrderViewServiceImpl implements AdminPaymentOrderViewSe
 		dao.updateTotalprice(map);
 	}
 
+	@Override
+	public void stateChange(Map<String, Object> map) {
+		dao.stateChange(map);
+	}
+
 
 }
