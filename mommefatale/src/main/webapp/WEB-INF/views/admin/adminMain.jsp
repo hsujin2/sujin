@@ -18,21 +18,11 @@
 			<ul>
 				<li><a href="member.admin">회원관리</a></li>
 				<li><a href="itemlist.admin?range=new">상품관리</a></li>
-				<li><a href="itemAdd.admin?range=new">상품등록</a></li>
+				<li><a href="itemAdd.admin">상품등록</a></li>
 				<li><a href="adminpaymentlist.admin">주문관리</a></li>
 			</ul>
 		</div>
 		</nav>
-		<div id="admincontent" name="admincontent">
-			<c:choose>
-				<c:when test="${contents eq 'itemList'}">
-					<%@include file="../item/itemList.jsp"%>
-				</c:when>
-				<c:when test="${contents eq 'itemAdd'}">
-					<%@include file="../item/itemAdd.jsp"%>
-				</c:when>
-			</c:choose>
-		</div>
 		<%@ include file="../include/footer.jsp"%>
 	</div>
 </body>

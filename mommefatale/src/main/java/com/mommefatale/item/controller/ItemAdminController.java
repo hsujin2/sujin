@@ -10,7 +10,6 @@ public class ItemAdminController {
 	@RequestMapping("itemAdd.admin")
 	public String productAdminAddView(HttpServletRequest request)
 	{
-		request.setAttribute("contents", "itemAdd");
-		return "admin/adminMain";
+		return "item/itemAdd";
 	}
 }

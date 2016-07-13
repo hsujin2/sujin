@@ -1,0 +1,12 @@
+.content{margin:100px auto 100px; width:1000px; margin-top:50px;}
+.sub{width:400px; margin:0 auto; font-weight:bolder; border-bottom:3px solid #CCC; padding-bottom:3px;}
+.info{width:400px; margin:0 auto; border-collapse:collapse; border:1px solid #CCC; font-size:12px; margin-top:10px;}
+.info td{padding:3px;}
+.info tr>td{font-weight:bolder;}
+.col{color:#09F;}
+.bts{width:70px; margin:0 auto; margin-top:10px;}
+label{background-color:#eeeeee;padding:3px; height:100%; margin:0;}
+.itemInfo{background-color:#fafafa;}
+.buttons{text-align: center; margin:50px 0;}
+.buttons input{cursor:pointer; margin:0 5px;background-color:#6CF;border:1px solid #6CF; padding:1px; color:white; box-shadow:1px 1px 3px #666;}
+.info input{width:98%;}

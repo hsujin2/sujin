@@ -72,7 +72,7 @@ public class ItemInsertController {
 		itemVO.setContent_img(filename2);
 		command.insertItem(itemVO);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/adminMain.admin");
+		mav.setViewName("item/itemAdd");
 		return mav;
 	}
 }
