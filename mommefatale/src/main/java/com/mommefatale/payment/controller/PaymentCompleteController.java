@@ -43,7 +43,7 @@ public class PaymentCompleteController {
 		paymentVO.setAddress1(request.getParameter("receiveraddr1"));
 		paymentVO.setAddress2(request.getParameter("receiveraddr2"));
 		paymentVO.setMemo(request.getParameter("memo"));
-		paymentVO.setState("배송준비중");
+		paymentVO.setState("입금대기중");
 		Integer totalpay = Integer.parseInt(request.getParameter("totalpay"));
 		paymentVO.setTotal_price(totalpay);
 		paymentVO.setCoupon_no(Integer.parseInt(request.getParameter("coupon")));
