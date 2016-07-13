@@ -39,7 +39,6 @@ public class PaymentOrderViewController {
 	
 	@RequestMapping(value="paymentdatelist.json")
 	public ModelAndView paymentDatelist(HttpServletRequest request, OrderDateVO orderdateVO){
-		System.out.println("json ¡¯¿‘");
 		ModelAndView mav = new ModelAndView();
 		Object obj = request.getSession().getAttribute("login");
 		UserVO user = null;
