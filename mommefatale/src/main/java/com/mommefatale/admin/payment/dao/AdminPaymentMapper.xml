@@ -64,6 +64,9 @@ order by ORDER_DATE
 		update order_list set ORDER_QUANTITY=#{quantity} where ORDER_NO=#{order_no} and ITEM_NO=#{item_no}
 	</select>
 	<select id="updateTotalprice" parameterType="java.util.Map">
-		update order_ set ORDER_TOTAL_PRICE = ORDER_TOTAL_PRICE + #{price} where order_no = #{order_no}
+		update order_ set ORDER_TOTAL_PRICE = ORDER_TOTAL_PRICE + #{price} where ORDER_NO = #{order_no}
+	</select>
+	<select id="stateChange" parameterType="java.util.Map">
+		update order_ set ORDER_STATE = #{state} where ORDER_NO = #{order_no}
 	</select>
 </mapper>

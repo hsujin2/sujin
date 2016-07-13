@@ -49,7 +49,7 @@
 							 tr.append($("<td>",{text:paylist[i].coupon_dis}).attr("class","firstline"));
 							 tr.append($("<td>",{text:paylist[i].point}).attr("class","firstline"));
 							 tr.append($("<td>",{text:paylist[i].phone}).attr("class","firstline"));
-							 tr.append($("<td>").attr("class","firstline").append($('<select>').append($('<option value="입금대기중">입금대기중</option>')).append($('<option value="결제확인">결제확인</option>')).append($('<option value="배송준비중">배송준비중</option>')).append($('<option value="배송중">배송중</option>')).append($('<option value="배송완료">배송완료</option>'))));
+							 tr.append($("<td>").attr("class","firstline").append($('<select name="state" onchange="stateChange(this,'+paylist[i].order_no+')">').append($('<option value="입금대기중">입금대기중</option>')).append($('<option value="결제확인">결제확인</option>')).append($('<option value="배송준비중">배송준비중</option>')).append($('<option value="배송중">배송중</option>')).append($('<option value="배송완료">배송완료</option>'))));
 							 tr.append($("<td>").attr("class","firstline").append($("<button>",{text:"수정"}).attr("class","btn btn-primary btn-lg").attr("value",paylist[i].order_no).attr("data-toggle","modal").attr("data-target","#myModal").attr("onclick","modifyOpen(this.value)")));
 							 
 							 tr.find("td select option[value='"+paylist[i].state+"']").attr('selected',true);
@@ -126,6 +126,11 @@
 	function refresh(){
 		window.location="adminpaymentlist.admin";
 	}
+	function stateChange(sel,order_no){
+		var state = $(sel).val();
+		var order_no = order_no;
+		window.location="statechange.admin?state="+state+"&order_no="+order_no;
+	}
 </script>
 </head>
 <body>
@@ -185,7 +190,7 @@
 				<td class="firstline">${vo.point }p</td>
 				<td class="firstline">${vo.phone}</td>
 				<td class="firstline">
-					<select>
+					<select name="state" onchange="stateChange(this,${vo.order_no })">
 						<option value="입금대기중"
 							<c:if test="${vo.state eq '입금대기중'}">
 								 selected="selected"

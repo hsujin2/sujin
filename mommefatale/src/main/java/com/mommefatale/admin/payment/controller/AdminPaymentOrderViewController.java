@@ -98,4 +98,15 @@ public class AdminPaymentOrderViewController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	@RequestMapping(value="statechange.admin")
+	public String stateChange(HttpServletRequest request){
+		Integer order_no = Integer.parseInt(request.getParameter("order_no"));
+		String state = request.getParameter("state");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("order_no", order_no);
+		map.put("state", state);
+		
+		command.stateChange(map);
+		return "redirect:/adminpaymentlist.admin";
+	}
 }
