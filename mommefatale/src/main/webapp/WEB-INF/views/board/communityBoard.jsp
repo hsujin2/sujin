@@ -30,7 +30,7 @@
 		</script>
 		<div class="board">
 		<h2 class="title">자유게시판</h2>
-			<table summary="자유게시판" id="community_board">
+			<table summary="자유게시판" id="community_board" class="community_list">
 				<colgroup>
 					<col width="8%">
 					<col width="15%">
@@ -114,8 +114,15 @@
 				<c:if test="${paging.isNext()}">
 					<a href="communityBoard.do?pageNum=${paging.getPage_Start()+paging.p_size}">[다음]</a>
 				</c:if>
-
 			</div>
+			<select id="searchCategory">
+				<option value="section">말머리</option>
+				<option value="writer">글쓴이</option>
+				<option value="subject">글제목</option>
+				<option value="content">글내용</option>
+			</select>
+			<input type="search" id="searchArticle" name="searchArticle">
+			<input type="button" value="검색" onclick="">
 		</div>
 		<%@ include file="../include/footer.jsp"%>
 	</div>
