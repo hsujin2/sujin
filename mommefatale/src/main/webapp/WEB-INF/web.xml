@@ -56,6 +56,7 @@
 				/WEB-INF/spring/adminContexts/admin-servlet.xml
 				/WEB-INF/spring/adminContexts/item-servlet.xml
 				/WEB-INF/spring/adminContexts/member-servlet.xml
+				/WEB-INF/spring/adminContexts/payment-servlet.xml
 				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>
@@ -78,6 +79,7 @@
 				/WEB-INF/spring/memberContexts/item-servlet.xml
 				/WEB-INF/spring/adminContexts/member-servlet.xml
 				/WEB-INF/spring/adminContexts/item-servlet.xml
+				/WEB-INF/spring/adminContexts/payment-servlet.xml
 				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>

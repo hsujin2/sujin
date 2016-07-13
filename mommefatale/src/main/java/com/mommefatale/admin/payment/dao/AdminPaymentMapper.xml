@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mommefatale.admin.payment.dao.AdminPaymentMapper">
+
+	<resultMap id="toPaymentListVO" type="com.mommefatale.admin.payment.model.PaymentVO">
+		<result property="order_no" column="ORDER_NO" jdbcType="BIGINT"></result>
+		<result property="user_id" column="MEMBER_ID" jdbcType="VARCHAR"></result>
+		<result property="total_price" column="ORDER_TOTAL_PRICE" jdbcType="BIGINT"></result>
+		<result property="state" column="ORDER_STATE" jdbcType="VARCHAR"></result>
+		<result property="order_date" column="ORDER_DATE" jdbcType="DATE"></result>
+		<result property="memo" column="ORDER_REQUEST" jdbcType="VARCHAR"></result>
+		<result property="zip" column="ORDER_ZIP" jdbcType="VARCHAR"></result>
+		<result property="address1" column="ORDER_ADDRESS1" jdbcType="VARCHAR"></result>
+		<result property="address2" column="ORDER_ADDRESS2" jdbcType="VARCHAR"></result>
+		<result property="phone" column="ORDER_PHONE" jdbcType="VARCHAR"></result>
+		<result property="receiver" column="ORDER_RECEIVER" jdbcType="VARCHAR"></result>
+		<result property="coupon_dis" column="COUPON_AMOUNT" jdbcType="BIGINT"></result>
+		<result property="fee" column="DELIVERY_FEE" jdbcType="BIGINT"></result>
+		<result property="point" column="MEMBER_POINT" jdbcType="BIGINT"></result>
+	</resultMap>
+	
+	<select id="paymentlist" resultMap="toPaymentListVO">
+		select 
+ORDER_NO, MEMBER_ID, ORDER_TOTAL_PRICE,
+ORDER_STATE, ORDER_DATE, ORDER_REQUEST, ORDER_ZIP,
+ORDER_ADDRESS1, ORDER_ADDRESS2, ORDER_PHONE,
+ORDER_RECEIVER, COUPON_AMOUNT, DELIVERY_FEE,
+MEMBER_POINT from ORDER_ join COUPON using(COUPON_NO) order by ORDER_DATE desc
+	</select>
+	<select id="paymentDateList" parameterType="com.mommefatale.admin.payment.model.OrderDateVO" resultMap="toPaymentListVO">
+select 
+ORDER_NO, MEMBER_ID, ORDER_TOTAL_PRICE,
+ORDER_STATE, ORDER_DATE, ORDER_REQUEST, ORDER_ZIP,
+ORDER_ADDRESS1, ORDER_ADDRESS2, ORDER_PHONE,
+ORDER_RECEIVER, COUPON_AMOUNT, DELIVERY_FEE,
+MEMBER_POINT from ORDER_ join COUPON using(COUPON_NO) where MEMBER_POINT >=0
+<if test='fromdate!=""'>
+	and order_date between to_date(#{fromdate}) and to_date(#{todate})
+</if>
+<if test='userid!=""'>
+	and MEMBER_ID like '%${userid}%' 
+</if>
+<if test='order_no!=0'>
+	and ORDER_NO = #{order_no}
+</if>
+order by ORDER_DATE
+	</select>
+
+</mapper>

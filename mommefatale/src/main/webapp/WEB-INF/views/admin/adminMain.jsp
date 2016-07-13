@@ -19,6 +19,7 @@
 				<li><a href="member.admin">회원관리</a></li>
 				<li><a href="itemlist.admin?range=new">상품관리</a></li>
 				<li><a href="itemAdd.admin?range=new">상품등록</a></li>
+				<li><a href="adminpaymentlist.admin">주문관리</a></li>
 			</ul>
 		</div>
 		</nav>

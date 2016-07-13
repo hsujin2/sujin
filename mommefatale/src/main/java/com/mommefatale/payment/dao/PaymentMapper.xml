@@ -38,7 +38,7 @@
 		select bank_account_number from pay_bank where bank_name = #{bank} 
 	</select>
 	<select id="paymentlist" parameterType="java.lang.String" resultMap="toPaymentListVO">
-		select ORDER_DATE, ORDER_NO, ITEM_IMAGE, ITEM_NO, ITEM_NAME,OPTION_SIZE, ORDER_QUANTITY, ITEM_PRICE_DISCOUNT, ORDER_STATE from ORDER_ join ORDER_LIST using(ORDER_NO) join ITEM using(ITEM_NO) where ORDER_.MEMBER_ID=#{userid} order by ORDER_DATE
+		select ORDER_DATE, ORDER_NO, ITEM_IMAGE, ITEM_NO, ITEM_NAME,OPTION_SIZE, ORDER_QUANTITY, ITEM_PRICE_DISCOUNT, ORDER_STATE from ORDER_ join ORDER_LIST using(ORDER_NO) join ITEM using(ITEM_NO) where ORDER_.MEMBER_ID=#{userid} order by ORDER_DATE desc
 	</select>
 	<select id="paymentDateList" parameterType="com.mommefatale.payment.model.OrderDateVO" resultMap="toPaymentListVO">
 		select ORDER_DATE, ORDER_NO, ITEM_IMAGE, ITEM_NO, ITEM_NAME,OPTION_SIZE, ORDER_QUANTITY, ITEM_PRICE_DISCOUNT, ORDER_STATE from ORDER_ join ORDER_LIST using(ORDER_NO) join ITEM using(ITEM_NO) where ORDER_.MEMBER_ID=#{userid} and order_date between to_date(#{fromdate}) and to_date(#{todate})  order by ORDER_DATE
