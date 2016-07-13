@@ -1,7 +1,5 @@
 package com.mommefatale.admin.member.model;
 
-import java.util.Date;
-
 public class MemberVO {
 
 	private String name;
@@ -13,7 +11,7 @@ public class MemberVO {
 	private String address1;
 	private String address2;
 	private String phone;
-	private Date birthday;
+	private String birthday;
 	private String grade;
 	private int height;
 	private int weight;
@@ -34,9 +32,9 @@ public class MemberVO {
 	private int coupon;
 	private int point;
 	private int state;
-	private Date join_date;
+	private String join_date;
 	private int visit_count;
-	private Date last_visit_date;
+	private String last_visit_date;
 
 	public String getName() {
 		return name;
@@ -110,11 +108,11 @@ public class MemberVO {
 		this.phone = phone;
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
@@ -278,11 +276,11 @@ public class MemberVO {
 		this.state = state;
 	}
 
-	public Date getJoin_date() {
+	public String getJoin_date() {
 		return join_date;
 	}
 
-	public void setJoin_date(Date join_date) {
+	public void setJoin_date(String join_date) {
 		this.join_date = join_date;
 	}
 
@@ -294,11 +292,11 @@ public class MemberVO {
 		this.visit_count = visit_count;
 	}
 
-	public Date getLast_visit_date() {
+	public String getLast_visit_date() {
 		return last_visit_date;
 	}
 
-	public void setLast_visit_date(Date last_visit_date) {
+	public void setLast_visit_date(String last_visit_date) {
 		this.last_visit_date = last_visit_date;
 	}
 

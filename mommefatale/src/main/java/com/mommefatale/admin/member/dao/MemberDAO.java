@@ -15,4 +15,12 @@ public interface MemberDAO {
 	// 탈퇴한 회원 리스트 가져오기
 	public List<MemberVO> getMemberByeList(Object obj);
 	
+	// 수정할 회원 정보 가져오기
+	public MemberVO getMemberInfo(String id);
+	
+	// 회원 정보 수정하기
+	public void memberUpdate(MemberVO vo);
+	
+	// 회원 탈퇴시키기
+	public void memberBye(String id);
 }

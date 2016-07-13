@@ -39,4 +39,23 @@ public class MemberDAOImpl implements MemberDAO {
 		return session.selectList(namespace + ".memberByeList", obj);
 	}
 
+	@Override
+	public MemberVO getMemberInfo(String id) {
+		System.out.println("상세회원정보 DAO");
+		return session.selectOne(namespace + ".memberInfo", id);
+	}
+	
+	@Override
+	public void memberUpdate(MemberVO vo) {
+		System.out.println("회원정보 수정 DAO");
+		session.update(namespace +".memberUpdate", vo);
+	}
+
+	@Override
+	public void memberBye(String id) {
+		System.out.println("회원탈퇴 DAO");
+		session.update(namespace + ".memberBye", id);
+	}
+
+
 }

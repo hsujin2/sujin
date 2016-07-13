@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mommefatale.admin.member.model.MemberVO;
 import com.mommefatale.admin.member.service.MemberService;
 import com.mommefatale.board.model.Paging;
+import com.mommefatale.user.model.UserVO;
 
 @Controller
 public class MemberController {
@@ -40,8 +42,19 @@ public class MemberController {
 	@RequestMapping(value="/member.admin")
 	public ModelAndView adminMember(HttpServletRequest request)throws Exception{
 		System.out.println("회원관리 페이지 컨트롤러");
-		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
+		
+		HttpSession session = request.getSession();
+	      UserVO user = (UserVO)session.getAttribute("login");
+	      ModelAndView mav = new ModelAndView();
+	      if(user==null){
+	         mav.setViewName("redirect:/login.do");
+	         return mav;
+	      }else if(!user.getUserid().equals("admin")){
+	         mav.setViewName("redirect:/login.do");
+	         return mav;
+	      }
+		
 		String pageNum = request.getParameter("pageNum");
 		
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -158,4 +171,14 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping(value="updateMember.json")
+	public ModelAndView updateMember(HttpServletRequest request, MemberVO vo){
+		System.out.println("회원정보 수정 Json 컨트롤러");
+		ModelAndView mav = new ModelAndView();
+		String member_id = request.getParameter("id");
+		vo =  (MemberVO) command.memberInfo(member_id);
+		mav.addObject("memberInfo", vo);
+		mav.setViewName("jsonView");
+		return mav;
+	}
 }

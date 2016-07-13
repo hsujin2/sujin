@@ -19,11 +19,17 @@
 <bean id="memberService" class="com.mommefatale.admin.member.service.MemberServiceImpl">
 	<property name="dao" ref="memberDAO"/>
 </bean>
+<bean id="memberUpdateService" class="com.mommefatale.admin.member.service.MemberUpdateServiceImpl">
+	<property name="dao" ref="memberDAO"/>
+</bean>
 
 <!-- Controller -->
 <bean id="memberController" class="com.mommefatale.admin.member.controller.MemberController">
 	<property name="command" ref="memberService"/>
 	<property name="paging" ref="paging"/>
 </bean>	
+<bean id="memberUpdateController" class="com.mommefatale.admin.member.controller.MemberUpdateController">
+	<property name="command" ref="memberUpdateService"/>
+</bean>
 
 </beans>
