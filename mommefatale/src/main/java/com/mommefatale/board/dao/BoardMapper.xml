@@ -30,7 +30,7 @@
 	<!-- Community 글내용 가져오기 -->
 	<select id="communityContent" parameterType="java.lang.Integer"
 		resultMap="communityResultMap">
-		<![CDATA[select * from community where community_no=#{no}]]>
+		select * from community where community_no=#{no}
 	</select>
 
 	<!-- Community 글쓰기 -->
@@ -80,12 +80,29 @@
 
 	<!-- Community 글삭제 -->
 	<delete id="communityDelete" parameterType="java.lang.Integer">
-		<![CDATA[delete from community where community_no=#{no}]]>
+		delete from community where community_no=#{no}
 	</delete>
 
-	<!-- Community 총 게시물 수 -->
+	<!-- Community 게시물 수 -->
 	<select id="communityCount" resultType="java.lang.Integer">
-		<![CDATA[select count(*) from community]]>
+		 select count(*) from community
+	</select>
+
+	<!-- Community 글검색 -->
+	<select id="communitySearch" parameterType="java.util.Map" resultMap="communityResultMap">
+		select * from community
+		<if test='group.equals("말머리")'>
+		 	where community_section like '%${text}%'
+		</if>
+		<if test='group.equals("글쓴이")'>
+			where community_writer like '%${text}%'
+		</if>
+		<if test='group.equals("글제목")'>
+			where community_subject like %'{text}%'
+		</if>
+		<if test='group.equals("글내용")'>
+			where community_content like %'{text}%'
+		</if>
 	</select>
 
 	<!-- Community 인덱스 리스트 -->
