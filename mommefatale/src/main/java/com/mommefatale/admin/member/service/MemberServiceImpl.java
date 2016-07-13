@@ -35,4 +35,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.getMemberByeList(obj);
 	}
 
+	@Override
+	public MemberVO memberInfo(String id) {
+		System.out.println("수정할 회원 상세정보 서비스");
+		return dao.getMemberInfo(id);
+	}
+	
 }

@@ -9,6 +9,7 @@
 <title>회원관리</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/admin/member_css.css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">	
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
   function searchMemberByCategory() {
@@ -38,45 +39,19 @@
              	 if (memberlist.length != 0) {
                   var table = $("<tbody>",{id:'memberList'});
                   for(var i =0; i<memberlist.length; i++){
-                	  // join_date   json=>string --------------------------------
-                	  var joinDate = memberlist[i].last_visit_date;
-                	  var year = joinDate.year + 1900;
-                      var month = joinDate.month + 1;
-                      if(month <10){
-                    	  month = '0'+month;
-                      }
-                      var date = joinDate.date;
-                      if(date <10){
-                    	  date = '0'+date;
-                      }
-                      var stringJoinDate = year + "-" + month +"-" + date;
-                	  //-------------------------------------------------------------   
-         
-                     // last_visit_date   json=>string -----------------------------
-                	  var lastDate = memberlist[i].last_visit_date;
-                	  var year2 = lastDate.year + 1900;
-                      var month2 = lastDate.month + 1;
-                      if(month2 <10){
-                    	  month2 = '0'+month2;
-                      }
-                      var date2 = lastDate.date;
-                      if(date2 <10){
-                    	  date2 = '0'+date2;
-                      }
-                      var stringLastDate = year2 + "-" + month2 +"-" + date2;
-                	  //------------------------------------------------------------- 
                 	  var tr = $("<tr>");
-                       tr.append($("<td>").append($('<input type="checkbox">')));
                        tr.append($("<td>",{text:memberlist[i].id,name:'id'}));
                        tr.append($("<td>",{text:memberlist[i].name,name:'name'}));
                        tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
                        tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
                        tr.append($("<td>",{text:memberlist[i].point,name:'point'}));
- 					   tr.append($("<td>",{text:stringJoinDate,name:'join_date'}));
-                       tr.append($("<td>",{text:stringLastDate,name:'last_visit_date'}));
+ 					   tr.append($("<td>",{text:memberlist[i].join_date,name:'join_date'}));
+                       tr.append($("<td>",{text:memberlist[i].last_visit_date,name:'last_visit_date'}));
                        table.append(tr);
                     }
                   $("#memberList").replaceWith(table);
+              } else{
+            	  alert("검색조건과 일치하는 회원이 없습니다.")
               }
           }
          },
@@ -88,6 +63,56 @@
            }
       })
 }
+  
+function updateMember(member_id){
+	var id = member_id;
+	//alert(id);
+	 $.ajax({
+		url : "/mommefatale/updateMember.json",
+		type : "POST",
+		data : {'id' : id},
+		async : false,
+		success : function(response){
+			var memberInfo = response.memberInfo;
+			$('#member_id').val(memberInfo.id);
+			$('#member_name').val(memberInfo.name);
+			$('#member_gender').val(memberInfo.gender);
+			$('#member_email').val(memberInfo.email);
+			$('#member_zip').val(memberInfo.zip);
+			$('#member_address1').val(memberInfo.address1);
+			$('#member_address2').val(memberInfo.address2);
+			$('#member_phone').val(memberInfo.phone);
+			$('#member_birthday').val(memberInfo.birthday);
+			$("select[name=member_grade] option[value="+memberInfo.grade+"]").attr("selected",true);
+			$('#member_height').val(memberInfo.height);
+			$('#member_weight').val(memberInfo.weight);
+			$('#member_bmi').val(memberInfo.bmi);
+			$('#member_shape').val(memberInfo.shape);
+			$('#member_kcal').val(memberInfo.kcal);
+			$('#member_coupon').val(memberInfo.coupon);
+			$('#member_point').val(memberInfo.point);
+			$('#member_join_date').val(memberInfo.join_date);
+			$('#member_visit_count').val(memberInfo.visit_count);
+			$('#member_last_visit_date').val(memberInfo.last_visit_date);
+			$("select[name=member_state] option[value="+memberInfo.state+"]").attr("selected",true);
+		},
+		error : function(request, status, error){
+			alert("code : "+request.status +"\r\nmessage : "
+                    + request.reponseText + "\r\nerror : " + error);
+		}
+	}) 
+}  
+
+function memberSave(){
+	var form = document.memberUpdateForm;
+	
+	if(form.member_grade.value == ""){
+		alert("회원의 등급을 선택해주세요");
+		return;
+	}
+	document.memberUpdateForm.submit();
+}
+
 </script>
 </head>
 <body>
@@ -112,26 +137,24 @@
 </select>
 <br>
 <label for="category_join_date">가입일자: </label><input type="date" name="category_join_date" id="category_join_date">
-<label for="category_last_visit_date">최종방문일: </label><input type="date" name="category_last_visit_date" id="category_last_visit_date">
-<input type="button" value="검색" onclick="searchMemberByCategory()">
+<label for="category_last_visit_date">최근방문일: </label><input type="date" name="category_last_visit_date" id="category_last_visit_date">
+<input type="button" value="조회" onclick="searchMemberByCategory()">
 
 
 <h2 class="title">회원 목록</h2>
 <span>회원수 : ${page_count}</span>
  <table summary="member_list" id="member_list">
             <colgroup>
-               <col width="2%">
-               <col width="18%">
+               <col width="15%">
                <col width="10%">
                <col width="10%">
                <col width="12%">
-               <col width="12%">
-               <col width="18%">
-               <col width="18%">
+               <col width="15%">
+               <col width="19%">
+               <col width="19%">
             </colgroup>
             <thead>
                <tr>
-               	  <th></th>
                   <th scope="col">아이디</th>
                   <th scope="col">이름</th>
                   <th scope="col">성별</th>
@@ -150,14 +173,13 @@
                 <c:if test="${count != 0}">
 	                <c:forEach var="member" items="${memberList}">
 		                <tr>
-		                	<td><input type="checkbox"/></td>
-							<td><a href="#">${member.id}</a></td>
+							<td><a href="#" onclick="updateMember('${member.id}')" data-toggle="modal" data-target="#myModal">${member.id}</a></td>
 		                    <td>${member.name}</td>
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
-							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##"/></td>
-							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy-MM-dd"/></td>
-							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy-MM-dd"/></td>
+							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##P"/></td>
+							<td>${member.join_date}</td>
+							<td>${member.last_visit_date}</td>
 						</tr>
 					</c:forEach>
 				</c:if>	
@@ -182,18 +204,16 @@
 			<h2 class="title">탈퇴 회원</h2>
 <table summary="memberBye_list" id="memberBye_list">
             <colgroup>
-				<col width="2%">
-               <col width="18%">
+               <col width="15%">
                <col width="10%">
                <col width="10%">
                <col width="12%">
-               <col width="12%">
-               <col width="18%">
-               <col width="18%">
+               <col width="15%">
+               <col width="19%">
+               <col width="19%">
             </colgroup>
             <thead>
                <tr>
-               	  <th></th>
                   <th scope="col">아이디</th>
                   <th scope="col">이름</th>
                   <th scope="col">성별</th>
@@ -212,21 +232,142 @@
                 <c:if test="${count != 0}">
 	                <c:forEach var="member" items="${memberByeList}">
 		                <tr>
-		                    <td><input type="checkbox"/></td>
-							<td><a href="#">${member.id}</a></td>
+							<td><a href="#" onclick="updateMember('${member.id}')" data-toggle="modal" data-target="#myModal">${member.id}</a></td>
 		                    <td>${member.name}</td>
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
-							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##"/></td>
-							<td><fmt:formatDate value="${member.join_date}" pattern="yyyy-MM-dd"/></td>
-							<td><fmt:formatDate value="${member.last_visit_date}" pattern="yyyy-MM-dd"/></td>
+							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##P"/></td>
+							<td>${member.join_date}</td>
+							<td>${member.last_visit_date}</td>
 						</tr>
 					</c:forEach>
 				</c:if>	
 </tbody>
 </table>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+		<h4 class="modal-title" id="myModalLabel"><div class="sub">
+        	<span class="col">▶</span> 회원정보 수정
+        </div></h4>
+	      </div>
+	      <div class="modal-body">
+	      <form action="memberUpdate.admin" method="post" name="memberUpdateForm" id="memberUpdateForm" class="info">
+			<table id="modifytable">
+			<tr>
+				<td class="itemInfo">아이디</td>
+				<td><input type="text" id="member_id" name="member_id" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">이&nbsp;&nbsp;름</td>
+				<td><input type="text" name="member_name" id="member_name"  readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">성&nbsp;&nbsp;별</td>
+				<td><input type="text" name="member_gender" id="member_gender"  readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">이메일</td>
+				<td><input type="text" name="member_email" id="member_email"  readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">우편번호</td>
+				<td><input type="text" name="member_zip" id="member_zip"  readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">주&nbsp;&nbsp;소</td>
+				<td><input type="text" name="member_address1" id="member_address1"  readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">상세주소</td>
+				<td><input type="text" name="member_address2" id="member_address2"  readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">휴대폰</td>
+				<td ><input type="text" name="member_phone" id="member_phone" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">생&nbsp;&nbsp;일</td>
+				<td><input type="text" name="member_birthday" id="member_birthday" readonly="readonly"></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">등&nbsp;&nbsp;급</td>
+				<td><select name="member_grade" id="member_grade">
+						<option value="">선택</option>
+						<option value="bronze">bronze</option>
+						<option value="silver">silver</option>
+						<option value="gold">gold</option>
+						<option value="diamond">diamond</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">키</td>
+				<td><input type="text"  name="member_height" id="member_height" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">몸무게</td>
+				<td><input type="text" name="member_weight" id="member_weight" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">BMI지수</td>
+				<td><input type="text" name="member_bmi" id="member_bmi" readonly="readonly"/></td>
+				
+			</tr>
+			<tr>
+				<td class="itemInfo">체&nbsp;&nbsp;형</td>
+				<td><input type="text" name="member_shape" id="member_shape" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">권장칼로리</td>
+				<td><input type="text" name="member_kcal" id="member_kcal" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">쿠&nbsp;&nbsp;폰</td>
+				<td><input type="text" name="member_coupon" id="member_coupon" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">포인트</td>
+				<td><input type="text" name="member_point" id="member_point"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">가입일자</td>
+				<td><input type="text" name="member_join_date" id="member_join_date" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">방문수</td>
+				<td><input type="text" name="member_visit_count" id="member_visit_count" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">최근방문일</td>
+				<td><input type="text" name="member_last_visit_date" id="member_last_visit_date" readonly="readonly"/></td>
+			</tr>
+			<tr>
+				<td class="itemInfo">상&nbsp;&nbsp;태</td>
+				<td><select name="member_state" id="member_state">
+						<option value="">선택</option>
+						<option value="1">회원</option>
+						<option value="0">회원정지/탈퇴</option>
+				</select></td>
+			</tr>
+						
+		</table>
+		</form>
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+		<button type="button" class="btn btn-primary" onclick="memberSave()">수정</button>
+	      </div>
+	    </div>
+	  </div>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<!-- <script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script>ie10-viewport-bug-workaround.js -->
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js -->	  
+</div>
 <%@ include file="../include/footer.jsp"%>
-   </div>
+ </div>
 </body>
 </html>

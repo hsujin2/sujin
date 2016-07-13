@@ -39,29 +39,34 @@
 <!-- 회원 목록 조건별로 가져오기 -->
 	<select id="memberList" parameterType="java.util.Map" resultMap="memberResultMap">
 		<![CDATA[
-		select * from (select rownum rnum, member_name, member_gender, member_id, member_pw, member_email, member_zip, 
-		member_address1, member_address2, member_phone, member_birthday, grade_code_name, member_height, member_weight, member_bmi, 
-		shape_code, fat_part1, fat_part2, fat_part3, fat_part4, fat_part5, fat_part6, activity_code1, activity_code2, activity_code3, activity_code4, activity_code5, 
-		member_kcal, coupons_no, member_point, member_state, member_join_date, member_visit_count, member_last_visit_date 
+		select * from 
+		(select rownum rnum, member_name, member_gender, member_id, member_pw, member_email, member_zip, 
+		member_address1, member_address2, member_phone, to_char(to_date(member_birthday),'YYYY-MM-DD') as member_birthday, 
+		grade_code_name, member_height, member_weight, member_bmi, shape_code, 
+		fat_part1, fat_part2, fat_part3, fat_part4, fat_part5, fat_part6, 
+		activity_code1, activity_code2, activity_code3, activity_code4, activity_code5, 
+		member_kcal, coupons_no, member_point, member_state, 
+		to_char(to_date(member_join_date),'YYYY-MM-DD') as member_join_date, member_visit_count, 
+		to_char(to_date(member_last_visit_date),'YYYY-MM-DD') as member_last_visit_date 
 		from (select * from member where member_state = 1 order by member_join_date desc, member_name asc))
 		where rnum >= #{startRow} and rnum <= #{endRow}]]>
-		<if test='id != null'>
+		<if test='id != null and !id.equals("")'>
 		and member_id like '%${id}%'
 		</if>
-		<if test='name != null'>
+		<if test='name != null and !name.equals("")'>
 		and member_name like '%${name}%'
 		</if>
-		<if test='gender != null'>
-		and member_gender like '%${gender}%'
+		<if test='gender != null and !gender.equals("")'>
+		and member_gender = #{gender}
 		</if>
-		<if test='grade != null'>
-		and grade_code_name like '%${grade}%'
+		<if test='grade != null and !grade.equals("")'>
+		and grade_code_name = #{grade}
 		</if>
-		<if test='join_date != null'>
-		and member_join_date like '%${join_date}%'
+		<if test='join_date != null and !join_date.equals("")'>
+		and member_join_date = to_date(#{join_date})
 		</if>
-		<if test='last_visit_date != null'>
-		and member_last_visit_date like '%${last_visit_date}%'
+		<if test='last_visit_date != null and !last_visit_date.equals("")'>
+		and member_last_visit_date = to_date(#{last_visit_date})
 		</if>
 		<!-- null뿐만 아니라 공백값도 처리해주기 위해 like를 사용함 -->
 	</select>
@@ -71,8 +76,35 @@
 		select count(*) from member where member_state = 1
 	</select>
 	
-<!--  탈퇴한 회원 목록 -->	
+<!--  탈퇴한 회원 목록 가져오기 -->	
 	<select id="memberByeList" resultMap="memberResultMap">
-		select * from member where member_state = 0 order by member_last_visit_date desc
+		select 	member_name, member_gender, member_id, member_pw, member_email, member_zip, member_address1, member_address2, 
+					member_phone, to_char(to_date(member_birthday),'YYYY-MM-DD') as member_birthday, grade_code_name, member_height, 
+					member_weight, member_bmi, shape_code, fat_part1, fat_part2, fat_part3, fat_part4, fat_part5, fat_part6,
+					activity_code1, activity_code2, activity_code3, activity_code4, activity_code5, 
+					member_kcal, coupons_no, member_point, member_state, to_char(to_date(member_join_date),'YYYY-MM-DD') as member_join_date, 
+					member_visit_count, to_char(to_date(member_last_visit_date),'YYYY-MM-DD') as member_last_visit_date  
+		from member where member_state = 0 order by member_last_visit_date desc
 	</select>
+	
+<!-- 수정할 회원 상세정보 가져오기-->
+	<select id="memberInfo" parameterType="String" resultMap="memberResultMap">
+		select   member_name, member_gender, member_id, member_pw, member_email, member_zip, member_address1, member_address2, 
+					member_phone, to_char(to_date(member_birthday),'YYYY-MM-DD') as member_birthday, grade_code_name, member_height, 
+					member_weight, member_bmi, shape_code, fat_part1, fat_part2, fat_part3, fat_part4, fat_part5, fat_part6,
+					activity_code1, activity_code2, activity_code3, activity_code4, activity_code5, 
+					member_kcal, coupons_no, member_point, member_state, to_char(to_date(member_join_date),'YYYY-MM-DD') as member_join_date, 
+					member_visit_count, to_char(to_date(member_last_visit_date),'YYYY-MM-DD') as member_last_visit_date 
+		from member 
+		where member_id = #{id}
+	</select>
+	
+<!-- 회원 정보 수정하기 -->
+	<update id="memberUpdate" parameterType="com.mommefatale.admin.member.model.MemberVO">
+		update member set
+			grade_code_name = #{grade},
+			member_point = #{point},
+			member_state = #{state}
+		where member_id=#{id}
+	</update>
 </mapper>
