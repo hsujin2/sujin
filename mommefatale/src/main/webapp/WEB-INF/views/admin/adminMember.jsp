@@ -237,7 +237,7 @@ function memberSave(){
 		                    <td>${member.name}</td>
 							<td>${member.gender}</td>
 							<td>${member.grade}</td>
-							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###.##P"/></td>
+							<td align="right"><fmt:formatNumber value="${member.point}" pattern="#,###P"/></td>
 							<td>${member.join_date}</td>
 							<td>${member.last_visit_date}</td>
 						</tr>
