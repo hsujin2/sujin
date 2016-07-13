@@ -1,6 +1,8 @@
 package com.mommefatale.admin.payment.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -64,6 +66,35 @@ public class AdminPaymentOrderViewController {
 		
 		List<PaymentListVO> paymentdetaillist = command.paymentDetailList(order_no);
 		mav.addObject("paymentdetaillist",paymentdetaillist);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	@RequestMapping(value="adminmodifypaylist.json")
+	public ModelAndView paymentListModify(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
+		Integer order_no = Integer.parseInt(request.getParameter("order_no"));
+		Integer item_no = Integer.parseInt(request.getParameter("item_no"));
+		Integer quantity = Integer.parseInt(request.getParameter("quantity"));
+		Integer discount = Integer.parseInt(request.getParameter("discount"));
+		map.put("order_no", order_no);
+		map.put("item_no", item_no);
+		map.put("quantity", quantity);
+		
+		//수정전 주문내역
+		Integer origin_quantity = command.getQuantity(map);
+		
+		//총액 증감 계산
+		Integer change_totalprice = (quantity * discount) - (origin_quantity * discount);
+		map.put("price", change_totalprice);
+		
+		//주문내역 수량 수정
+		command.modifyPaymentList(map);
+		
+		//주문 총액 수정
+		command.updateTotalprice(map);
+
+		System.out.println("주문내역 수정 완료");
 		mav.setViewName("jsonView");
 		return mav;
 	}

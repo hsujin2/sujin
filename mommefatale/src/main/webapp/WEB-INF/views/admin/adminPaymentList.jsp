@@ -83,17 +83,16 @@
 						var div = $("<div>",{id:'modal-body'}).attr("class","modal-body");
 						
 						for(var i=0; i<detailList.length;i++){
-							var form = $("<form>").attr("class","info").attr("method","post").attr("action","modifyOrderList.admin").attr("name","orderListForm");
+							var form = $("<form>").attr("class","info").attr("method","post").attr("action","").attr("name","orderListForm");
 							var table = $("<table>",{class:'info'});
 						
-							table.append($("<tr>").append($("<td>",{text:"상품번호"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].item_no,name:"item_no"}))));
-							table.append($("<tr>").append($("<td>",{text:"상품명"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].item_name,name:"item_name"}))));
-							table.append($("<tr>").append($("<td>",{text:"옵션"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].size,name:"size"}))));
-							table.append($("<tr>").append($("<td>",{text:"판매가"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].sales,name:"sales"}))));
-							table.append($("<tr>").append($("<td>",{text:"세일가"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].discount,name:"discount"}))));
-							table.append($("<tr>").append($("<td>",{text:"수량"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].quantity,name:"quantity"}))));
-							table.append($("<tr>").append($("<td>",{text:"주문번호"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].order_no,name:"order_no"}))));
-							table.append($("<tr>").append($("<td>",{text:""})).append($("<td>").append($('<input>',{type:"button",value:"저장",name:"confirm"}))));
+							table.append($("<tr>").append($("<td>",{text:"상품번호",class:"side"})).append($("<td>").append($('<span>',{text:detailList[i].item_no,name:"item_no"}))));
+							table.append($("<tr>").append($("<td>",{text:"상품명",class:"side"})).append($("<td>").append($('<span>',{text:detailList[i].item_name,name:"item_name"}))));
+							table.append($("<tr>").append($("<td>",{text:"옵션",class:"side"})).append($("<td>").append($('<span>',{text:detailList[i].size,name:"size"}))));
+							table.append($("<tr>").append($("<td>",{text:"판매가",class:"side"})).append($("<td>").append($('<span>',{text:detailList[i].sales,name:"sales"}))));
+							table.append($("<tr>").append($("<td>",{text:"세일가",class:"side"})).append($("<td>").append($('<span>',{text:detailList[i].discount,name:"discount"}))));
+							table.append($("<tr>").append($("<td>",{text:"수량",class:"side"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].quantity,name:"quantity",size:"5"}))));
+							table.append($("<tr>").append($("<td>",{text:"",class:"side"})).append($("<td>").append($('<a name="confirm" onclick="update('+detailList[i].order_no+','+detailList[i].item_no+',this)">저장</a>'))));
 							
 							form.append(table);
 							div.append(form);
@@ -106,6 +105,26 @@
 				alert("주문내역조회 오류");
 			}
 		})
+	}
+	function update(order_no,item_no,a){
+		var quantity = $(a).parent().parent().parent().find("input[name='quantity']").val();
+		var discount = $(a).parent().parent().parent().find("span[name='discount']").text();
+		$.ajax({
+			url : "/mommefatale/adminmodifypaylist.json",
+			type : "POST",
+			data : {'order_no' : order_no, 'item_no' : item_no, 'quantity' : quantity, 'discount' : discount},
+			async : false,
+			success : function(response){
+				alert("수정되었습니다.");
+				modifyOpen(order_no);
+			},error:function(){
+				alert("주문내역수정 오류");
+			}
+		})
+		
+	}
+	function refresh(){
+		window.location="adminpaymentlist.admin";
 	}
 </script>
 </head>
@@ -213,11 +232,11 @@
         </div></h4>
        </div>
        <div class="modal-body" id="modal-body">
-	      <form action="modifyOrderList.admin" method="post" name="orderListForm" id="orderListForm" class="info">
+	      <form action="" method="post" name="orderListForm" id="orderListForm" class="info">
 	      </form>
 	   </div>
        <div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" onclick="refresh()">Close</button>
       </div>
      </div>
     </div>

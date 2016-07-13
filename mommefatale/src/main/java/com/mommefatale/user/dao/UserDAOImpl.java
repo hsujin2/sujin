@@ -79,6 +79,11 @@ public class UserDAOImpl implements UserDAO {
 	public void visitDate(String userid) {
 		session.update(namespace + ".visitDate",userid);
 	}
+
+	@Override
+	public void visitCount(String userid) {
+		session.update(namespace + ".visitCount",userid);
+	}
 	
 	
 	

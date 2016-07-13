@@ -14,4 +14,9 @@ public class VisitServiceImpl implements VisitService {
 		dao.visitDate(userid);
 	}
 
+	@Override
+	public void visitCount(String userid) {
+		dao.visitCount(userid);
+	}
+
 }

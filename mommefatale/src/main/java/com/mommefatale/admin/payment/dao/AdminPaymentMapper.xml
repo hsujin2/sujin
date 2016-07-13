@@ -57,5 +57,13 @@ order by ORDER_DATE
 	<select id="pamentDetailList" parameterType="java.lang.Integer" resultMap="toPaymentListVO">
 		select ITEM_NO,ITEM_NAME,OPTION_SIZE,ITEM_PRICE_SALES,ITEM_PRICE_DISCOUNT,ORDER_QUANTITY,ORDER_NO from order_list join item using(item_no) where order_no = #{order_no}
 	</select>
-
+	<select id="getQuantity" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select ORDER_QUANTITY from order_list where ORDER_NO=#{order_no} and ITEM_NO=#{item_no}
+	</select>
+	<select id="modifyPaymentList" parameterType="java.util.Map">
+		update order_list set ORDER_QUANTITY=#{quantity} where ORDER_NO=#{order_no} and ITEM_NO=#{item_no}
+	</select>
+	<select id="updateTotalprice" parameterType="java.util.Map">
+		update order_ set ORDER_TOTAL_PRICE = ORDER_TOTAL_PRICE + #{price} where order_no = #{order_no}
+	</select>
 </mapper>
