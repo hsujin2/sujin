@@ -50,6 +50,11 @@
    <update id="exerciseView" parameterType="java.lang.Integer">
       <![CDATA[update exercise set exercise_view=exercise_view + 1 where exercise_no = #{no} ]]>
    </update>
+   
+   <!-- Exercise 수정 -->   	
+	<select id="exerciseUpdate" parameterType="com.mommefatale.contents.model.ExerciseVO">
+		update exercise set exercise_subject=#{subject}, exercise_conents=#{contents}, exercise_image=#{image} where exercise_no = #{no}
+	</select>
 
 	
 </mapper>

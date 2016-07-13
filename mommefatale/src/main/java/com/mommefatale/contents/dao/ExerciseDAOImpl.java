@@ -31,7 +31,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	public int getExerciseCount() { 
 		int count = session.selectOne(namespace + ".exerciseCount");
 		System.out.println("운동법 총 게시물 수 : " + count);
-		return 0;
+		return count;
 	}
 
 	@Override
@@ -54,10 +54,10 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 
 	}
 
-	@Override
-	public void exerciseUpdate(Map<String, Object> vo) {
-		// TODO Auto-generated method stub
-
+	@Override	
+	public void exerciseUpdate(ExerciseVO exerciseVO) {
+		session.selectOne(namespace + ".exerciseContent", exerciseVO);
+		
 	}
 
 	@Override
@@ -75,7 +75,10 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 
 	@Override
 	public int getCategoryCount(String category) {
+		System.out.println(category + " 요딴 카테고리");
 		return session.selectOne(namespace + ".getCategoryCount",category);
 	}
+
+	
 
 }
