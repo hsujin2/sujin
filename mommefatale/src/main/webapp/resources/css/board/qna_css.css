@@ -13,16 +13,21 @@
 #hiddenContent4{margin:-5px 10px 15px 20px; font-size:12px; color:#999;display:none;}
 
 #qna_board{width:800px; margin:30px auto 0;}
-
-.write_button{text-align: right;}
+.qna_list th{height:35px; background-color: #dff9f7; 
+	border-top:2px solid #92c8e4; border-bottom:2px solid #92c8e4;}	
+.qna_list td{height:30px;}
+.write_button{text-align: right; background-color:#72b7dc; 
+padding:5px; color:#ffffff; border-radius:5px;}
+#writeForm th{height:35px; background-color: #dff9f7; border-top:2px solid #92c8e4;}
 .no{text-align:center; width:20px;}
-#no{text-align:center; width:20px;}
-.writer{text-align:right;}
-#writer{text-align:center; width:100px;}
-#space{width:250px;}
-#regdate{text-align:center; width:150px;}
-#view{text-align:right; width:10px;}
-#subject{text-align:left;}
+#no{text-align:center; width:20px; background-color: #f4fdfd; border-top:2px solid #92c8e4;}
+.writer{text-align:center;}
+#writer{text-align:center; width:100px; background-color: #f4fdfd; border-top:2px solid #92c8e4;}
+#space{width:250px; background-color: #f4fdfd; border-top:2px solid #92c8e4;}
+#regdate{text-align:center; width:150px; background-color: #f4fdfd; border-top:2px solid #92c8e4;}
+#view{text-align:right; width:10px; background-color: #f4fdfd; border-top:2px solid #92c8e4;}
+.subject{border-bottom:2px solid #92c8e4;}
+#subject{text-align:left; background-color: #f4fdfd; border-top:2px solid #92c8e4; border-bottom:2px solid #92c8e4;}
 #content{text-align:left; height:250px;}
-.board_hr{width:800px; size:1px; margin:10px auto;}
+.board_hr{width:800px; height:1px; margin:10px auto; background-color:#7ebee0;}
 #footList{margin:10px auto;}

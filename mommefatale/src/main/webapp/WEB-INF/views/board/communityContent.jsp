@@ -50,7 +50,7 @@
 						<td id="view">${vo.view}</td>
 					</tr>
 					<tr>
-						<th colspan="2">제&nbsp;&nbsp;&nbsp;목</th>
+						<th colspan="2" class="subject">제&nbsp;&nbsp;&nbsp;목</th>
 						<td colspan="7" id="subject">&nbsp;&nbsp;&nbsp;${vo.section}
 							- ${vo.subject}</td>
 					</tr>
@@ -64,7 +64,7 @@
 						<td colspan="2">
 						<c:if test="${userLogin ne null && vo.section ne '공지사항'}"> 
 						<!-- 로그인을 하지 않았거나 글이 공지사항인 경우 답글을 달 수 없음 -->
-							<input type="button" value="답글쓰기" onClick="window.location='communityReplyForm.do?no='+${vo.no}">		
+							<input type="button" value="답글쓰기" onClick="window.location='communityReplyForm.do?no='+${vo.no}" class="commit_btn">		
 						</c:if>
 						</td>
 						<td colspan="2"></td>

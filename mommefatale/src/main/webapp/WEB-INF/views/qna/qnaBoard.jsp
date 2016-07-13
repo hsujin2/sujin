@@ -87,7 +87,7 @@
 		</section>
 		<div class="board">
 			<h2 class="title">Q&amp;A</h2>
-			<table summary="QnA게시판" id="qna_board">
+			<table summary="QnA게시판" id="qna_board" class="qna_list">
 				<colgroup>
 					<col width="8%">
 					<col width="15%">
