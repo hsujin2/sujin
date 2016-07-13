@@ -74,7 +74,7 @@ public class LoginController {
 			mav.setViewName("redirect:/index.do");
 			//방문일짜
 			visitservice.visitDate(user.getUserid());
-			
+			visitservice.visitCount(user.getUserid());
 			return mav;
 		}
 		mav.setViewName("/login/loginProc");

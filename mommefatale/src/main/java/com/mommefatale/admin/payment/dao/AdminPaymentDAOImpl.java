@@ -1,6 +1,7 @@
 package com.mommefatale.admin.payment.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -29,6 +30,21 @@ public class AdminPaymentDAOImpl implements AdminPaymentDAO{
 	@Override
 	public List<PaymentListVO> paymentDetailList(Integer order_no) {
 		return session.selectList(namespace + ".pamentDetailList",order_no);
+	}
+
+	@Override
+	public void modifyPaymentList(Map<String, Object> map) {
+		session.update(namespace+".modifyPaymentList",map);
+	}
+
+	@Override
+	public Integer getQuantity(Map<String, Object> map) {
+		return session.selectOne(namespace + ".getQuantity",map);
+	}
+
+	@Override
+	public void updateTotalprice(Map<String, Object> map) {
+		session.update(namespace + ".updateTotalprice",map);
 	}
 	
 	

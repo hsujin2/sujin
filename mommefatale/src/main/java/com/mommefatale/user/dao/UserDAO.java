@@ -19,4 +19,5 @@ public interface UserDAO {
 	public String searchId(Map<String, Object> vo);
 	public Integer getAmount(String coupon_no);
 	public void visitDate(String userid);
+	public void visitCount(String userid);
 }

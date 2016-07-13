@@ -77,4 +77,7 @@
 	<select id="visitDate" parameterType="java.lang.String">
 		update member set MEMBER_LAST_VISIT_DATE = sysdate where member_id = #{userid}
 	</select>
+	<select id="visitCount" parameterType="java.lang.String">
+		update member set MEMBER_VISIT_COUNT = MEMBER_VISIT_COUNT + 1 where member_id = #{userid}
+	</select>
 </mapper>

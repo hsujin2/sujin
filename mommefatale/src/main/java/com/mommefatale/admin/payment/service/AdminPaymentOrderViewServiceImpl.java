@@ -1,6 +1,7 @@
 package com.mommefatale.admin.payment.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.mommefatale.admin.payment.dao.AdminPaymentDAO;
 import com.mommefatale.admin.payment.model.OrderDateVO;
@@ -28,6 +29,21 @@ public class AdminPaymentOrderViewServiceImpl implements AdminPaymentOrderViewSe
 	@Override
 	public List<PaymentListVO> paymentDetailList(Integer order_no) {
 		return dao.paymentDetailList(order_no);
+	}
+
+	@Override
+	public void modifyPaymentList(Map<String, Object> map) {
+		dao.modifyPaymentList(map);
+	}
+
+	@Override
+	public Integer getQuantity(Map<String, Object> map) {
+		return dao.getQuantity(map);
+	}
+
+	@Override
+	public void updateTotalprice(Map<String, Object> map) {
+		dao.updateTotalprice(map);
 	}
 
 
