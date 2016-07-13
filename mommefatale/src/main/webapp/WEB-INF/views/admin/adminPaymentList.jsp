@@ -77,7 +77,30 @@
 			async : false,
 			
 			success : function(response){
-				
+				var detailList = response.paymentdetaillist;
+					if(detailList!=null){
+						if(detailList.length!=0){
+						var div = $("<div>",{id:'modal-body'}).attr("class","modal-body");
+						
+						for(var i=0; i<detailList.length;i++){
+							var form = $("<form>").attr("class","info").attr("method","post").attr("action","modifyOrderList.admin").attr("name","orderListForm");
+							var table = $("<table>",{class:'info'});
+						
+							table.append($("<tr>").append($("<td>",{text:"상품번호"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].item_no,name:"item_no"}))));
+							table.append($("<tr>").append($("<td>",{text:"상품명"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].item_name,name:"item_name"}))));
+							table.append($("<tr>").append($("<td>",{text:"옵션"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].size,name:"size"}))));
+							table.append($("<tr>").append($("<td>",{text:"판매가"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].sales,name:"sales"}))));
+							table.append($("<tr>").append($("<td>",{text:"세일가"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].discount,name:"discount"}))));
+							table.append($("<tr>").append($("<td>",{text:"수량"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].quantity,name:"quantity"}))));
+							table.append($("<tr>").append($("<td>",{text:"주문번호"})).append($("<td>").append($('<input>',{type:"text",value:detailList[i].order_no,name:"order_no"}))));
+							table.append($("<tr>").append($("<td>",{text:""})).append($("<td>").append($('<input>',{type:"button",value:"저장",name:"confirm"}))));
+							
+							form.append(table);
+							div.append(form);
+						}
+						$("#modal-body").replaceWith(div);
+					}
+				}
 			},
 			error:function(){
 				alert("주문내역조회 오류");
@@ -189,15 +212,15 @@
         	<span class="col">▶</span> 주문내역수정
         </div></h4>
        </div>
-       <div class="modal-body">
+       <div class="modal-body" id="modal-body">
 	      <form action="modifyOrderList.admin" method="post" name="orderListForm" id="orderListForm" class="info">
 	      </form>
+	   </div>
        <div class="modal-footer">
 		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-primary" onclick="save()">수정</button>
-	   </div>
       </div>
      </div>
+    </div>
     </div>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
