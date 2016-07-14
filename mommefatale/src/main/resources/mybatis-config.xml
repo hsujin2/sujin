@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 <configuration>
 	<mappers>
 		<mapper resource="com/mommefatale/user/dao/UserMapper.xml"/>
-		<mapper resource="com/mommefatale/board/dao/BoardMapper.xml"/>
+		<mapper resource="com/mommefatale/community/dao/CommunityMapper.xml"/>
 		<mapper resource="com/mommefatale/item/dao/ItemMapper.xml"/>
 		<mapper resource="com/mommefatale/qna/dao/QnaMapper.xml"/>
 		<mapper resource="com/mommefatale/gallery/dao/GalleryMapper.xml"/>
@@ -16,5 +16,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 		<mapper resource="com/mommefatale/admin/member/dao/MemberMapper.xml"/>
 		<mapper resource="com/mommefatale/admin/payment/dao/AdminPaymentMapper.xml"/>
 		<mapper resource="com/mommefatale/admin/sitestatus/dao/GenderMapper.xml"/>
+		<mapper resource="com/mommefatale/admin/sitestatus/dao/StatusMapper.xml"/>
 	</mappers>
 </configuration>

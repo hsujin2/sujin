@@ -64,6 +64,64 @@ window.onload=function(){
 			]
 		}
 	);
+	var gradelist;
+	$.ajax({
+		url : "/mommefatale/gradeStatus.json",
+		type : "POST",
+		async : false,
+		success : function(response){
+			gradelist = response.gradelist;
+			
+		},error : function(){
+			alert("등급 통계 오류");
+		}
+	})
+	
+		AmCharts.makeChart("chartdiv",
+			{
+				"type": "pie",
+				"angle": 12,
+				"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+				"depth3D": 15,
+				"dataProvider": gradelist,
+				"innerRadius": "40%",
+				"colors": [
+					"#cd7f32",
+					"#eaeaea",
+					"#ffe118",
+					"#bed8ff"
+				],
+				"titleField": "category",
+				"valueField": "column-1",
+				"allLabels": [],
+				"balloon": {},
+				"legend": {
+					"enabled": true,
+					"align": "center",
+					"markerType": "circle"
+				},
+				"titles": [],
+				"dataProvider": [
+					{
+						"category": "grade",
+						"column-1": "8"
+					},
+					{
+						"category": "grade",
+						"column-1": "7"
+					},
+					{
+						"category": "grade",
+						"column-1": "6"
+					},
+					{
+						"category": "grade",
+						"column-1": "5"
+					}
+				]
+			}
+		);
+	
 }
   function searchMemberByCategory() {
 		var memberlist = $("#memberList");
