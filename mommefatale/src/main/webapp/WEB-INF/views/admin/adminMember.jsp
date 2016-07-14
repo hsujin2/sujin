@@ -10,8 +10,61 @@
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/admin/member_css.css" />
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/light.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">	
 <script type="text/javascript">
+window.onload=function(){
+	var man;
+	var woman; 
+	
+	$.ajax({
+		url : "/mommefatale/genderStatus.json",
+		type : "POST",
+		async : false,
+		success : function(response){
+			var map = response.map;
+			man = map.man;
+			woman = map.woman;
+		},error : function(){
+			alert("성별 통계 오류");
+		}
+	})
+	AmCharts.makeChart("chartdiv",
+		{
+			"type": "pie",
+			"balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+			"innerRadius": "40%",
+			"colors": [
+				"#68C5F7",
+				"#FD9FF5"
+			],
+			"titleField": "category",
+			"valueField": "column-1",
+			"theme": "light",
+			"allLabels": [],
+			"balloon": {},
+			"legend": {
+				"enabled": true,
+				"align": "center",
+				"markerType": "circle"
+			},
+			"titles": [],
+			"dataProvider": [
+				{
+					"category": "남자",
+					"column-1": man
+				},
+				{
+					"category": "여자",
+					"column-1": woman
+				}
+			]
+		}
+	);
+}
   function searchMemberByCategory() {
 		var memberlist = $("#memberList");
 		var id = $("input[name='category_id']").val();
@@ -119,6 +172,7 @@ function memberSave(){
 <body>
  <div id="wrap">
       <%@ include file="../include/header.jsp"%>
+      <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
 <div class="member_table">
 <label for="category_id">아이디: </label><input type="text" name="category_id" id="category_id">
 <label for="category_name">이름: </label><input type="text" name="category_name" id="category_name">
