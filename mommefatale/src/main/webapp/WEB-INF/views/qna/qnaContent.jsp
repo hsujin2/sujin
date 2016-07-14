@@ -50,7 +50,7 @@
 						<td id="view">${vo.view}</td>
 					</tr>
 					<tr>
-						<th colspan="2">제&nbsp;&nbsp;&nbsp;목</th>
+						<th colspan="2" class="subject">제&nbsp;&nbsp;&nbsp;목</th>
 						<td colspan="7" id="subject">&nbsp;&nbsp;&nbsp;${vo.section}
 							- ${vo.subject}</td>
 					</tr>
