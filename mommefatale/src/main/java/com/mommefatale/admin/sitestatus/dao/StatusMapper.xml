@@ -9,10 +9,17 @@
 		<result property="date" column="JOIN_DATE" jdbcType="DATE"></result>
 		<result property="count" column="cnt" jdbcType="BIGINT"></result>
 	</resultMap>
+	<resultMap id="toBestVO" type="com.mommefatale.admin.sitestatus.model.BestVO">
+		<result property="item_name" column="ITEM_NAME" jdbcType="DATE"></result>
+		<result property="count" column="ITEM_SALES_QUANTITY" jdbcType="BIGINT"></result>
+	</resultMap>
 	<select id="gradeStatus" resultMap="toGradeVO">
 		select GRADE_CODE_NAME, count(GRADE_CODE_NAME) as cnt from member group by GRADE_CODE_NAME order by GRADE_CODE_NAME
 	</select>
 	<select id="visitStatus" resultMap="toVisitVO">
 		select join_date, count(join_date) as cnt from (select SUBSTR(REPLACE(MEMBER_JOIN_DATE,'-',''),0,8) as join_date from member) where join_date between to_date(sysdate-7) and to_date(sysdate) group by join_date order by join_date
+	</select>
+	<select id="bestStatus" resultMap="toBestVO">
+		<![CDATA[select * from (select rownum rnum,ITEM_NAME,ITEM_SALES_QUANTITY from (SELECT ITEM_NAME, ITEM_SALES_QUANTITY FROM ITEM order by ITEM_SALES_QUANTITY desc)) where rnum <=5]]>
 	</select>
 </mapper>

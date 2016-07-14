@@ -16,6 +16,9 @@
 	<bean id="VisitStatusService" class="com.mommefatale.admin.sitestatus.service.VisitStatusServiceImpl">
 		<property name="dao" ref="StatusDAO"></property>
 	</bean>
+	<bean id="BestStatusService" class="com.mommefatale.admin.sitestatus.service.BestStatusServiceImpl">
+		<property name="dao" ref="StatusDAO"></property>
+	</bean>
 	<!-- controller -->
 	<bean class="com.mommefatale.admin.sitestatus.controller.StatusViewController">
 	</bean>
@@ -24,5 +27,8 @@
 	</bean>
 	<bean class="com.mommefatale.admin.sitestatus.controller.VisitStatusController">
 		<property name="command" ref="VisitStatusService"></property>
+	</bean>
+	<bean class="com.mommefatale.admin.sitestatus.controller.BestStatusController">
+		<property name="command" ref="BestStatusService"></property>
 	</bean>
 </beans>

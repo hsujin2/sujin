@@ -12,11 +12,75 @@
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css"/>
 <link rel="stylesheet" type="text/css" href="resources/css/item/itemManage_css.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.js"></script>
+<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/plugins/export/export.js"></script>
+		<link rel="stylesheet" href="http://www.amcharts.com/lib/3/plugins/export/export.css">
 <script type="text/javascript">
 	window.onload=function(){
-		var range = "${range}";
-		$("select[name=range] option[value="+range+"]").attr("selected",true);
-		
+		var bestfive;
+		$.ajax({
+			url : "/mommefatale/bestfive.json",
+			type : "POST",
+			async : false,
+			success : function(response){
+				bestfive = response.bestfive;
+			},error : function(){
+				alert("베스트 5 오류");
+			}
+		})
+		AmCharts.makeChart("chartdiv",
+				{
+					"type": "serial",
+					"dataProvider": bestfive,
+					"categoryField": "item_name",
+					"rotate": true,
+					"angle": 30,
+					"depth3D": 30,
+					"colors": [
+						"#5599ff"
+					],
+					"startDuration": 1,
+					"export": {
+						"enabled": true
+					},
+					"categoryAxis": {
+						"gridPosition": "start"
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"balloonText": "판매량  : [[value]]",
+							"fillAlphas": 1,
+							"id": "AmGraph-1",
+							"title": "판매량",
+							"type": "column",
+							"valueField": "count"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"title": ""
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"legend": {
+						"enabled": true,
+						"useGraphSettings": true
+					},
+					"titles": [
+						{
+							"id": "Title-1",
+							"size": 15,
+							"text": "베스트 5 ITEM"
+						}
+					]
+				}
+			);
 	}
 	function modifyOpen(item_no){
 		var item_no = item_no;
@@ -104,6 +168,7 @@
 <body>
 <div id="wrap">
 <%@ include file="../include/header.jsp" %>
+<div class="chart" id="chartdiv" style="width: 800px; height: 400px; background-color: #FFFFFF;" ></div>
 <section class="content">
 	<div class="upmenu">
     	<select class="itemName" id="group" name="group">

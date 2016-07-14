@@ -36,3 +36,5 @@ width:100%; height:100%;background-color:#000000; filter:Alpha(opacity=60);opaci
 label{background-color:#eeeeee;padding:3px; height:100%; margin:0;}
 #itemModifyForm input, #itemModifyForm select{width:98%;}
 .itemInfo{background-color:#fafafa;}
+
+.chart{margin:20px auto;}
