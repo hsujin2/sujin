@@ -9,8 +9,8 @@
 <title>회원관리</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/admin/member_css.css" />
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">	
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
   function searchMemberByCategory() {
 		var memberlist = $("#memberList");
@@ -365,7 +365,7 @@ function memberSave(){
 	    </div>
 	  </div>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<!-- <script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script>ie10-viewport-bug-workaround.js -->
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
 <script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js -->	  
 </div>
 <%@ include file="../include/footer.jsp"%>
