@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.admin.member.model.MemberVO;
 import com.mommefatale.admin.member.service.MemberService;
-import com.mommefatale.board.model.Paging;
+import com.mommefatale.community.model.Paging;
 import com.mommefatale.user.model.UserVO;
 
 @Controller
