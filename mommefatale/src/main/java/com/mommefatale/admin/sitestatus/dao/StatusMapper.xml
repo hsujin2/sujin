@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mommefatale.admin.sitestatus.dao.StatusMapper">
+	<select id="gradeStatus" resultType="java.util.Map">
+		select GRADE_CODE_NAME, count(GRADE_CODE_NAME) from member group by GRADE_CODE_NAME order by GRADE_CODE_NAME
+	</select>
+</mapper>

@@ -8,4 +8,5 @@
 
 	<bean class="com.mommefatale.admin.sitestatus.controller.StatusViewController">
 	</bean>
+	
 </beans>
