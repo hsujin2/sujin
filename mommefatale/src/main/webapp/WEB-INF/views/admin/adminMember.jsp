@@ -71,13 +71,12 @@ window.onload=function(){
 		async : false,
 		success : function(response){
 			gradelist = response.gradelist;
-			
 		},error : function(){
 			alert("등급 통계 오류");
 		}
 	})
 	
-		AmCharts.makeChart("chartdiv",
+		AmCharts.makeChart("chartdiv2",
 			{
 				"type": "pie",
 				"angle": 12,
@@ -99,7 +98,8 @@ window.onload=function(){
 					"enabled": true,
 					"align": "center",
 					"markerType": "circle"
-				}
+				},
+				"titles": []
 			}
 		);
 	
@@ -212,6 +212,7 @@ function memberSave(){
  <div id="wrap">
       <%@ include file="../include/header.jsp"%>
       <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+      <div id="chartdiv2" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
 <div class="member_table">
 <label for="category_id">아이디: </label><input type="text" name="category_id" id="category_id">
 <label for="category_name">이름: </label><input type="text" name="category_name" id="category_name">
