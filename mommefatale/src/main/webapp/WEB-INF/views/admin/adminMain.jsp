@@ -13,16 +13,33 @@
 <body>
 	<div id="wrap">
 		<%@ include file="../include/header.jsp"%>
-		<nav>
-		<div class="manage_item">
-			<ul>
-				<li><a href="member.admin">회원관리</a></li>
-				<li><a href="itemlist.admin?range=new">상품관리</a></li>
-				<li><a href="itemAdd.admin">상품등록</a></li>
-				<li><a href="adminpaymentlist.admin">주문관리</a></li>
-			</ul>
-		</div>
-		</nav>
+		
+		<section class="content">
+    <div class="subcon">
+    	<span class="sub">
+        	MANAGEMENT
+        </span>
+        </div>
+        <table class="menu">
+        	<tr>
+            	<td><div id="menu1"><a href="member.admin" class="menu1"><img src="resources/images/admin/고객관리.png" width="80" height="80" /><br />
+고객관리 </a></div></td>
+                <td><div id="menu1"><a href="#" class="menu1"><img src="resources/images/admin/게시판관리.png" width="80" height="80" /><br />
+게시판관리 </a></div></td>
+                <td><div id="menu1"><a href="itemAdd.admin" class="menu1"><img src="resources/images/admin/상품등록.png" width="80" height="80" /><br />
+상품등록 </a></div></td>
+            </tr>
+            <tr>
+            	<td><div id="menu1"><a href="itemlist.admin?range=new" class="menu1"><img src="resources/images/admin/상품관리.png" width="80" height="80" /><br />
+상품관리 </a></div></td>
+                <td><div id="menu1"><a href="adminpaymentlist.admin" class="menu1"><img src="resources/images/admin/주문관리.png" width="80" height="80" /><br />
+주문관리 </a></div></td>
+                <td><div id="menu1"><a href="#" class="menu1"><img src="resources/images/admin/현황.png" width="80" height="80" /><br />
+사이트현황 </a></div></td>
+            </tr>
+        </table>
+    </section>
+		
 		<%@ include file="../include/footer.jsp"%>
 	</div>
 </body>
