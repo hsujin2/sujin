@@ -71,7 +71,7 @@ public class CommunityBoardPageController {
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
 		mav.addAllObjects(model);
-		mav.setViewName("/board/communityBoard");
+		mav.setViewName("/community/communityBoard");
 		mav.addObject("vo", vo);
 		mav.addObject("count", count);
 //		for(int i=0; i<count; i++){

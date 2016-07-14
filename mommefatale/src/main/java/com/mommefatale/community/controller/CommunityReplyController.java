@@ -48,7 +48,7 @@ public class CommunityReplyController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("vo", vo);
 		mav.addAllObjects(model);
-		mav.setViewName("/board/communityReplyForm");
+		mav.setViewName("/community/communityReplyForm");
 		System.out.println("답변세팅완료");
 		
 		return mav;

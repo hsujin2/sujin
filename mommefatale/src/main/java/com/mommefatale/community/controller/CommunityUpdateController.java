@@ -41,7 +41,7 @@ public class CommunityUpdateController {
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
 		CommunityBoardVO vo = command.communityContent(no);
-		mav.setViewName("/board/communityUpdate");
+		mav.setViewName("/community/communityUpdate");
 		mav.addObject("vo",vo);
 		return mav;
 	}
