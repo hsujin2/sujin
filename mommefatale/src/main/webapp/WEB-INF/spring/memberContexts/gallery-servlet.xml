@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 <!-- Model -->
-	<bean id="paging" class="com.mommefatale.board.model.Paging">
+	<bean id="paging" class="com.mommefatale.community.model.Paging">
 	</bean>
 
 <!--  DAO  -->

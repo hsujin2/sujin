@@ -25,7 +25,7 @@
 	</bean>
 	
 	<!-- DAO -->
-	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
+	<bean id="communityBoardDAO" class="com.mommefatale.community.dao.CommunityBoardDAOImpl">
 		<property name="session" ref="sqlSessionTemplate"/>
 	</bean>
 	<bean id="ItemDAO" class="com.mommefatale.item.dao.ItemDAOImpl">

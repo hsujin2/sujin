@@ -7,56 +7,56 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 <!-- Controller -->
-	<bean id="communityBoardPageController" class="com.mommefatale.board.controller.CommunityBoardPageController">
+	<bean id="communityBoardPageController" class="com.mommefatale.community.controller.CommunityBoardPageController">
 		<property name="command" ref="communityBoardPageService"/>
 		<property name="paging" ref="paging"/>
 	</bean>
-	<bean id="communityWriteController" class="com.mommefatale.board.controller.CommunityWriteController">
+	<bean id="communityWriteController" class="com.mommefatale.community.controller.CommunityWriteController">
 		<property name="command" ref="communityWriteService"/>
 	</bean>
-	<bean id="communityContentController" class="com.mommefatale.board.controller.CommunityContentController">
+	<bean id="communityContentController" class="com.mommefatale.community.controller.CommunityContentController">
 		<property name="command" ref="communityContentService"/>
 	</bean>
-	<bean id="communityUpdateController" class="com.mommefatale.board.controller.CommunityUpdateController">
+	<bean id="communityUpdateController" class="com.mommefatale.community.controller.CommunityUpdateController">
 		<property name="command" ref="communityContentService"/>
 		<property name="service" ref="communityUpdateService"/>
 	</bean>
-	<bean id="communityDeleteController" class="com.mommefatale.board.controller.CommunityDeleteController">
+	<bean id="communityDeleteController" class="com.mommefatale.community.controller.CommunityDeleteController">
 		<property name="command" ref="communityDeleteService"/>
 	</bean>
-	<bean id="communityReplyController" class="com.mommefatale.board.controller.CommunityReplyController">
+	<bean id="communityReplyController" class="com.mommefatale.community.controller.CommunityReplyController">
 		<property name="command" ref="communityContentService"/>
 		<property name="service" ref="communityReplyService"/>
 	</bean>
 	
 <!-- Service -->	
-	<bean id="communityBoardPageService" class="com.mommefatale.board.service.CommunityBoardPageServiceImpl">
+	<bean id="communityBoardPageService" class="com.mommefatale.community.service.CommunityBoardPageServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
-	<bean id="communityWriteService" class="com.mommefatale.board.service.CommunityWriteServiceImpl">
+	<bean id="communityWriteService" class="com.mommefatale.community.service.CommunityWriteServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
-	<bean id="communityContentService" class="com.mommefatale.board.service.CommunityContentServiceImpl">
+	<bean id="communityContentService" class="com.mommefatale.community.service.CommunityContentServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>	
 	</bean>
-	<bean id="communityUpdateService" class="com.mommefatale.board.service.CommunityUpdateServiceImpl">
+	<bean id="communityUpdateService" class="com.mommefatale.community.service.CommunityUpdateServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
-	<bean id="communityDeleteService" class="com.mommefatale.board.service.CommunityDeleteServiceImpl">
+	<bean id="communityDeleteService" class="com.mommefatale.community.service.CommunityDeleteServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
-	<bean id="communityReplyService" class="com.mommefatale.board.service.CommunityReplyServiceImpl">
+	<bean id="communityReplyService" class="com.mommefatale.community.service.CommunityReplyServiceImpl">
 		<property name="dao" ref="communityBoardDAO"/>
 	</bean>
 	
 <!-- DAO -->	
-	<bean id="communityBoardDAO" class="com.mommefatale.board.dao.CommunityBoardDAOImpl">
+	<bean id="communityBoardDAO" class="com.mommefatale.community.dao.CommunityBoardDAOImpl">
 		<property name="session" ref="sqlSessionTemplate"/>
 	</bean>
 	
 <!-- Model -->
 	<!-- 페이지 모델 -->
-	<bean id="paging" class="com.mommefatale.board.model.Paging">
+	<bean id="paging" class="com.mommefatale.community.model.Paging">
 	</bean>
 	
 </beans>

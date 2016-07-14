@@ -55,7 +55,7 @@
 
 <!-- Model -->	
 <!-- 페이지 모델 -->
-	<bean id="paging" class="com.mommefatale.board.model.Paging">
+	<bean id="paging" class="com.mommefatale.community.model.Paging">
 	</bean>
 	
 </beans>
