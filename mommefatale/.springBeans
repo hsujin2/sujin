@@ -10,6 +10,8 @@
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/wish-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/member-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/payment-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/adminContexts/status-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/adminContexts/gender-servlet.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/userlogin-servlet.xml</config>
