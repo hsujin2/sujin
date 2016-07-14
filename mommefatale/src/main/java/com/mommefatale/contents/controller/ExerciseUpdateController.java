@@ -22,6 +22,16 @@ public class ExerciseUpdateController {
 		this.command = command;
 	}
 
+	private ExerciseUpdateService command2;
+	
+
+	public ExerciseUpdateService getCommand2() {
+		return command2;
+	}
+
+	public void setCommand2(ExerciseUpdateService command2) {
+		this.command2 = command2;
+	}
 
 	private ExerciseUpdateService service;
 
@@ -43,6 +53,18 @@ public class ExerciseUpdateController {
 		mav.setViewName("/contents/exerciseUpdate");
 		mav.addObject("vo", vo);
 		return mav;
+	}
+	
+	@RequestMapping(value="/exerciseUpdateProc.do")
+	public String exerciseUpdateProc(HttpServletRequest request, ExerciseVO exerciseVO)throws Exception{
+		System.out.println("운동법 글수정 컨트롤러");
+		exerciseVO.setNo(Integer.parseInt(request.getParameter("no")));
+		exerciseVO.setSubject(request.getParameter("subject"));
+		exerciseVO.setCategory(request.getParameter("category"));
+		exerciseVO.setContent(request.getParameter("content"));
+		exerciseVO.setImage(request.getParameter("image"));
+		command2.exerciseUpdate(exerciseVO);
+		return "redirect/exercise1.do";
 	}
 	
 		
