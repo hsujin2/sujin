@@ -5,18 +5,20 @@
 h1{color:#699}
 h2{color:#09F}
 
-.board_hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:750px;}
-
+.board_hr{display:block; margin:10px auto; border:0; height:2px; background:#09F; width:950px;}
+.title{clear:both; margin:20px auto;}
 .skip{font-size:0; width:0; height:0; line-height:0; position:absolute; left:-9999px;}
 
 .align_center{text-align:center;}
 .align_right{text-align:right;}
 .align_left{text-align:left;}
-
-#wrapcontents{margin:0 auto; text-align:center;}
+.commit_btn{background-color:#72b7dc; padding:5px; color:#ffffff; border-radius:5px;}
+.write_button{text-align: right; background-color:#72b7dc; 
+padding:5px; color:#ffffff; border-radius:5px;}
+#wrapcontents{margin:10px auto; text-align:center;}
 
 #content_banner{text-align:center; clear:both;} 
-#contentmain{width:600px; top:75px; position:relative; margin:0 auto;}
+#contentmain{width:600px; top:75px; position:relative; margin:10px auto;}
 
 #otherpages h3 {}
 #pageFor h1{text-align:center; position:relative; top:-50px;}
@@ -34,11 +36,11 @@ h2{color:#09F}
 
 .date{color:#9f9f9f; font-family:Tahoma; font-size:8pt; vertical-align:5%; padding: 0 8px 0 7px;}
 
-.exercise_table{display:inline-block; border-spacing:30px;}
+.exercise_table{display:inline-block; border-spacing:30px; margin:0 auto;}
 
 
 .exercise_board{margin:0 auto;}
-
+#exercise_board{margin:0 auto;}
 
 
 .galleria{position:relative; left:100; width: 700px; height: 400px; background:#09F }
