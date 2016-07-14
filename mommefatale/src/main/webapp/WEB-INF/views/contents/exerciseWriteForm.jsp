@@ -50,17 +50,19 @@
 							<td  colspan="2" width="750"></td>
 					</tr> --%>
 					<tr>
-						<td class="itemInfo">카테고리</td>
-						<td><select name="category">
+						<th class="itemInfo">카테고리</th>
+						<td><select name="category" id="category">
 								<option value="heathcare">Health Care</option>
 								<option value="bulkup">Bulk-Up</option>
 								<option value="diet">Diet</option>
 						</select></td>
+						<td colspan="2" width="520px">
+						</td>
 					</tr>
 					<tr>
 						<th>제&nbsp;&nbsp;&nbsp;목</th>
 						<td colspan="3"><input type="text" name="subject"
-							id="subject" size="120"></td>
+							id="subject" size="115"></td>
 					</tr>
 					<tr>
 						<th>내&nbsp;&nbsp;&nbsp;용&nbsp;</th>
@@ -68,7 +70,7 @@
 							<textarea name="content" id="content" rows="50" cols="150"></textarea>
 							<script type="text/javascript">
 								//<![CDATA[
-								CKEDITOR.replace('content',{ width:'900px', height : '500px', });
+								CKEDITOR.replace('content',{ width:'850px', height : '500px', });
 								//]]
 							</script> 
 						</td>

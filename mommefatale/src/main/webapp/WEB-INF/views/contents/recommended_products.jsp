@@ -31,9 +31,11 @@
         	<h1>Recommended Products</h1>
     	</div>
     	<h2>equipment</h2>
+    	<c:if test="${admin eq true}">
         <div class="fix_button">
         <a href="#"><img src="resources/images/contents/setting_button.gif" alt="fixbutton"/></a>
         </div>
+        </c:if>
         <hr />
         <ul class="item">
         	<li><a href="#"><img src="resources/images/contents/eq1.png" alt="gimball"/> </a></li>

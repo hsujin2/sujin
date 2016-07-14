@@ -208,11 +208,12 @@
 					style="top: 158px; right: 8px; width: 40px; height: 40px;"></span>
 			</div>
 
-
+	<c:if test="${admin eq true}">
 			<div class="fix_button">
 				<a href="#"><img
 					src="resources/images/contents/setting_button.gif" alt="fixbutton" /></a>
 			</div>
+	</c:if>		
 		</div>
 
 		<%@ include file="../include/footer.jsp"%>

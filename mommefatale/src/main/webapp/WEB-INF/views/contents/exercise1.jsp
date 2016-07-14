@@ -57,6 +57,7 @@
 						<hr class="board_hr">
 					</td>
 				</tr>
+				<c:if test="${admin eq true}">
 				<tr>
 					<td colspan="5"></td>
 					<td>
@@ -64,6 +65,7 @@
 							onclick="location.href='exerciseWriteForm.do'">글쓰기</button>
 					</td>
 				</tr>
+				</c:if>
 			</table>
 
 			<div id="footList">
