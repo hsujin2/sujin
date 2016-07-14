@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mommefatale.board.model.Paging;
+import com.mommefatale.community.model.Paging;
 import com.mommefatale.contents.model.ExerciseVO;
 import com.mommefatale.contents.service.ExercisePageService;
 

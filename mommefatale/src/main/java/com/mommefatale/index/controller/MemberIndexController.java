@@ -10,7 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mommefatale.board.model.CommunityBoardVO;
+import com.mommefatale.community.model.CommunityBoardVO;
 import com.mommefatale.index.service.IndexBoardService;
 import com.mommefatale.item.model.ItemVO;
 import com.mommefatale.item.service.ItemListService;
