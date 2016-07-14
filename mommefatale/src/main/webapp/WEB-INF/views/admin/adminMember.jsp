@@ -91,34 +91,15 @@ window.onload=function(){
 					"#ffe118",
 					"#bed8ff"
 				],
-				"titleField": "category",
-				"valueField": "column-1",
+				"titleField": "grade",
+				"valueField": "count",
 				"allLabels": [],
 				"balloon": {},
 				"legend": {
 					"enabled": true,
 					"align": "center",
 					"markerType": "circle"
-				},
-				"titles": [],
-				"dataProvider": [
-					{
-						"category": "grade",
-						"column-1": "8"
-					},
-					{
-						"category": "grade",
-						"column-1": "7"
-					},
-					{
-						"category": "grade",
-						"column-1": "6"
-					},
-					{
-						"category": "grade",
-						"column-1": "5"
-					}
-				]
+				}
 			}
 		);
 	
