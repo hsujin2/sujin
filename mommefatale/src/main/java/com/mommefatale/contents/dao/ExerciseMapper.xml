@@ -14,16 +14,11 @@
 
   <!-- Exercise 카테고리 분류 -->
 	<select id="listCategory" parameterType="java.util.Map" resultMap="ExerciseVO">
-	select * from (select rownum rnum, exercise_no, exercise_category,
-	exercise_subject, exercise_content,
-	exercise_image, exercise_regdate, exercise_view from (select * from exercise where
-	exercise_category = #{category}
-
-	order by exercise_no desc
-
-	)) where <![CDATA[rnum >= #{startRow} and rnum <= #{endRow}
-		]]>
-</select>
+	select * from 
+		(select rownum rnum, exercise_no, exercise_category, exercise_subject, exercise_content, exercise_image, exercise_regdate, exercise_view 
+	from (select * from exercise where exercise_category = #{category} order by exercise_no desc)
+		) where <![CDATA[rnum >= #{startRow} and rnum <= #{endRow} ]]>
+	</select>
 
    <!-- Exercise 총 게시물 수 -->
    <select id="exerciseCount" resultType="java.lang.Integer">
