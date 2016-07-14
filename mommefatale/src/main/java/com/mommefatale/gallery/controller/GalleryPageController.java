@@ -10,9 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mommefatale.community.model.Paging;
 import com.mommefatale.gallery.model.GalleryVO;
 import com.mommefatale.gallery.service.GalleryPageService;
-import com.mommefatale.board.model.Paging;
 
 @Controller
 public class GalleryPageController {

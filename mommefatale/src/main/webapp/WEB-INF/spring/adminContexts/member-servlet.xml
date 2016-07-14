@@ -8,7 +8,7 @@
 
 <!-- VO -->
 <bean id="memberVO" class="com.mommefatale.admin.member.model.MemberVO"/>
-<bean id="paging" class="com.mommefatale.board.model.Paging"/>
+<bean id="paging" class="com.mommefatale.community.model.Paging"/>
 
 <!-- DAO -->
 <bean id="memberDAO" class="com.mommefatale.admin.member.dao.MemberDAOImpl">

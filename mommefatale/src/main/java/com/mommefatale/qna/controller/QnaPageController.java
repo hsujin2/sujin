@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mommefatale.community.model.Paging;
 import com.mommefatale.qna.model.QnaVO;
-import com.mommefatale.board.model.Paging;
 import com.mommefatale.qna.service.QnaPageService;
 
 @Controller

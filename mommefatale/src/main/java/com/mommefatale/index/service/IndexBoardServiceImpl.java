@@ -2,8 +2,8 @@ package com.mommefatale.index.service;
 
 import java.util.List;
 
-import com.mommefatale.board.dao.CommunityBoardDAO;
-import com.mommefatale.board.model.CommunityBoardVO;
+import com.mommefatale.community.dao.CommunityBoardDAO;
+import com.mommefatale.community.model.CommunityBoardVO;
 
 public class IndexBoardServiceImpl implements IndexBoardService {
 

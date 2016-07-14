@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+.bm{width:100%; padding:0 0 2px 5px; border-left:3px solid #09F;font-weight:bolder; font-size:14px;} 
+.bl{width:100%; padding-top:2px; border-top:2px solid #999; margin-top:5px; padding-left:3px; font-size:12px;}
+.bot .col{color:#09F;}
+.bot{width:800px; margin:0 auto; border-collapse:collapse; border:1px solid #ddd;text-align:center; margin-top:30px; font-size:12px;}
+.bot th{padding:20px 0px; background-color:#f0f0f0;}
+.bot td a{text-decoration:none; }
+.bot td a:hover{text-decoration:underline;}
+.bot td{ padding:5px 0px;}

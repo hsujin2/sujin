@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mommefatale.board.model.Paging;
+import com.mommefatale.community.model.Paging;
 import com.mommefatale.review.model.ReviewVO;
 import com.mommefatale.review.service.ReviewPageService;
 
