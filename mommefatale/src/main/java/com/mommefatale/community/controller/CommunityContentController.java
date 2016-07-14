@@ -29,7 +29,7 @@ public class CommunityContentController {
 		int no = Integer.parseInt(request.getParameter("no"));
 		CommunityBoardVO vo = command.communityContent(no);
 		command.communityView(no);
-		mav.setViewName("/board/communityContent");
+		mav.setViewName("/community/communityContent");
 		mav.addObject("vo", vo);
 		return mav;
 	}
