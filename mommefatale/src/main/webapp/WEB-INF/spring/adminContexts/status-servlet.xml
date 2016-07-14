@@ -13,10 +13,16 @@
 	<bean id="GradeStatusService" class="com.mommefatale.admin.sitestatus.service.GradeStatusServiceImpl">
 		<property name="dao" ref="StatusDAO"></property>
 	</bean>
+	<bean id="VisitStatusService" class="com.mommefatale.admin.sitestatus.service.VisitStatusServiceImpl">
+		<property name="dao" ref="StatusDAO"></property>
+	</bean>
 	<!-- controller -->
 	<bean class="com.mommefatale.admin.sitestatus.controller.StatusViewController">
 	</bean>
 	<bean class="com.mommefatale.admin.sitestatus.controller.GradeStatusController">
 		<property name="command" ref="GradeStatusService"></property>
+	</bean>
+	<bean class="com.mommefatale.admin.sitestatus.controller.VisitStatusController">
+		<property name="command" ref="VisitStatusService"></property>
 	</bean>
 </beans>

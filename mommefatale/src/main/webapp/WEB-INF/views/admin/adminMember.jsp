@@ -14,6 +14,9 @@
 		<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
 		<script type="text/javascript" src="http://www.amcharts.com/lib/3/pie.js"></script>
 		<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/plugins/export/export.js"></script>
+		<link rel="stylesheet" href="http://www.amcharts.com/lib/3/plugins/export/export.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">	
 <script type="text/javascript">
 window.onload=function(){
@@ -43,6 +46,9 @@ window.onload=function(){
 			],
 			"titleField": "category",
 			"valueField": "column-1",
+			"export": {
+				"enabled": true
+			},
 			"theme": "light",
 			"allLabels": [],
 			"balloon": {},
@@ -51,7 +57,7 @@ window.onload=function(){
 				"align": "center",
 				"markerType": "circle"
 			},
-			"titles": [],
+			"titles": [{"text":"성별 회원수","size":15}],
 			"dataProvider": [
 				{
 					"category": "남자",
@@ -92,6 +98,9 @@ window.onload=function(){
 				],
 				"titleField": "grade",
 				"valueField": "count",
+				"export": {
+					"enabled": true
+				},
 				"allLabels": [],
 				"balloon": {},
 				"legend": {
@@ -99,11 +108,75 @@ window.onload=function(){
 					"align": "center",
 					"markerType": "circle"
 				},
-				"titles": []
+				"titles": [{"text":"등급별 회원수","size":15}]
 			}
 		);
+	var visitlist;
+	$.ajax({
+		url : "/mommefatale/visitStatus.json",
+		type : "POST",
+		async : false,
+		success : function(response){
+			visitlist = response.visitlist;
+		},error : function(){
+			alert("방문자수 통계 오류");
+		}
+	})
+	  AmCharts.makeChart("chartdiv3",
+				{
+					"type": "serial",
+					"angle": 30,
+					"depth3D": 30,
+					"dataProvider": visitlist,
+					"categoryField": "date",
+					"colors": [
+						"#39adff"
+					],
+					"startDuration": 1,
+					"categoryAxis": {
+						"gridPosition": "start"
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"balloonText": "[[title]]:[[value]]",
+							"fillAlphas": 1,
+							"id": "AmGraph-1",
+							"title": "가입자수",
+							"type": "column",
+							"valueField": "count"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"stackType": "regular",
+							"title": "명"
+						}
+					],
+					"export": {
+						"enabled": true
+					},
+					"allLabels": [],
+					"balloon": {},
+					"legend": {
+						"enabled": true,
+						"useGraphSettings": true
+					},
+					"titles": [
+						{
+							"id": "Title-1",
+							"size": 15,
+							"text": "지난주 가입자수"
+						}
+					]
+				}
+			);
+
 	
 }
+	
   function searchMemberByCategory() {
 		var memberlist = $("#memberList");
 		var id = $("input[name='category_id']").val();
@@ -211,8 +284,9 @@ function memberSave(){
 <body>
  <div id="wrap">
       <%@ include file="../include/header.jsp"%>
-      <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
-      <div id="chartdiv2" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+      <div class="chart" id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+      <div class="chart" id="chartdiv2" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+      <div class="chart" id="chartdiv3" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
 <div class="member_table">
 <label for="category_id">아이디: </label><input type="text" name="category_id" id="category_id">
 <label for="category_name">이름: </label><input type="text" name="category_name" id="category_name">

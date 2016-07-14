@@ -24,7 +24,6 @@ public class GradeStatusController {
 		List<GradeVO> gradelist = command.gradeStatus();
 		mav.addObject("gradelist",gradelist);
 		mav.setViewName("jsonView");
-		System.out.println(gradelist.get(0).getGrade());
 		return mav;
 	}
 }
