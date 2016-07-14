@@ -1,1 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardMapper">
+
+<!-- 새글 count -->
+<select id="newCount" parameterType="Integer" resultType="Integer">
+	select count(*) from 
+	<if test='value == 1'>
+	community where community_section = '공지사항'
+	and community_regdate 
+	</if>
+	<if test='value == 2'>
+	community where community_section != '공지사항'
+	and community_regdate 
+	</if>
+	<if test='value == 3'>
+	gallery where gallery_regdate 
+	</if>
+	<if test='value == 4'>
+	qna where qna_regdate 
+	</if>
+	between sysdate-1 and sysdate 
+</select>
+
+<!-- 전체글 count -->
+<select id="allCount" parameterType="Integer" resultType="Integer">
+	select count(*) from 
+	<if test='value == 1'>
+	community where community_section = '공지사항'
+	</if>
+	<if test='value == 2'>
+	community where community_section != '공지사항'
+	</if>
+	<if test='value == 3'>
+	gallery
+	</if>
+	<if test='value == 4'>
+	qna
+	</if>
+</select>
+
+</mapper>
