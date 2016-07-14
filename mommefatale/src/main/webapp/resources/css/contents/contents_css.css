@@ -5,7 +5,7 @@
 h1{color:#699}
 h2{color:#09F}
 
-hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:750px;}
+.board_hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:750px;}
 
 .skip{font-size:0; width:0; height:0; line-height:0; position:absolute; left:-9999px;}
 
@@ -37,7 +37,7 @@ hr{display:block; margin:0 auto; border:0; height:2px; background:#09F; width:75
 .exercise_table{display:inline-block; border-spacing:30px;}
 
 
-#exercise_board{}
+.exercise_board{margin:0 auto;}
 
 
 

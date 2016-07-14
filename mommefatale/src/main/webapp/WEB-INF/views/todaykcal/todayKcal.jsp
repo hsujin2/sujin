@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/todaykcal/todaykcal_css.css" />
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 
 <script>

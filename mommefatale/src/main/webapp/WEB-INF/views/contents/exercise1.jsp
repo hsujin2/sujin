@@ -51,7 +51,7 @@
 				</c:if>
 			</ul>
 
-			<table>
+			<table class="exercise_board">
 				<tr>
 					<td colspan="6">
 						<hr class="board_hr">
