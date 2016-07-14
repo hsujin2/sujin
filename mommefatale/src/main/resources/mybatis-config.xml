@@ -15,5 +15,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 		<mapper resource="com/mommefatale/wish/dao/WishMapper.xml"/>
 		<mapper resource="com/mommefatale/admin/member/dao/MemberMapper.xml"/>
 		<mapper resource="com/mommefatale/admin/payment/dao/AdminPaymentMapper.xml"/>
+		<mapper resource="com/mommefatale/admin/sitestatus/dao/GenderMapper.xml"/>
 	</mappers>
 </configuration>
