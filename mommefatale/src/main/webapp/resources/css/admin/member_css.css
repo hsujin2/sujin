@@ -18,3 +18,5 @@
 label{padding:5px;margin:0;}
 #memberUpdateForm input, #memberUpdateForm select{width:95%;}
 .itemInfo{background-color:#fafafa;text-align:right;}
+
+.chart{margin:0 auto; padding-left:50px; min-width: 500px;}
