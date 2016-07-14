@@ -12,17 +12,18 @@
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/payment-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/status-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/gender-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/adminContexts/board-servlet.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/userlogin-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/gallery-servlet.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/memberContexts/community-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/item-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/todaykcal-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/commonscontexts/resource-context.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/cart-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/qna-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/admin-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/memberContexts/community-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/payment-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/commonscontexts/applicationContext.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/spring-servlet.xml</config>
