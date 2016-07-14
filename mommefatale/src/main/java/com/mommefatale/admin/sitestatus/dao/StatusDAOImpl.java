@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.mommefatale.admin.sitestatus.model.BestVO;
 import com.mommefatale.admin.sitestatus.model.GradeVO;
 import com.mommefatale.admin.sitestatus.model.VisitVO;
 
@@ -22,6 +23,10 @@ public class StatusDAOImpl implements StatusDAO{
 	@Override
 	public List<VisitVO> visitStatus() {
 		return session.selectList(namespace + ".visitStatus");
+	}
+	@Override
+	public List<BestVO> bestStatus() {
+		return session.selectList(namespace+".bestStatus");
 	}
 
 }
