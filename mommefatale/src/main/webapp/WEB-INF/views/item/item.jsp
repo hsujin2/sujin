@@ -31,6 +31,7 @@
 			document.getElementById("savingTd").innerHTML = "최대 10%";
 		}else{
 		var saving = price * dis;
+			saving = Math.floor(saving);
 			document.getElementById("saving").value = saving;
 			document.getElementById("savingTd").innerHTML = saving;
 		}
