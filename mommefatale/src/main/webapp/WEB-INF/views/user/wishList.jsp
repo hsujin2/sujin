@@ -68,7 +68,7 @@
 <%@ include file="../include/header.jsp" %>
 <section class="content">
     <div id="jaemok">
-            <span id="jaemok">위시리스트</span>
+            <span id="jaemok">WISHLIST</span>
         </div>
         <div class="list">국내배송상품 주문내역</div><a class="back" href="#">이전페이지 <span class="co">▶</span></a><br />
     <form name="wishListForm" action="" method="post">
@@ -105,7 +105,7 @@
        </c:forEach>
       </table>
       <c:if test="${wishlist.size()==0 }">
-      	<div>등록된 상품이 없습니다</div>
+      	<div class="noListMessage">등록된 상품이 없습니다</div>
       </c:if>
       <div class="all">
     <div class="no">

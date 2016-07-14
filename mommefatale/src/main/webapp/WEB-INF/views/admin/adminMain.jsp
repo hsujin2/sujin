@@ -24,7 +24,7 @@
         	<tr>
             	<td><div id="menu1"><a href="member.admin" class="menu1"><img src="resources/images/admin/고객관리.png" width="80" height="80" /><br />
 고객관리 </a></div></td>
-                <td><div id="menu1"><a href="#" class="menu1"><img src="resources/images/admin/게시판관리.png" width="80" height="80" /><br />
+                <td><div id="menu1"><a href="board.admin" class="menu1"><img src="resources/images/admin/게시판관리.png" width="80" height="80" /><br />
 게시판관리 </a></div></td>
                 <td><div id="menu1"><a href="itemAdd.admin" class="menu1"><img src="resources/images/admin/상품등록.png" width="80" height="80" /><br />
 상품등록 </a></div></td>

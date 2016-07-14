@@ -59,6 +59,7 @@
 				/WEB-INF/spring/adminContexts/payment-servlet.xml
 				/WEB-INF/spring/adminContexts/status-servlet.xml
 				/WEB-INF/spring/adminContexts/gender-servlet.xml
+				/WEB-INF/spring/adminContexts/board-servlet.xml
 				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>
