@@ -16,7 +16,7 @@
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/userlogin-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/gallery-servlet.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/memberContexts/board-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/memberContexts/community-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/adminContexts/item-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/memberContexts/todaykcal-servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/commonscontexts/resource-context.xml</config>
