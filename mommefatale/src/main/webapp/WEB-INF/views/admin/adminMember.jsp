@@ -284,9 +284,9 @@ function memberSave(){
 <body>
  <div id="wrap">
       <%@ include file="../include/header.jsp"%>
-      <div class="chart" id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
-      <div class="chart" id="chartdiv2" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
-      <div class="chart" id="chartdiv3" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
+      <div class="chart" id="chartdiv" style="width: 500px; height: 400px; background-color: #FFFFFF;" ></div>
+      <div class="chart" id="chartdiv2" style="width: 500px; height: 400px; background-color: #FFFFFF;" ></div>
+      <div class="chart" id="chartdiv3" style="width: 900px; height: 400px; background-color: #FFFFFF;" ></div>
 <div class="member_table">
 <label for="category_id">아이디: </label><input type="text" name="category_id" id="category_id">
 <label for="category_name">이름: </label><input type="text" name="category_name" id="category_name">

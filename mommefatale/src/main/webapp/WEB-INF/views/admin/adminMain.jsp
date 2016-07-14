@@ -35,7 +35,7 @@
                 <td><div id="menu1"><a href="adminpaymentlist.admin" class="menu1"><img src="resources/images/admin/주문관리.png" width="80" height="80" /><br />
 주문관리 </a></div></td>
                 <td><div id="menu1"><a href="sitestatus.admin" class="menu1"><img src="resources/images/admin/현황.png" width="80" height="80" /><br />
-사이트현황 </a></div></td>
+매출현황 </a></div></td>
             </tr>
         </table>
     </section>

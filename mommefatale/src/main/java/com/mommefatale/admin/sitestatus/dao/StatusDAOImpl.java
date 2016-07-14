@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.mommefatale.admin.sitestatus.model.BestVO;
 import com.mommefatale.admin.sitestatus.model.GradeVO;
+import com.mommefatale.admin.sitestatus.model.SalesVO;
 import com.mommefatale.admin.sitestatus.model.VisitVO;
 
 
@@ -27,6 +28,14 @@ public class StatusDAOImpl implements StatusDAO{
 	@Override
 	public List<BestVO> bestStatus() {
 		return session.selectList(namespace+".bestStatus");
+	}
+	@Override
+	public List<Integer> thisWeekSalse() {
+		return session.selectList(namespace+".thisWeekSalse"); 
+	}
+	@Override
+	public List<Integer> lastWeekSalse() {
+		return session.selectList(namespace+".lastWeekSalse");
 	}
 
 }

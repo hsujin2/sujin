@@ -13,6 +13,10 @@
 		<result property="item_name" column="ITEM_NAME" jdbcType="DATE"></result>
 		<result property="count" column="ITEM_SALES_QUANTITY" jdbcType="BIGINT"></result>
 	</resultMap>
+	<resultMap id="toSalesVO" type="com.mommefatale.admin.sitestatus.model.SalesVO">
+		<result property="date" column="ORDER_DATE" jdbcType="DATE"></result>
+		<result property="total_price" column="total_price" jdbcType="BIGINT"></result>
+	</resultMap>
 	<select id="gradeStatus" resultMap="toGradeVO">
 		select GRADE_CODE_NAME, count(GRADE_CODE_NAME) as cnt from member group by GRADE_CODE_NAME order by GRADE_CODE_NAME
 	</select>
@@ -21,5 +25,11 @@
 	</select>
 	<select id="bestStatus" resultMap="toBestVO">
 		<![CDATA[select * from (select rownum rnum,ITEM_NAME,ITEM_SALES_QUANTITY from (SELECT ITEM_NAME, ITEM_SALES_QUANTITY FROM ITEM order by ITEM_SALES_QUANTITY desc)) where rnum <=5]]>
+	</select>
+	<select id="thisWeekSalse" resultType="java.lang.Integer">
+		select this_week from (select sum(ORDER_TOTAL_PRICE) as this_week from order_ where ORDER_DATE between to_date(sysdate-6) and to_date(sysdate+1) group by ORDER_DATE order by ORDER_DATE)
+	</select>
+	<select id="lastWeekSalse" resultType="java.lang.Integer">
+		select last_week from (select sum(ORDER_TOTAL_PRICE) as last_week from order_ where ORDER_DATE between to_date(sysdate-13) and to_date(sysdate-7) group by ORDER_DATE order by ORDER_DATE)
 	</select>
 </mapper>
