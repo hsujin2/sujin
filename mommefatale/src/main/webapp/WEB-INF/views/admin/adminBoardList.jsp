@@ -34,29 +34,24 @@
         </thead>
         <tbody>
         	<tr>
-            	<td><a href="#">공지사항</a></td>
+            	<td><a href="communityBoard.do">공지사항</a></td>
                 <td>관리자/비회원</td>
-                <td>1/1</td>
+                <td>${boardCount.noticeNewCount}/${boardCount.noticeAllCount}</td>
             </tr>
             <tr>
-            	<td><a href="#">자유게시판</a></td>
+            	<td><a href="communityBoard.do">자유게시판</a></td>
                 <td>회원/비회원</td>
-                <td>0/0</td>
+                <td>${boardCount.communityNewCount}/${boardCount.communityAllCount}</td>
             </tr>
             <tr>
-            	<td><a href="#">갤러리</a></td>
+            	<td><a href="gallery.do">갤러리</a></td>
                 <td>회원/비회원</td>
-                <td>0/0</td>
+                <td>${boardCount.galleryNewCount}/${boardCount.galleryAllCount}</td>
             </tr>
             <tr>
-            	<td><a href="#">상품</a></td>
+            	<td><a href="qnaBoard.do">Q&amp;A</a></td>
                 <td>회원/비회원</td>
-                <td>0/0</td>
-            </tr>
-            <tr>
-            	<td><a href="#">Q&#38;A</a></td>
-                <td>회원/비회원</td>
-                <td>0/0</td>
+                <td>${boardCount.qnaNewCount}/${boardCount.qnaAllCount}</td>
             </tr>
         </tbody>
     </table>

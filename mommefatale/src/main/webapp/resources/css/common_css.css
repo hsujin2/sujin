@@ -129,6 +129,7 @@ margin-bottom:10px;}
 .event2 td{height:380px;}
 
 .main_bnimg{float:left; width:100%; min-width:1003px;}
+/* .main_bnimg{margin:0 auto; min-width:1003px;} */ /* 사이즈 작게 */
 
 .newitem li{float:left; margin-right:10px; margin-left:20px;}
 .content .bestitems li{float:left; margin:11px 2px 11px 6px;}
