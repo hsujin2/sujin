@@ -27,9 +27,9 @@
 		<![CDATA[select * from (select rownum rnum,ITEM_NAME,ITEM_SALES_QUANTITY from (SELECT ITEM_NAME, ITEM_SALES_QUANTITY FROM ITEM order by ITEM_SALES_QUANTITY desc)) where rnum <=5]]>
 	</select>
 	<select id="thisWeekSalse" resultType="java.lang.Integer">
-		select this_week from (select sum(ORDER_TOTAL_PRICE) as this_week from order_ where ORDER_DATE between to_date(sysdate-6) and to_date(sysdate+1) group by ORDER_DATE order by ORDER_DATE)
+		select sum(ORDER_TOTAL_PRICE), Odate from (select ORDER_TOTAL_PRICE, SUBSTR(REPLACE(ORDER_DATE,'-',''),0,8) as Odate from ORDER_) where Odate between to_date(sysdate-6) and to_date(sysdate+1)group by Odate order by Odate
 	</select>
 	<select id="lastWeekSalse" resultType="java.lang.Integer">
-		select last_week from (select sum(ORDER_TOTAL_PRICE) as last_week from order_ where ORDER_DATE between to_date(sysdate-13) and to_date(sysdate-7) group by ORDER_DATE order by ORDER_DATE)
+		select sum(ORDER_TOTAL_PRICE), Odate from (select ORDER_TOTAL_PRICE, SUBSTR(REPLACE(ORDER_DATE,'-',''),0,8) as Odate from ORDER_) where Odate between to_date(sysdate-13) and to_date(sysdate-7)group by Odate order by Odate
 	</select>
 </mapper>
