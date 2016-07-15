@@ -22,7 +22,6 @@
 	select distinct food_category from food
 </select>
 
-
 <!-- food 게시물 수 count -->
 <select id="getFoodCount" resultType="java.lang.Integer">
 	select count(*) from food
@@ -36,8 +35,16 @@
 
 <!-- 오늘의 칼로리 저장-->
 <insert id="saveTodayKcal" parameterType="java.util.Map">
- insert into kcal(kcal_no, member_id, kcal_regdate, kcal_today)
- values(kcal_seq.nextval, #{member_id}, sysdate, #{kcal_today})
+ 	insert into kcal(kcal_no, member_id, kcal_regdate, kcal_today)
+ 	values(kcal_seq.nextval, #{member_id}, sysdate, #{kcal_today})
 </insert>
+
+<!-- 이번주 칼로리기록 가져오기  -->
+<select id="getKcal" parameterType="String" resultType="com.mommefatale.todaykcal.model.KcalVO">
+	select to_char(kcal_regdate,'mm/dd') as kcal_regdate , kcal_today 
+	from kcal 
+	where member_id = #{member_id}
+			and kcal_regdate between sysdate-30 and sysdate
+</select>
 
 </mapper>

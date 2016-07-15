@@ -6,6 +6,7 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.mommefatale.todaykcal.model.FoodVO;
+import com.mommefatale.todaykcal.model.KcalVO;
 
 public class TodayKcalDAOImpl implements TodayKcalDAO {
 
@@ -40,6 +41,13 @@ public class TodayKcalDAOImpl implements TodayKcalDAO {
 		System.out.println("오늘의 칼로리 저장 DAO");
 		session.insert(namespace + ".saveTodayKcal", vo);
 		return;
+	}
+
+	@Override
+	public List<KcalVO> getKcal(String member_id) {
+		System.out.println("회원아이디DAO : " + member_id);
+		System.out.println("이번주 칼로리 가져오기 DAO");
+		return session.selectList(namespace + ".getKcal", member_id);
 	}
 
 }

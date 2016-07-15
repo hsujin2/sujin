@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.todaykcal.model.FoodVO;
+import com.mommefatale.todaykcal.model.KcalVO;
 import com.mommefatale.todaykcal.service.TodayKcalService;
 
 @Controller
@@ -27,7 +28,7 @@ public class TodayKcalController {
 
 	
 	@RequestMapping(value="todayKcal.do", method=RequestMethod.GET)
-	public String TodayKcal(HttpServletRequest request) throws Exception{
+	public String todayKcal(HttpServletRequest request) throws Exception{
 		System.out.println("오늘의 칼로리 페이지 컨트롤러");
 		request.setCharacterEncoding("UTF-8");
 
@@ -39,14 +40,14 @@ public class TodayKcalController {
 		map.put("member_id", request.getParameter("member_id"));
 		System.out.println(request.getParameter("todayMyKcal"));
 		System.out.println(request.getParameter("member_id"));
-		command.TodayKcalMyList(map);
+		command.todayKcalMyList(map);
 		}
 		
 		return "todaykcal/todayKcal";
 	}
 	
 	@RequestMapping(value="todayKcal.json")
-	public ModelAndView TodayKcalJson(HttpServletRequest request) throws Exception{
+	public ModelAndView todayKcalJson(HttpServletRequest request) throws Exception{
 		System.out.println("오늘의 칼로리 Json 페이지 컨트롤러");
 		ModelAndView mav = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
@@ -59,7 +60,7 @@ public class TodayKcalController {
 		System.out.println("food_no : "+map.get("food_no"));
 		System.out.println("food_name : "+map.get("food_name"));
 		System.out.println("food_category : "+map.get("food_category"));
-		List<FoodVO> vo = command.TodayKcalFoodList(map);
+		List<FoodVO> vo = command.todayKcalFoodList(map);
 		int count = vo.size();
 		
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -74,4 +75,23 @@ public class TodayKcalController {
 		return mav;
 	}
 	
+	@RequestMapping(value="myKcal.json")
+	public ModelAndView myKcalJson(HttpServletRequest request) throws Exception{
+		System.out.println("이번주 칼로리 Json 페이지 컨트롤러");
+		ModelAndView mav = new ModelAndView();
+		request.setCharacterEncoding("UTF-8");
+		
+		String member_id = request.getParameter("member_id");
+		System.out.println("회원아이디 : " + member_id);
+		List<KcalVO> kcalRecord = command.todayKcalRecord(member_id);
+		
+		System.out.println(kcalRecord.get(0).getKcal_regdate());
+		System.out.println(kcalRecord.get(0).getKcal_today());
+		
+		mav.setViewName("jsonView");
+		mav.addObject("kcalRecord", kcalRecord);
+		
+		System.out.println("이번주 칼로리 기록 가져오기 컨트롤러");
+		return mav;
+	}
 }

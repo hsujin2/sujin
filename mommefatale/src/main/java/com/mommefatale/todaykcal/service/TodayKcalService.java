@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 import com.mommefatale.todaykcal.model.FoodVO;
+import com.mommefatale.todaykcal.model.KcalVO;
 
 public interface TodayKcalService {
 	
-	public List<FoodVO> TodayKcalFoodList(Object obj); 
-	public int TodayKcalFoodCount();
-	public void TodayKcalMyList(Map<String, Object> vo);
+	public List<FoodVO> todayKcalFoodList(Object obj); 
+	public int todayKcalFoodCount();
+	public void todayKcalMyList(Map<String, Object> vo);
+	public List<KcalVO> todayKcalRecord(String member_id);
 }

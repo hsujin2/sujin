@@ -10,9 +10,12 @@
 <title>오늘의 칼로리</title>
 <link rel="stylesheet" type="text/css" href="resources/css/common_css.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/todaykcal/todaykcal_css.css" />
-
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-
+<!-- amCharts javascript sources -->
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+<script type="text/javascript" src="http://www.amcharts.com/lib/3/plugins/export/export.js"></script>
+<link rel="stylesheet" href="http://www.amcharts.com/lib/3/plugins/export/export.css">
 
 <script>
    window.onload=function foodListAll(){
@@ -48,6 +51,72 @@
          }
       })
    }
+  /* amChart */ 
+   var kcalRecord;
+   var member_id = "${userLogin.userid}";
+   $.ajax({
+      url : "/mommefatale/myKcal.json",
+      type : "POST",
+      data : {'member_id' : member_id },
+      async : false,   
+      success : function(response){
+    	  kcalRecord = response.kcalRecord;
+      },
+      error : function(){
+         alert("나의 칼로리 가져오기 오류")
+      }
+   })
+
+	AmCharts.makeChart("chartdiv",
+		{
+			"type": "serial",
+			"angle": 20,
+			"depth3D": 20,
+			"dataProvider": kcalRecord,
+			"categoryField": "kcal_regdate",
+			"colors": [
+				"#3399FF"
+			],
+			"startDuration": 1,
+			"export": {
+				"enabled": true
+			},
+			"categoryAxis": {
+				"gridPosition": "start"
+			},
+			"trendLines": [],
+			"graphs": [
+				{
+					"balloonText": "kcal : [[value]]",
+					"fillAlphas": 1,
+					"id": "AmGraph-1",
+					"title": "kcal",
+					"type": "column",
+					"valueField": "kcal_today"
+				}
+			],
+			"guides": [],
+			"valueAxes": [
+				{
+					"id": "ValueAxis-1",
+					"title": "kcal"
+				}
+			],
+			"allLabels": [],
+			"balloon": {},
+			"legend": {
+				"enabled": true,
+				"useGraphSettings": true
+			},
+			"titles": [
+				{
+					"id": "Title-1",
+					"size": 15,
+					"text": "나의 칼로리 기록"
+				}
+			]
+		}
+	); 
 </script>   
 <script>      
    function searchFoodByName(){
@@ -194,21 +263,28 @@ function saveMyKcal(){
 <body>
    <div id="wrap">
       <%@ include file="../include/header.jsp"%>
+      
       <div id="todayKcalWrap">
-      <span class="recommendedKcal">${userLogin.name}님의 하루 권장섭취량</span>
-      <span class="recommendedKcal2">${userLogin.kcal} 칼로리</span>
-      <form action="todayKcal.do" method="get" name="todayKcalForm" id="todayKcalForm">
-      <span id="todayMyKcal"></span>
-      <input type="hidden" id="member_id" name="member_id" value="${userLogin.userid}">
-      </form>
-      <input type="button" id="kcal_today" name="kcal_today" value="오늘의 칼로리 기록하기" onclick="saveMyKcal()">
+      
+      <div class="record">
+      	<span class="recommendedKcal">${userLogin.name}님의 하루 권장섭취량</span>
+      	<span class="recommendedKcal2">${userLogin.kcal} 칼로리</span>
+      	<form action="todayKcal.do" method="get" name="todayKcalForm" id="todayKcalForm">
+      	<span id="todayMyKcal"></span>
+      	<input type="hidden" id="member_id" name="member_id" value="${userLogin.userid}">
+      	</form>
+      	<input type="button" id="kcal_today" name="kcal_today" value="오늘의 칼로리 기록하기" onclick="saveMyKcal()">
+      </div><!-- record -->
+      
       <div class="board">
+      
          <div class="searchFood">
          <label for="food_name">음식명</label>
          <input type="text" id="food_name" name="food_name"> <input
             type="image" src="resources/images/index/search_bl.gif" width="18px"
             onclick="searchFoodByName()">
-         </div>
+         </div><!-- searchFood -->
+         
          <div class="kcal_table">
          <table summary="food_kcal_list" id="food_list">
             <colgroup>
@@ -250,10 +326,8 @@ function saveMyKcal(){
             <tbody id="foodList">
             </tbody>
          </table>
-         </div>
-      </div>
-     
-      <div class="board">   
+         </div><!-- kcal_table -->
+   
          <div class="my_kcal_table">
          <p id="todayMyMenu">나의 오늘 식단</p>
          <table summary="my_food_kcal_list" id="my_food_list">
@@ -276,10 +350,14 @@ function saveMyKcal(){
             <tbody id="my_foodList">
             </tbody>
          </table>
-         </div>
-   </div>
-   </div>
+         </div><!-- my_kcal_table -->
+   </div><!-- board -->
+   
+    <!-- 이번주 칼로리 차트 -->
+     <div id="chartdiv" style="width: 1000px; height: 300px; background-color: #FFFFFF;" ></div>
+     
+   </div><!-- todayKcalWrap -->
       <%@ include file="../include/footer.jsp"%>
-   </div>
+   </div><!-- wrap -->
 </body>
 </html>
