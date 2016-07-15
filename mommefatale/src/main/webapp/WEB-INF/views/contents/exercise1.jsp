@@ -31,7 +31,7 @@
 			<div id="pageFor">
 				<h1 class="title">Exercise</h1>
 			</div>
-			<ul class="ExerciseList">
+			<ul class="exerciseList">
 				<c:if test="${count == 0 }">
 					<li>등록된 글이 없습니다.</li>
 				</c:if>
@@ -40,7 +40,7 @@
 						<li><span><a
 								href="exerciseContent.do?category=${category}&no=${vo.no}">
 									<img src="resources/images/uploadimg/images/${vo.image}"
-									id="image">
+									id="exercise_image">
 							</a></span> <span class="subject" id="subject"> <a
 								href="exerciseContent.do?category=${category}&no=${vo.no}">${vo.subject}</a></span></li>
 					</c:forEach>
