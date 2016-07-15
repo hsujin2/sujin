@@ -18,7 +18,6 @@
         <li><a href="qnaBoard.do">Q&amp;A</a></li> 
         <li><a href="#">sitemap</a></li> 
     </ul>
-    
     <ul class="util_right">
     <c:choose>
    		<c:when test="${admin eq false}">  

@@ -37,6 +37,10 @@
                 <td><div id="menu1"><a href="sitestatus.admin" class="menu1"><img src="resources/images/admin/현황.png" width="80" height="80" /><br />
 매출현황 </a></div></td>
             </tr>
+            <tr>
+            <td><div id="menu1"><a href="createPDFpage.admin" class="menu1"><img src="resources/images/admin/문서출력.png" width="80" height="80" /><br />
+문서출력 </a></div></td>
+            </tr>
         </table>
     </section>
 		
