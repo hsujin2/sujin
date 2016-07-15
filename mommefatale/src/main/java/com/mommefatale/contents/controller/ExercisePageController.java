@@ -92,8 +92,10 @@ public class ExercisePageController {
 		model.put("pageNum", pageNum);
 		model.put("paging", paging);
 		
+		System.out.println("!!!!!!!!"+category);
 		mav.setViewName("/contents/exercise1");
 		mav.addAllObjects(model);
+		mav.addObject("category", category);
 		mav.addObject("vo", vo);
 		
 		return mav;

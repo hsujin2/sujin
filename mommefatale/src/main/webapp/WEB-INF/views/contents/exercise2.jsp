@@ -34,9 +34,9 @@
     <div id="wrapcontents">
      <div id="content_banner">
     	<h1>Diet</h1> 
-        <a href="dietary.do"><img src="resources/images/contents/arrow-before-dietary.png" alt="before"/></a>
-        <a href="exercise1.do"><img src="resources/images/contents/contents-banner.png" id="contentmain" alt="banner"/></a>
-        <a href="recommended_products.do"><img src="resources/images/contents/arrow-next-product.png" alt="next" /></a>
+        <a href="dietary.do?category=${category}"><img src="resources/images/contents/arrow-before-dietary.png" alt="before"/></a>
+        <a href="exercise1.do?category=${category}"><img src="resources/images/contents/contents-banner.png" id="contentmain" alt="banner"/></a>
+        <a href="recommended_products.do?category=${category}"><img src="resources/images/contents/arrow-next-product.png" alt="next" /></a>
     </div>
     
     

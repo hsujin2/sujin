@@ -52,7 +52,7 @@
 					<tr>
 						<th class="itemInfo">카테고리</th>
 						<td><select name="category" id="category">
-								<option value="heathcare">Health Care</option>
+								<option value="healthcare">Health Care</option>
 								<option value="bulkup">Bulk-Up</option>
 								<option value="diet">Diet</option>
 						</select></td>

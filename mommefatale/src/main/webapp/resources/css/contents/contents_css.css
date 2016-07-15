@@ -17,11 +17,14 @@ h2{color:#09F}
 padding:5px; color:#ffffff; border-radius:5px;}
 #wrapcontents{margin:10px auto; text-align:center;}
 
-#content_banner{text-align:center; clear:both;} 
-#contentmain{width:600px; top:75px; position:relative; margin:10px auto;}
+#content_banner{text-align:center; clear:both;}
+#content_banner h1{text-transform:uppercase;} 
+#contentmain{width:600px; top:75px; position:relative; margin:10px auto; }
 
 #otherpages h3 {}
 #pageFor h1{text-align:center; position:relative; top:-50px;}
+
+
 
 /*메인컨텐츠*/
 

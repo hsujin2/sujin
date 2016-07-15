@@ -15,10 +15,10 @@
 <%@ include file="../include/header.jsp" %>
     <div id="wrapcontents">
     <div id="content_banner">
-    	<h1>Diet</h1> 
-        <a href="exercise1.do"><img src="resources/images/contents/arrow-before-exercise.png" alt="before"/></a>
-        <a href="recommended_products.do"><img src="resources/images/contents/contents-banner.png" id="contentmain" alt="banner"/></a>
-        <a href="dietary.do"><img src="resources/images/contents/arrow-next-dietary.png" alt="next" /></a>
+    	<h1>${category}</h1> 
+        <a href="exercise1.do?category=${category}"><img src="resources/images/contents/arrow-before-exercise.png" alt="before"/></a>
+        <a href="recommended_products.do?category=${category}"><img src="resources/images/contents/contents-banner.png" id="contentmain" alt="banner"/></a>
+        <a href="dietary.do?category=${category}"><img src="resources/images/contents/arrow-next-dietary.png" alt="next" /></a>
     </div>
     
     
