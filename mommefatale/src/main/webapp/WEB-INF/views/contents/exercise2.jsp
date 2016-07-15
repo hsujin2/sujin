@@ -52,8 +52,6 @@
 						<th class="no">NO.</th>
 						<td id="no">${vo.no}</td>
 						<td id="space"></td>
-						<%-- <th class="writer">글쓴이</th>
-						<td id="writer">${vo.writer}</td> --%>
 						<th>작성일자</th>
 						<td id="regdate"><fmt:formatDate value="${vo.regdate}"
 								type="date" pattern="yyyy-MM-dd HH:mm" /></td>
