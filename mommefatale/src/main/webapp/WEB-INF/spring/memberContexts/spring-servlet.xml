@@ -15,6 +15,7 @@
 		<property name="boardService" ref="indexBoardService"/>
 		<property name="itemService" ref="ItemListService"/>
 	</bean>
+	<bean class="com.mommefatale.index.controller.SitemapController"></bean>
 	
 	<!-- Service -->
 	<bean id="indexBoardService" class="com.mommefatale.index.service.IndexBoardServiceImpl">
