@@ -67,7 +67,7 @@
         </li> 
     </ul>
     <ul id="gnb_content">    
-        <li><a href="exercise1.do?category=heathcare">HealthCare</a></li> 
+        <li><a href="exercise1.do?category=healthcare">HealthCare</a></li> 
         <li><a href="exercise1.do?category=bulkup">Bulk-up</a></li> 
         <li><a href="exercise1.do?category=diet">Diet</a> </li>
     </ul>
