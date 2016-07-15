@@ -10,7 +10,7 @@ body{font-family:"맑은 고딕", "돋움", "굴림", "Verdana";}
 .array>li>a{text-decoration:none;font-weight:bold;  color:#069;}
 .hr1{width:1003px;margin:0 auto;}
 .hr2{width:1003px;margin:0 auto;margin-bottom:20px;}
-.best{width:950px; margin:0 auto; color:#FC6; font-weight:bold;}
+.besttitle{width:300px; margin:50px auto; color:#FC6; font-weight:bold;}
 .items>ul{width:1000px; margin:0 auto;  text-align:center;}
 .bestitem>li>span{position:relative; float:left; width:200px; height:200px; /*border:2px solid #000;*/ margin:20px 20px 10px 20px;}
 .bestitem>li{position:relative; float:left; width:200px; height:300px;margin:20px; /*border:2px solid #000; margin:20px;*/}

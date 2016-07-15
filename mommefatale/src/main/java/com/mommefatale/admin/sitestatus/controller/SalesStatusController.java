@@ -24,7 +24,7 @@ public class SalesStatusController {
 		List<Integer> thisweek = command.thisWeekSalse();
 		List<Integer> lastweek = command.lastWeekSalse();
 		List<SalesVO> sales = new ArrayList<SalesVO>();
-		for(int i=0; i<thisweek.size();i++){
+		for(int i=0; i<7;i++){
 			SalesVO salesVO = new SalesVO();
 			salesVO.setThis_week_total(thisweek.get(i));
 			salesVO.setLast_week_total(lastweek.get(i));

@@ -66,13 +66,13 @@
 				<br />
 				<hr class="hr1" />
 				<br />
-				<h3 class="best">BEST상품</h3>
+				<h3 class="besttitle">BEST상품</h3>
 				<ul class="bestitem" id="bestitems">
 					
 				</ul>
 				<div style="clear:both"></div>
 				<hr class="hr2" />
-				<h3 class="best">전체 상품</h3>
+				<h3 class="besttitle">전체 상품</h3>
 				<ul class="allitem">
 					<c:if test="${count == 0}">
 						<ul>
