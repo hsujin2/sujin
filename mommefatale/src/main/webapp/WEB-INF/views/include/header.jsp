@@ -16,7 +16,7 @@
 		<li><a href="gallery.do">gallery</a></li> 
         <li><a href="communityBoard.do">community</a></li> 
         <li><a href="qnaBoard.do">Q&amp;A</a></li> 
-        <li><a href="#">sitemap</a></li> 
+        <li><a href="sitemap.do">sitemap</a></li> 
     </ul>
     <ul class="util_right">
     <c:choose>

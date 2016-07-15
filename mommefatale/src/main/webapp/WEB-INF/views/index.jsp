@@ -9,7 +9,7 @@
 <script src="resources/js/index/common_js.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css" />
-<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script>
 	$(function() {
 		$("#main_banner").animate({
@@ -26,8 +26,14 @@
 		<%@ include file="include/header.jsp"%>
 		<div id="main_banner">
 			<!--배너광고 -->
-			<img src="resources/images/index/banner_index.png" alt="배너"
-				class="main_bnimg" />
+			<c:if test="${userLogin ne null}">
+			<img src="resources/images/index/banner_index2.png" alt="배너"
+				class="main_bnimg" onclick="window.location='todayKcal.do'" style="cursor: pointer;">
+			</c:if>
+			<c:if test="${userLogin eq null}">
+			<img src="resources/images/index/banner_index2.png" alt="배너"
+				class="main_bnimg" onclick="alert('로그인 후 이용해주세요')">
+			</c:if>
 		</div>
 		<section>
 		<div class="content">
@@ -88,17 +94,6 @@
 							href="communityContent.do?no=${community.no}">${community.subject}</a></li>
 					</c:forEach>
 				</ul>
-			</div>
-			<div class="todayMenu">
-				<h2 class="title">나의 오늘 식단은?</h2>
-				<c:if test="${userLogin ne null}">
-					<img src="resources/images/index/todayMenu.jpg" alt="오늘의 식단"
-						width="200px" onclick="window.location='todayKcal.do'">
-				</c:if>
-				<c:if test="${userLogin eq null}">
-					<img src="resources/images/index/todayMenu.jpg" alt="오늘의 식단"
-						width="200px" onclick="alert('로그인 후 이용해주세요')">
-				</c:if>
 			</div>
 		</div>
 		</section>
