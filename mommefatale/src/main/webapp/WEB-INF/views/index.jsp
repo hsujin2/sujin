@@ -33,7 +33,7 @@
 			<div class="notice">
 				<div class="index_title">공지사항</div>
 				<div class="more">
-        			<a href="#">+more</a>
+        			<a href="communityBoard.do">+more</a>
         		</div>
         		<div class="list">
 				<ul>
@@ -49,7 +49,7 @@
 			<div class="popular">
 				<h2 class="index_title">최신인기글</h2>
 			<div class="more">
-        			<a href="#">+more</a>
+        			<a href="communityBoard.do">+more</a>
         	</div>
         	<div class="list">
 				<ul>
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			<div id="today_kcal">
-			<!--배너광고 -->
+			<!--오늘의 칼로리 -->
 			<c:if test="${userLogin ne null}">
 			<img src="resources/images/index/todaykcal.png" alt="오늘의칼로리"
 				class="todaykcal_img" onclick="window.location='todayKcal.do'" style="cursor: pointer;">
