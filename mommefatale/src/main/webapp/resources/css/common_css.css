@@ -138,6 +138,7 @@ margin-bottom:10px;}
 .item_name{margin:5px 5px;}
 .newitem{margin:0px auto;}
 .best{margin:50px 0;}
+
 /*메인컨텐츠*/
 
 #main_content{clear:both; text-align:center; min-width:1003px; margin:20px auto;}
@@ -147,9 +148,6 @@ margin-bottom:10px;}
 #main_board{clear:both; text-align:left; width:1000px; margin:20px auto;}
 .notice{float:left; min-width:250px; height:200px;}
 .popular{float:left; min-width:250px; height:200px; margin:0 50px;}
-/* .date{color:#9f9f9f; font-family:Tahoma; font-size:8pt; vertical-align:5%; padding: 0 8px 0 7px;} */
-/* .todayMenu{float:right; min-width:250px; height:200px; margin-right:100px;} */
-/* #main_board{margin:30px auto; width:900px;} */
 .index_title{border:1px solid #999; border-bottom:1px solid white; width:70px;padding:5px 20px; font-size:12px; text-align:center;  float:left;}
 .more{float:left; margin-top:6px; border-bottom:1px solid #999;width:185px; text-align:right;}
 .more a{color:#666; text-decoration:none;text-align:right;}
@@ -159,7 +157,7 @@ height:20px; padding-top:4px;}
 .plus{color:#F00;}
 .date{color:#999;}
 .list li a{color:#333; text-decoration:none; margin-left:10px;}
-.todaykcal_img{width:280px; float:left}
+.todaykcal_img{width:300px; float:left}
 
 /*푸터*/
 
