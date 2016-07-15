@@ -1,0 +1,11 @@
+@charset "utf-8";
+.content{width:1003px; margin:50px auto 500px;}
+.ment{width:555px; margin:0 auto; font-weight:bold; font-size:30px; color:#666; margin-top:40px;}
+.col{color:#6CF;}
+.subment{font-size:14px; color:#aaa; width:500px; margin:0 auto; margin-top:5px;}
+.info{width:700px; margin:0 auto; margin-top:50px; border-collapse: collapse; border:1px #CCC solid; border-top:2px solid black;
+font-size:12px;}
+.bgcol{background:#eee; border-left:1px white solid; color:#666;}
+.rcol{border-right:1px white solid; font-weight:bold;}
+.col2{color:#F00;}
+.info td{padding:10px;}

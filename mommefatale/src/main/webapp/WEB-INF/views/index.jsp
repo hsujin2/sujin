@@ -26,14 +26,53 @@
 		<%@ include file="include/header.jsp"%>
 		<div id="main_banner">
 			<!--배너광고 -->
+			<img src="resources/images/index/banner_index.png" alt="배너"
+				class="main_bnimg">
+		</div>
+		<div id="main_board">
+			<div class="notice">
+				<div class="index_title">공지사항</div>
+				<div class="more">
+        			<a href="#">+more</a>
+        		</div>
+        		<div class="list">
+				<ul>
+					<c:forEach var="notice" items="${notice}" begin="0" end="5">
+						<!-- 6개 보이도록 -->
+						<li><span class="plus"> + </span>
+						<span class="date">${notice.update_date}</span><a
+							href="communityContent.do?no=${notice.no}">${notice.subject}</a></li>
+					</c:forEach>
+				</ul>
+				</div>
+			</div>
+			<div class="popular">
+				<h2 class="index_title">최신인기글</h2>
+			<div class="more">
+        			<a href="#">+more</a>
+        	</div>
+        	<div class="list">
+				<ul>
+					<c:forEach var="community" items="${community}" begin="0" end="5">
+						<!-- 6개 보이도록 -->
+						<li><span class="plus"> + </span>
+						<span class="date">${community.update_date}</span><a
+							href="communityContent.do?no=${community.no}">${community.subject}</a></li>
+					</c:forEach>
+				</ul>
+				</div>
+			</div>
+			<div id="today_kcal">
+			<!--배너광고 -->
 			<c:if test="${userLogin ne null}">
-			<img src="resources/images/index/banner_index2.png" alt="배너"
-				class="main_bnimg" onclick="window.location='todayKcal.do'" style="cursor: pointer;">
+			<img src="resources/images/index/todaykcal.png" alt="오늘의칼로리"
+				class="todaykcal_img" onclick="window.location='todayKcal.do'" style="cursor: pointer;">
 			</c:if>
 			<c:if test="${userLogin eq null}">
-			<img src="resources/images/index/banner_index2.png" alt="배너"
-				class="main_bnimg" onclick="alert('로그인 후 이용해주세요')">
+			<img src="resources/images/index/todaykcal.png" alt="오늘의칼로리"
+				class="todaykcal_img" onclick="alert('로그인 후 이용해주세요')">
 			</c:if>
+		</div>
 		</div>
 		<section>
 		<div class="content">
@@ -74,28 +113,7 @@
             </ul>
         <div class="clear"></div>
 </div>
-		<div id="main_board">
-			<div class="notice">
-				<h2 class="title">공지사항</h2>
-				<ul>
-					<c:forEach var="notice" items="${notice}" begin="0" end="5">
-						<!-- 6개 보이도록 -->
-						<li><span class="date">${notice.update_date}</span><a
-							href="communityContent.do?no=${notice.no}">${notice.subject}</a></li>
-					</c:forEach>
-				</ul>
-			</div>
-			<div class="popular">
-				<h2 class="title">최신인기글</h2>
-				<ul>
-					<c:forEach var="community" items="${community}" begin="0" end="5">
-						<!-- 6개 보이도록 -->
-						<li><span class="date">${community.update_date}</span><a
-							href="communityContent.do?no=${community.no}">${community.subject}</a></li>
-					</c:forEach>
-				</ul>
-			</div>
-		</div>
+		
 		</section>
 
 		<aside> </aside>
