@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mommefatale.todaykcal.model.FoodVO;
+import com.mommefatale.todaykcal.model.KcalVO;
 
 public interface TodayKcalDAO {
 	
@@ -15,4 +16,7 @@ public interface TodayKcalDAO {
 	
 	// 오늘의 칼로리 저장
 	public void saveTodayKcal(Map<String, Object> vo);
+	
+	// 이번주 칼로리 가져오기
+	public List<KcalVO> getKcal(String member_id);
 }
