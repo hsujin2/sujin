@@ -106,7 +106,7 @@
 			<artifactId>ckfinderPlugin-File</artifactId>			
 			<version>2.3</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>ckfinderPlugin-Img</groupId>
 			<artifactId>ckfinderPlugin-Img</artifactId>			
@@ -253,6 +253,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- itextpdf -->
+		<dependency>
+   			<groupId>com.itextpdf</groupId>
+   			<artifactId>itextpdf</artifactId>
+   			<version>5.5.7</version>
+		</dependency>
+		
 
 	</dependencies>
 	<build>

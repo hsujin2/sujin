@@ -9,6 +9,8 @@
 	<bean id="StatusDAO" class="com.mommefatale.admin.sitestatus.dao.StatusDAOImpl">
 		<property name="session" ref="sqlSessionTemplate"/>
 	</bean>
+	<bean id="AdminDocumentFactory" class="com.mommefatale.admin.pdf.dao.AdminDocumentFactory">
+	</bean>
 	<!-- service -->
 	<bean id="GradeStatusService" class="com.mommefatale.admin.sitestatus.service.GradeStatusServiceImpl">
 		<property name="dao" ref="StatusDAO"></property>
@@ -36,5 +38,8 @@
 	</bean>
 	<bean class="com.mommefatale.admin.sitestatus.controller.SalesStatusController">
 		<property name="command" ref="SalesStatusService"></property>
+	</bean>
+	<bean class="com.mommefatale.admin.pdf.controller.PdfController">
+		<property name="documentFactory" ref="AdminDocumentFactory"></property>
 	</bean>
 </beans>
