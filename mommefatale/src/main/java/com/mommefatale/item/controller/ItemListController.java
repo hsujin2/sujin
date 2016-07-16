@@ -86,7 +86,7 @@ public class ItemListController {
 			map.put("text", text);
 		}
 		//
-		
+		System.out.println("현재 카테고리" + category);
 		int count = 0;
 		if(category == null || category == ""){
 			count = command.getCount(map); // 전체글수
@@ -106,6 +106,8 @@ public class ItemListController {
 		
 		List<ItemVO> itemlist = null;
 		if(category == null || category == ""){
+			System.out.println("현재 스타트로우"+map.get("startRow"));
+			System.out.println("현재 엔드로우"+map.get("endRow"));
 			itemlist = command.listAll(map);
 		}else{
 			map.put("category", category);
