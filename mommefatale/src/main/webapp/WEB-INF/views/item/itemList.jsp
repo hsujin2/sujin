@@ -55,13 +55,13 @@
 		<div>
 			<div class="items">
 				<ul class="array">
-					<li><a href="itemList.do?category=1&range=new">신상품</a></li>
+					<li><a href="itemList.do?range=new&category=${category}">신상품</a></li>
 					<li>|</li>
-					<li><a href="itemList.do?category=1&range=pop">인기순</a></li>
+					<li><a href="itemList.do?range=pop&category=${category}">인기순</a></li>
 					<li>|</li>
-					<li><a href="itemList.do?category=1&range=low">낮은가격순</a></li>
+					<li><a href="itemList.do?range=low&category=${category}">낮은가격순</a></li>
 					<li>|</li>
-					<li><a href="itemList.do?category=1&range=high">높은가격순</a></li>
+					<li><a href="itemList.do?range=high&category=${category}">높은가격순</a></li>
 				</ul>
 				<br />
 				<hr class="hr1" />
