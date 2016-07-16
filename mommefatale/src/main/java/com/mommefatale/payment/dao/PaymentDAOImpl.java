@@ -61,6 +61,10 @@ public class PaymentDAOImpl implements PaymentDAO{
 	public void deleteCart(PaymentVO paymentVO) {
 		session.delete(namespace + ".deleteCart",paymentVO);
 	}
+	@Override
+	public Integer getUseAblePoint(String userid) {
+		return session.selectOne(namespace+".getUseAblePoint",userid);
+	}
 	
 	
 

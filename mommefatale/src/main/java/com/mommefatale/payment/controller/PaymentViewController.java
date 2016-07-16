@@ -101,6 +101,11 @@ public class PaymentViewController {
 		//은행 계좌번호 리스트
 		List<BankVO> banklist = command.getBank();
 		
+		//사용가능 포인트
+		Integer useablepoint = command.getUseAblePoint(vo.getUserid());
+		vo.setPoint(useablepoint);
+		//
+		
 		mav.getModel().put("bank", banklist);
 		mav.getModel().put("total", total);
 		mav.getModel().put("user", vo);

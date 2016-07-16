@@ -18,4 +18,9 @@ public class PaymentViewServiceImpl implements PaymentViewService{
 		return dao.getBank();
 	}
 
+	@Override
+	public Integer getUseAblePoint(String userid) {
+		return dao.getUseAblePoint(userid);
+	}
+
 }

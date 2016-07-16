@@ -20,4 +20,5 @@ public interface PaymentDAO {
 	public List<PaymentListVO> paymentDateList(OrderDateVO orderdateVO);
 	public void deleteCoupon(PaymentVO paymentVO);
 	public void deleteCart(PaymentVO paymentVO);
+	public Integer getUseAblePoint(String userid);
 }
