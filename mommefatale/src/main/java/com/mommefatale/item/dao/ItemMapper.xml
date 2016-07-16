@@ -27,7 +27,7 @@
 		select count(*) from item where category_no = #{category}
 	</select>
 	<select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
-		select count(*) from item
+		select count(*) from item 
 		<if test='group.equals("없음")'>
 		</if>
 		<if test='group.equals("상품명")'>
@@ -55,7 +55,17 @@
 		]]>
 	</select>
 	<select id="listAll" parameterType="java.util.Map" resultMap="toItemVO">
-		select * from (select rownum rnum, ITEM_NO, ITEM_NAME, ITEM_BRAND, ITEM_ORIGIN, ITEM_IMAGE, ITEM_CONTENT, CATEGORY_NO, ITEM_PRICE_ORIGIN, ITEM_PRICE_SALES, ITEM_PRICE_DISCOUNT, ITEM_SALES_QUANTITY, ITEM_STOCK, ITEM_VIEW, ITEM_REGDATE, ITEM_UPDATE_DATE, OPTION_SIZE, ITEM_COLOR from (select * from ITEM 
+		select * from (select rownum rnum, ITEM_NO, ITEM_NAME, ITEM_BRAND, ITEM_ORIGIN, ITEM_IMAGE, ITEM_CONTENT, CATEGORY_NO, ITEM_PRICE_ORIGIN, ITEM_PRICE_SALES, ITEM_PRICE_DISCOUNT, ITEM_SALES_QUANTITY, ITEM_STOCK, ITEM_VIEW, ITEM_REGDATE, ITEM_UPDATE_DATE, OPTION_SIZE, ITEM_COLOR from 
+		(select * from ITEM 
+		<if test='group.equals("없음")'>
+		 </if>
+		 <if test='group.equals("상품명")'>
+			 where item_name like '%${text}%'
+		 </if>
+		 <if test='group.equals("가격")'>
+			where ITEM_PRICE_DISCOUNT >= #{text}
+		</if>
+		<if test='!group.equals("가격")'>
 		 <if test='range.equals("new")'>
 		 order by ITEM_NO desc
 		 </if>
@@ -74,15 +84,11 @@
 		 <if test='range.equals("stock")'>
 		 order by ITEM_STOCK desc
 		 </if>
-		 )) where 
-		 <if test='group.equals("없음")'>
-		</if>
-		 <if test='group.equals("상품명")'>
-		 item_name like '%${text}%' and
 		 </if>
 		 <if test='group.equals("가격")'>
-			ITEM_PRICE_DISCOUNT >= #{text} and
-		</if>
+		 	order by ITEM_PRICE_DISCOUNT desc
+		 </if>
+		 )) where 
 		 <![CDATA[rnum >= #{startRow} and rnum <= #{endRow}
 		]]>
 	</select>
