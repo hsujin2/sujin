@@ -39,12 +39,14 @@
  	values(kcal_seq.nextval, #{member_id}, sysdate, #{kcal_today})
 </insert>
 
-<!-- 이번주 칼로리기록 가져오기  -->
+<!-- 나의 칼로리기록 가져오기 -->
 <select id="getKcal" parameterType="String" resultType="com.mommefatale.todaykcal.model.KcalVO">
-	select to_char(kcal_regdate,'mm/dd') as kcal_regdate , kcal_today 
-	from kcal 
+	select to_char(to_date(kcal_regdate),'mm/dd') as kcal_regdate, sum(kcal_today)as kcal_today
+	from (select member_id, substr(replace(kcal_regdate,'-',''),0,8) as kcal_regdate, kcal_today from kcal)
 	where member_id = #{member_id}
-			and kcal_regdate between sysdate-30 and sysdate
+			and kcal_regdate between sysdate-30 and sysdate 
+	group by kcal_regdate 
+	order by kcal_regdate
 </select>
 
 </mapper>
