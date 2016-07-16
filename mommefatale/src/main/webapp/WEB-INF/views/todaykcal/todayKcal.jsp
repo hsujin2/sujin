@@ -249,7 +249,7 @@ function removeFromMyList(clickList){
 function saveMyKcal(){
 	var todayMyKcal = $("#todayMyKcal").text();
 	var member_id =  $("#member_id").val();
-	if(todayMyKcal == null || todayMyKcal == ""){
+	if(todayMyKcal == null || todayMyKcal == "" || todayMyKcal == 0){
 		alert("오늘 먹은 음식의 칼로리를 기록해주세요");
 		return;
 	}else{	
@@ -266,22 +266,13 @@ function saveMyKcal(){
       
       <div id="todayKcalWrap">
       
-      <div class="record">
-      	<span class="recommendedKcal">${userLogin.name}님의 하루 권장섭취량</span>
-      	<span class="recommendedKcal2">${userLogin.kcal} 칼로리</span>
-      	<form action="todayKcal.do" method="get" name="todayKcalForm" id="todayKcalForm">
-      	<span id="todayMyKcal"></span>
-      	<input type="hidden" id="member_id" name="member_id" value="${userLogin.userid}">
-      	</form>
-      	<input type="button" id="kcal_today" name="kcal_today" value="오늘의 칼로리 기록하기" onclick="saveMyKcal()">
-      </div><!-- record -->
       
       <div class="board">
       
          <div class="searchFood">
          <label for="food_name">음식명</label>
          <input type="text" id="food_name" name="food_name"> <input
-            type="image" src="resources/images/index/search_bl.gif" width="18px"
+            type="image" src="resources/images/index/search_bl.gif" width="20px"
             onclick="searchFoodByName()">
          </div><!-- searchFood -->
          
@@ -289,10 +280,10 @@ function saveMyKcal(){
          <table summary="food_kcal_list" id="food_list">
             <colgroup>
                <col width="0%">
-               <col width="22%">
+               <col width="24%">
                <col width="35%">
-               <col width="19%">
-               <col width="19%">
+               <col width="18%">
+               <col width="18%">
                <col width="5%">
             </colgroup>
             <thead>
@@ -328,14 +319,24 @@ function saveMyKcal(){
          </table>
          </div><!-- kcal_table -->
    
+   		<div class="record">
+      	<span class="recommendedKcal">${userLogin.name}님의 하루 권장섭취량</span>
+      	<span class="recommendedKcal2">${userLogin.kcal} 칼로리</span>
+      	<form action="todayKcal.do" method="get" name="todayKcalForm" id="todayKcalForm">
+      	<span id="todayMyKcal">0</span>
+      	<input type="hidden" id="member_id" name="member_id" value="${userLogin.userid}">
+      	</form>
+      	<input type="button" id="kcal_today" name="kcal_today" value="오늘의 칼로리 기록하기" onclick="saveMyKcal()">
+      </div><!-- record -->
+   
          <div class="my_kcal_table">
          <p id="todayMyMenu">나의 오늘 식단</p>
          <table summary="my_food_kcal_list" id="my_food_list">
             <colgroup>
-               <col width="22%">
+               <col width="24%">
                <col width="35%">
-               <col width="19%">
-               <col width="19%">
+               <col width="18%">
+               <col width="18%">
                <col width="5%">
             </colgroup>
             <thead>
