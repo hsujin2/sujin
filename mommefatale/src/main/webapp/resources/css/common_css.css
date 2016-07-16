@@ -44,7 +44,7 @@ input{vertical-align:middle;}
 }
 .util_left li{display:inline; padding-right:15px;}
 .util_left li a{color:#333; font-size:12px;}
-.util_left li a:hover{font-weight:bold; color:#0066FF; text-decoration:underline;}
+.util_left li a:hover{font-weight:bold; color:#0066FF;}
 
 .util_right{
 	position: absolute;
@@ -54,7 +54,7 @@ input{vertical-align:middle;}
 }
 .util_right li{display:inline; padding-right:15px;}
 .util_right li a{color:#333; font-size:12px;}
-.util_right li a:hover{font-weight:bold; color:#0066FF; text-decoration:underline;}
+.util_right li a:hover{font-weight:bold; color:#0066FF;}
 
 /*메인메뉴*/
 
@@ -110,7 +110,6 @@ input{vertical-align:middle;}
 .ment{width:280px; margin:0 auto;margin-top:8px;margin-bottom:50px;}
 .ment a{text-decoration:none; font-size:12px; color:#666; font-weight:bolder;}
 .col2{color:#F30; font-weight:bolder;}
-.ment a:hover{text-decoration:underline;}
 .price{width:280px; margin:0 auto;margin-top:8px; border-top:1px solid #CCC; font-size:12px; font-weight:bolder; padding:2px;
 margin-bottom:10px;}
 .sub3{font-size:25px; color:#777; width:188px; margin:50px auto 0; font-weight:bolder; border-bottom:1px solid black; }
@@ -123,7 +122,6 @@ margin-bottom:10px;}
 .group2 .image2{width:230px; margin:0 auto;margin-top:4px;}
 .ment2{width:230px; margin:0 auto;margin-top:8px;margin-bottom:50px;}
 .ment2 a{text-decoration:none; font-size:12px; color:#666; font-weight:bolder;}
-.ment2 a:hover{text-decoration:underline;}
 .price2{width:230px; margin:0 auto;margin-top:8px; border-top:1px solid #CCC; font-size:12px; font-weight:bolder; padding:2px;
 margin-bottom:10px;}
 .event2 td{height:380px;}

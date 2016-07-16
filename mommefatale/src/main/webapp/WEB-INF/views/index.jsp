@@ -9,6 +9,7 @@
 <script src="resources/js/index/common_js.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css" />
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.js"></script>
 <script>
 	$(function() {
