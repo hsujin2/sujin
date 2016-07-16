@@ -91,7 +91,7 @@ window.onload=function(){
 				"dataProvider": gradelist,
 				"innerRadius": "40%",
 				"colors": [
-					"#cd7f32",
+					"#592c28",
 					"#eaeaea",
 					"#ffe118",
 					"#bed8ff"
