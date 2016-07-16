@@ -49,4 +49,7 @@
 	<select id="deleteCart" parameterType="com.mommefatale.payment.model.OrderDateVO">
 		delete from cart where member_id = #{order_id} and item_no = #{item_no}
 	</select>
+	<select id="getUseAblePoint" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select MEMBER_POINT from member where MEMBER_ID=#{userid}
+	</select>
 </mapper>

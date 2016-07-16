@@ -87,6 +87,9 @@ public class PaymentCompleteController {
 		points.put("saving", saving);
 		points.put("usepoint", usepoint);
 		points.put("userid", userid);
+		System.out.println("적립포인트"+saving);
+		System.out.println("쓴 포인트 "+usepoint);
+		command.insertPoint(points);
 		
 		//사용한 쿠폰삭제
 		if(request.getParameter("coupon")!=null || !request.getParameter("coupon").equals("99")){
@@ -94,7 +97,7 @@ public class PaymentCompleteController {
 		}
 		
 		
-		command.insertPoint(points);
+		
 		
 		//결제수단
 		command.insertPayway(paymentVO);
