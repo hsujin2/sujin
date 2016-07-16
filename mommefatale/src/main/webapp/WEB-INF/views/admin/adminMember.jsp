@@ -92,9 +92,9 @@ window.onload=function(){
 				"innerRadius": "40%",
 				"colors": [
 					"#592c28",
-					"#eaeaea",
+					"#bed8ff",
 					"#ffe118",
-					"#bed8ff"
+					"#eaeaea"
 				],
 				"titleField": "grade",
 				"valueField": "count",
@@ -206,7 +206,6 @@ window.onload=function(){
                   for(var i =0; i<memberlist.length; i++){
                 	  var tr = $("<tr>");
                        tr.append($("<td>").append($('<a href="#" onclick="updateMember('+memberlist[i].id+')" data-toggle="modal" data-target="#myModal" name="id">'+memberlist[i].id+'</a>')));
-                     //  tr.append($("<td>",{text:memberlist[i].id,name:'id'}));
                        tr.append($("<td>",{text:memberlist[i].name,name:'name'}));
                        tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
                        tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
@@ -284,9 +283,13 @@ function memberSave(){
 <body>
  <div id="wrap">
       <%@ include file="../include/header.jsp"%>
-      <div class="chart" id="chartdiv" style="width: 500px; height: 400px; background-color: #FFFFFF;" ></div>
-      <div class="chart" id="chartdiv2" style="width: 500px; height: 400px; background-color: #FFFFFF;" ></div>
+     <div class="chartAll">
+      <div class="chart1and2">
+      	<div class="chart" id="chartdiv" style="width: 400px; height: 400px; background-color: #FFFFFF;" ></div>
+      	<div class="chart" id="chartdiv2" style="width: 400px; height: 400px; background-color: #FFFFFF;" ></div>
+      </div>
       <div class="chart" id="chartdiv3" style="width: 900px; height: 400px; background-color: #FFFFFF;" ></div>
+	</div>
 <div class="member_table">
 <label for="category_id">아이디: </label><input type="text" name="category_id" id="category_id">
 <label for="category_name">이름: </label><input type="text" name="category_name" id="category_name">
