@@ -41,7 +41,7 @@
 		<div class="board">
 		<h2 class="title">Q&amp;A</h2>
 			<form name="qnaAnswerForm" method="post"
-				action="qnaAnswer.do" id="answerForm">
+				action="qnaAnswer.admin" id="answerForm">
 				<input type="hidden" value="${vo.ref}" name="ref" id="ref">
 				<input type="hidden" value="${vo.step}" name="step" id="step">
 				<input type="hidden" value="${vo.depth}" name="depth" id="depth">

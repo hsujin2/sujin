@@ -18,13 +18,13 @@ public class QnaPageServiceImpl implements QnaPageService {
 	}
 
 	@Override
-	public List<QnaVO> QnaPage(Object obj) {
+	public List<QnaVO> qnaPage(Object obj) {
 		System.out.println("Q&A게시판 리스트 서비스");
 		return dao.getQnaList(obj);
 	}
 
 	@Override
-	public int QnaPageCount() {
+	public int qnaPageCount() {
 		return dao.getQnaCount();
 	}
 
