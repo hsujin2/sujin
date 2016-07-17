@@ -68,7 +68,6 @@
 		<if test='last_visit_date != null and !last_visit_date.equals("")'>
 		and member_last_visit_date = to_date(#{last_visit_date})
 		</if>
-		<!-- null뿐만 아니라 공백값도 처리해주기 위해 like를 사용함 -->
 	</select>
 
 <!-- 회원 수 가져오기 -->	
