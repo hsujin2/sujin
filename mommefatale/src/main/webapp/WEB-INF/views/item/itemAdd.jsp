@@ -104,7 +104,7 @@
 
 		<div class="buttons">
 			<input type="button" value="상품등록" Onclick="itemWriteCheck()" /> <input type="reset" value="취소"
-				onclick="location.href='itemlist.admin'" />
+				onclick="location.href='adminMain.admin'" />
 		</div>
 	</form>
 	</section>
