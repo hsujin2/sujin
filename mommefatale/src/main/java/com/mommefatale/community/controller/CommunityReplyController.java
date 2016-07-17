@@ -55,9 +55,8 @@ public class CommunityReplyController {
 	}
 	
 	@RequestMapping(value="/communityReply.do")
-	public ModelAndView communityReply(HttpServletRequest request)throws Exception{
+	public String communityReply(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 답글쓰기 컨트롤러");
-		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		Enumeration<?> enums = request.getParameterNames();
@@ -68,8 +67,7 @@ public class CommunityReplyController {
 			map.put(paramName, paramValue);
 		}
 		service.communityReply(map);
-		mav.setViewName("redirect:/communityBoard.do");
 		
-		return mav;
+		return "redirect:/communityBoard.do";
 	}
 }

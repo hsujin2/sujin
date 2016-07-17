@@ -47,9 +47,8 @@ public class CommunityUpdateController {
 	}
 	
 	@RequestMapping(value="/communityUpdateProc.do")
-	public ModelAndView communityUpdateProc(HttpServletRequest request)throws Exception{
+	public String communityUpdateProc(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 글수정 컨트롤러");
-		ModelAndView mav= new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		int no = Integer.parseInt(request.getParameter("no"));
 		Enumeration<?> enums = request.getParameterNames();
@@ -61,8 +60,7 @@ public class CommunityUpdateController {
 		}
 		map.put("no", no);
 		service.communityUpdate(map);
-		mav.setViewName("redirect:/communityBoard.do");
-		return mav;
+		return "redirect:/communityBoard.do";
 	}
 		
 }
