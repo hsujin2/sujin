@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.qna.service.QnaWriteService;
 
@@ -26,18 +25,15 @@ public class QnaWriteController {
 	}
 
 	@RequestMapping(value = "/qnaWriteForm.do")
-	public ModelAndView qnaWriteForm(HttpServletRequest request) throws Exception {
+	public String qnaWriteForm(HttpServletRequest request) throws Exception {
 		System.out.println("Q&A게시판 글쓰기 폼 컨트롤러");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/qna/qnaWriteForm");
 
-		return mav;
+		return "/qna/qnaWriteForm";
 	}
 
 	@RequestMapping(value = "/qnaWrite.do")
-	public ModelAndView qnaWrite(HttpServletRequest request) throws Exception {
+	public String qnaWrite(HttpServletRequest request) throws Exception {
 		System.out.println("Q&A게시판 글쓰기 컨트롤러");
-		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		Enumeration<?> enums = request.getParameterNames();
 		while (enums.hasMoreElements()) {
@@ -47,8 +43,7 @@ public class QnaWriteController {
 			map.put(paramName, paramValue);
 		}
 		command.qnaWrite(map);
-		mav.setViewName("redirect:/qnaBoard.do");
 
-		return mav;
+		return "redirect:/qnaBoard.do";
 	}
 }

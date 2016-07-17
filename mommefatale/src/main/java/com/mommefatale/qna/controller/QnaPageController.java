@@ -37,7 +37,7 @@ public class QnaPageController {
 		}
 		
 		@RequestMapping(value = "/qnaBoard.do")
-		public ModelAndView QnaPage(HttpServletRequest request) throws Exception {
+		public ModelAndView qnaPage(HttpServletRequest request) throws Exception {
 
 			ModelAndView mav = new ModelAndView();
 			request.setCharacterEncoding("UTF-8");
@@ -50,7 +50,7 @@ public class QnaPageController {
 			int currentPage = Integer.parseInt(pageNum);
 			int pageSize = 10;
 			int pageNavi = 3;
-			int page_count = command.QnaPageCount();
+			int page_count = command.qnaPageCount();
 			int number = page_count - (currentPage - 1) * pageSize;
 
 			paging.setPaging(pageSize, pageNavi, page_count, currentPage);
@@ -59,7 +59,7 @@ public class QnaPageController {
 			
 			System.out.println("Ä«¿îÆ®: " + page_count);
 
-			List<QnaVO> vo = command.QnaPage(map);
+			List<QnaVO> vo = command.qnaPage(map);
 			int count = vo.size();
 			
 			Map<String, Object> model = new HashMap<String, Object>();

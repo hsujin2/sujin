@@ -33,7 +33,7 @@ public class QnaAnswerController {
 		this.service = service;
 	}
 	
-	@RequestMapping(value="/qnaAnswerForm.do")
+	@RequestMapping(value="/qnaAnswerForm.admin")
 	public ModelAndView qnaAnswerForm(HttpServletRequest request)throws Exception{
 		System.out.println("Q&A게시판 답변 폼 컨트롤러");
 		ModelAndView mav = new ModelAndView();
@@ -51,7 +51,7 @@ public class QnaAnswerController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/qnaAnswer.do")
+	@RequestMapping(value="/qnaAnswer.admin")
 	public ModelAndView qnaAnswer(HttpServletRequest request)throws Exception{
 		System.out.println("Q&A게시판 답변쓰기 컨트롤러");
 		ModelAndView mav = new ModelAndView();

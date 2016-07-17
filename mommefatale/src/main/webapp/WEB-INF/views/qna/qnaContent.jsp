@@ -63,7 +63,7 @@
 					<tr>
 						<td colspan="2">
 						<c:if test="${admin eq true}">
-							<input type="button" value="답변쓰기" onClick="window.location='qnaAnswerForm.do?no='+${vo.no}">		
+							<input type="button" value="답변쓰기" onClick="window.location='qnaAnswerForm.admin?no='+${vo.no}">		
 						</c:if>
 						</td>
 						<td colspan="2"></td>
