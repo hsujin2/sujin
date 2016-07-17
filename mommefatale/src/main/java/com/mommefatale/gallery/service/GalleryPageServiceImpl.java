@@ -18,13 +18,13 @@ public class GalleryPageServiceImpl implements GalleryPageService{
 	}
 	
 	@Override
-	public List<GalleryVO> GalleryPage(Object obj) {
+	public List<GalleryVO> galleryPage(Object obj) {
 		System.out.println("갤러리 리스트 서비스");
 		return dao.getGalleryList(obj);
 	}
 
 	@Override
-	public int GalleryPageCount() {
+	public int galleryPageCount() {
 		return dao.getGalleryCount();
 	}
 

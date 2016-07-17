@@ -5,6 +5,6 @@ import java.util.List;
 import com.mommefatale.community.model.CommunityBoardVO;
 
 public interface CommunityBoardPageService {
-	public List<CommunityBoardVO> CommunityBoardPage(Object obj);
-	public int CommunityPageCount();
+	public List<CommunityBoardVO> communityBoardPage(Object obj);
+	public int communityPageCount();
 }

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.gallery.service.GalleryWriteService;
 
@@ -26,18 +25,15 @@ public class GalleryWriteController {
 	}
 	
 	@RequestMapping(value = "/galleryWriteForm.do")
-	public ModelAndView galleryWriteForm(HttpServletRequest request) throws Exception{
+	public String galleryWriteForm(HttpServletRequest request) throws Exception{
 		System.out.println("갤러리 글쓰기 폼 컨트롤러");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/gallery/galleryWriteForm");
 		
-		return mav;
+		return "/gallery/galleryWriteForm";
 	}
 	
 	@RequestMapping(value = "/galleryWrite.do")
-	public ModelAndView galleryWrite(HttpServletRequest request) throws Exception{
+	public String galleryWrite(HttpServletRequest request) throws Exception{
 		System.out.println("갤러리");
-		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		// content에서 이미지 경로 가져오기
@@ -56,9 +52,8 @@ public class GalleryWriteController {
 		
 		map.put("image", gallery_image);
 		command.galleryWrite(map);
-		mav.setViewName("redirect:/gallery.do");
 		
-		return mav;
+		return "redirect:/gallery.do";
 	}
 
 }
