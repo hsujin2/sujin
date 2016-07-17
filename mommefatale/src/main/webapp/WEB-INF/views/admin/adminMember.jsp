@@ -205,7 +205,7 @@ window.onload=function(){
                   var table = $("<tbody>",{id:'memberList'});
                   for(var i =0; i<memberlist.length; i++){
                 	  var tr = $("<tr>");
-                       tr.append($("<td>").append($('<a href="#" onclick="updateMember('+memberlist[i].id+')" data-toggle="modal" data-target="#myModal" name="id">'+memberlist[i].id+'</a>')));
+                 	   tr.append($("<td>").append($('<a href="#" data-toggle="modal" data-target="#myModal" name="id">'+memberlist[i].id+'</a>').attr('onclick','updateMember("'+memberlist[i].id+'")')));
                        tr.append($("<td>",{text:memberlist[i].name,name:'name'}));
                        tr.append($("<td>",{text:memberlist[i].gender,name:'gender'}));
                        tr.append($("<td>",{text:memberlist[i].grade,name:'grade'}));
