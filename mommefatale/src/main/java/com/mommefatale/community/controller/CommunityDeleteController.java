@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.community.service.CommunityDeleteService;
 
@@ -21,12 +20,10 @@ public class CommunityDeleteController {
 	}
 	
 	@RequestMapping(value="/communityDelete.do")
-	public ModelAndView communityDelete(HttpServletRequest request)throws Exception{
+	public String communityDelete(HttpServletRequest request)throws Exception{
 		System.out.println("자유게시판 글삭제 컨트롤러");
-		ModelAndView mav =  new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
 		command.communityDelete(no);
-		mav.setViewName("redirect:/communityBoard.do");
-		return mav;
+		return "redirect:/communityBoard.do";
 	}
 }

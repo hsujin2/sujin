@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mommefatale.community.service.CommunityWriteService;
 
@@ -26,18 +25,15 @@ public class CommunityWriteController {
 	}
 
 	@RequestMapping(value = "/communityWriteForm.do")
-	public ModelAndView communityWriteForm(HttpServletRequest request) throws Exception {
+	public String communityWriteForm(HttpServletRequest request) throws Exception {
 		System.out.println("자유게시판 글쓰기 폼 컨트롤러");
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/community/communityWriteForm");
 
-		return mav;
+		return "/community/communityWriteForm";
 	}
 
 	@RequestMapping(value = "/communityWrite.do")
-	public ModelAndView communityWrite(HttpServletRequest request) throws Exception {
+	public String communityWrite(HttpServletRequest request) throws Exception {
 		System.out.println("자유게시판 글쓰기 컨트롤러");
-		ModelAndView mav = new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		Enumeration<?> enums = request.getParameterNames();
 		while (enums.hasMoreElements()) {
@@ -47,8 +43,7 @@ public class CommunityWriteController {
 			map.put(paramName, paramValue);
 		}
 		command.communityWrite(map);
-		mav.setViewName("redirect:/communityBoard.do");
 
-		return mav;
+		return "redirect:/communityBoard.do";
 	}
 }
