@@ -16,16 +16,19 @@
 		<result property="fee" column="CART_FEE" jdbcType="DATE"/>
 	</resultMap>
 	<select id="insertCart" parameterType="com.mommefatale.cart.model.CartVO">
-		INSERT INTO CART(CART_NO,ITEM_NO,MEMBER_ID,CART_EXDATE,CART_COUNT,CART_SAVING,CART_FEE)VALUES(cart_seq.nextval,#{item_no},#{user_id},sysdate+90,#{cart_count},#{saving},#{fee})
+		INSERT INTO CART(CART_NO,ITEM_NO,MEMBER_ID,CART_EXDATE,CART_COUNT,CART_SAVING,CART_FEE)VALUES(cart_seq.nextval,#{item_no},#{user_id},sysdate+30,#{cart_count},#{saving},#{fee})
 	</select>
 	<select id="cartList" parameterType="java.lang.String" resultMap="toCartVO">
-		select cart_no, member_id, item_no, item_name, category_no, item_price_discount, option_size, cart_count, item_image, cart_regdate,cart_saving,cart_fee from member join cart using(member_id) join item using(item_no) where member_id=#{userid}
+		<![CDATA[select cart_no, member_id, item_no, item_name, category_no, 
+		item_price_discount, option_size, cart_count, item_image, cart_regdate,cart_saving,
+		cart_fee from member join cart using(member_id) join item using(item_no) 
+		where member_id=#{userid} and sysdate < CART_EXDATE]]>
 	</select>
 	<select id="getCart" parameterType="java.lang.Integer" resultMap="toCartVO">
 		select cart_no, member_id, item_no, item_name, category_no, item_price_discount, option_size, cart_count, item_image, cart_regdate,cart_saving,cart_fee from member join cart using(member_id) join item using(item_no) where cart_no=#{cart_no}
 	</select>
 	<select id="updateCart" parameterType="com.mommefatale.cart.model.CartVO">
-		update cart set cart_count = cart_count + #{cart_count} where item_no = #{item_no} and member_id = #{user_id}
+		<![CDATA[update cart set cart_count = cart_count + #{cart_count} where item_no = #{item_no} and member_id = #{user_id} and sysdate < CART_EXDATE]]>
 	</select>
 	
 	<select id="getCartItem" parameterType="java.util.Map" resultType="java.lang.String">
