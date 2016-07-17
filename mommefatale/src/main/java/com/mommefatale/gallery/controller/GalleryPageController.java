@@ -50,7 +50,7 @@ public class GalleryPageController {
 		int currentPage = Integer.parseInt(pageNum);
 		int pageSize = 9;
 		int pageNavi = 3;
-		int page_count = command.GalleryPageCount();
+		int page_count = command.galleryPageCount();
 
 		int number = page_count - (currentPage - 1) * pageSize;
 
@@ -60,7 +60,7 @@ public class GalleryPageController {
 
 		System.out.println("Ä«¿îÆ® : " + page_count);
 
-		List<GalleryVO> vo = command.GalleryPage(map);
+		List<GalleryVO> vo = command.galleryPage(map);
 		int count = vo.size();
 
 		Map<String, Object> model = new HashMap<String, Object>();

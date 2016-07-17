@@ -50,7 +50,7 @@ public class CommunityBoardPageController {
 		int currentPage = Integer.parseInt(pageNum);
 		int pageSize = 10;
 		int pageNavi = 3;
-		int page_count = command.CommunityPageCount();
+		int page_count = command.communityPageCount();
 
 		int number = page_count - (currentPage - 1) * pageSize;
 
@@ -60,7 +60,7 @@ public class CommunityBoardPageController {
 		
 		System.out.println("Ä«¿îÆ®: " + page_count);
 
-		List<CommunityBoardVO> vo = command.CommunityBoardPage(map);
+		List<CommunityBoardVO> vo = command.communityBoardPage(map);
 		int count = vo.size();
 		
 		Map<String, Object> model = new HashMap<String, Object>();

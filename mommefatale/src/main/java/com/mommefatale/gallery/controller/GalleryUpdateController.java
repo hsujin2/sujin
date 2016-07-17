@@ -43,9 +43,8 @@ public class GalleryUpdateController {
 	}
 	
 	@RequestMapping(value="/galleryUpdateProc.do")
-	public ModelAndView galleryUpdateProc(HttpServletRequest request)throws Exception{
+	public String galleryUpdateProc(HttpServletRequest request)throws Exception{
 		System.out.println("갤러리 글수정 컨트롤러");
-		ModelAndView mav= new ModelAndView();
 		Map<String, Object> map = new HashMap<String, Object>();
 		int no = Integer.parseInt(request.getParameter("no"));
 		Enumeration<?> enums = request.getParameterNames();
@@ -65,8 +64,7 @@ public class GalleryUpdateController {
 		map.put("image", gallery_image);
 		map.put("no", no);
 		service.galleryUpdate(map);
-		mav.setViewName("redirect:/gallery.do");
-		return mav;
+		return "redirect:/gallery.do";
 	}
 	
 }
