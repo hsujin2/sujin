@@ -1,10 +1,10 @@
 @CHARSET "UTF-8";
 .member_table{clear:both; width:1003px; height:auto; margin:0 auto;}
 .member_table input{height:25px;}
-#member_list{width:700px; margin:20px auto; table-layout: fixed;}
+#member_list{width:700px; height:auto; margin:20px auto; table-layout: fixed;}
 #member_list th{text-align:center; background-color:#EEE; height:30px;}
+#memberBye_list{width:700px; height:auto; margin:20px auto; overflow:auto; table-layout: fixed;}
 #memberBye_list th{text-align:center; background-color:#EEE; height:30px;}
-#memberBye_list{width:700px; margin:20px auto; overflow:auto; table-layout: fixed;}
 .title{clear:both; margin:20px auto; text-align:center; color:#1ebae1;}
 #category_id{width:100px;}
 #category_name{width:100px;}
