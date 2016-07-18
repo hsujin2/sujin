@@ -62,10 +62,10 @@
 		and grade_code_name = #{grade}
 		</if>
 		<if test='join_date != null and !join_date.equals("")'>
-		and member_join_date = to_date(#{join_date})
+		and member_join_date between to_date(#{join_date}) and to_date(#{join_date})+1
 		</if>
 		<if test='last_visit_date != null and !last_visit_date.equals("")'>
-		and member_last_visit_date = to_date(#{last_visit_date})
+		and member_last_visit_date between to_date(#{last_visit_date}) and to_date(#{last_visit_date})+1
 		</if>
 		order by member_join_date desc, member_name asc))
 		<![CDATA[
