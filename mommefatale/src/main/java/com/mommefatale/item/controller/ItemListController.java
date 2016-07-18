@@ -106,8 +106,6 @@ public class ItemListController {
 		
 		List<ItemVO> itemlist = null;
 		if(category == null || category == ""){
-			System.out.println("현재 스타트로우"+map.get("startRow"));
-			System.out.println("현재 엔드로우"+map.get("endRow"));
 			itemlist = command.listAll(map);
 		}else{
 			map.put("category", category);
@@ -132,7 +130,6 @@ public class ItemListController {
 	}
 	@RequestMapping(value="modifyOpen.json")
 	public ModelAndView modifyItem(HttpServletRequest request, ItemVO itemVO){
-		System.out.println("모디파이 제이슨");
 		ModelAndView mav = new ModelAndView();
 		Integer item_no = Integer.parseInt(request.getParameter("item_no"));
 		itemVO = command.getModifyItem(item_no);

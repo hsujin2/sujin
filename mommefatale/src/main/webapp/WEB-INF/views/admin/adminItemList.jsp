@@ -303,7 +303,7 @@
 										href="javascript:window.location='itemlist.admin?pageNum=${counter}&category=${category}&range=${range}'">[${counter}]</a>
 								</c:if>
 							</c:forEach> <c:if test="${paging.isNext()}">
-								<a href="itemlist.admin?pageNum=${paging.getPage_Start()+pagingNum.pageNavi}&category=${category}&range=${range}">[다음]</a>
+								<a href="itemlist.admin?pageNum=${paging.getPage_Start()+paging.pageNavi}&category=${category}&range=${range}">[다음]</a>
 							</c:if></td>
 					</tr>
             </table>

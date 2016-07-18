@@ -70,9 +70,9 @@ input{vertical-align:middle;}
 #gnb ul>li{float:left; position:relative; text-align:center; min-width:125px; height:50px;}
 
 #gnb>#gnb_shop>li>a{display:block; background-color:#939EDD; 
-			font-size:20px; font-weight:bold; padding:8px 30px; color:#FFFFFF;}
+			font-size:20px; font-weight:bold; padding:7px 30px; color:#FFFFFF;}
 #gnb>#gnb_content>li>a{display:block; background-color:#6CF;
-			font-size:20px; font-weight:bold; padding:8px 30px; color:#FFFFFF;}			
+			font-size:20px; font-weight:bold; padding:7px 30px; color:#FFFFFF;}			
 #gnb #gnb_shop>li>a:hover, #gnb #gnb_shop>li>a:focus{color:#99FFFF; font-weight:bold;}
 #gnb #gnb_content>li>a:hover, #gnb #gnb_content>li>a:focus{color:#99FFFF; font-weight:bold;}
 
@@ -81,19 +81,19 @@ input{vertical-align:middle;}
 					position:absolute; top:45px; left:0px; min-width:700px;}
 #gnb li:hover .menu1{display:inline; font-size:14px;}
 .menu1>li{display:inline-block; text-align:center; padding-bottom:2px;}
-.menu1>li>a{color:#399; margin-right:20px;}
+.menu1>li>a{color:#435099; margin-right:2px;}
 /*SportsWear*/
 #gnb li .menu2{font-weight:bold; font-size:14px; display:none; 
 					position:absolute; top:45px; left:-120px; min-width:500px;}
 #gnb li:hover .menu2{display:inline; font-size:14px;}
 .menu2>li{display:inline-block; text-align:center; padding-bottom:2px;}
-.menu2>li>a{color:#399; margin-right:20px;}
+.menu2>li>a{color:#435099; margin-right:2px;}
 /*Food*/
 #gnb li .menu3{font-weight:bold; font-size:14px; display:none; 
 					position:absolute; top:45px; left:-165px; min-width:400px;}
 #gnb li:hover .menu3{display:inline; font-size:14px;}
 .menu3>li{display:inline-block; text-align:center; padding-bottom:2px;}
-.menu3>li>a{color:#399; margin-right:20px;}
+.menu3>li>a{color:#435099; margin-right:2px;}
 
 
 
