@@ -5,7 +5,8 @@ font-weight:bold; color:#09C; text-align: center; margin:20px;}
 .galleryList li{float:left; width:300px; margin:10px;}
 .galleryList li span{display:block; margin-left:50px;}
 #main_content {width:800px; margin:50px auto; text-align:center;}
-.write_button{float: right; margin-right:60px;}
+.write_button{float: right; margin-right:60px; background-color:#72b7dc; 
+padding:5px; color:#ffffff; border-radius:5px;}
 .board_hr{width:900px; size:1px; margin:10px 50px;}
 #footList{margin:10px auto;}
 .board{margin:50px auto;}

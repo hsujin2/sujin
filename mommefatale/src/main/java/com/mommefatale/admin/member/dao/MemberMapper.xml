@@ -38,7 +38,7 @@
 	</resultMap>
 <!-- 회원 목록 조건별로 가져오기 -->
 	<select id="memberList" parameterType="java.util.Map" resultMap="memberResultMap">
-		<![CDATA[
+		
 		select * from 
 		(select rownum rnum, member_name, member_gender, member_id, member_pw, member_email, member_zip, 
 		member_address1, member_address2, member_phone, to_char(to_date(member_birthday),'YYYY-MM-DD') as member_birthday, 
@@ -48,8 +48,7 @@
 		member_kcal, coupons_no, member_point, member_state, 
 		to_char(to_date(member_join_date),'YYYY-MM-DD') as member_join_date, member_visit_count, 
 		to_char(to_date(member_last_visit_date),'YYYY-MM-DD') as member_last_visit_date 
-		from (select * from member where member_state = 1 order by member_join_date desc, member_name asc))
-		where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		from (select * from member where member_state = 1 
 		<if test='id != null and !id.equals("")'>
 		and member_id like '%${id}%'
 		</if>
@@ -68,6 +67,10 @@
 		<if test='last_visit_date != null and !last_visit_date.equals("")'>
 		and member_last_visit_date = to_date(#{last_visit_date})
 		</if>
+		order by member_join_date desc, member_name asc))
+		<![CDATA[
+		where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		
 	</select>
 
 <!-- 회원 수 가져오기 -->	
