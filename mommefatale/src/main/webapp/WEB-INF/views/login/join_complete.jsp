@@ -26,7 +26,7 @@ font-size:12px;}
 <%@ include file="../include/header.jsp" %>
 <section class="contentt">
 		<div class="mentt">
-			회원가입이 완료<br>
+			회원가입 완료<br>
 			<span class="col">쿠폰이 발급 되었습니다.</span>
 		</div>
 		<table class="info" cellpadding="1" cellspacing="0" border="1px">

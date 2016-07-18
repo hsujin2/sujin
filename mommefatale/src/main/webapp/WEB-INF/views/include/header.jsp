@@ -9,7 +9,7 @@
 <title>header</title>
 <script type="text/javascript" src="resources/js/index/common_js.js"></script>
 <style type="text/css">
-.SubMenus a{display:block; height:28px; background-color: #e3e7ff; padding-top: 9px; border-radius:2px; font-size: 11pt; font-family:"굴림"}
+.SubMenus a{display:block; height:28px; background-color: #e3e7ff; padding-top: 9px; border-radius:2px; font-size: 11pt; font-family:"굴림";}
 .SubMenus a:hover{background-color: #bdc5f2; color: #ffffff}
 </style>
 </head>
