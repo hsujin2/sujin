@@ -63,7 +63,7 @@
     	  kcalRecord = response.kcalRecord;
       },
       error : function(){
-         alert("나의 칼로리 가져오기 오류")
+         alert("가져올 칼로리 기록이 없습니다.")
       }
    })
 
