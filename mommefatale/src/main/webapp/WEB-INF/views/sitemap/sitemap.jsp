@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="userLogin" value="${sessionScope.login}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,11 +13,10 @@
 <body>
 <div id="wrap">
 	<%@ include file="../include/header.jsp"%>
-	<section class="content">
+	<div class="content">
 	<div class="sub">
     	<span class="col">사이트</span><span class="col2">맵</span>
     </div>
-        
         <ul class="nonli">
             <li>
                 <table class="menu">
@@ -24,23 +24,74 @@
                         <td><div class="bgimg">Board</div></td>
                     </tr>
                     <tr class="pad">
-                        <td><div><a href="#">sitemap</a></div></td>
+                        <td><div><a href="gallery.do">갤러리</a></div></td>
                     </tr>
                     <tr class="pad">
-                        <td><div><a href="communityBoard.do">Community</a></div></td>
+                        <td><div><a href="communityBoard.do">공지사항</a></div></td>
                     </tr>
                     <tr class="pad">
-                        <td><div><a href="qnaBoard.do">Q&#38;A</a></div></td>
+                        <td><div><a href="communityBoard.do">자유게시판</a></div></td>
                     </tr>
                     <tr class="pad">
-                        <td><div><a href="gallery.do">Gallery</a></div></td>
+                        <td><div><a href="qnaBoard.do">Q&amp;A</a></div></td>
                     </tr>
+                </table>
+            </li>
+            
+            <li>
+                <table class="menu">
+                 <c:if test="${userLogin == null}">
+                    <tr>
+                        <td><div class="bgimg2">Member</div></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="joinagreement.do">Join</a></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="login.do">Login</a></td>
+                    </tr>
+                   </c:if>
+                    <c:if test="${userLogin != null}">
+                    <tr>
+                        <td><div class="bgimg2"><a href="mypage.do">MyPage</a></div></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="userUpdate.do">회원정보수정</a></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="paymentlist.do">주문내역</a></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="cartlist.do">장바구니</a></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="todayKcal.do">나의칼로리</a></td>
+                    </tr>
+                    </c:if>
+                    
                 </table>
             </li>
             <li>
                 <table class="menu">
                     <tr>
-                        <td><div class="bgimg2">Equipment</div></td>
+                        <td><div class="bgimg3">Contents</div></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="exercise1.do?category=heathcare">건강증진</a></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="exercise1.do?category=bulkup">벌크업</a></td>
+                    </tr>
+                    <tr class="pad">
+                        <td><a href="exercise1.do?category=diet">다이어트</a></td>
+                    </tr>
+                </table>
+            </li>
+            
+            <li>
+                <table class="menu">
+                    <tr>
+                        <td><div class="bgimg">Equipment</div></td>
                     </tr>
                     <tr class="pad">
                         <td><div><a href="itemList.do?category=1&range=new">런닝머신</a></div></td>
@@ -59,7 +110,7 @@
             <li>
                 <table class="menu">
                     <tr>
-                        <td><div class="bgimg3">SportsWear</div></td>
+                        <td><div class="bgimg2">SportsWear</div></td>
                     </tr>
                     <tr class="pad">
                         <td><div><a href="itemList.do?category=6&range=new">운동복</a></div></td>
@@ -78,7 +129,7 @@
             <li>
                 <table class="menu">
                     <tr>
-                        <td><div class="bgimg">Food</div></td>
+                        <td><div class="bgimg3">Food</div></td>
                     </tr>
                    <tr class="pad">
                         <td><div><a href="itemList.do?category=10&range=new">보충제</a></div></td>
@@ -89,46 +140,11 @@
                     <tr class="pad">
                         <td><div><a href="itemList.do?category=12&range=new">기타식품</a></div></td>
                     </tr>
-                    
                 </table>
-            </li>
-            <li>
-                <table class="menu">
-                    <tr>
-                        <td><div class="bgimg2">회원</div></td>
-                    </tr>
-                    <tr class="pad">
-                        <td><a href="joinagreement.do">Join</a></td>
-                    </tr>
-                    <tr class="pad">
-                        <td><a href="login.do">Login</a></td>
-                    </tr>
-                    <tr class="pad">
-                        <td><a href="#">BookMark</a></td>
-                    </tr>
-                    
-                </table>
-            </li>
-            <li>
-                <table class="menu">
-                    <tr>
-                        <td><div class="bgimg3">etc</div></td>
-                    </tr>
-                    <tr class="pad">
-                        <td><a href="exercise1.do?category=heathcare">HealthCare</a></td>
-                    </tr>
-                    <tr class="pad">
-                        <td><a href="exercise1.do?category=bulkup">Bulk-Up</a></td>
-                    </tr>
-                    <tr class="pad">
-                        <td><a href="exercise1.do?category=diet">Diet</a></td>
-                    </tr>
-                    
-                </table>
-<div class="ma"></div>
             </li>
         </ul>
-</section>
+
+</div>
 	<%@ include file="../include/footer.jsp"%>
 </div>
 </body>
