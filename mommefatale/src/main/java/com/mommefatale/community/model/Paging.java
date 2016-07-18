@@ -1,8 +1,8 @@
 package com.mommefatale.community.model;
 
 public class Paging {
-	private Integer w_size;
-	private Integer p_size;
+	private Integer w_size; // pageSize
+	private Integer p_size; // pageNavi
 	private Integer writing_Count;
 	private Integer cur_Page;
 	private boolean prev;
