@@ -128,7 +128,7 @@ public class MemberController {
 			pageNum = "1";
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		int pageSize = 10;
+		int pageSize = 25;
 		int pageNavi = 3;
 		int page_count = command.adminMemberCount();
 		
