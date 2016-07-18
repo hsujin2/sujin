@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판</title>
+<title></title>
 <link rel="stylesheet" type="text/css"
 	href="resources/css/common_css.css">
 <link rel="stylesheet" type="text/css"
@@ -68,18 +68,25 @@
 							<td><c:set var="num" value="${number-i.index}"
 									scope="page" />${num}</td> <!-- 페이지에서만 유효한 글 번호 -->
 								<!-- <td>${vo.no}</td>--> <!-- 실제 입력되는 순서의 글번호 -->
-								<td>${vo.section}</td>
+								<c:choose>
+									<c:when test="${vo.section=='공지사항'}">
+									<td class="sectionStyle1">${vo.section}</td>
+									</c:when>
+									<c:otherwise>
+									<td class="sectionStyle2">${vo.section}</td>
+									</c:otherwise>
+								</c:choose>
 								<td class="align_left">
 								<c:if test="${vo.depth > 0}">
 								<c:set var="wid" value="${vo.depth*10}"/>
 								<img src="resources/images/board/level.gif" width="${wid}">
 								</c:if>
 								<c:if test="${vo.step ge 1}"><img src="resources/images/board/reply_icon.gif"></c:if>
-								<a href="communityContent.do?no=${vo.no}">${vo.subject }</a>
+								<a href="communityContent.do?no=${vo.no}">&nbsp;${vo.subject }</a>
 								<c:if test="${vo.view ge 20}"><img src="resources/images/board/hot.gif"></c:if>	
 							 	</td>
 								<td>${vo.writer}</td>
-								<td><fmt:formatDate value="${vo.regdate}" type="date"
+								<td class="regdates"><fmt:formatDate value="${vo.regdate}" type="date"
 										pattern="yyyy-MM-dd HH:mm" /></td>
 								<td>${vo.view}</td>
 							</tr>

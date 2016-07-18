@@ -126,16 +126,16 @@
 								<!-- 페이지에서만 유효한 글 번호 -->
 								<!-- <td>${vo.no}</td>-->
 								<!-- 실제 입력되는 순서의 글번호 -->
-								<td>${vo.section}</td>
+								<td class="sectionStyle1">${vo.section}</td>
 								<td class="align_left"><c:if test="${vo.depth > 0}">
 										<c:set var="wid" value="${vo.depth*10}" />
 										<img src="resources/images/board/level.gif" width="${wid}">
 									</c:if> <c:if test="${vo.step ge 1}">
 										<img src="resources/images/board/reply_complete_icon2.gif">
-									</c:if> <a href="qnaContent.do?no=${vo.no}">${vo.subject }</a> 
+									</c:if> <a href="qnaContent.do?no=${vo.no}">&nbsp;&nbsp;${vo.subject }</a> 
 									</td>
 								<td>${vo.writer}</td>
-								<td><fmt:formatDate value="${vo.regdate}" type="date"
+								<td class="regdates"><fmt:formatDate value="${vo.regdate}" type="date"
 										pattern="yyyy-MM-dd HH:mm" /></td>
 								<td>${vo.view}</td>
 							</tr>
