@@ -176,11 +176,6 @@
 						<img data-u="image" src="resources/images/contents/sy.png" /></a> <img data-u="thumb"
 							src="resources/images/contents/thumb-sy.png" />
 					</div>
-					<div data-p="144.50" style="display: none;">
-						<a href="http://m.blog.naver.com/jjini_land/220407998478" target="_blank">
-						<img data-u="image" src="resources/images/contents/sy.png" /></a> <img data-u="thumb"
-							src="resources/images/contents/thumb-sy.png" />
-					</div>
 
 				</div>
 				<!-- Thumbnail Navigator -->
