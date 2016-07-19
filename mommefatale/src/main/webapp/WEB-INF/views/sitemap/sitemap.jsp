@@ -45,10 +45,10 @@
                         <td><div class="bgimg2">Member</div></td>
                     </tr>
                     <tr class="pad">
-                        <td><a href="joinagreement.do">Join</a></td>
+                        <td><a href="joinagreement.do">회원가입</a></td>
                     </tr>
                     <tr class="pad">
-                        <td><a href="login.do">Login</a></td>
+                        <td><a href="login.do">로그인</a></td>
                     </tr>
                    </c:if>
                     <c:if test="${userLogin != null}">
