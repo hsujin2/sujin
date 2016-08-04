@@ -53,6 +53,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
+			<!-- 이 아래부터 각각의 컨텍스트 -->
 				/WEB-INF/spring/adminContexts/admin-servlet.xml
 				/WEB-INF/spring/adminContexts/item-servlet.xml
 				/WEB-INF/spring/adminContexts/member-servlet.xml
@@ -61,7 +62,6 @@
 				/WEB-INF/spring/adminContexts/gender-servlet.xml
 				/WEB-INF/spring/adminContexts/board-servlet.xml
 				/WEB-INF/spring/memberContexts/qna-servlet.xml <!-- Q&A 답변쓰기-->
-				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -78,6 +78,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
+			<!-- 이 아래부터 각각의 컨텍스트 -->
 				/WEB-INF/spring/memberContexts/todaykcal-servlet.xml
 				/WEB-INF/spring/memberContexts/payment-servlet.xml
 				/WEB-INF/spring/memberContexts/item-servlet.xml
@@ -86,7 +87,6 @@
 				/WEB-INF/spring/adminContexts/payment-servlet.xml
 				/WEB-INF/spring/adminContexts/gender-servlet.xml
 				/WEB-INF/spring/adminContexts/status-servlet.xml
-				<!-- 이 아래부터 각각의 컨텍스트 -->
 			</param-value>
 		</init-param>
 		<load-on-startup>2</load-on-startup>
@@ -134,11 +134,14 @@
 			/ckfinder/core/connector/java/connector.java
      	 </url-pattern>
 	</filter-mapping>
+	
+	<!-- 세션 30분 동안 유지  -->
 	<session-config>
-		<session-timeout>10</session-timeout>
+		<session-timeout>30</session-timeout>
 	</session-config>
+	
 	<welcome-file-list>
-		<welcome-file>welcome.html</welcome-file>
+		<welcome-file>index.do</welcome-file>
 	</welcome-file-list>
 
 
